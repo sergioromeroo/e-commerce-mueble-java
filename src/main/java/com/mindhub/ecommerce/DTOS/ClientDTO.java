@@ -7,7 +7,7 @@ public class ClientDTO {
     private long id;
     private String firstname;
     private String lastname;
-    private Integer age;
+    private int age;
     private String email;
     private String password;
     private long cellphone;
@@ -49,11 +49,11 @@ public class ClientDTO {
         this.lastname = lastname;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

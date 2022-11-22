@@ -23,4 +23,6 @@ public class ClientController {
     public ClientDTO getClient(@PathVariable Long id) {
         return clientService.getClientDTO(id);
     }
+
+
 }

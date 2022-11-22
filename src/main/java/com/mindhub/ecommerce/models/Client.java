@@ -22,18 +22,23 @@ public class Client {
     private String firstname;
     private String lastname;
 
-    private Integer age;
+    private int age;
     private String email;
 
     private String password;
     private long cellPhone;
 
 
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    Set<Ticket> tickets = new HashSet<>();
+
+
+
     public Client() {
 
     }
 
-    public Client(String firstname, String lastname, Integer age, String email, String password, long cellPhone) {
+    public Client(String firstname, String lastname, int age, String email, String password, long cellPhone) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
@@ -63,11 +68,11 @@ public class Client {
         this.lastname = lastname;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
