@@ -5,10 +5,12 @@ import com.mindhub.ecommerce.models.Product;
 import com.mindhub.ecommerce.repositories.ProductRepository;
 import com.mindhub.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ProductServiceImplement implements ProductService {
 
     @Autowired
