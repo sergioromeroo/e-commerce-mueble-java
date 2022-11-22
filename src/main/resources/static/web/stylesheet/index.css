@@ -1,0 +1,113 @@
+
+
+
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+.index .img-background-contain{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.index .img-background {
+    width: 100%;
+    object-fit: cover;
+    height: 87vh;
+    filter: brightness(0.7)
+}
+
+
+.index .nav-logo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 84px;
+}
+
+.index .logo-contain{
+    width: 40%;
+}
+
+.index .img-logo{
+    width: 122px;
+    filter: brightness(6);
+}
+
+
+
+
+.index .nav-menu{
+    display: none
+}
+
+.index .nav-icons a img{
+    color: white;
+    width: 18px;
+    filter: brightness(6);
+}
+
+.nav-icons a {
+    margin: 0 3px;
+}
+
+.burger-menu img{
+    width: 18px;
+}
+
+.index .text-header{
+    color: white;
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 0 15px;
+}
+
+.index .title-text-header{
+    width: 90%;
+    font-weight: bolder;
+}
+
+.index .title-text-header h2{
+    font-size: 31px;
+    font-weight: bolder;
+    
+}
+
+.index .p-text{
+    width: 90%;
+    margin-top: 10px;
+}
+
+.index .p-text p{
+    width: 50%;
+    font-size: 17px;
+    line-height: 27px;
+    font-weight: bolder;
+    letter-spacing: 1px
+}
+
+
+.index .contain-btn-choose-table{
+    width: 100%;
+  
+}
+
+.index .btn-choose-table{
+    color: white;
+    border: 1px solid;
+    padding: 10px;;
+    font-size: 11px;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-top: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
