@@ -3,10 +3,9 @@ package com.mindhub.ecommerce.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -27,6 +26,9 @@ public class Product {
     private int stock;
 
     private String materialType;
+
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    Set<TicketProduct> ticketProducts = new HashSet<>();
 
 
 
