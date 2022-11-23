@@ -1,12 +1,14 @@
 package com.mindhub.ecommerce.controllers;
 
 
+import com.mindhub.ecommerce.DTOS.CreateProductDTO;
 import com.mindhub.ecommerce.DTOS.ProductDTO;
+import com.mindhub.ecommerce.models.Product;
 import com.mindhub.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +31,13 @@ public class ProductController {
         return productService.getProductDTO(id);
     }
 
+    @PostMapping("/post/product")
+    public ResponseEntity<?> createproduct(@RequestBody CreateProductDTO createProductDTO){
+        if (createProductDTO.getName().isEmpty() || createProductDTO.getPrice() == 0 || createProductDTO.getType().isEmpty() || createProductDTO.getMaterialType().isEmpty() || createProductDTO.getStock() == 0){
+            return new ResponseEntity<>("Admin data is missing please check again", HttpStatus.FORBIDDEN);
+        }
+        productService.saveProduct(new Product(createProductDTO.getType(),createProductDTO.getName(),createProductDTO.getPrice(),createProductDTO.getUrlImg(),createProductDTO.getStock(),createProductDTO.getMaterialType()));
+        return new ResponseEntity<>("The new product has been created succsesfuly", HttpStatus.CREATED);
+    }
 
 }
