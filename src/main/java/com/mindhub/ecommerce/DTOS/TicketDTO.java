@@ -33,7 +33,6 @@ public class TicketDTO {
         this.id = ticket.getId();
         this.date = ticket.getDate();
         this.amount = ticket.getAmount();
-
     }
 
 

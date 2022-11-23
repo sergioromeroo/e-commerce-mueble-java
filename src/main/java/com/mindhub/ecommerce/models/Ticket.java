@@ -23,21 +23,24 @@ public class Ticket {
 
     private double amount;
 
+    private String paymentMethod;
+
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
 
-    private String products;
+
 
     public Ticket() {
     }
 
-    public Ticket(LocalDateTime date, double amount, Client client, String product) {  // metodo de pago
+    public Ticket(LocalDateTime date, double amount, Client client, String paymentMethod) {  //
         this.date = date;
         this.amount = amount;
         this.client = client;
-        this.products = product;
+        this.paymentMethod = paymentMethod;
     }
 
 
@@ -69,11 +72,12 @@ public class Ticket {
         this.client = client;
     }
 
-    public String getProducts() {
-        return products;
+
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setProducts(String products) {
-        this.products = products;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

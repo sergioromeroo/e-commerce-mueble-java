@@ -14,6 +14,7 @@ public class TicketProductDTO {
     }
 
     public TicketProductDTO(TicketProduct ticketProduct) {
+        this.id = ticketProduct.getId();
         this.idTicket = ticketProduct.getTicket().getId();
         this.idProduct = ticketProduct.getProduct().getId();
     }
