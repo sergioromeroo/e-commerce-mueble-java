@@ -56,6 +56,25 @@ public class EcommerceApplication {
 			ticketProductRepository.save(ticketProduct1);
 			ticketProductRepository.save(ticketProduct2);
 
+
+
+							for(int  b = 0 ; b < 200 ; b++) {
+					String type[] = {"sofa","table","storage","garden" };
+					int ramodType = (int)(Math.random()*(3-0+1)+0);
+
+					String  materialType[] = {"wood" , "plastico", "iron"};
+
+					int ramdomMaterialType = (int)(Math.random()*(2-0+1)+0);
+					double  raomdPrice = (double)(Math.random()*(9000-0+1)+0);
+					int sotok = (int)(Math.random()*(60-0+1)+0);
+
+					String name[] = {"sillar relinablre ","table artesnal ","sofa","FRIHETEN ","FRIHETEN" ,"ÄPPLARYD","STOCKSUND", "Ikea", "con chaise longue" ,"VISCAFORS" ,"VALLENTUNA" ," Video Playlist "};
+
+					int nameraodm = (int)(Math.random()*(11-0+1)+0);
+
+					productRepository.save(new Product(type[ramodType],name[nameraodm],raomdPrice,"x",sotok,materialType[ramdomMaterialType]));
+				}
+
 		};
 	}
 
