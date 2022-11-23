@@ -44,6 +44,10 @@ header{
     display: none
 }
 
+.index .nav-icons {
+    display: flex;
+}
+
 .index .nav-icons a img{
     color: white;
     width: 18px;
@@ -51,7 +55,7 @@ header{
 }
 
 .nav-icons a {
-    margin: 0 3px;
+    margin: 0 7px;
 }
 
 .burger-menu img{
@@ -73,8 +77,9 @@ header{
 }
 
 .index .title-text-header h2{
-    font-size: 31px;
-    font-weight: bolder;
+    font-size: 35px;
+    font-weight: bold;
+    width: 70%;
     
 }
 
@@ -106,8 +111,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
-    margin-top: 0.9rem;
+    width:187px;
+    margin-top: 2.9rem;
     text-transform: uppercase;
     font-weight: bolder;
 }
