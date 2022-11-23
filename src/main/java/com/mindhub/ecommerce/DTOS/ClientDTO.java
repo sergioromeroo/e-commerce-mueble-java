@@ -2,6 +2,10 @@ package com.mindhub.ecommerce.DTOS;
 
 import com.mindhub.ecommerce.models.Client;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class ClientDTO {
 
     private long id;
@@ -11,6 +15,8 @@ public class ClientDTO {
     private String email;
     private String password;
     private long cellphone;
+
+    private Set<TicketDTO> tickets = new HashSet<>();
 
     public ClientDTO() {
     }
@@ -23,6 +29,8 @@ public class ClientDTO {
         this.email = client.getEmail();
         this.password = client.getPassword();
         this.cellphone = client.getCellPhone();
+        this.tickets = client.getTickets().stream().map(ticket -> new TicketDTO(ticket)).collect(Collectors.toSet());
+
     }
 
     public long getId() {
@@ -79,5 +87,13 @@ public class ClientDTO {
 
     public void setCellphone(long cellphone) {
         this.cellphone = cellphone;
+    }
+
+    public Set<TicketDTO> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<TicketDTO> tickets) {
+        this.tickets = tickets;
     }
 }

@@ -1,7 +1,5 @@
 package com.mindhub.ecommerce.DTOS;
 
-
-
 public class CreateProductDTO {
 
     private long id;
@@ -46,5 +44,3 @@ public class CreateProductDTO {
         return materialType;
     }
 }
-
-

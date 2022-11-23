@@ -99,4 +99,13 @@ public class Client {
     public void setCellPhone(long cellPhone) {
         this.cellPhone = cellPhone;
     }
+
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 }

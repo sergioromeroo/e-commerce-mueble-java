@@ -28,9 +28,8 @@ public class Product {
     private int quantity = 1;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ticket_id")
-    private Ticket ticket;
+
+
 
     public Product() {}
 
@@ -42,6 +41,7 @@ public class Product {
         this.stock = stock;
         this.materialType = materialType;
     }
+
 
 
 
@@ -109,11 +109,5 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Ticket getTicket() {
-        return ticket;
-    }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
 }

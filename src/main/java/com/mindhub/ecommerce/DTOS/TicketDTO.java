@@ -1,9 +1,11 @@
 package com.mindhub.ecommerce.DTOS;
 
 import com.mindhub.ecommerce.models.Client;
+import com.mindhub.ecommerce.models.Product;
 import com.mindhub.ecommerce.models.Ticket;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class TicketDTO {
 
@@ -17,7 +19,7 @@ public class TicketDTO {
 
     private String product;
 
-    private Client client;
+
 
 
 
@@ -31,8 +33,7 @@ public class TicketDTO {
         this.id = ticket.getId();
         this.date = ticket.getDate();
         this.amount = ticket.getAmount();
-        this.product = ticket.getProduct();
-        this.client = ticket.getClient();
+
     }
 
 
@@ -66,13 +67,5 @@ public class TicketDTO {
 
     public void setProduct(String product) {
         this.product = product;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 }

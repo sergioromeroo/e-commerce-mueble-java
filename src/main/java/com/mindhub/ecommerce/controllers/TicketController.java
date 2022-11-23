@@ -22,4 +22,28 @@ public class TicketController {
         return ticketService.getTicketsDTO();
     }
 
+
+    /*
+        public  Responsentity<> nuevoPedido(
+            @RequestParam monto,
+            conquepago,
+            @RequestParam list<Product> product
+            authorization
+        )
+        client current
+        Ticket ticketCurrent = new Ticket(monto,conquepago,new Date, clientcurrent)
+    *
+        ticketService.save(ticketCurrent);
+
+        for(i = 0; i < product.size(); i++{
+
+        TicketProndt prueba = new TicketProndt(ticketCurrent, i)
+        TicketProndtService.save(prueba);
+
+        }
+
+
+
+    *   */
+
 }

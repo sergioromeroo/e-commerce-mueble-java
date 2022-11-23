@@ -24,14 +24,15 @@ public class ClientController {
     public ClientDTO getClient(@PathVariable Long id) {
         return clientService.getClientDTO(id);
     }
-
-
     @PostMapping("/clients")
     public ResponseEntity<Object> register(
-
-            @RequestParam String firstName, @RequestParam String lastName,
-
-            @RequestParam String email , @RequestParam int age, @RequestParam String password, @RequestParam long cellphone) {
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String email,
+            @RequestParam String password,
+            @RequestParam long cellphone,
+            @RequestParam int age
+    ) {
 
 
 
@@ -72,6 +73,9 @@ public class ClientController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+
+
+
 
 
 }
