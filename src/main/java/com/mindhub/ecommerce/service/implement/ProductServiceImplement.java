@@ -32,5 +32,15 @@ public class ProductServiceImplement implements ProductService {
         productRepository.save(product);
     }
 
+    @Override
+    public Product findById(long id) {
+        return productRepository.findAllByid(id);
+    }
+
+    @Override
+    public void deleteProduct(Product product) {
+        productRepository.delete(product);
+    }
+
 
 }

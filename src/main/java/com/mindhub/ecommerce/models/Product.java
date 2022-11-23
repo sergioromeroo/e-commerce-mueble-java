@@ -3,10 +3,7 @@ package com.mindhub.ecommerce.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -28,8 +25,12 @@ public class Product {
 
     private String materialType;
 
+    private int quantity = 1;
 
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
 
     public Product() {}
 
@@ -99,4 +100,20 @@ public class Product {
         this.materialType = materialType;
     }
 
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
 }

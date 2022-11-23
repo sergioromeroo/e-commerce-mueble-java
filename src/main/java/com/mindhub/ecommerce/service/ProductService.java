@@ -13,4 +13,11 @@ public interface ProductService {
     public ProductDTO getProductDTO(long id);
 
     public void saveProduct(Product product);
+
+    public Product findById(long id);
+
+    public void deleteProduct(Product product);
+
+
+
 }

@@ -2,11 +2,12 @@ package com.mindhub.ecommerce.controllers;
 
 
 import com.mindhub.ecommerce.DTOS.ProductDTO;
+import com.mindhub.ecommerce.models.Product;
 import com.mindhub.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +29,40 @@ public class ProductController {
     public ProductDTO getProduct(@PathVariable long id){
         return productService.getProductDTO(id);
     }
+
+
+
+    @PatchMapping("/products/update")
+    public ResponseEntity<?> updateProduct(
+            @RequestParam int stock,
+            @RequestParam long id
+    ){
+
+        Product productFound =  productService.findById(id);
+
+        productFound.setStock(stock);
+
+        productService.saveProduct(productFound);
+
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
+    @DeleteMapping("/products/delete")
+    public ResponseEntity<?> deleteProduct(
+            @RequestParam long id
+    ){
+
+        Product productFound = productService.findById(id);
+
+        productService.deleteProduct(productFound);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 
 
 }

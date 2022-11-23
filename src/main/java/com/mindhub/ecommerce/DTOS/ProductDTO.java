@@ -20,6 +20,7 @@ public class ProductDTO {
 
     private String materialType;
 
+    private int quantity;
 
 
 
@@ -87,5 +88,14 @@ public class ProductDTO {
 
     public void setMaterialType(String materialType) {
         this.materialType = materialType;
+    }
+
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
