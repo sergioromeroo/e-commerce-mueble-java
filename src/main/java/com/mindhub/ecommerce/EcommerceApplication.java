@@ -30,7 +30,7 @@ public class EcommerceApplication {
 	@Bean
 	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository){
 		return args -> {
-
+				//esto es un comentario
 
 			Client client1 = new Client("Rodrigo","Gonzales",24,"rodri@mail.com","1234",123456);
 			Client client2 = new Client("Franco","Rodriguez",24,"franco@mail.com","2345",43546);
