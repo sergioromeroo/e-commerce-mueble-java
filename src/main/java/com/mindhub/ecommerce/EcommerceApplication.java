@@ -8,10 +8,12 @@ import com.mindhub.ecommerce.repositories.ClientRepository;
 import com.mindhub.ecommerce.repositories.ProductRepository;
 import com.mindhub.ecommerce.repositories.TicketProductRepository;
 import com.mindhub.ecommerce.repositories.TicketRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sound.sampled.Port;
 import java.time.LocalDateTime;
@@ -21,6 +23,8 @@ import java.util.List;
 
 @SpringBootApplication
 public class EcommerceApplication {
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceApplication.class, args);
@@ -32,14 +36,16 @@ public class EcommerceApplication {
 		return args -> {
 				//esto es un comentario
 
-			Client client1 = new Client("Rodrigo","Gonzales",24,"rodri@mail.com","1234",123456);
-			Client client2 = new Client("Franco","Rodriguez",24,"franco@mail.com","2345",43546);
+			Client client1 = new Client("Rodrigo","Gonzales",24,"rodri@mail.com",passwordEncoder.encode("1234"),123456);
+			Client client2 = new Client("Franco","Rodriguez",24,"franco@mail.com",passwordEncoder.encode("234"),43546);
+			Client client3=new Client("admin","admin",24,"admin@admin.com",passwordEncoder.encode("123"),1234);
 			Product product1 = new Product("table","silla",3000.00,"x",10,"wood");
 			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron");
 
 
 			clientRepository.save(client2);
 			clientRepository.save(client1);
+			clientRepository.save(client3);
 			productRepository.save(product1);
 			productRepository.save(product2);
 
