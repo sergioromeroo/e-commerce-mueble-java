@@ -16,6 +16,9 @@ public class CreateProductDTO {
 
     private String materialType;
 
+    private String description;
+
+
     public long getId() {
         return id;
     }
@@ -42,5 +45,14 @@ public class CreateProductDTO {
 
     public String getMaterialType() {
         return materialType;
+    }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

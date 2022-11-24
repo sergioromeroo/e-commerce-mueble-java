@@ -6,6 +6,7 @@ import com.mindhub.ecommerce.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,9 @@ import java.util.List;
 public class ClientController {
     @Autowired
     ClientService clientService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @RequestMapping("/clients")
     public List<ClientDTO> getListOfClientsDTO() {
@@ -30,8 +34,7 @@ public class ClientController {
             @RequestParam String lastName,
             @RequestParam String email,
             @RequestParam String password,
-            @RequestParam long cellphone,
-            @RequestParam int age
+            @RequestParam long cellphone
     ) {
 
 
@@ -65,7 +68,7 @@ public class ClientController {
 
 
 
-        Client newClient=new Client(firstName, lastName,age, email, password,cellphone);
+        Client newClient=new Client(firstName, lastName, email, passwordEncoder.encode(password) ,cellphone);
         clientService.saveClient(newClient);
 
 
