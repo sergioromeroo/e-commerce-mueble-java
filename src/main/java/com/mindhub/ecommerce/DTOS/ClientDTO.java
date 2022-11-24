@@ -11,7 +11,6 @@ public class ClientDTO {
     private long id;
     private String firstname;
     private String lastname;
-    private int age;
     private String email;
     private String password;
     private long cellphone;
@@ -25,7 +24,6 @@ public class ClientDTO {
         this.id = client.getId();
         this.firstname =client.getFirstname() ;
         this.lastname = client.getLastname();
-        this.age = client.getAge();
         this.email = client.getEmail();
         this.password = client.getPassword();
         this.cellphone = client.getCellPhone();
@@ -57,13 +55,6 @@ public class ClientDTO {
         this.lastname = lastname;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public String getEmail() {
         return email;
