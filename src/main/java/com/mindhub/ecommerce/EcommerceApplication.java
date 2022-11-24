@@ -34,8 +34,8 @@ public class EcommerceApplication {
 
 			Client client1 = new Client("Rodrigo","Gonzales",24,"rodri@mail.com","1234",123456);
 			Client client2 = new Client("Franco","Rodriguez",24,"franco@mail.com","2345",43546);
-			Product product1 = new Product("cocina","silla",3000.00,"x",10,"madera");
-			Product product2 = new Product("comedor","sofa",5000.00,"x",15,"madera");
+			Product product1 = new Product("table","silla",3000.00,"x",10,"wood");
+			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron");
 
 
 			clientRepository.save(client2);
