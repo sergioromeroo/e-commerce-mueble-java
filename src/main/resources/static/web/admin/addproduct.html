@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Drom Admin Dashboard</title>
-    <link rel="stylesheet" href="../stylesheet/admin2.css">
+    <link rel="stylesheet" href="../stylesheet/addproduct.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
@@ -45,7 +45,7 @@
                     </li>
 
                     <li>
-                        <a class="active" href="./addproduct.html">
+                        <a href="" class="active">
                              <span class="las la-plus"></span>
                              <small>Add Product</small>
                          </a>
@@ -87,7 +87,7 @@
             
             <div class="page-header">
                 <h1>Admin Dashboard<h1>
-                <small>Home / Nombre de la pagina</small>
+                <small>Add Product/ Nombre de la pagina</small>
             </div>
             
             <div class="page-content">
@@ -98,26 +98,32 @@
                 <div class="records table-responsive">
 
                     <div class="record-header">
-                        <div class="browse">
-                            <span>Category Filter:</span>
-                            <select name="" id="">
-                                <option value="">Category Table</option>
-                                <option value="">Category Sofa</option>
-                                <option value="">Category Storge</option>
-                                <option value="">Category Garden</option>
-
-                            </select>
-                            <span>Order By:</span>
-                            <select name="" id="">
-                                <option value="">Stock more than</option>
-                            </select>
-        
-                        </div>
-
-                        <div class="browse">
-                           <input type="search" placeholder="Search Product" class="record-search">
-                        
-                        </div>
+                    <h2>Add New Product</h2>
+                    </div>
+                    <div class="browse">
+                    <label for="">Name: 
+                        <input class="my-1" type="text"  placeholder="Product Name"
+                       >
+                    </label>
+                    <br>
+                    <br>
+                 
+                    <label for="">Product Type: 
+                        <input class="my-1" type="number" name="maxAmount" placeholder="Product Type"
+                        >
+                    </label>
+                    <br>
+                    <br>
+                    <label for="">Product Price: 
+                        <input type="number" name="payments" placeholder="Price" >
+                    </label>
+                 
+                    <br>
+                    <br>
+                    <label for="">The interest of The new Loan: 
+                        <input class="my-1" type="number" name="maxAmount" placeholder="Interest"
+                       >
+                    </label>
                     </div>
 
                     <div>
@@ -132,6 +138,7 @@
                                     <th><span class="las la-sort"></span> Edit/Delete</th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 <tr class="tr" v-for="producto in productos">
                                     <td>#{{producto.id}}</td>
