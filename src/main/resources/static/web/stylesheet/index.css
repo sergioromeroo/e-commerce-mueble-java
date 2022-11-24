@@ -9,6 +9,10 @@ header{
     height: 87vh;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
 }
+nav.navbar {
+    width: 100%;
+}
+
 
 .index .img-background-contain{
     position: absolute;
@@ -76,6 +80,7 @@ a.ancors-nav-burger {
     letter-spacing: 2px;
     text-transform: uppercase;
     line-height: 3;
+    color: black;
 }
 
 ul.nav-menu-ul-bottom {
@@ -99,7 +104,9 @@ ul.nav-menu-ul-bottom li a {
     display: none;
 } */
 
-
+.nav-link {
+    color: black
+}
 
 .container-fluid {
     padding: 17px 18px;
@@ -248,7 +255,7 @@ ul.nav-menu-ul-bottom li a {
     z-index: 4;
 }
 
-.container-fluid:not(.min) .container-fluid:not(.nv) {
+.common-home header:not(.min) .menu-top + .menu-top:not(.nv) {
     box-shadow: none;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
 }
@@ -507,7 +514,7 @@ i.bx.bx-chevron-up {
 
     .index .index-categories {
         margin-top: 13rem;
-        height: 143vh;
+        height: 142vh;
     }
 
     .index .category-index {
