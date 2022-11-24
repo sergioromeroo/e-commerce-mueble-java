@@ -18,7 +18,7 @@
     <div id="app">
         <header>
             <div class="img-background-contain"><img class="img-background" src="https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg" srcset="https://drommel.com.ua/image/cache/catalog/sub2-2-1920x860.jpg 1366w, https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg 922w, https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg 320w" alt="" loading="lazy"></div>
-            <div class="nav-logo">
+            <!-- <div class="nav-logo">
                 <div class="logo">
                     <a href="#" class="logo-contain">
                         <img class="img-logo" src="./img/logo/logo-black.png" alt loading="lazy">
@@ -26,37 +26,172 @@
                 </div>
                 <div class="nav">
                     <div class="nav-menu">
-                        <a href="">store</a>
-                        <a href="">location</a>
-                        <a href="">About us</a>
+                        <ul class="nav-menu-ul">
+                            <li>
+                                <a href="">store<i class='bx bx-chevron-down'></i></a>
+                            </li>
+                            <li>
+                                <a href="">location</a>
+                            </li>
+                            <li>
+                                <a href="">About us</a>
+                            </li>              
+                        </ul>
                     </div>
-                    <div class="nav-icons">
-                  
-                        <a href="">
-                            <img src="./img/icons/wishlist.png" alt="">
-                        </a>
-                        <a v-on:click="accounts">
-                            <img  type="button" src="./img/icons/account.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="./img/icons/cart.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="./img/icons/search.png" alt="">
-                        </a>
-                        <a href="" class="burger-menu">
-                            <img src="./img/icons/burger.png" alt="">
-                        </a>
+               
+
+                    <div class="nav-icons">      
+                            <a href="">
+                                <img src="./img/icons/wishlist.png" alt="">
+                            </a> 
+                            <a v-on:click="accounts">
+                                <img  type="button" src="./img/icons/account.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./img/icons/cart.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./img/icons/search.png" alt="">
+                            </a>
+                            <a href="" class="burger-menu">
+                                <img src="./img/icons/burger.png"  id="burger-menu" alt="">
+                            </a>                
                     </div>
+          
                    
+                </div>      
+            </div> -->
+            
+            <nav class="navbar fixed-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand burger-menu-mob" href="#" ><img src="./img/logo/logo-black.png" alt=""></a>
+                  <div class="nav-menu-container">
+                        <div class="nav-menu">
+                            <ul class="nav-menu-ul">
+                                <li>
+                                    <a href="./products.html">shop</a>
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">contact us</a>
+                                </li>
+                                <li>
+                                    <a href="">About us</a>
+                                </li>              
+                            </ul>
+                        </div>
+                        <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <div class="nav-icons">
+                                <a href="">
+                                    <img src="./img/icons/wishlist.png" alt="">
+                                </a> 
+                                <a v-on:click="accounts">
+                                    <img  type="button" src="./img/icons/account.png" alt="">
+                                </a>
+                                <a href="">
+                                    <img src="./img/icons/cart.png" alt="">
+                                </a>
+                                <a href="">
+                                    <img src="./img/icons/search.png" alt="">
+                                </a>
+                            
+                                <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
+                            </div>
+                        </button>
+                  </div>
+                    
+        
+        
+                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+
+                        <div class="burger-menu-mob">
+                            <a href="#" class="burger-menu-mob open-menu">
+                                    <img src="./img/logo/logo-black.png" alt="">
+                            </a>
+                        </div>  
+                       
+                        <div class="nav-icons open-menu">
+                            <a href="">
+                                <img src="./img/icons/wishlist.png" alt="">
+                            </a> 
+                            <a v-on:click="accounts">
+                                <img  type="button" src="./img/icons/account.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./img/icons/cart.png" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./img/icons/search.png" alt="">
+                            </a>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                           
+                        </div>        
+                     
+                    </div>
+        
+        
+        
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        
+                    
+                        <div class="nav-menu-burger">
+                            <ul class="nav-menu-ul">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link ancors-nav-burger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      store<i class='bx bxs-chevron-right'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#">Action</a></li>
+                                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                                      <li>
+                                        <hr class="dropdown-divider">
+                                      </li>
+                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                  </li>
+                       
+                                <li>
+                                    <a class="ancors-nav-burger" href="">contact us</a>
+                                </li>
+                                <li>
+                                    <a class="ancors-nav-burger" href="">About us</a>
+                                </li>              
+                            </ul>
+
+                            <ul class="nav-menu-ul-bottom">
+                                <li>
+                                    <a href="">Where to find us?</a>
+                                    <a href="">need help?</a>
+                                    <a href="">Payment Methods</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        
+                      </ul>
+                      
+                    </div>
+        
+        
+                  </div>
+        
+        
+        
+        
                 </div>
-            </div>
+              </nav>
+
+
 
             <div class="text-header">
                 <div class="title-text-header"><h2>100 days to change the table</h2></div>
                 <div class="p-text"><p> If the color should be darker and the size larger, we will replace it for free</p></div>
                 <a href="" class="btn-choose-table">Choose a table</a>
-                <a href="./products.html"><H2>Products</H2></a>
+                <!-- <a href="./products.html"><H2>Products</H2></a> -->
             </div>
 
         </header>
