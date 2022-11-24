@@ -35,6 +35,7 @@ public class ProductDTO {
         this.urlImg = product.getUrlImg();
         this.stock = product.getStock();
         this.materialType = product.getMaterialType();
+        this.quantity = product.getQuantity();
     }
 
 
