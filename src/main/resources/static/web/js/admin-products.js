@@ -17,9 +17,10 @@ const app = Vue.createApp({
         loadData(url) {//hacemos una peticion a la pagina web consumir los datos en tiempo real
             axios.get(url)//con axios estoy consumiendo una api 
                 .then((response) => {
+                    console.log(response)
                     this.productos = response.data;
                     this.ticket=this.productos.tickets
-                    console.log(productos);
+                
                     
                 })
         },  
