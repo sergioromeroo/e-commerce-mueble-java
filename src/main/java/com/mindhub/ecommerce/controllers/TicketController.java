@@ -14,6 +14,7 @@ import com.mindhub.ecommerce.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,14 +50,29 @@ public class TicketController {
     public ResponseEntity<?> newOrder(
             @RequestParam double amount,
             @RequestParam String paymentMethod,
-            @RequestParam long idProduct,
-            @RequestParam long id
+            @RequestParam long idProduct, // aca seria una lista de productos
+            Authentication authentication
 
     ){
 
-        Client clientCurrent = clientService.findAllByid(id);
+        Client clientCurrent = clientService.getClientByEmail(authentication.getName());  //aca seria authetication
         Ticket ticketCurrent = new Ticket(LocalDateTime.now(),amount,clientCurrent,paymentMethod);
         Product productsCurrent = productService.findById(idProduct);
+
+
+
+        if(amount == 0){
+            return new ResponseEntity<>("The amount is 0", HttpStatus.FORBIDDEN);
+        }
+
+        if(paymentMethod.isEmpty()){
+            return new ResponseEntity<>("The payment method is empty", HttpStatus.FORBIDDEN);
+        }
+
+        if(clientCurrent == null){
+            return new ResponseEntity<>("The client no exist", HttpStatus.FORBIDDEN);
+        }
+
 
 
         ticketService.saveTicket(ticketCurrent);
@@ -67,6 +83,28 @@ public class TicketController {
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
+    /*
+
+        --- ALGORITMO PARA MODIFICAR EL STOCK Y PONER LOS PRODUCTOS EN EL TICKET ---
+
+        for(i = 0; i < product.quize(); i++){
+
+            TicketProduct = new TicketProduct(ticketCurrent,product[i]);
+
+            int stockActuality = product[i].getStock() - 1;
+
+            product[i].setStock(stockActulity);
+
+            ProductService.save(product[i]);
+
+            TicketProndtService.save(prueba);
+
+        }
+
+
+     */
 
 
     /*
