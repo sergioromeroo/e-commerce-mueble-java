@@ -3,11 +3,16 @@ createApp({
     data() {
         return {
             hola: "hola",
-            password: "",
-            emial: "",
-            emialRegister:"",
-            passwordRegister:"",
-            nameRegister:"",
+            
+            emailVModel: "",
+            passwordVModel: "",
+            
+            firstNameRegisterVModel: "",
+            lastNameRegisterVModel: "",
+            emailRegisterVModel: "",
+            passwordRegisterVModel: "",
+            celPhoneRegisterVModel: null,
+            
             login:false,
             register:false,
 
@@ -20,11 +25,15 @@ createApp({
 
     methods: {
 
-        acceder: function () {
-            axios.post('/api/login', "email=" + this.emial + "&contrase単a=" + this.contrase単a).then(() => window.location.href = "./cuentas.html")
+        access() {
+            axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
         },
-        register: function () {
-            axios.post('/api/login', "email=" + this.emial + "&contrase単a=" + this.contrase単a).then(() => window.location.href = "./cuentas.html")
+        clientRegister() {
+            axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailRegisterVModel}&password=${this.passwordRegisterVModel}&cellphone=${this.celPhoneRegisterVModel}`)
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
         },
 
         theLoginAndRegister(){
