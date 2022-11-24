@@ -19,6 +19,7 @@ public class CreateProductDTO {
     private String description;
 
 
+
     public long getId() {
         return id;
     }
