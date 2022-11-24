@@ -158,28 +158,20 @@
           
           </div>
           <div class="section-products">
-            <a class="category-index category-sofa">
-              <div class="category-title">
-                  <h3>Sofa</h3>
-              </div>
-              <div class="category-img">
-                  <img src="https://uploads-ssl.webflow.com/60cb21bdbf0542c0a4a45727/62ff096baf0efc4cbf5ce411_xander.jpg" alt="">
-              </div>
-              <div class="category-desc">
-                  <p>sofa-1423</p>
-              </div>
-          </a>
-            <a class="category-index category-table">
-              <div  class="category-title">
-                  <h3>Table</h3>
-              </div>
-              <div class="category-img table-img">
-                  <img src="./img/tables/drom281-bl-n-610x610-610x610.jpeg" alt="">
-              </div>
-              <div class="category-desc">
-                  <p>table-5241</p>
-              </div>
-          </a>
+            <template v-for="product in products">
+                <a class="category-index category-sofa">
+                    <div class="category-title">
+                        <h3>{{product.name}}</h3>
+                    </div>
+                    <div class="category-img">
+                        <img :src="product.urlImg" alt="">
+                    </div>
+                    <div class="category-desc">
+                        <p>$ {{product.price}}</p>
+                    </div>
+                </a>
+            </template>
+            
           </div>
 
 
@@ -347,6 +339,5 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <!-- <script src="./js/login-register.js"></script> -->
     <script src="./js/products.js"></script>
 </html>

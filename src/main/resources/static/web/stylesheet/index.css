@@ -83,6 +83,10 @@ a.ancors-nav-burger {
     color: black;
 }
 
+span.burger-menu {
+    padding: 0 12px;
+}
+
 ul.nav-menu-ul-bottom {
     color: #909090;
     margin-top: 7rem;
