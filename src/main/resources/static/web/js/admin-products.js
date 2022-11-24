@@ -1,46 +1,62 @@
 const app = Vue.createApp({
     data() {
         return {
-            productos: [],
+            products: [],
             urlApi: "/api/products",
-            ticket:[],
-            busqueda:""
+            ticket: [],
+            search: "",
+            type: "",
+            name: "",
+            price: 0,
+            urlImg: "",
+            stock: 0,
+            materialType: "",
+            description: ""
         }
     },
-    created() {/* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
+    created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
         this.loadData(this.urlApi)
     },
-    mounted() {/* es cuando se creo la parte visual cuando este renderizado */
+    mounted() { /* es cuando se creo la parte visual cuando este renderizado */
 
     },
-    methods: {/* funciones q utilizamos normalmente */
-        loadData(url) {//hacemos una peticion a la pagina web consumir los datos en tiempo real
-            axios.get(url)//con axios estoy consumiendo una api 
+    methods: { /* funciones q utilizamos normalmente */
+        loadData(url) { //hacemos una peticion a la pagina web consumir los datos en tiempo real
+            axios.get(url) //con axios estoy consumiendo una api 
                 .then((response) => {
-                    console.log(response)
-                    this.productos = response.data;
-                    this.ticket=this.productos.tickets
-                
-                    
-                })
-        },  
+                    this.products = response.data;
+                    this.ticket = this.products.tickets
+                    console.log(this.products);
 
-        logout(){
+                })
+        },
+        createProduct() {
+            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, materialType: this.materialType, description: this.description })
+                .then(() => {
+
+                    /*  aca iria un sweet alert    */
+                    alert("Producto creado");
+                })
+        },
+
+        deleteProduct(productChecket) {
+            axios.delete('/api/products/delete', "id" + productChecket.id)
+                .then(() => {
+
+                    /*  aca iria un sweet alert    */
+                    alert("producto eliminado");
+                })
+        },
+
+        logout() {
             axios.post('/api/logout')
-            .then(() => window.location.pathname='/web/index.html')
-        } 
+                .then(() => window.location.pathname = '/web/index.html')
+        }
     },
     computed: {
-        filtroBuscador(){
+        /* filtroBuscador() {
             this.productos = this.productos.filter(producto => producto.name.toLowerCase().includes(this.busqueda.toLowerCase()))
-        }
+        } */
 
     },
 }).mount('#app')
-
-/* El método GET
-El método GET se utiliza para recuperar datos del servidor. Este es un método de solo lectura, por lo que 
-no tiene riesgo de mutar o corromper los datos. Por ejemplo, si llamamos al método get en nuestra API, 
-obtendremos una lista de todas las tareas pendientes. */
-
-/* put  */
