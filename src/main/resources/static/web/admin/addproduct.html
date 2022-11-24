@@ -94,93 +94,50 @@
             
               
 
-
+           
                 <div class="records table-responsive">
 
                     <div class="record-header">
-                    <h2>Add New Product</h2>
-                    </div>
-                    <div class="browse">
-                    <label for="">Name: 
-                        <input class="my-1" type="text"  placeholder="Product Name"
-                       >
-                    </label>
-                    <br>
-                    <br>
-                 
-                    <label for="">Product Type: 
-                        <input class="my-1" type="number" name="maxAmount" placeholder="Product Type"
-                        >
-                    </label>
-                    <br>
-                    <br>
-                    <label for="">Product Price: 
-                        <input type="number" name="payments" placeholder="Price" >
-                    </label>
-                 
-                    <br>
-                    <br>
-                    <label for="">The interest of The new Loan: 
-                        <input class="my-1" type="number" name="maxAmount" placeholder="Interest"
-                       >
-                    </label>
+                        <div class="wrapper">
+                            <div class="title">
+                              Add Product Form
+                            </div>
+                            <div class="form">
+                               <div class="inputfield">
+                                  <label>Product Name:</label>
+                                  <input type="text" class="input">
+                               </div>  
+                                <div class="inputfield">
+                                  <label>Product Type</label>
+                                  <input type="text" class="input">
+                               </div>  
+                               <div class="inputfield">
+                                  <label>Product Price</label>
+                                  <input type="number" class="input">
+                               </div>  
+                              <div class="inputfield">
+                                  <label>Product Image</label>
+                                  <input type="text" class="input">
+                               </div> 
+                               <div class="inputfield">
+                                <label>Product Stock</label>
+                                <input type="number" class="input">
+                             </div> 
+                             <div class="inputfield">
+                                <label>Product Description</label>
+                                <input type="text" class="input">
+                             </div>
+                        
+                            
+                              <div class="inputfield">
+                                <input type="submit" value="Add Product" class="btn">
+                              </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th># Product Id</th>
-                                    <th><span class="las la-sort"></span> Product</th>
-                                    <th><span class="las la-sort"></span> Price</th>
-                                    <th><span class="las la-sort"></span> Category</th>
-                                    <th><span class="las la-sort"></span> Stock</th>
-                                    <th><span class="las la-sort"></span> Edit/Delete</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr class="tr" v-for="producto in productos">
-                                    <td>#{{producto.id}}</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>{{producto.name}}</h4>
-                                                <small> Material :  {{producto.materialType}}</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{producto.price}}
-                                    </td>
-                                    <td>
-                                        {{producto.type}}
-                                    </td>
-                                    <td>
-                                        {{producto.stock}}
-                                    </td>
-                                    <td>
-                                        <a  class="botons"
-                                        href="/products/detail/<%= producto.id %>"><i class="las la-edit
-                                        [&#xf1f8;]"></i>
-                                        <a class="botons2" 
-                                        href="/products/detail/<%= producto.id %>"><i class="las la-trash
-                                        [&#xf1f8;]"></i>
-                                      </a>
-                                  
-                                    </a>
-                                    </td>
-                                   
-                                </tr>
-                                <tr>
-                             
-                  
-
-                                   
-                                
-                            </tbody>
-                        </table>
+           
                     </div>
 
                 </div>
