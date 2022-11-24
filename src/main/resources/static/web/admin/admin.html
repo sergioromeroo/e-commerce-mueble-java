@@ -65,6 +65,9 @@
                     <form action="">
                         <select class="form-select" name="" id="">
                             <option value="" selected hidden>Filtrar</option>
+                            <option value="">categoria table</option>
+                            <option value="">categoria sofa</option>
+
                         </select>
                     </form>
                 </div>
@@ -72,6 +75,8 @@
                     <form action="">
                         <select class="form-select" name="" id="">
                             <option value="" selected hidden>Ordenar</option>
+                            <option value="">stock menor a 10</option>
+
                         </select>
                     </form>
                 </div>
@@ -79,11 +84,12 @@
 
                 <div class="col-12 col-md-4">
                     <form class="d-flex">
-                        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input v-model="busqueda" name="titulo" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-dark" type="submit">Buscar</button>
                       </form>
+                      {{filtroBuscador}}
                 </div>
-
+                
                 
             </div>
         </div>

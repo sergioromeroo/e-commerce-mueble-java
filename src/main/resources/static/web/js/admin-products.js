@@ -3,7 +3,8 @@ const app = Vue.createApp({
         return {
             productos: [],
             urlApi: "/api/products",
-            ticket:[]
+            ticket:[],
+            busqueda:""
         }
     },
     created() {/* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -29,6 +30,9 @@ const app = Vue.createApp({
         } 
     },
     computed: {
+        filtroBuscador(){
+            this.productos = this.productos.filter(producto => producto.name.toLowerCase().includes(this.busqueda.toLowerCase()))
+        }
 
     },
 }).mount('#app')
