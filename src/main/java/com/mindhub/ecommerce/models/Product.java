@@ -27,19 +27,20 @@ public class Product {
 
     private int quantity = 1;
 
-
+    private String description;
 
 
 
     public Product() {}
 
-    public Product(String type, String name, double price, String urlImg, int stock, String materialType) {
+    public Product(String type, String name, double price, String urlImg, int stock, String materialType,String description) {
         this.type = type;
         this.name = name;
         this.price = price;
         this.urlImg = urlImg;
         this.stock = stock;
         this.materialType = materialType;
+        this.description = description;
     }
 
 
@@ -110,4 +111,11 @@ public class Product {
     }
 
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

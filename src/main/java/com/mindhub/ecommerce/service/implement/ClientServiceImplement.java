@@ -15,6 +15,7 @@ public class ClientServiceImplement  implements ClientService {
 
     @Autowired
     ClientRepository clientRepository;
+
     @Override
     public List<ClientDTO> getClientsDTO() {
         return clientRepository.findAll().stream().map(ClientDTO::new).collect(Collectors.toList());

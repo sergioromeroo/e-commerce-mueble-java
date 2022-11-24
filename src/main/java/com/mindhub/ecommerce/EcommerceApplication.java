@@ -34,13 +34,13 @@ public class EcommerceApplication {
 	@Bean
 	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository){
 		return args -> {
-				//esto es un comentario
 
-			Client client1 = new Client("Rodrigo","Gonzales",24,"rodri@mail.com",passwordEncoder.encode("1234"),123456);
-			Client client2 = new Client("Franco","Rodriguez",24,"franco@mail.com",passwordEncoder.encode("234"),43546);
-			Client client3=new Client("admin","admin",24,"admin@admin.com",passwordEncoder.encode("123"),1234);
-			Product product1 = new Product("table","silla",3000.00,"x",10,"wood");
-			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron");
+
+			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456);
+			Client client2 = new Client("Franco","Rodriguez","franco@mail.com",passwordEncoder.encode("234"),43546);
+			Client client3=new Client("admin","admin","admin@admin.com",passwordEncoder.encode("123"),1234);
+			Product product1 = new Product("table","silla",3000.00,"x",10,"wood","prueba");
+			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron","prueba");
 
 
 			clientRepository.save(client2);
@@ -78,7 +78,7 @@ public class EcommerceApplication {
 
 					int nameraodm = (int)(Math.random()*(11-0+1)+0);
 
-					productRepository.save(new Product(type[ramodType],name[nameraodm],raomdPrice,"x",sotok,materialType[ramdomMaterialType]));
+//					productRepository.save(new Product(type[ramodType],name[nameraodm],raomdPrice,"x",sotok,materialType[ramdomMaterialType]),"prueba");
 				}
 
 		};

@@ -23,7 +23,8 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
 
         http.authorizeRequests()
-                .antMatchers("/web/**").permitAll();
+                .antMatchers("/web/**").permitAll()
+                .antMatchers("/api/login").permitAll();
 
 
         http.formLogin()

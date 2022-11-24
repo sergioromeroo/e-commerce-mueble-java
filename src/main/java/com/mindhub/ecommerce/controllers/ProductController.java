@@ -40,7 +40,7 @@ public class ProductController {
         }
 
 
-        productService.saveProduct(new Product(createProductDTO.getType(),createProductDTO.getName(),createProductDTO.getPrice(),createProductDTO.getUrlImg(),createProductDTO.getStock(),createProductDTO.getMaterialType()));
+        productService.saveProduct(new Product(createProductDTO.getType(),createProductDTO.getName(),createProductDTO.getPrice(),createProductDTO.getUrlImg(),createProductDTO.getStock(),createProductDTO.getMaterialType(),createProductDTO.getDescription()));
 
         return new ResponseEntity<>("The new product has been created succsesfuly", HttpStatus.CREATED);
     }
