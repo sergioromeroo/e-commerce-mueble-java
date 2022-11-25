@@ -9,8 +9,6 @@ createApp({
             
             firstNameRegisterVModel: "",
             lastNameRegisterVModel: "",
-            emailRegisterVModel: "",
-            passwordRegisterVModel: "",
             celPhoneRegisterVModel: null,
             
             login:false,
@@ -27,12 +25,18 @@ createApp({
 
         access() {
             axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                window.location.reload()
+            })
             .catch(error => console.log(error))
         },
         clientRegister() {
-            axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailRegisterVModel}&password=${this.passwordRegisterVModel}&cellphone=${this.celPhoneRegisterVModel}`)
-            .then(response => console.log(response))
+            axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailVModel}&password=${this.passwordVModel}&cellphone=${this.celPhoneRegisterVModel}`)
+            .then(response => {
+                console.log(response)
+                this.access()
+            })
             .catch(error => console.log(error))
         },
 
