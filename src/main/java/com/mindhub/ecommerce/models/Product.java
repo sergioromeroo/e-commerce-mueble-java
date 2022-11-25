@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,7 +36,7 @@ public class Product {
 
 
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
-    Set<TicketProduct> tickets = new HashSet<>();
+    List<TicketProduct> tickets;
 
 
 
@@ -52,7 +53,7 @@ public class Product {
     }
 
 
-    public Set<TicketProduct> getTickets() {
+    public List<TicketProduct> getTickets() {
         return tickets;
     }
 

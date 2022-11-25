@@ -8,6 +8,7 @@ import com.mindhub.ecommerce.repositories.ClientRepository;
 import com.mindhub.ecommerce.repositories.ProductRepository;
 import com.mindhub.ecommerce.repositories.TicketProductRepository;
 import com.mindhub.ecommerce.repositories.TicketRepository;
+import com.mindhub.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +21,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class EcommerceApplication {
@@ -43,9 +45,13 @@ public class EcommerceApplication {
 			clientRepository.save(client1);
 			clientRepository.save(client3);
 
+
 			Product product1 = new Product("table","silla",3000.00,"x",10,"wood", "prueba");
 			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron", "prueba");
 
+
+			List<Integer> prueba = List.of(1,1);
+			List<Integer> prueba2 = List.of(2,1);
 			productRepository.save(product1);
 			productRepository.save(product2);
 
@@ -148,6 +154,7 @@ public class EcommerceApplication {
 
 					productRepository.save(new Product(type[ramodType],name[nameraodm],raomdPrice,"x",sotok,materialType[ramdomMaterialType]),"prueba");
 				}*/
+
 
 		};
 	}

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
@@ -50,15 +51,12 @@ public class TicketController {
     public ResponseEntity<?> newOrder(
             @RequestParam double amount,
             @RequestParam String paymentMethod,
-            @RequestParam long idProduct, // aca seria una lista de productos
+            @RequestParam List<Integer> idProduct,
+            @RequestParam List<Integer> quantity,
             Authentication authentication
 
     ){
-
-        Client clientCurrent = clientService.getClientByEmail(authentication.getName());  //aca seria authetication
-        Ticket ticketCurrent = new Ticket(LocalDateTime.now(),amount,clientCurrent,paymentMethod);
-        Product productsCurrent = productService.findById(idProduct);
-
+        Client clientCurrent = clientService.getClientByEmail(authentication.getName());
 
 
         if(amount == 0){
@@ -74,60 +72,28 @@ public class TicketController {
         }
 
 
-
+        Ticket ticketCurrent = new Ticket(LocalDateTime.now(),amount,clientCurrent,paymentMethod);
         ticketService.saveTicket(ticketCurrent);
+//        int i = idProduct.get(0);
 
-        TicketProduct ticketProduct = new TicketProduct(ticketCurrent,productsCurrent);
+        for(int i = 0; i < idProduct.size(); i++){
 
-        ticketProductRepository.save(ticketProduct);
+            Product hola =  productService.findById(idProduct.get(i));
+            int x = quantity.get(i);
+            System.out.println(x);
+            System.out.println(hola);
+            hola.setStock(hola.getStock() - x);
+            productService.saveProduct(hola);
+            System.out.println(hola);
+
+            ticketProductRepository.save(new TicketProduct(ticketCurrent, hola)); // aca guardamos el ticket product
+        }
+
+
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 
-    /*
-
-        --- ALGORITMO PARA MODIFICAR EL STOCK Y PONER LOS PRODUCTOS EN EL TICKET ---
-
-        for(i = 0; i < product.quize(); i++){
-
-            TicketProduct = new TicketProduct(ticketCurrent,product[i]);
-
-            int stockActuality = product[i].getStock() - 1;
-
-            product[i].setStock(stockActulity);
-
-            ProductService.save(product[i]);
-
-            TicketProndtService.save(prueba);
-
-        }
-
-
-     */
-
-
-    /*
-        public  Responsentity<> nuevoPedido(
-            @RequestParam monto,
-            conquepago,
-            @RequestParam list<Product> product
-            authorization
-        )
-        client current
-        Ticket ticketCurrent = new Ticket(monto,conquepago,new Date, clientcurrent)
-    *
-        ticketService.save(ticketCurrent);
-
-        for(i = 0; i < product.size(); i++{
-
-        TicketProndt prueba = new TicketProndt(ticketCurrent, i)
-        TicketProndtService.save(prueba);
-
-        }
-
-
-
-    *   */
 
 }

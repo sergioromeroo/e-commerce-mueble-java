@@ -1,6 +1,9 @@
 package com.mindhub.ecommerce.DTOS;
 
+import com.mindhub.ecommerce.models.Product;
 import com.mindhub.ecommerce.models.TicketProduct;
+
+import java.util.List;
 
 public class TicketProductDTO {
 
@@ -15,9 +18,11 @@ public class TicketProductDTO {
     }
 
     public TicketProductDTO(TicketProduct ticketProduct) {
-        this.idProduct = ticketProduct.getProduct().getId();
-    }
 
+
+        this.idProduct = ticketProduct.getProduct().getId();
+
+    }
 
 
 

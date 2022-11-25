@@ -33,7 +33,7 @@ public class Ticket {
 
 
     @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
-    Set<TicketProduct> products = new HashSet<>();
+    List<TicketProduct> products;
 
 
 
@@ -59,7 +59,7 @@ public class Ticket {
 
 
 
-    public Set<TicketProduct> getProducts() {
+    public List<TicketProduct> getProducts() {
         return products;
     }
 

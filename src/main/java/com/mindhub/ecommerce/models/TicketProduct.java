@@ -3,6 +3,8 @@ package com.mindhub.ecommerce.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class TicketProduct {
@@ -49,4 +51,7 @@ public class TicketProduct {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+
+
 }

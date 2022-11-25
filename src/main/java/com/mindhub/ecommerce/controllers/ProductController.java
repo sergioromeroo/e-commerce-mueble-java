@@ -52,6 +52,8 @@ public class ProductController {
             @RequestParam long id
     ){
 
+
+
         Product productFound =  productService.findById(id);
 
         productFound.setStock(stock);
