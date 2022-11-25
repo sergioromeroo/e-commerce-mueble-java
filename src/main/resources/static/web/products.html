@@ -16,6 +16,8 @@
 </head>
 <body class="index products">
     <div id="app">
+        {{filter}}
+    {{priceFilter}}
         <header class="header-products">
   
             
@@ -102,19 +104,12 @@
                         <ul class="nav-menu-ul">
                             <li class="nav-item dropdown">
                               <li>
-                                <a href="./index.html">home</a>
+                                <a class="nav-link ancors-nav-burger" href="./index.html">home</a>
                                </li>
                                 <a class="nav-link ancors-nav-burger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  store<i class='bx bxs-chevron-right'></i>
+                                    Shop
                                 </a>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li>
-                                    <hr class="dropdown-divider">
-                                  </li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                               
                               </li>
                    
                             <li>
@@ -155,11 +150,84 @@
         <main class="main-products">
           
           <div class="section-filters">
-          
+            
+
+            
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid filter-nav ">
+                  <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="burger-menu-filter "><img class="burger-menu-filter "  src="./img/icons/filter.png" alt=""></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categories<i class='bx bx-chevron-down' ></i>
+                        </a>
+                        <ul class="dropdown-menu filter-btn-list">
+
+                            <li class="filter-btn-item" v-for="type in typeCategory">
+                              <label :for="type" class="me-2">{{type}}</label>
+                              <input v-model="typeVModel" type="checkbox" :name="type" :id="type" :value="type">
+                            </li>
+            
+                        </ul>
+                        
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Material Type<i class='bx bx-chevron-down' ></i>
+                        </a>
+                           <ul class="dropdown-menu filter-btn-list">
+
+                            <li class="filter-btn-item" v-for="materialType in materialTypeCategory">
+                              <label :for="materialType" class="me-2">{{materialType}}</label>
+                              <input v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
+                                :value="materialType">
+                            </li>
+                            
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Price<i class='bx bx-chevron-down' ></i>
+                        </a>
+                        <ul class="dropdown-menu filter-btn-list">
+
+                            <li class="filter-btn-item price-container">
+                                <div class="filter-btn-item-box1">
+                                    <label for="higherPrice ">mayor precio</label>
+                                    <input v-model="priceVModel" type="radio" name="higherPrice" id="higherPrice" value="higher">
+                                </div>
+                                <div class="filter-btn-item-box2">
+                                    <label for="lowerPrice ">menor precio</label>
+                                    <input v-model="priceVModel" type="radio" name="lowerPrice" id="lowerPrice" value="lower">
+                                </div>
+                             
+                            </li>
+                          </ul>
+                      </li>
+                    
+                    
+                    </ul>
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="inputSearchVModel">
+             <!--          <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    </form>
+                  </div>
+                </div>
+              </nav>
+
+              
           </div>
+
+
+
           <div class="section-products">
             <template v-for="product in products">
-                <a :href="'./detail.html?id=' + product.id" class="category-index category-sofa">
+                <a :href="'./detail.html?id=' + product.id" class="category-index category-sofa" v-if="product.id > 2">
                     <div class="category-title">
                         <h3>{{product.name}}</h3>
                     </div>
@@ -172,7 +240,7 @@
                 </a>
 
             </template>
-            
+            <div class="text-danger" v-show="products.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
           </div>
 
 

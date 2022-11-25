@@ -9,7 +9,7 @@ header{
     height: 87vh;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
 }
-nav.navbar {
+.index nav.navbar {
     width: 100%;
 }
 
@@ -71,7 +71,7 @@ nav.navbar {
     filter: brightness(6);
 }
 
-div#offcanvasNavbar {
+.index div#offcanvasNavbar {
     width: 100%;
 }
 
@@ -81,6 +81,7 @@ a.ancors-nav-burger {
     text-transform: uppercase;
     line-height: 3;
     color: black;
+    padding: 0;
 }
 
 span.burger-menu {
@@ -112,8 +113,9 @@ ul.nav-menu-ul-bottom li a {
     color: black
 }
 
+
 .container-fluid {
-    padding: 17px 18px;
+    padding: 17px 9px;
 }
 
 
@@ -161,7 +163,9 @@ ul.nav-menu-ul-bottom li a {
 /* ---------- */
 
 
-
+.nav-icons-and-menu-burger{
+    display: flex;
+}
 
 .index .text-header{
     color: white;
@@ -212,6 +216,12 @@ ul.nav-menu-ul-bottom li a {
     text-transform: uppercase;
 }
 
+.index .btn-choose-table:hover{
+   background-color: #fff;
+   color: black;
+}
+
+
 
 
 /* ------- main -------- */
@@ -256,7 +266,7 @@ ul.nav-menu-ul-bottom li a {
 .index .category-index:hover{ 
     /* transform: scale(1.01); */
     box-shadow: 1px 7px 50px 3px rgb(192, 191, 191);
-    z-index: 4;
+    
 }
 
 .common-home header:not(.min) .menu-top + .menu-top:not(.nv) {
@@ -327,7 +337,9 @@ ul.nav-menu-ul-bottom li a {
     font-weight: bold;
 }
 
-
+.index  .section3-categories{
+    justify-content: unset
+}
 
 .index .categories-with-img .storage{
     width: 100%;
@@ -503,7 +515,10 @@ i.bx.bx-chevron-up {
     }
 
 
-
+    .container-fluid {
+        padding: 17px 18px;
+    }
+    
 
     .index .text-header {
         padding: 0 3.5rem;
@@ -583,7 +598,13 @@ i.bx.bx-chevron-up {
         display: none;
     }
 
-    div#offcanvasNavbar {
+    .index .section3-categories {
+        justify-content: unset;
+        padding-left: 9rem;
+    }
+    
+
+    .index div#offcanvasNavbar {
         display: none;
     }
 
@@ -635,6 +656,13 @@ i.bx.bx-chevron-up {
         width: 33%;
     }
 
+    .index .section3-categories {
+        width: 97%;btn-choose-table
+        justify-content: unset;
+        padding-right: 9rem;
+        padding-left: 5rem;
+    }
+
     /* .index .index-categories {
         max-width: 1200px;
     } */
@@ -673,13 +701,27 @@ i.bx.bx-chevron-up {
 
 
 
+@media (min-width: 1440px) {
+
+
+    .index .section3-categories {
+        margin-top: 13rem;
+        height: 71vh;
+        width: 100%;
+        padding-left: 7rem;
+    }
+
+
+}
 
 
 @media (min-width:1920px){
     .index .section3-categories {
-        width: 80%;
-
+        width: 100%;
+        padding-left: 14rem;
     }
+
+    
     
     .index .category-index-sectior3 {
         width: 27%;

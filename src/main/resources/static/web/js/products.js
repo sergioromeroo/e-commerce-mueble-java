@@ -148,6 +148,9 @@ const app = Vue.createApp({
                   this.products.forEach(product => !this.typeCategory.includes(product.type) ? this.typeCategory.push(product.type) : "")
                   this.products.forEach(product => !this.materialTypeCategory.includes(product.materialType) ? this.materialTypeCategory.push(product.materialType) : "")
                   console.log(this.products)
+
+
+                  console.log(this.typeCategory);
               })
               .catch(error => console.log(error))
       },
