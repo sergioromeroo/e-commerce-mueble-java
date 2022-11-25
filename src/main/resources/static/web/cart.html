@@ -51,7 +51,7 @@
 
                 </div>
                 <div class="col d-flex justify-content-end text-left">
-                  <i class="bi bi-trash3-fill cartRed h3 text-left"></i>
+                  <i class="bi bi-trash3-fill cartRed h3 text-left" @click="cart_alert = true"></i>
                 </div>
               </div>
 
@@ -95,41 +95,33 @@
               <div class="col text-right">132.00</div>
             </div>
             <form>
-              <p>Payment method</p>
-              <select name="" id="" v-model="paymentMethodVModel">
-                <option value="paypal" class="text-muted">paypal</option>
-                <option v-model="tarjeta" value="tarjeta" class="text-muted">
-                  Tarjeta
-                </option>
-              </select>
-              <div v-if="paymentMethodVModel == 'tarjeta'">
+              <div >
                 <p>pick a card</p>
-                <select>
-                  <option value="paypal" class="text-muted">400506</option>
-                  <option v-model="tarjeta" value="tarjeta" class="text-muted">20034</option>
-                </select>
+                <input id="card_number"  class="fontGotham" placeholder="Enter your card number" />
+
                 <p>pick a cvv</p>
-                <input id="cvv" placeholder="Enter your code" />
+                <input id="cvv" class="fontGotham"  placeholder="Enter your code" />
               </div>
               <p>GIVE CODE</p>
-              <input id="code" placeholder="Enter your code" />
+              <input id="code" class="fontGotham"  placeholder="Enter your code" />
             </form>
             <div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0">
               <div class="col">Total price:</div>
               <div class="col text-right">$ {{totalAmount}}</div>
             </div>
-            <button class="btn_cart fontGotham">CHECKOUT</button>
+            <button class="btn_cart fontGotham  btn  cart_CHECKOUT" style="font-size:10px;">CHECKOUT</button>
           </div>
         </div>
       </div>
-      <div class="card_cart  w-50 alert_trash" style="display: none;">
+      <div class="card_cart  w-50 alert_trash" v-if="cart_alert == true">
         <div class="card-body">
           <p class="card-text h3 fontGotham">Are you sure you want to delete the ENTIRE cart?.</p>
           <div class="  d-flex justify-content-around">
             <button class="btn_cart fontGotham btn" style="font-size:14px;" @click="emptyCart()">Yes</button>
-            <button class="btn_cart fontGotham btn " style="font-size:14px;" >No</button>
+            <button class="btn_cart fontGotham btn " style="font-size:14px;" @click="cart_alert = false" >No</button>
           </div>
         </div>
+      </div>
 
 
 
