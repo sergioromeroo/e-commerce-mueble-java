@@ -159,7 +159,7 @@
           </div>
           <div class="section-products">
             <template v-for="product in products">
-                <a class="category-index category-sofa">
+                <a :href="'./detail.html?id=' + product.id" class="category-index category-sofa">
                     <div class="category-title">
                         <h3>{{product.name}}</h3>
                     </div>
@@ -170,6 +170,7 @@
                         <p>$ {{product.price}}</p>
                     </div>
                 </a>
+
             </template>
             
           </div>

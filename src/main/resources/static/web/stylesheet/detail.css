@@ -64,10 +64,10 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 1rem;
     display: inline-block;
     margin-bottom: 0.5rem;
-    background: #256eff;
+    background: black;
     color: #fff;
     padding: 0 0.3rem;
     transition: all 0.5s ease;
@@ -95,7 +95,8 @@
     text-decoration: line-through;
 }
 .detail .new-price span{
-    color: #256eff;
+    color: #727272;
+    font-size: 21px;
 }
 .detail .product-detail h2{
     text-transform: capitalize;
@@ -110,6 +111,7 @@
 .detail .product-detail ul{
     margin: 1rem 0;
     font-size: 0.9rem;
+    
 }
 .detail .product-detail ul li{
     margin: 0;
@@ -187,6 +189,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0px 0px 21px;
 }
 .detail .cajaflexCompra{
     border: 2px solid #939393;
@@ -194,6 +197,15 @@
     text-align: center;
     min-width: 265px;
     color:white
+}
+
+ .detail button{
+    border-radius: 0px;
+    margin: 0px 2px ;
+}
+.detail .purchase-info input, .detail .purchase-info .btn{
+    border: 0;
+    border-radius: 0px;
 }
 
 
