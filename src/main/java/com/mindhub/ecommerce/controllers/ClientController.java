@@ -64,7 +64,9 @@ public class ClientController {
 
         }
 
-
+        if(clientService.getClientByEmail(email) != null){
+            return new ResponseEntity<>("Email already in use", HttpStatus.FORBIDDEN);
+        }
 
 
 

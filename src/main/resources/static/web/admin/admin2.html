@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -7,13 +8,14 @@
     <link rel="stylesheet" href="../stylesheet/admin2.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
+
 <body>
-   <input type="checkbox" id="menu-toggle">
+    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
             <h3>D<span>rommel</span></h3>
         </div>
-        
+
         <div class="side-content">
             <div class="profile">
                 <div class="profile-img bg-img" style="background-image: url(https://imgs.search.brave.com/J85_wRuk7EA_aBWvPfTP1WhERLb1dfq7R3Z78HNPZ8o/rs:fit:470:352:1/g:ce/aHR0cHM6Ly9ib2xh/dmlwLmNvbS9fX2V4/cG9ydC8xNjI4MDM0/OTIzNjA2L3NpdGVz/L2JvbGF2aXAvaW1n/LzIwMjEvMDgvMDMv/bWVtZS1wZXJyaXRv/LWxvcy1xdWVyZW1v/cy1tdWNob19jcm9w/MTYyODAzNDc0NzY2/MC5qcGdfMzMxMzE2/MzYuanBn)"></div>
@@ -24,21 +26,21 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="" class="active">
+                        <a href="" class="active">
                             <span class="las la-home"></span>
                             <small>Dashboard</small>
                         </a>
                     </li>
-          
-              
-                       <a href="">
-                            <span class="las la-user"></span>
-                            <small>Clients</small>
-                        </a>
+
+
+                    <a href="">
+                        <span class="las la-user"></span>
+                        <small>Clients</small>
+                    </a>
                     </li>
-                  
+
                     <li>
-                       <a href="">
+                        <a href="">
                             <span class="las la-shopping-cart"></span>
                             <small>Orders</small>
                         </a>
@@ -46,53 +48,54 @@
 
                     <li>
                         <a href="./addproduct.html">
-                             <span class="las la-plus"></span>
-                             <small>Add Product</small>
-                         </a>
-                     </li>
-                 
+                            <span class="las la-plus"></span>
+                            <small>Add Product</small>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>
         </div>
     </div>
-    
+
     <div id="app" class="main-content">
-        
+
         <header>
             <div class="header-content">
                 <label for="menu-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                
+
                 <div class="header-menu">
-                   
-                    
-                   
-                    
-                    
-                    
+
+
+
+
+
+
                     <div class="user">
                         <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
-                        
+
                         <span class="las la-power-off"></span>
                         <span>Logout</span>
                     </div>
                 </div>
             </div>
         </header>
-        
-        
+
+
         <main>
-            
+
             <div class="page-header">
-                <h1>Admin Dashboard<h1>
-                <small>Home / Nombre de la pagina</small>
+                <h1>Admin Dashboard
+                    <h1>
+                        <small>Home / Nombre de la pagina</small>
             </div>
-            
+
             <div class="page-content">
-            
-              
+
+
 
 
                 <div class="records table-responsive">
@@ -111,12 +114,12 @@
                             <select name="" id="">
                                 <option value="">Stock more than</option>
                             </select>
-        
+
                         </div>
 
                         <div class="browse">
-                           <input type="search" placeholder="Search Product" class="record-search">
-                        
+                            <input type="search" placeholder="Search Product" class="record-search">
+
                         </div>
                     </div>
 
@@ -133,11 +136,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="tr" v-for="producto in productos">
+                                <tr class="tr" v-for="producto in productsEnableTrue">
                                     <td>#{{producto.id}}</td>
                                     <td>
                                         <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
+                                            <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
                                             <div class="client-info">
                                                 <h4>{{producto.name}}</h4>
                                                 <small> Material :  {{producto.materialType}}</small>
@@ -154,37 +157,44 @@
                                         {{producto.stock}}
                                     </td>
                                     <td>
-                                        <a  class="botons"
-                                        href="/products/detail/<%= producto.id %>"><i class="las la-edit
+                                        <!-- <a class="botons" href="/products/detail/<%= producto.id %>"><i class="las la-edit
                                         [&#xf1f8;]"></i>
                                         <a class="botons2" 
                                         href="/products/detail/<%= producto.id %>"><i class="las la-trash
                                         [&#xf1f8;]"></i>
                                       </a>
-                                  
-                                    </a>
+
+                                        </a> -->
+                                        <button class="botons"><i class="las la-edit
+                                            [&#xf1f8;]"></i>
+                                        </button>
+                                        <button class="botons2" v-on:click="deleteProduct(producto)"><i class="las la-trash
+                                            [&#xf1f8;]"></i>
+                                        </button>
+
                                     </td>
-                                   
+
                                 </tr>
                                 <tr>
-                             
-                  
 
-                                   
-                                
+
+
+
+
                             </tbody>
                         </table>
                     </div>
 
                 </div>
-            
+
             </div>
-            
+
         </main>
-        
+
     </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="../js/admin-products.js"></script>
+
 </html>

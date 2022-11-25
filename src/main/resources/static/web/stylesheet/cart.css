@@ -2,7 +2,7 @@
 .title{
     margin-bottom: 5vh;
 }
-.cards{
+.card_cart{
     margin: auto;
     max-width: 950px;
     width: 90%;
@@ -10,8 +10,25 @@
     border-radius: 1rem;
     border: transparent;
 }
+.alert_trash{
+    position: absolute;
+    z-index: 2;
+   max-width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+
+/* From https://css.glass */
+background: rgba(235, 224, 224, 0.3);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.4px);
+-webkit-backdrop-filter: blur(6.4px);
+border: 1px solid rgba(235, 224, 224, 1);
+}
 @media(max-width:767px){
-    .card{
+    .card_cart{
         margin: 3vh auto;
     }
 }
@@ -42,12 +59,7 @@
     border: 1px solid rgba(255, 255, 255, 0.125)
 
 }
-@media(max-width:767px){
-    .summary{
-    border-top-right-radius: unset;
-    border-bottom-left-radius: 1rem;
-    }
-}
+
 .summary .col-2{
     padding: 0;
 }
@@ -110,7 +122,7 @@ input:focus::-webkit-input-placeholder
 {
       color:transparent;
 }
-.btn{
+.btn_cart{
     background-color: #000;
     border-color: #000;
     color: white;
@@ -119,8 +131,10 @@ input:focus::-webkit-input-placeholder
     margin-top: 4vh;
     padding: 1vh;
     border-radius: 0;
+    border: #000 5px solid;
+
 }
-.btn:focus{
+.btn_cart:focus{
     box-shadow: none;
     outline: none;
     box-shadow: none;
@@ -128,9 +142,12 @@ input:focus::-webkit-input-placeholder
     -webkit-box-shadow: none;
     -webkit-user-select: none;
     transition: none; 
+    border: #000 5px solid;
 }
-.btn:hover{
-    color: white;
+.btn_cart:hover{
+    
+    color: #000;
+
 }
 a{
     color: black; 
@@ -139,9 +156,30 @@ a:hover{
     color: black;
     text-decoration: none;
 }
+.cartRed:hover{
+   color: 	 	#d11141;
+}
  #code{
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
     background-repeat: no-repeat;
     background-position-x: 95%;
     background-position-y: center;
+}
+
+.fontGotham{
+    font-family: 'Gotham Pro', sans-serif;
+    /* font-family: 'Gotham Pro Medium', sans-serif; */
+}
+@media (max-width: 486px) {
+.sizeItemsCart{
+    font-size: 20px;
+    margin: 13px;
+}
+
+}
+@media(max-width:767px){
+    .summary{
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+    }
 }

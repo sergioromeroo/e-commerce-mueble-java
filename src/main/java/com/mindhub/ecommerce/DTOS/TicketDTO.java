@@ -3,9 +3,12 @@ package com.mindhub.ecommerce.DTOS;
 import com.mindhub.ecommerce.models.Client;
 import com.mindhub.ecommerce.models.Product;
 import com.mindhub.ecommerce.models.Ticket;
+import com.mindhub.ecommerce.models.TicketProduct;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TicketDTO {
 
@@ -17,7 +20,7 @@ public class TicketDTO {
 
     private double amount;
 
-    private String product;
+    private Set<TicketProductDTO> product;
 
 
 
@@ -33,6 +36,7 @@ public class TicketDTO {
         this.id = ticket.getId();
         this.date = ticket.getDate();
         this.amount = ticket.getAmount();
+        this.product = ticket.getProducts().stream().map(ticketProduct -> new TicketProductDTO(ticketProduct)).collect(Collectors.toSet());
     }
 
 
@@ -60,11 +64,12 @@ public class TicketDTO {
         this.amount = amount;
     }
 
-    public String getProduct() {
+
+    public Set<TicketProductDTO> getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(Set<TicketProductDTO> product) {
         this.product = product;
     }
 }

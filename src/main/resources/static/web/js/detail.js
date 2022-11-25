@@ -6,7 +6,8 @@ const app = Vue.createApp({
             ticket: [],
             name: "",
             id:(new URLSearchParams(location.search).get("id")),
-            details:[]
+            details:[],
+            relacionados:[]
 
         }
     },
@@ -23,6 +24,7 @@ const app = Vue.createApp({
                     this.products = response.data;
                     this.ticket = this.products.tickets
                     this.details= this.products.find(value => value.id == this.id)
+                    this.relacionados=this.products.forEach(product => product.type == "table")
                     console.log(this.products);
 
                 })

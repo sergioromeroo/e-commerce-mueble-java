@@ -58,8 +58,7 @@
 
           <div class = "product-detail">
             <h2>Description: </h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+            <p>{{details.description}}</p>
           </div>
             <div class = "product-price">
               <p class = "new-price"> Price: <span>$ {{details.price}} </span></p>
@@ -115,9 +114,9 @@
 <div class="index">
 
     <section class="index-categories">
-      <a class="category-index category-sofa">
+      <a class="category-index category-sofa" v-for="product in relacionados">
           <div class="category-title">
-              <h3>Sofa</h3>
+              <h3>{{product.name}}</h3>
           </div>
           <div class="category-img">
               <img src="https://uploads-ssl.webflow.com/60cb21bdbf0542c0a4a45727/62ff096baf0efc4cbf5ce411_xander.jpg" alt="">

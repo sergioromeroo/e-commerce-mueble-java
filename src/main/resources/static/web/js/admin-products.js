@@ -11,7 +11,8 @@ const app = Vue.createApp({
             urlImg: "",
             stock: 0,
             materialType: "",
-            description: ""
+            description: "",
+            productsEnableTrue: [],
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -26,12 +27,13 @@ const app = Vue.createApp({
                 .then((response) => {
                     this.products = response.data;
                     this.ticket = this.products.tickets
-                    console.log(this.products);
+                    this.productsEnableTrue = this.products.filter(product => product.enable == true)
+                    console.log(this.productsEnableTrue);
 
                 })
         },
         createProduct() {
-            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, materialType: this.materialType, description: this.description })
+            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, stock: this.stock, materialType: this.materialType, description: this.description })
                 .then(() => {
 
                     /*  aca iria un sweet alert    */
@@ -40,11 +42,16 @@ const app = Vue.createApp({
         },
 
         deleteProduct(productChecket) {
-            axios.delete('/api/products/delete', "id" + productChecket.id)
+            console.log(productChecket.id);
+            axios.patch('/api/products/delete', "id=" + productChecket.id)
                 .then(() => {
 
                     /*  aca iria un sweet alert    */
                     alert("producto eliminado");
+
+                })
+                .then(() => {
+                    window.location.pathname = '/web/admin/admin2.html';
                 })
         },
 

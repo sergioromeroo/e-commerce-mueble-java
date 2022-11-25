@@ -22,7 +22,9 @@ public class ProductDTO {
 
     private int quantity;
 
+    private boolean enable;
 
+    private String description;
 
     public ProductDTO() {
     }
@@ -36,6 +38,9 @@ public class ProductDTO {
         this.stock = product.getStock();
         this.materialType = product.getMaterialType();
         this.quantity = product.getQuantity();
+        this.enable = product.isEnable();
+        this.description = product.getDescription();
+
     }
 
 
@@ -98,5 +103,21 @@ public class ProductDTO {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -17,7 +17,7 @@ public class TicketProduct {
     private Ticket ticket;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "loan_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public TicketProduct() {
