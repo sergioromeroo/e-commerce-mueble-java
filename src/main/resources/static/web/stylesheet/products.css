@@ -334,6 +334,10 @@
   padding-top: 1px;
 }
 
+.products .filter-nav .price-container{
+  flex-direction: column;
+}
+
 
 @media (min-width: 768px) {
 
