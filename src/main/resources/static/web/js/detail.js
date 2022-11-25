@@ -24,8 +24,14 @@ const app = Vue.createApp({
                     this.products = response.data;
                     this.ticket = this.products.tickets
                     this.details= this.products.find(value => value.id == this.id)
-                    this.relacionados=this.products.forEach(product => product.type == "table")
-                    console.log(this.products);
+                    this.products.forEach(product =>{
+                        
+                     if(product.type == this.details.type && this.relacionados.length < 4){
+                        this.relacionados.push(product)
+                     }
+
+                    })
+
 
                 })
         },
