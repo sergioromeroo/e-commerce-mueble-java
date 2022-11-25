@@ -184,8 +184,10 @@
   filter: brightness(1);
 }
 
-.products .section-products{
+.products .section-products {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
