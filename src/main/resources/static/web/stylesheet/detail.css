@@ -44,7 +44,7 @@
     padding: 2rem 1rem;
 }
 .detail .product-title{
-    font-size: 3rem;
+    font-size: 5rem;
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
@@ -84,7 +84,7 @@
 }
 .detail .product-price{
     margin: 1rem 0;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 .detail .product-price span{
@@ -104,7 +104,7 @@
     padding-bottom: 0.6rem;
 }
 .detail .product-detail p{
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     padding: 0.3rem;
     opacity: 0.8;
 }
@@ -157,20 +157,21 @@
 }
 .detail .social-links{
     display: flex;
+    font-size: 20px;
     align-items: center;
 }
 .detail .social-links a{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     color: #000;
     border: 1px solid #000;
     margin: 0 0.2rem;
     border-radius: 50%;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 1.8rem;
     transition: all 0.5s ease;
 }
 .detail .social-links a:hover{
@@ -190,6 +191,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0px 0px 21px;
+    font-weight: 600;
 }
 .detail .cajaflexCompra{
     border: 2px solid #939393;
@@ -201,6 +203,7 @@
 
  .detail button{
     border-radius: 0px;
+    font-size: 22px;
     margin: 0px 2px ;
 }
 .detail .purchase-info input, .detail .purchase-info .btn{
@@ -210,6 +213,13 @@
 
 .detail p{
     margin-top: 10px;
+}
+
+.detail h3{
+    padding-top: 1em;
+    border-bottom: 1px solid #939393;
+    text-align: center;
+    font-size: 40px;
 }
 
 
