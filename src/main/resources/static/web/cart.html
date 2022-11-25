@@ -161,14 +161,11 @@
                 <div v-if="paymentMethodVModel == 'tarjeta'">
                   <p>pick a card</p>
                   <select>
-                    <option value="paypal" class="text-muted">Credito</option>
-                    <option
-                      v-model="tarjeta"
-                      value="tarjeta"
-                      class="text-muted">
-                      Devito
-                    </option>
+                    <option value="paypal" class="text-muted">400506</option>
+                    <option v-model="tarjeta" value="tarjeta"  class="text-muted">20034</option>
                   </select>
+                  <p>pick a cvv</p>
+                  <input id="cvv" placeholder="Enter your code" />
                 </div>
                 <p>GIVE CODE</p>
                 <input id="code" placeholder="Enter your code" />
