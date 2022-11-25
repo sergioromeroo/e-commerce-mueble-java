@@ -32,6 +32,14 @@ public class Ticket {
     private Client client;
 
 
+    @OneToMany(mappedBy = "ticket",fetch = FetchType.EAGER)
+    Set<TicketProduct> products = new HashSet<>();
+
+
+
+
+
+
 
     public Ticket() {
     }
@@ -43,6 +51,17 @@ public class Ticket {
         this.paymentMethod = paymentMethod;
     }
 
+
+
+
+
+
+
+
+
+    public Set<TicketProduct> getProducts() {
+        return products;
+    }
 
     public long getId() {
         return id;

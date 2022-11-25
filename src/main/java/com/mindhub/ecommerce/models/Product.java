@@ -4,6 +4,8 @@ package com.mindhub.ecommerce.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -31,6 +33,12 @@ public class Product {
 
     private boolean enable = true;
 
+
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    Set<TicketProduct> tickets = new HashSet<>();
+
+
+
     public Product() {}
 
     public Product(String type, String name, double price, String urlImg, int stock, String materialType,String description) {
@@ -44,10 +52,9 @@ public class Product {
     }
 
 
-
-
-
-
+    public Set<TicketProduct> getTickets() {
+        return tickets;
+    }
 
     public long getId() {
         return id;

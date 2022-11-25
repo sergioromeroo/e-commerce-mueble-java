@@ -33,7 +33,7 @@ const app = Vue.createApp({
                 })
         },
         createProduct() {
-            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, materialType: this.materialType, description: this.description })
+            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, stock: this.stock, materialType: this.materialType, description: this.description })
                 .then(() => {
 
                     /*  aca iria un sweet alert    */
