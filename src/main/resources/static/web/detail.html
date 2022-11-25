@@ -70,11 +70,9 @@
             <div class="caja"><p>stock: {{details.stock}}</p></div>
             </div>
 
-            <button type="button" class="btn btn-dark btn-lg">To Buy</button>
             <button type="button" class="btn btn-dark btn-lg">🤍</button>
             
 
-          
 
           <div class = "purchase-info">
             <button type = "button" class = "btn">
@@ -106,63 +104,32 @@
     </div>
   </div>
 
-
   <!-- ====productos relacionados======== -->
 
   
-
 <div class="index">
 
     <section class="index-categories">
-      <a class="category-index category-sofa" v-for="product in relacionados">
+      <template v-for="product in relacionados">
+    
+      <a class="category-index category-sofa" >
           <div class="category-title">
               <h3>{{product.name}}</h3>
           </div>
           <div class="category-img">
-              <img src="https://uploads-ssl.webflow.com/60cb21bdbf0542c0a4a45727/62ff096baf0efc4cbf5ce411_xander.jpg" alt="">
+              <img :src =product.urlImg alt="">
           </div>
           <div class="category-desc">
-              <p>sofa-1423</p>
+              <p>${{product.price}}</p>
           </div>
       </a>
-      <a class="category-index category-table">
-          <div  class="category-title">
-              <h3>Table</h3>
-          </div>
-          <div class="category-img table-img">
-              <img src="./img/tables/drom281-bl-n-610x610-610x610.jpeg" alt="">
-          </div>
-          <div class="category-desc">
-              <p>table-5241</p>
-          </div>
-      </a>
-      <a class="category-index category-storage">
-          <div  class="category-title">
-              <h3>Storage</h3>
-          </div>
-          <div class="category-img storage-img">
-              <img src="./img/storage/storageandcat.jpg" alt="">
-          </div>
-          <div class="category-desc">
-              <p>storage-5124</p>
-          </div>
-      </a>
-      <a class="category-index category-garden">
-          <div  class="category-title">
-              <h3>Garden</h3>
-          </div>
-          <div class="category-img garden-img">
-              <img src="./img/garden/pngwing.com (3).png" alt="">
-          </div>
-          <div class="category-desc">
-              <p>garden-6913</p>
-          </div>
-      </a>
+
+    </template>
+
   </section>
 </div>
 
 
-    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JavaScript Bundle with Popper -->
