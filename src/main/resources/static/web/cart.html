@@ -47,7 +47,7 @@
                   <h4><b>Shopping Cart</b></h4>
                 </div>
                 <div class="col align-self-center text-right text-muted">
-                  3 items
+                  {{shoppingCart.length}} items
 
                 </div>
                 <div class="col d-flex justify-content-end text-left">
@@ -56,24 +56,24 @@
               </div>
 
             </div>
-            <div class="row border-top border-bottom">
+            <div class="row border-top border-bottom" v-for="product in shoppingCart">
               <div class="row main align-items-center">
                 <div class="col-2">
-                  <img class="img-fluid w-100" src="./images/product-1.jpg" />
+                  <img class="img-fluid w-100" :src="product.urlImg" />
                 </div>
                 <div class="col">
-                  <div class="row text-muted">Shirt</div>
-                  <div class="row">Cotton T-shirt</div>
+                  <div class="row text-muted">{{product.type}}</div>
+                  <div class="row">{{product.name}}</div>
                 </div>
                 <div class="col">
                   <div class="row  ">
-                    <i class="col w-100 bi bi-plus-circle sizeItemsCart h3"></i>
-                    <a href="#" class="col w-100 border sizeItemsCart h2 ">1</a>
-                    <i class="bi col w-100 bi-dash-circle sizeItemsCart h3"></i>
+                    <i class="col w-100 bi bi-plus-circle sizeItemsCart h3" @click="addProductToShoppingCart(product)" :class="{'text-secondary': product.stock == 0}"></i>
+                    <a href="#" class="col w-100 border sizeItemsCart h2 ">{{product.quantity}}</a>
+                    <i class="bi col w-100 bi-dash-circle sizeItemsCart h3" @click="deleteOneItem(product)" :class="{'text-secondary': product.quantity == 0}"></i>
 
                   </div>
                 </div>
-                <div class="col"> 44.00 <span class="close"></span>
+                <div class="col">$ {{product.price * product.quantity}}<span class="close"></span>
                   <button class="btn-close  cartRed" @click="deleteProduct(product)"></button>
                 </div>
               </div>
@@ -115,19 +115,19 @@
               <input id="code" placeholder="Enter your code" />
             </form>
             <div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0">
-              <div class="col">TOTAL PRICE</div>
-              <div class="col text-right">137.00</div>
+              <div class="col">Total price:</div>
+              <div class="col text-right">$ {{totalAmount}}</div>
             </div>
             <button class="btn_cart fontGotham">CHECKOUT</button>
           </div>
         </div>
       </div>
-      <div class="card_cart  w-50 alert_trash">
+      <div class="card_cart  w-50 alert_trash" style="display: none;">
         <div class="card-body">
           <p class="card-text h3 fontGotham">Are you sure you want to delete the ENTIRE cart?.</p>
           <div class="  d-flex justify-content-around">
-            <button class="btn_cart fontGotham btn" style="font-size:14px;">Yes</button>
-            <button class="btn_cart fontGotham btn " style="font-size:14px;" >Not</button>
+            <button class="btn_cart fontGotham btn" style="font-size:14px;" @click="emptyCart()">Yes</button>
+            <button class="btn_cart fontGotham btn " style="font-size:14px;" >No</button>
           </div>
         </div>
 

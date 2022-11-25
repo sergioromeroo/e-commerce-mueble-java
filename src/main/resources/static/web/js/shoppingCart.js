@@ -86,16 +86,16 @@ const app = Vue.createApp({
             window.location.reload()
         },
 
-        crateTicket() {
-            this.shoppingCart.forEach(product => this.idProduct = product.id)
-            axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${this.paymentMethodVModel}&idProduct=${this.idProduct}`)
-                .then(response => {
-                    console.log(response)
-                    localStorage.clear()
-                    window.location.assign("./products.html")
-            })
-            .catch(error => console.log(error))
-        }
+        // crateTicket() {
+        //     this.shoppingCart.forEach(product => this.idProduct = product.id)
+        //     axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${this.paymentMethodVModel}&idProduct=${this.idProduct}`)
+        //         .then(response => {
+        //             console.log(response)
+        //             localStorage.clear()
+        //             window.location.assign("./products.html")
+        //     })
+        //     .catch(error => console.log(error))
+        // }
 
     },
     computed: {

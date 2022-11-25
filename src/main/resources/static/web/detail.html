@@ -65,9 +65,9 @@
             </div>
 
             <div class="cajaflex">
-              <div class="caja"><p>category: {{details.type}}</p></div>
-            <div class="caja"><p>material: {{details.materialType}}</p></div>
-            <div class="caja"><p>stock: {{details.stock}}</p></div>
+              <div class="caja"><p>Category: {{details.type}}</p></div>
+            <div class="caja"><p>Material: {{details.materialType}}</p></div>
+            <div class="caja"><p>Stock: {{details.stock}}</p></div>
             </div>
 
             <button type="button" class="btn btn-dark btn-lg">🤍</button>
@@ -75,7 +75,7 @@
 
 
           <div class = "purchase-info">
-            <button type = "button" class = "btn">
+            <button type = "button" class = "btn" @click="addProductToShoppingCart(details)">
               Add to Cart <i class = "fas fa-shopping-cart"></i>
             </button>
           </div>
