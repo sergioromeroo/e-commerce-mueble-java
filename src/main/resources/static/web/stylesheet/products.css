@@ -192,3 +192,7 @@
 .products .section-filters{
     display: none;
 }
+
+.products .container-fluid {
+  background: #fff;
+}
