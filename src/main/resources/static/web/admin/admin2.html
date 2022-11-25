@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Drom Admin Dashboard</title>
-    <link rel="stylesheet" href="../stylesheet/admin2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheet/admi-clients.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 
@@ -33,7 +34,7 @@
                     </li>
 
 
-                    <a href="">
+                    <a href="./clients.html">
                         <span class="las la-user"></span>
                         <small>Clients</small>
                     </a>
@@ -114,17 +115,20 @@
                             <select name="" id="">
                                 <option value="">Stock more than</option>
                             </select>
-
+                        
                         </div>
 
-                        <div class="browse">
-                            <input type="search" placeholder="Search Product" class="record-search">
-
-                        </div>
+                     
                     </div>
+                    <form class="form-search" method="get" action="#">
+                        <input type="search" name="search" placeholder="Search Product here.">
+                        <button type="submit">Search</button>
+                        
+                    </form>
+            
 
                     <div>
-                        <table width="100%">
+<!--                         <table width="100%">
                             <thead>
                                 <tr>
                                     <th># Product Id</th>
@@ -157,14 +161,7 @@
                                         {{producto.stock}}
                                     </td>
                                     <td>
-                                        <!-- <a class="botons" href="/products/detail/<%= producto.id %>"><i class="las la-edit
-                                        [&#xf1f8;]"></i>
-                                        <a class="botons2" 
-                                        href="/products/detail/<%= producto.id %>"><i class="las la-trash
-                                        [&#xf1f8;]"></i>
-                                      </a>
-
-                                        </a> -->
+                           
                                         <button class="botons"><i class="las la-edit
                                             [&#xf1f8;]"></i>
                                         </button>
@@ -182,7 +179,71 @@
 
 
                             </tbody>
-                        </table>
+                        </table> -->
+                        <table>
+                            <thead>
+                              <tr>
+                                <th scope="col">Product Id</th>
+                                <th scope="col"> Name</th>
+                                <th scope="col">Materia Type</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Edit/Delete</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr  v-for="producto in productsEnableTrue">
+                                <td data-label="Product Id"> # {{producto.id}}</td>
+                                <td data-label="Name"> {{producto.name}}</td>
+                                <td data-label="Material Type"> {{producto.materialType}}</td>
+                                <td data-label="Price"> {{producto.price}}</td>
+                                <td data-label="Type"> {{producto.type}}</td>
+                                <td data-label="Stock"> {{producto.stock}}</td>
+                                <td data-label="Edit/Delete">     
+                                    
+                                    <button data-toggle="modal" data-target="#exampleModalCenter" class="botons"><i   class="las la-edit
+                                    [&#xf1f8;]"></i>
+                                </button>
+                                <button class="botons2" v-on:click="deleteProduct(producto)"><i class="las la-trash
+                                    [&#xf1f8;]"></i>
+                                </button> </td>
+                              </tr>
+                           
+                            </tbody>
+                          </table>
+                        
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Edit Product</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="">Product Id:</label>
+                                    <input v-model="id" type="number">
+                                    <br>
+                                    <br>
+                                    <label for="">Stock:</label>
+                                   <input v-model="stock2" type="number">
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button"v-on:click="editProduct()" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                
+
                     </div>
 
                 </div>
@@ -196,5 +257,8 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="../js/admin-products.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>

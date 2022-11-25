@@ -13,6 +13,8 @@ const app = Vue.createApp({
             materialType: "",
             description: "",
             productsEnableTrue: [],
+            stock2:"",
+            id:""
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -33,11 +35,22 @@ const app = Vue.createApp({
                 })
         },
         createProduct() {
-            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, stock: this.stock, materialType: this.materialType, description: this.description })
+            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, materialType: this.materialType, description: this.description })
                 .then(() => {
 
                     /*  aca iria un sweet alert    */
                     alert("Producto creado");
+                })
+        },
+        editProduct() {
+            axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
+                .then(() => {
+
+                    /*  aca iria un sweet alert    */
+                    alert("Producto editado");
+                })
+                .then(() => {
+                    window.location.pathname = '/web/admin/admin2.html';
                 })
         },
 
