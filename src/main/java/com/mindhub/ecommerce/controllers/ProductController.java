@@ -64,14 +64,16 @@ public class ProductController {
 
 
 
-    @DeleteMapping("/products/delete")
+    @PatchMapping("/products/delete")
     public ResponseEntity<?> deleteProduct(
             @RequestParam long id
     ){
 
         Product productFound = productService.findById(id);
 
-        productService.deleteProduct(productFound);
+        productFound.setEnable(false);
+
+        productService.saveProduct(productFound);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

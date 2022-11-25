@@ -29,7 +29,7 @@ public class Product {
 
     private String description;
 
-
+    private boolean enable = true;
 
     public Product() {}
 
@@ -117,5 +117,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }
