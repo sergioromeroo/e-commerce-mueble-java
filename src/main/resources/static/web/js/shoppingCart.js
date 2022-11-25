@@ -5,6 +5,7 @@ const app = Vue.createApp({
             totalAmount: 0,
             paymentMethodVModel: "",
             idProduct: 0,
+
         }
     },
     created() {
