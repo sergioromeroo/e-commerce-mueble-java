@@ -208,6 +208,10 @@
     border-radius: 0px;
 }
 
+.detail p{
+    margin-top: 10px;
+}
+
 
 @media screen and (min-width: 992px){
     .detail .card{
