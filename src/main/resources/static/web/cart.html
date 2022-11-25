@@ -49,26 +49,9 @@
         </div>
         <div class="nav">
           <div class="nav-menu">
-            <a href="">store</a>
-            <a href="">location</a>
-            <a href="">About us</a>
-          </div>
-          <div class="nav-icons">
-            <a href="">
-              <img src="./img/icons/wishlist.png" alt="" />
-            </a>
-            <a v-on:click="accounts">
-              <img type="button" src="./img/icons/account.png" alt="" />
-            </a>
-            <a href="">
-              <img src="./img/icons/cart.png" alt="" />
-            </a>
-            <a href="">
-              <img src="./img/icons/search.png" alt="" />
-            </a>
-            <a href="" class="burger-menu">
-              <img src="./img/icons/burger.png" alt="" />
-            </a>
+            <a href="./products.html">store</a>
+            <a href="./quienes-somos.html">location</a>
+            <a href="./contact.html">About us</a>
           </div>
         </div>
       </div>
@@ -84,8 +67,13 @@
                   </div>
                   <div class="col align-self-center text-right text-muted">
                     3 items
+                    
+                  </div>
+                  <div class="col d-flex justify-content-end text-left">
+                    <i class="bi bi-trash3-fill cartRed h3 text-left"></i>
                   </div>
                 </div>
+                
               </div>
               <div class="row border-top border-bottom">
                 <div class="row main align-items-center">
@@ -97,44 +85,23 @@
                     <div class="row">Cotton T-shirt</div>
                   </div>
                   <div class="col">
-                    <div class="">
-                      <i class="col bi bi-plus-circle h3"></i>
-                      <a href="#" class="col border h3">1</a>
-                      <i class="bi col bi-dash-circle h3"></i>
+                    <div class="row  ">
+                      <i class="col w-100 bi bi-plus-circle sizeItemsCart h3"></i>
+                      <a href="#" class="col w-100 border sizeItemsCart h2 ">1</a>
+                      <i class="bi col w-100 bi-dash-circle sizeItemsCart h3"></i>
+
                     </div>
                   </div>
-                  <div class="col">
-                    44.00 <span class="close"></span>
+                  <div class="col"> 44.00 <span class="close"></span>
                     <button
-                      class="btn-close"
+                      class="btn-close  cartRed"
                       @click="deleteProduct(product)"
                     ></button>
                   </div>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="row main align-items-center">
-                  <div class="col-2">
-                    <img
-                      class="w-100 img-fluid"
-                      src="./images/hero-product-1.jpg"
-                    />
-                  </div>
-                  <div class="col">
-                    <div class="row text-muted">Shirt</div>
-                    <div class="row">Cotton T-shirt</div>
-                  </div>
-                  <div class="col">
-                    <a href="#">-</a><a href="#" class="border">1</a
-                    ><a href="#">+</a>
-                  </div>
-                  <div class="col">
-                    44.00 <span class="close">&#10005;</span>
-                  </div>
-                </div>
-              </div>
-
+             
               <div class="back-to-shop">
                 <a href="./products.html">&leftarrow;</a
                 ><span class="text-muted">Back to shop</span>
@@ -147,7 +114,7 @@
               </div>
               <hr />
               <div class="row">
-                <div class="col" style="padding-left: 0">ITEMS 3</div>
+                <div class="col" style="padding-left: 0">ITEMS </div>
                 <div class="col text-right">132.00</div>
               </div>
               <form>
