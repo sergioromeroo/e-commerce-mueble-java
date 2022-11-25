@@ -362,6 +362,15 @@ ul.nav-menu-ul-bottom li a {
     text-transform: uppercase;
     font-weight: bold;
 }
+.index .categories-with-img .storage .storage-btn-buy a:hover{
+    background-color: #fff;
+    color: black
+}
+
+.index .categories-with-img .tables .tables-btn-buy a:hover{
+    background-color: #fff;
+    color: black
+}
 
 
 .index .section3-title h3{
