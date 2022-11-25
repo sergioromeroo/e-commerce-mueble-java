@@ -7,19 +7,19 @@ const app = Vue.createApp({
             idProduct: 0,
         }
     },
-    created() {  
+    created() {
     },
     mounted() {
-  
+
         let currentCart = JSON.parse(localStorage.getItem('cart'))
-        if(!currentCart) {
+        if (!currentCart) {
             this.shoppingCart = []
         } else {
             this.shoppingCart = currentCart
         }
-  
+
         let currentTotalAmount = JSON.parse(localStorage.getItem('totalAmount'))
-        if(currentTotalAmount != 0){
+        if (currentTotalAmount != 0) {
             this.totalAmount = currentTotalAmount
         }
     },
@@ -32,43 +32,43 @@ const app = Vue.createApp({
             })
             localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
         },
-        cartStorage(){
+        cartStorage() {
             localStorage.setItem('cart', JSON.stringify(this.shoppingCart))
             this.finalAmount()
         },
-        addProductToShoppingCart(selectProduct){
-  
-                let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
-  
-                if (repeatedProduct.length > 0) {
-                    // CASO EN EL QUE ESTA EL ELEMENTO YA EN EL CARRITO
-                    this.shoppingCart.filter(item => {
-                        if (item.id == selectProduct.id) {
-                            if (item.stock > 0) {
-                                item.quantity++
-                                item.stock--
-                            }
+        addProductToShoppingCart(selectProduct) {
+
+            let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
+
+            if (repeatedProduct.length > 0) {
+                // CASO EN EL QUE ESTA EL ELEMENTO YA EN EL CARRITO
+                this.shoppingCart.filter(item => {
+                    if (item.id == selectProduct.id) {
+                        if (item.stock > 0) {
+                            item.quantity++
+                            item.stock--
                         }
-                    })
-                    this.cartStorage()
-                }
-                else {
-                    // CASO EN EL QUE NO ESTA
-                    this.productsBackUp.filter(product => {
-                        if (product.id == selectProduct.id) {
-                                product.stock--
-                        }
-                    })
-                    this.shoppingCart.push(selectProduct)
-                    this.cartStorage()
-                }
-  
-                //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
+                    }
+                })
+                this.cartStorage()
+            }
+            else {
+                // CASO EN EL QUE NO ESTA
+                this.productsBackUp.filter(product => {
+                    if (product.id == selectProduct.id) {
+                        product.stock--
+                    }
+                })
+                this.shoppingCart.push(selectProduct)
+                this.cartStorage()
+            }
+
+            //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
         },
-        deleteOneItem(selectProduct){
-            if(selectProduct.quantity > 0){
+        deleteOneItem(selectProduct) {
+            if (selectProduct.quantity > 0) {
                 this.shoppingCart.filter(product => {
-                    if(product.id == selectProduct.id){
+                    if (product.id == selectProduct.id) {
                         product.quantity--
                         product.stock++
                     }
@@ -76,7 +76,7 @@ const app = Vue.createApp({
             }
             this.cartStorage()
         },
-        deleteProduct(selectProduct){
+        deleteProduct(selectProduct) {
             this.shoppingCart = this.shoppingCart.filter(product => product != selectProduct)
             this.cartStorage()
         },
@@ -85,23 +85,18 @@ const app = Vue.createApp({
             window.location.reload()
         },
 
-        crateTicket(){
+        crateTicket() {
             this.shoppingCart.forEach(product => this.idProduct = product.id)
             axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${this.paymentMethodVModel}&idProduct=${this.idProduct}`)
-            .then(response => console.log(response))
-            .catch(error => error)
-
-
-            // axios.post('/api/login', `email=${this.email}&password=${this.contraseña}`).then(response => window.location.assign("./accounts.html"))
-            //     .catch(function (error) {
-            //         console.log(error.response)
-            //         Swal.fire({
-            //             text:'Email o contraseña incorrecta',
-            //             confirmButtonColor: 'lightgreen',})
-            //     })
+                .then(response => {
+                    console.log(response)
+                    localStorage.clear()
+                    window.location.assign("./products.html")
+            })
+            .catch(error => console.log(error))
         }
-  
+
     },
     computed: {
     }
-  }).mount('#app')
+}).mount('#app')
