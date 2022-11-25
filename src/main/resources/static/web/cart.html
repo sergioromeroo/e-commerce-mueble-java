@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheet/style.css" />
+    <link rel="stylesheet" href="./stylesheet/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body class="index fondo_imagen">
+    <div id="app">
+      <div class="nav-logo">
+        <div class="logo">
+          <a href="#" class="logo-contain">
+            <img
+              class="img-logo"
+              src="./img/logo/logo-black.png"
+              alt
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="nav">
+          <div class="nav-menu">
+            <a href="">store</a>
+            <a href="">location</a>
+            <a href="">About us</a>
+          </div>
+          <div class="nav-icons">
+            <a href="">
+              <img src="./img/icons/wishlist.png" alt="" />
+            </a>
+            <a v-on:click="accounts">
+              <img type="button" src="./img/icons/account.png" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/icons/cart.png" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/icons/search.png" alt="" />
+            </a>
+            <a href="" class="burger-menu">
+              <img src="./img/icons/burger.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <main class="w-100" style="display: block">
+        <div class="cards">
+          <div class="row">
+            <div class="col-md-8 cart">
+              <div class="title">
+                <div class="row">
+                  <div class="col">
+                    <h4><b>Shopping Cart</b></h4>
+                  </div>
+                  <div class="col align-self-center text-right text-muted">
+                    3 items
+                  </div>
+                </div>
+              </div>
+              <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                  <div class="col-2">
+                    <img class="img-fluid w-100" src="./images/product-1.jpg" />
+                  </div>
+                  <div class="col">
+                    <div class="row text-muted">Shirt</div>
+                    <div class="row">Cotton T-shirt</div>
+                  </div>
+                  <div class="col">
+                    <div class="">
+                      <i class="col bi bi-plus-circle h3"></i>
+                      <a href="#" class="col border h3">1</a>
+                      <i class="bi col bi-dash-circle h3"></i>
+                    </div>
+                  </div>
+                  <div class="col">
+                    44.00 <span class="close"></span>
+                    <button
+                      class="btn-close"
+                      @click="deleteProduct(product)"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="row main align-items-center">
+                  <div class="col-2">
+                    <img
+                      class="w-100 img-fluid"
+                      src="./images/hero-product-1.jpg"
+                    />
+                  </div>
+                  <div class="col">
+                    <div class="row text-muted">Shirt</div>
+                    <div class="row">Cotton T-shirt</div>
+                  </div>
+                  <div class="col">
+                    <a href="#">-</a><a href="#" class="border">1</a
+                    ><a href="#">+</a>
+                  </div>
+                  <div class="col">
+                    44.00 <span class="close">&#10005;</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="back-to-shop">
+                <a href="./products.html">&leftarrow;</a
+                ><span class="text-muted">Back to shop</span>
+              </div>
+            </div>
+
+            <div class="col-md-4 summary">
+              <div>
+                <h5><b>Summary</b></h5>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col" style="padding-left: 0">ITEMS 3</div>
+                <div class="col text-right">132.00</div>
+              </div>
+              <form>
+                <p>Payment method</p>
+                <select name="" id="" v-model="paymentMethodVModel">
+                  <option value="paypal" class="text-muted">paypal</option>
+                  <option v-model="tarjeta" value="tarjeta" class="text-muted">
+                    Tarjeta
+                  </option>
+                </select>
+                <div v-if="paymentMethodVModel == 'tarjeta'">
+                  <p>pick a card</p>
+                  <select>
+                    <option value="paypal" class="text-muted">Credito</option>
+                    <option
+                      v-model="tarjeta"
+                      value="tarjeta"
+                      class="text-muted">
+                      Devito
+                    </option>
+                  </select>
+                </div>
+                <p>GIVE CODE</p>
+                <input id="code" placeholder="Enter your code" />
+              </form>
+              <div
+                class="row"
+                style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+              >
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">137.00</div>
+              </div>
+              <button class="btn">CHECKOUT</button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footerDelContat">
+        <div class="footer">
+          <div class="footer-top">
+            <div class="footer-top1">
+              <div>
+                <p>Drommel © 2022</p>
+              </div>
+              <div class="store-online-footer">
+                <p>Online furniture store</p>
+              </div>
+            </div>
+            <div class="footer-top2">
+              <p>privacy policy</p>
+              <p>public offer</p>
+              <p>where to find us</p>
+              <div class="icons-footer">
+                <a href=""><i class="bx bxl-facebook"></i></a>
+                <a class="ig" href=""><i class="bx bxl-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-bottom-text">
+              <p>website development: <span> mindhub</span></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+  <script src="./js/shoppingCart.js"></script>
+</html>
