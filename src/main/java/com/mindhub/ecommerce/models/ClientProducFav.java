@@ -25,8 +25,6 @@ public class ClientProducFav {
 
 
 
-
-
     public ClientProducFav() {
     }
 

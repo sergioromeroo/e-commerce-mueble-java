@@ -1,13 +1,7 @@
 package com.mindhub.ecommerce;
 
-import com.mindhub.ecommerce.models.Client;
-import com.mindhub.ecommerce.models.Product;
-import com.mindhub.ecommerce.models.Ticket;
-import com.mindhub.ecommerce.models.TicketProduct;
-import com.mindhub.ecommerce.repositories.ClientRepository;
-import com.mindhub.ecommerce.repositories.ProductRepository;
-import com.mindhub.ecommerce.repositories.TicketProductRepository;
-import com.mindhub.ecommerce.repositories.TicketRepository;
+import com.mindhub.ecommerce.models.*;
+import com.mindhub.ecommerce.repositories.*;
 import com.mindhub.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -34,7 +28,7 @@ public class EcommerceApplication {
 
 
 	@Bean
-	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository){
+	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository, ProductFavoriteRepository productFavoriteRepository){
 		return args -> {
 
 			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456);
@@ -135,6 +129,14 @@ public class EcommerceApplication {
 
 			ticketProductRepository.save(ticketProduct1);
 			ticketProductRepository.save(ticketProduct2);
+
+
+			ProductFavorite producFav = new ProductFavorite("sillon","x",1000);
+
+			productFavoriteRepository.save(producFav);
+
+//			ClientProducFav clientProducFav = new ClientProducFav(client1, producFav);
+
 
 
 

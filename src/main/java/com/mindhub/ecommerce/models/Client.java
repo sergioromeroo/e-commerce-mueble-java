@@ -32,7 +32,8 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     Set<Ticket> tickets = new HashSet<>();
 
-
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    Set<ClientProducFav> productsFavorites = new HashSet<>();
 
 
 
@@ -47,6 +48,9 @@ public class Client {
         this.password = password;
         this.cellPhone = cellPhone;
     }
+
+
+
 
     public long getId() {
         return id;
@@ -108,5 +112,10 @@ public class Client {
 
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+
+    public Set<ClientProducFav> getProductsFavorites() {
+        return productsFavorites;
     }
 }

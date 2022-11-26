@@ -2,10 +2,9 @@ package com.mindhub.ecommerce.models;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -24,6 +23,9 @@ public class ProductFavorite {
     private double priceProduct;
 
 
+
+    @OneToMany(mappedBy = "productFavorite",fetch = FetchType.EAGER)
+    Set<ClientProducFav> client = new HashSet<>();
 
 
 
@@ -72,4 +74,11 @@ public class ProductFavorite {
     public void setPriceProduct(double priceProduct) {
         this.priceProduct = priceProduct;
     }
+
+
+    public Set<ClientProducFav> getClient() {
+        return client;
+    }
 }
+
+

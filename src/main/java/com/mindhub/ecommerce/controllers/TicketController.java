@@ -78,15 +78,14 @@ public class TicketController {
 
         for(int i = 0; i < idProduct.size(); i++){
 
-            Product hola =  productService.findById(idProduct.get(i));
-            int x = quantity.get(i);
-            System.out.println(x);
-            System.out.println(hola);
-            hola.setStock(hola.getStock() - x);
-            productService.saveProduct(hola);
-            System.out.println(hola);
+            Product productFound =  productService.findById(idProduct.get(i));
+            int subtraction = quantity.get(i);
 
-            ticketProductRepository.save(new TicketProduct(ticketCurrent, hola)); // aca guardamos el ticket product
+            productFound.setStock(productFound.getStock() - subtraction);
+            productService.saveProduct(productFound);
+
+
+            ticketProductRepository.save(new TicketProduct(ticketCurrent, productFound)); // aca guardamos el ticket product
         }
 
 
