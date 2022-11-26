@@ -38,7 +38,7 @@
                     <a href="">
                         <img src="./img/icons/wishlist.png" alt="">
                     </a>
-                    <a v-on:click="accounts">
+                     <a > <!--v-on:click="accounts" -->
                         <img type="button" src="./img/icons/account.png" alt="">
                     </a>
                     <a href="">
@@ -83,7 +83,7 @@
                                         <div class="fw-bold mb-2 text-uppercase">
                                             <h2>General Support</h2>
                                             <p class=" nenoHrefDecoration"><a href=""
-                                                    class="nenoHrefDecoration"> mindhub@yahoo.com.ar </a></p>
+                                                    class="nenoHrefDecoration">Future_furniture@mindhub.com.ar </a></p>
                                         </div>
                                     </div>
 
@@ -104,37 +104,37 @@
                                 <div class="card-body p-5 text-center ">
                                     <div class="mb-md-5 mt-md-4 pb-5">
 
-                                        <h2 class="fw-bold mb-2 text-uppercase">Concact</h2>
+                                        <h2 class="fw-bold mb-2 text-uppercase">Contact</h2>
 
 
-                                        <p class="text-white-50 mb-5"> please fill all the form</p>
+                                        <p class="text-white-50 mb-5"> Please fill all the form</p>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="email" id="typeEmailX"
+                                            <input type="email" id="typeEmailX" v-model="emailVModel"
                                                 class="form-control fontContat form-control-lg" />
                                             <label class="form-label" for="typeEmailX">Email</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="name" id="name"
+                                            <input type="name" id="name" v-model="nameVModel"
                                                 class="form-control fontContat form-control-lg" />
-                                            <label class="form-label" for="name">name</label>
+                                            <label class="form-label" for="name">Name</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="name" id="reason"
+                                            <input type="name" id="reason" v-model="reasonVModel"
                                                 class="form-control fontContat form-control-lg" />
-                                            <label class="form-label" for="reason">reason</label>
+                                            <label class="form-label" for="reason">Reason</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <label for="message">message</label>
-                                            <textarea class="form-control fontContat" id="message"
+                                            <textarea class="form-control fontContat" v-model="messageVModel" id="message"
                                                 rows="4"></textarea>
+                                            <label for="message">Message</label>
                                         </div>
 
                                         <button class="btn btn-outline-light btn-lg px-5 m-5"
-                                            type="submit">Send</button>
+                                            type="submit" @click="sendEmail()">Send</button>
 
                                     </div>
 
@@ -186,7 +186,7 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="./js/index.js"></script>
-<script src="./js/login-register.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/contact.js"></script>
 
 </html>

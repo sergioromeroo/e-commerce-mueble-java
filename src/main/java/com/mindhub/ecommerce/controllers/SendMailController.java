@@ -47,13 +47,15 @@ public class SendMailController {
             @RequestParam String description
     ){
 
+
         SimpleMailMessage email = new SimpleMailMessage();
 
 
         email.setTo("estodounatema23@gmail.com");
         email.setFrom(contactFrom);
+        email.getReplyTo();
         email.setSubject(subject);
-        email.setText(description);
+        email.setText(description + " reply to: " + contactFrom);
 
 
         mail.send(email);
