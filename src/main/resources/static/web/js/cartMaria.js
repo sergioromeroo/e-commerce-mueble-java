@@ -2,15 +2,16 @@ const app = Vue.createApp({
     data() {
         return {
             shoppingCart: [],
+            shoppingCartBackUp: [],
             totalAmount: 0,
             paymentMethodVModel: "",
-            cart_alert: false,
 
             idProducts: [],
             quantityProducts: [],
 
             numberCardVModel: null,
             cvvCardVModel: null,
+
         }
     },
     created() {
@@ -91,43 +92,9 @@ const app = Vue.createApp({
             window.location.reload()
         },
 
-        createTicket() {
-            axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
-                .then(response => {
-                    console.log(response)
-                    this.ordenateArray()
-                    axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${response.data}&idProduct=${this.idProducts}&quantity=${this.quantityProducts}`)
-                        .then(resp => {
-                            console.log(resp)
-                            Swal.fire({
-                                text: `${response.data}`,
-                                text: `go to index`,
-                                confirmButtonColor: 'lightgreen',
-                                willClose: () => {
-                                    this.emptyCart()
-                                    window.location.assign("./index.html")
-                                }
-                            })
-                        })
-                }).catch(error => {
-                    console.log(error)
-                    Swal.fire({
-                        text: `${error.response.data}`,
-                        confirmButtonColor: 'lightgreen',
-                    })
-                })
-                .catch(error => {
-                    console.log(error)
-                    Swal.fire({
-                        text: `${error}`,
-                        confirmButtonColor: 'lightgreen',
-                    })
-                })
-        },
-
-        ordenateArray() {
+        createArrays(){
             console.log(this.shoppingCart)
-
+            
             this.shoppingCartBackUp = this.shoppingCart
 
             this.shoppingCartBackUp.sort((a, b) => { if (a.id > b.id) { return 1 } if (a.id < b.id) { return -1 } }).forEach(product => {
@@ -136,8 +103,38 @@ const app = Vue.createApp({
             })
 
             console.log(this.shoppingCart)
+
             console.log(this.idProducts)
             console.log(this.quantityProducts)
+        },
+
+        createTicket() {
+            // this.shoppingCart.sort((a, b) => { if (a.id > b.id) { return 1 } if (a.id < b.id) { return -1 } }).forEach(product => {
+            //     this.idProduct = product.id
+            // })
+
+            axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
+                .then(response => {
+                    console.log(response)
+                    axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${response.data}&idProduct=${this.idProducts}&quantity=${this.quantityProducts}`)
+                    .then(resp => {
+                        console.log(resp)
+                        Swal.fire({
+                            text:`${response.data}`,
+                            confirmButtonColor: 'lightgreen',})
+                    })
+            }).catch(error => {
+                console.log(error)
+                Swal.fire({
+                    text:`${error.response.data}`,
+                    confirmButtonColor: 'lightgreen',})
+            })
+            .catch(error => {
+                console.log(error)
+                Swal.fire({
+                    text:`${error.response.data}`,
+                    confirmButtonColor: 'lightgreen',})
+            })
         },
 
     },

@@ -49,6 +49,9 @@
             <div>
                 <button class="btn btn-danger" @click="emptyCart()">Vaciar carrito</button>
             </div>
+
+            <button class="btn btn-warning m-5" @click="createArrays()">Ordenar</button>
+
             <div>
                 <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Comprar
@@ -71,18 +74,24 @@
                     <p>Cantidad de productos: {{shoppingCart.length}}</p>
                     <p>Total: ${{totalAmount}}</p>
                     <label for="">Metodo de pago</label>
-                    <select name="" id="" v-model="paymentMethodVModel">
+
+                    <label for="numberCard">numero tarjeta</label>
+                    <input type="number" v-model="numberCardVModel" name="numberCard" id="numberCard">
+
+                    <label for="cvvCard">cvv</label>
+                    <input type="number" v-model="cvvCardVModel" name="cvvCard" id="cvvCard">
+                    <!-- <select name="" id="" v-model="paymentMethodVModel">
                         <option value="efectivo">Efectivo</option>
                         <option value="tarjeta">Tarjeta</option>
                     </select>
                     <select name="" id="" v-if="paymentMethodVModel == tarjeta">
                         <option value="efectivo">Efectivo</option>
                         <option value="tarjeta">Tarjeta</option>
-                    </select>
+                    </select> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" @click="crateTicket()">Ir a pagos</button>
+                    <button type="button" class="btn btn-primary" @click="createTicket()">Ir a pagos</button>
                 </div>
             </div>
         </div>
@@ -96,7 +105,8 @@
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3"></script>
-<script src="./js/shoppingCart.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/cartMaria.js"></script>
 </body>
 
 </html>

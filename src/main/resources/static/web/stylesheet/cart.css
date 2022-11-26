@@ -10,6 +10,7 @@
     border-radius: 1rem;
     border: transparent;
 }
+
 .alert_trash{
     position: absolute;
     z-index: 2;
@@ -47,7 +48,6 @@ border: 1px solid rgba(235, 224, 224, 1);
 }
 .summary{
     
-    border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 4vh;
     color: rgb(65, 65, 65);
@@ -131,9 +131,9 @@ input:focus::-webkit-input-placeholder
     margin-top: 4vh;
     padding: 1vh;
     border-radius: 0;
-    border: #000 5px solid;
 
 }
+
 .btn_cart:focus{
     box-shadow: none;
     outline: none;
@@ -142,13 +142,15 @@ input:focus::-webkit-input-placeholder
     -webkit-box-shadow: none;
     -webkit-user-select: none;
     transition: none; 
-    border: #000 5px solid;
 }
+
+
 .btn_cart:hover{
-    
+
     color: #000;
 
 }
+
 a{
     color: black; 
 }
