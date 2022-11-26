@@ -13,7 +13,7 @@
     <div id="app" class="m-3">
 
         <!-- CARRITO -->
-        <div>
+        <!-- <div>
             <div>
                 <h2>Total: ${{totalAmount}}</h2>
             </div>
@@ -57,13 +57,13 @@
                     Comprar
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <!-- MODAL COMPRA -->
     
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -88,14 +88,82 @@
                         <option value="efectivo">Efectivo</option>
                         <option value="tarjeta">Tarjeta</option>
                     </select> -->
-                </div>
+                <!-- </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" @click="createTicket()">Ir a pagos</button>
                 </div>
             </div>
         </div>
+    </div>  -->
+
+
+    <div class="m-5">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Products</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="ticket in tickets">
+                <th scope="row">{{ticket.id}}</th>
+                <td>{{ticket.date}}</td>
+                <td>${{ticket.amount}}</td>
+                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="productTicket(ticket)">
+                    ver mas
+                  </button></td>
+              </tr>
+            </tbody>
+          </table>
     </div>
+
+    <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="m-5">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Material type</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="product in productForTicket">
+                        <td scope="row">{{product.name}}</td>
+                        <td>{{product.materialType}}</td>
+                        <td>${{product.price}}</td>
+                        <td>{{product.quantity}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
     </div>

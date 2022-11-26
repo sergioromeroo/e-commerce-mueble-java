@@ -2,6 +2,8 @@ const app = Vue.createApp({
     data() {
         return {
             products: [],
+            productsBackUp: [],
+            inputSearchVModel: "",
             urlApi: "/api/products",
             ticket: [],
             search: "",
@@ -28,8 +30,10 @@ const app = Vue.createApp({
             axios.get(url) //con axios estoy consumiendo una api 
                 .then((response) => {
                     this.products = response.data;
+                    
                     this.ticket = this.products.tickets
                     this.productsEnableTrue = this.products.filter(product => product.enable == true)
+                    this.productsBackUp = this.productsEnableTrue
                     console.log(this.productsEnableTrue);
 
                 })
@@ -74,6 +78,14 @@ const app = Vue.createApp({
         }
     },
     computed: {
+
+        searchFilter(){
+            if(this.inputSearchVModel != ""){
+            this.productsEnableTrue = this.productsBackUp.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+            } else {
+                this.productsEnableTrue = this.productsBackUp
+            }
+        }
         /* filtroBuscador() {
             this.productos = this.productos.filter(producto => producto.name.toLowerCase().includes(this.busqueda.toLowerCase()))
         } */
