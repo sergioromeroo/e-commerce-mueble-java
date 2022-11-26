@@ -41,7 +41,7 @@ public class SendMailController {
 
     @PostMapping("/sendemailcontact")
     public ResponseEntity<?> send_mail_contact(
-            @RequestParam String contactTo,
+            @RequestParam String name,
             @RequestParam String contactFrom,
             @RequestParam String subject,
             @RequestParam String description
@@ -50,7 +50,7 @@ public class SendMailController {
         SimpleMailMessage email = new SimpleMailMessage();
 
 
-        email.setTo(contactTo);
+        email.setTo("estodounatema23@gmail.com");
         email.setFrom(contactFrom);
         email.setSubject(subject);
         email.setText(description);
