@@ -10,7 +10,6 @@ const app = Vue.createApp({
             relacionados: [],
 
 
-
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -33,14 +32,15 @@ const app = Vue.createApp({
         loadData(url) { //hacemos una peticion a la pagina web consumir los datos en tiempo real
             axios.get(url) //con axios estoy consumiendo una api 
                 .then((response) => {
-                    this.products = response.data;
-                    this.ticket = this.products.tickets
+                    this.products = response.data.filter(data => data.enable)
+                    //this.ticket = this.products.tickets
                     this.details = this.products.find(value => value.id == this.id)
                     this.products.forEach(product => {
                         if (product.type == this.details.type && this.relacionados.length < 4) {
                             this.relacionados.push(product)
                         }
                     })
+                    console.log(this.products)
 
 
                 })

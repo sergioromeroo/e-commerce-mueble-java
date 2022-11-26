@@ -143,14 +143,12 @@ const app = Vue.createApp({
       loadProducts() {
           axios.get('/api/products')
               .then(response => {
-                  this.products = response.data
+                  this.products = response.data.filter(data => data.enable)
                   this.productsBackUp = this.products
                   this.products.forEach(product => !this.typeCategory.includes(product.type) ? this.typeCategory.push(product.type) : "")
                   this.products.forEach(product => !this.materialTypeCategory.includes(product.materialType) ? this.materialTypeCategory.push(product.materialType) : "")
                   console.log(this.products)
 
-
-                  console.log(this.typeCategory);
               })
               .catch(error => console.log(error))
       },

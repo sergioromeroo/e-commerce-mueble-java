@@ -106,8 +106,6 @@ const app = Vue.createApp({
 
             console.log(this.idProducts)
             console.log(this.quantityProducts)
-
-
         },
 
         createTicket() {
@@ -121,11 +119,23 @@ const app = Vue.createApp({
                     axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${response.data}&idProduct=${this.idProducts}&quantity=${this.quantityProducts}`)
                     .then(resp => {
                         console.log(resp)
-                        this.emptyCart()
+                        Swal.fire({
+                            text:`${response.data}`,
+                            confirmButtonColor: 'lightgreen',})
                     })
+            }).catch(error => {
+                console.log(error)
+                Swal.fire({
+                    text:`${error.response.data}`,
+                    confirmButtonColor: 'lightgreen',})
             })
-            .catch(error => console.log(error))
-        }
+            .catch(error => {
+                console.log(error)
+                Swal.fire({
+                    text:`${error.response.data}`,
+                    confirmButtonColor: 'lightgreen',})
+            })
+        },
 
     },
     computed: {
