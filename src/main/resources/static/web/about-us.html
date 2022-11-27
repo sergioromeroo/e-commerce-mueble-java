@@ -6,49 +6,159 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 
-    - primary meta tag
-  -->
-  <title>(nombrepagina) - Get Quality Furniture</title>
-  <meta name="title" content="(nombrepagina) - Get Quality Furniture">
-  <meta name="description" content="This is an eCommerce html template made by codewithsadee">
 
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <title>about-us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">    
 
-  <!-- 
-    - custom css link
-  -->
+
   <link rel="stylesheet" href="./stylesheet/style.css">
 
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet">
 
-  <!-- 
-    - preload images
-  -->
-  <link rel="preload" as="image" href="./images/hero-product-1.jpg">
-  <link rel="preload" as="image" href="./images/hero-product-2.jpg">
-  <link rel="preload" as="image" href="./images/hero-product-3.jpg">
-  <link rel="preload" as="image" href="./images/hero-product-4.jpg">
-  <link rel="preload" as="image" href="./images/hero-product-5.jpg">
 
 </head>
 
-<body class="quienesomos">
+<body class="index products">
+  <div id="app">
 
+      <header class="header-products">
 
+          
+        <nav class="navbar fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand burger-menu-mob" href="#" ><img src="./img/logo/logo-black.png" alt=""></a>
+            <div class="nav-menu-container">
+                  <div class="nav-menu">
+                      <ul class="nav-menu-ul">
+                          <li>
+                              <a href="./index.html">home</a>
+                          </li>
+                          <li>
+                              <a href="./products.html">shop</a>
+                              <ul>
+                                  <li></li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="">contact us</a>
+                          </li>
+                          <li>
+                              <a href="">About us</a>
+                          </li>              
+                      </ul>
+                  </div>
+                  <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                      <div class="nav-icons">
+                          <a href="">
+                              <img src="./img/icons/wishlist.png" alt="">
+                          </a> 
+                          <a v-on:click="accounts">
+                              <img  type="button" src="./img/icons/account.png" alt="">
+                          </a>
+                          <a href="">
+                              <img src="./img/icons/cart.png" alt="">
+                          </a>
+                          <a href="">
+                              <img src="./img/icons/search.png" alt="">
+                          </a>
+                      
+                          <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
+                      </div>
+                  </button>
+            </div>
+              
+  
+  
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+
+                  <div class="burger-menu-mob">
+                      <a href="#" class="burger-menu-mob open-menu">
+                              <img src="./img/logo/logo-black.png" alt="">
+                      </a>
+                  </div>  
+                 
+                  <div class="nav-icons open-menu">
+                      <a href="">
+                          <img src="./img/icons/wishlist.png" alt="">
+                      </a> 
+                      <a v-on:click="accounts">
+                          <img  type="button" src="./img/icons/account.png" alt="">
+                      </a>
+                      <a href="">
+                          <img src="./img/icons/cart.png" alt="">
+                      </a>
+                      <a href="">
+                          <img src="./img/icons/search.png" alt="">
+                      </a>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                     
+                  </div>        
+               
+              </div>
+  
+  
+  
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  
+              
+                  <div class="nav-menu-burger">
+                      <ul class="nav-menu-ul">
+                          <li class="nav-item dropdown">
+                            <li>
+                              <a class="nav-link ancors-nav-burger" href="./index.html">home</a>
+                             </li>
+                              <a class="nav-link ancors-nav-burger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Shop
+                              </a>
+                             
+                            </li>
+                 
+                          <li>
+                              <a class="ancors-nav-burger" href="">contact us</a>
+                          </li>
+                          <li>
+                              <a class="ancors-nav-burger" href="">About us</a>
+                          </li>              
+                      </ul>
+
+                      <ul class="nav-menu-ul-bottom">
+                          <li>
+                              <a href="">Where to find us?</a>
+                              <a href="">need help?</a>
+                              <a href="">Payment Methods</a>
+                          </li>
+                      </ul>
+
+                  </div>
+                  
+                </ul>
+                
+              </div>
+  
+  
+            </div>
+
+          </div>
+        </nav>
+
+      </header>
+      </div>
 
       <!-- 
         - #ABOUT
       -->
+<div class="quienesomos">
+
 
       <section class="section about" id="about" aria-label="about">
         <div class="container">
@@ -63,18 +173,6 @@
           <div class="about-card">
           <video muted autoplay loop src="./images/VIDEO-SOFA.mp4" loading="lazy"></video>
         </div>
-
-
-<!--           <div class="about-card">
-            <figure class="card-banner img-holder" style="--width: 1170; --height: 450;">
-              <img src="./images/about-banner.jpg" width="1170" height="450" loading="lazy" alt="(nombrepagina) promo"
-                class="img-cover">
-            </figure>
-
-            <button class="play-btn" aria-label="play video">
-              <ion-icon name="play-circle-outline" aria-hidden="true"></ion-icon>
-            </button>
-          </div> -->
 
         </div>
       </section>
@@ -188,41 +286,45 @@
 
         </div>
       </section>
+    </div>
 
 
 
   </main>
 
+  <footer>
+    <div class="footer">
+        <div class="footer-top">
+            <div class="footer-top1">
+                <div><p>Drommel © 2022</p></div>
+                <div class="store-online-footer"><p>Online furniture store</p></div>
+            </div>
+            <div class="footer-top2">
+                <p>privacy policy</p>
+                <p>public offer</p>
+                <p>where to find us</p>
+                <div class="icons-footer">
+                    <a href=""><i class='bx bxl-facebook'></i></a>
+                    <a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
+                </div>
+            </div>
+        </div>            
+        <div class="footer-bottom">
+            <div class="footer-bottom-text">
+                <p>website development: <span>  mindhub</span> </p>
+            </div>
+        </div>
+    </div>
+</footer>    
 
 
 
-
- 
-
-
-  <!-- 
-    - #BACK TO TOP
-  -->
-
-  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
-  </a>
-
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./js/products.js" defer></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="./js/products.js"></script>
 
 </html>
