@@ -9,7 +9,6 @@
     --middle-blue-green: hsl(167, 45%, 72%);
     --smokey-black: hsl(0, 0%, 7%);
     --spanish-gray: hsl(0, 0%, 60%);
-    --granite-gray: hsl(0, 0%, 40%);
     --tan-crayola: hsl(27, 46%, 58%);
     --light-gray: hsl(0, 0%, 80%);
     --black_10: hsla(0, 0%, 0%, 0.1);
@@ -32,7 +31,6 @@
     --fs-2: 3rem;
     --fs-3: 2rem;
     --fs-4: 1.8rem;
-    --fs-5: 1.4rem;
     --fs-6: 1.2rem;
   
     --fw-700: 700;
@@ -70,6 +68,9 @@
     #REUSED STYLE
   \*-----------------------------------*/
   
+  .quienesomos{
+    font-family: ui-serif;
+  }
   .quienesomos .container { padding-inline: 15px; }
   
   .quienesomos .social-wrapper {
@@ -222,8 +223,7 @@
   
   .quienesomos .card-meta-item {
     position: relative;
-    color: var(--granite-gray);
-    font-size: var(--fs-5);
+
   }
   
   .quienesomos .card-meta-item:not(:last-child)::after {
@@ -407,6 +407,7 @@
     .quienesomos .about .section-text {
       max-width: 85ch;
       margin-inline: auto;
+      font-size: 19px;
     }
   
   
