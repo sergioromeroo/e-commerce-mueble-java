@@ -179,6 +179,7 @@
 
 
 .products .nav-menu a {
+  text-decoration: none;
   font-size: 13px;
   color: black;
   padding: 0 3rem;
