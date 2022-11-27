@@ -100,31 +100,16 @@
 
 
                 <div class="records table-responsive">
+                    <br>
 
-                    <div class="record-header">
-                        <div class="browse">
-                            <span>Category Filter:</span>
-                            <select name="" id="">
-                                <option value="">Category Table</option>
-                                <option value="">Category Sofa</option>
-                                <option value="">Category Storge</option>
-                                <option value="">Category Garden</option>
-
-                            </select>
-                            <span>Order By:</span>
-                            <select name="" id="">
-                                <option value="">Stock more than</option>
-                            </select>
-                        
-                        </div>
-
-                     
-                    </div>
+                  
                     <form class="form-search" method="get" action="#">
-                        <input type="search" name="search" v-model="inputSearchVModel" placeholder="Search Product here.">
-                        <button type="submit">Search</button>
+                        <label for="">Search Product :</label>
+                        <input type="search" name="search" v-model="inputSearchVModel" placeholder="Comfort Armchair..">
+                    
                         
                     </form>
+                    
             
 
                     <div>
@@ -229,11 +214,11 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                    <label for="">Product Id:</label>
+                                    <label for="">Enter Product Id:</label>
                                     <input v-model="id" type="number">
                                     <br>
                                     <br>
-                                    <label for="">Stock:</label>
+                                    <label for="">New Stock:</label>
                                    <input v-model="stock2" type="number">
 
                                 </div>

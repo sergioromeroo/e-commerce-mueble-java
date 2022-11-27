@@ -24,8 +24,8 @@
      * typography
      */
   
-    --ff-roboto: 'Roboto', sans-serif;
-    --ff-mr_de_haviland: 'Mr De Haviland', cursive;
+    --ff-roboto: 'Gotham Pro', sans-serif;
+    --ff-mr_de_haviland: 'Gotham Pro', sans-serif;
   
     --fs-1: 6rem;
     --fs-2: 3rem;
@@ -69,7 +69,8 @@
   \*-----------------------------------*/
   
   .quienesomos{
-    font-family: ui-serif;
+    font-family: 'Gotham Pro';
+    padding: 65px 0px;
   }
   .quienesomos .container { padding-inline: 15px; }
   
@@ -81,6 +82,10 @@
   .quienesomos .social-list {
     display: flex;
     gap: 30px;
+  }
+
+  .quienesomos ul{
+    padding-left: 0;
   }
   
   .quienesomos .social-link { transition: var(--transition-1); }
@@ -140,7 +145,7 @@
   
   .quienesomos .about .section-title {
     font-family: var(--ff-mr_de_haviland);
-    font-size: var(--fs-1);
+    font-size: 50px;
     font-weight: var(--fw-500);
   }
   

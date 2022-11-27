@@ -12,7 +12,10 @@ header{
 .index nav.navbar {
     width: 100%;
 }
-
+.swal2-popup {
+    font-size: 1.2rem !important;
+    font-family: 'Raleway', sans-serif !important;
+  }
 
 .index .img-background-contain{
     position: absolute;
