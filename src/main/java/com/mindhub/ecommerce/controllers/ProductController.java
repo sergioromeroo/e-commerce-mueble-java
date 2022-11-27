@@ -53,16 +53,6 @@ public class ProductController {
     ){
 
 
-        if(id == 0){
-            return new ResponseEntity<>("The id not exist", HttpStatus.FORBIDDEN);
-        }
-
-        if(stock == null){
-            return new ResponseEntity<>("Missing stock", HttpStatus.FORBIDDEN);
-        }
-
-
-
 
         Product productFound =  productService.findById(id);
 
