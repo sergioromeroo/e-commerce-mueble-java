@@ -39,22 +39,41 @@ const app = Vue.createApp({
                 })
         },
         createProduct() {
-            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, materialType: this.materialType, description: this.description })
+            axios.post('/api/post/product', { type: this.type, name: this.name, price: this.price, urlImg: this.urlImg, stock: this.stock, materialType: this.materialType, description: this.description })
                 .then(() => {
-
-                    /*  aca iria un sweet alert    */
-                    alert("Producto creado");
+                    Swal.fire({
+                        text: `Add product ok`,
+                        confirmButtonColor: 'lightgray',
+                    })
+                }).catch(error => {
+                    console.log(error)
+                    Swal.fire({
+                        text: `${error.response.data}`,
+                        confirmButtonColor: 'lightgray',
+                    })
                 })
         },
         editProduct() {
             axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
                 .then(() => {
 
+                    Swal.fire({
+                        text: `Edit product ok`,
+                        confirmButtonColor: 'lightgray',
+                        willClose: () => {
+                            window.location.assign("./admin2.html")
+                        }
+                    })
                     /*  aca iria un sweet alert    */
-                    alert("Producto editado");
+                    //alert("Producto editado");
                 })
-                .then(() => {
-                    window.location.pathname = '/web/admin/admin2.html';
+                .catch(error => {
+                    console.log(error)
+                    Swal.fire({
+                        text: `${error}`,
+                        confirmButtonColor: 'lightgray',
+                        
+                    })
                 })
         },
 
@@ -63,13 +82,26 @@ const app = Vue.createApp({
             axios.patch('/api/products/delete', "id=" + productChecket.id)
                 .then(() => {
 
+                    Swal.fire({
+                        text: `Removed product`,
+                        confirmButtonColor: 'lightgray',
+                        willClose: () => {
+                            window.location.assign("./admin2.html")
+                        }
+                    })
                     /*  aca iria un sweet alert    */
-                    alert("producto eliminado");
+                    //alert("producto eliminado");
 
                 })
-                .then(() => {
-                    window.location.pathname = '/web/admin/admin2.html';
+                .catch(error => {
+                    console.log(error)
+                    Swal.fire({
+                        text: `${error}`,
+                        confirmButtonColor: 'lightgray',
+                        
+                    })
                 })
+                
         },
 
         logout() {
