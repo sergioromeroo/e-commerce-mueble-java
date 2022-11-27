@@ -4,13 +4,15 @@ const app = Vue.createApp({
 
             products: [],
             tickets: [],
+            ticketsBackUp: [],
             productForTicket: [],
+            inputSearchVModel: "",
 
         }
     },
     created() {
         this.loadProducts()
-        this.loadClients()
+        this.loadTickets()
     },
     mounted() {
 
@@ -26,10 +28,11 @@ const app = Vue.createApp({
                 })
                 .catch(error => console.log(error))
         },
-        loadClients() {
+        loadTickets() {
             axios.get('/api/tickets')
                 .then(response => {
                     this.tickets = response.data
+                    this.ticketsBackUp = this.tickets
                     console.log(this.tickets)
 
                 })
@@ -54,5 +57,12 @@ const app = Vue.createApp({
 
     },
     computed: {
+        searchFilter(){
+            if(this.inputSearchVModel != ""){
+            this.tickets = this.ticketsBackUp.filter(ticket => ticket.id == this.inputSearchVModel)
+            } else {
+                this.tickets= this.ticketsBackUp
+            }
+        }
     }
 }).mount('#app')
