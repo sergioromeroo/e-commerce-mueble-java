@@ -15,8 +15,8 @@ const app = Vue.createApp({
             materialType: "",
             description: "",
             productsEnableTrue: [],
-            stock2:"",
-            id:""
+            stock2: null,
+            id: null,
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -105,11 +105,19 @@ const app = Vue.createApp({
                             })
     
                             .catch( function(error) {
+                                console.log(error)
+                                if(error.response.status == 400) {
                                 Swal.fire({
                                     icon: 'error',
-                                    text: error.response.data,
+                                    text: `Missing data`,
     
-                                })
+                                })} else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        text: `${error.response.data}`,
+        
+                                    })
+                                }
                             })
     
     
@@ -152,7 +160,7 @@ const app = Vue.createApp({
                             .catch( function(error) {
                                 Swal.fire({
                                     icon: 'error',
-                                    text: error.response.data,
+                                    text: `${error.response.data}`,
     
                                 })
                             })
