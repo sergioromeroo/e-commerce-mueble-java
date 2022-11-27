@@ -33,14 +33,14 @@
                     </li>
 
 
-                    <a class="active" href="">
+                    <a class="active" href="#">
                         <span class="las la-user"></span>
                         <small>Clients</small>
                     </a>
                     </li>
 
                     <li>
-                        <a href="">
+                        <a href="./ordersMaria.html">
                             <span class="las la-shopping-cart"></span>
                             <small>Orders</small>
                         </a>
@@ -60,6 +60,8 @@
     </div>
 
     <div id="app" class="main-content">
+
+        {{searchFilter}}
 
         <header>
             <div class="header-content">
@@ -88,9 +90,8 @@
         <main>
 
             <div class="page-header">
-                <h1>Admin Dashboard
-                    <h1>
-                        <small>Home / Nombre de la pagina</small>
+                <h1>Clients</h1>
+                <small>Future Furniture</small>
             </div>
 
             <div class="page-content">
@@ -103,7 +104,7 @@
 
            
                         <form class="form-search" method="get" action="#">
-                            <input type="search" name="search" placeholder="Search Client here.">
+                            <input type="search" name="search" v-model="inputSearchVModel" placeholder="Search Client here.">
                             <button type="submit">Search</button>
                             
                         </form>
@@ -155,6 +156,7 @@
                                         <table>
                                             <thead>
                                               <tr>
+                                                <th scope="col">Client id</th>
                                                 <th scope="col">First Name</th>
                                                 <th scope="col">Last Name</th>
                                                 <th scope="col">Email</th>
@@ -165,6 +167,7 @@
                                             </thead>
                                             <tbody>
                                               <tr  v-for="client in clients">
+                                                <td data-label="Client id">#{{client.id}}</td>
                                                 <td data-label="First Name">{{client.firstname}}</td>
                                                 <td data-label="Last Name"> {{client.lastname}}</td>
                                                 <td data-label="Email"> {{client.email}}</td>
