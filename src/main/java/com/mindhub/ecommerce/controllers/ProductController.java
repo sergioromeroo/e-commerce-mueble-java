@@ -52,9 +52,19 @@ public class ProductController {
             @RequestParam long id
     ){
 
+<<<<<<< HEAD
 
+=======
+        if(stock < 0){
+            return new ResponseEntity<>("the stock cannot be less than 0", HttpStatus.FORBIDDEN);
+        }
+>>>>>>> 34824b074a5fdf695cfca5446d64854cc3dfbd95
 
         Product productFound =  productService.findById(id);
+
+        if(productFound == null){
+            return new ResponseEntity<>("The id not exist", HttpStatus.FORBIDDEN);
+        }
 
         productFound.setStock(stock);
 
