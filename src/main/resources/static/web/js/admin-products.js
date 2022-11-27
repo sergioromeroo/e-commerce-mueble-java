@@ -15,8 +15,8 @@ const app = Vue.createApp({
             materialType: "",
             description: "",
             productsEnableTrue: [],
-            stock2:"",
-            id:""
+            stock2: "",
+            id: ""
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -30,7 +30,7 @@ const app = Vue.createApp({
             axios.get(url) //con axios estoy consumiendo una api 
                 .then((response) => {
                     this.products = response.data;
-                    
+
                     this.ticket = this.products.tickets
                     this.productsEnableTrue = this.products.filter(product => product.enable == true)
                     this.productsBackUp = this.productsEnableTrue
@@ -58,21 +58,21 @@ const app = Vue.createApp({
                 .then(() => {
 
                     Swal.fire({
-                        text: `Edit product ok`,
-                        confirmButtonColor: 'lightgray',
-                        willClose: () => {
-                            window.location.assign("./admin2.html")
-                        }
-                    })
-                    /*  aca iria un sweet alert    */
-                    //alert("Producto editado");
+                            text: `Edit product ok`,
+                            confirmButtonColor: 'lightgray',
+                            willClose: () => {
+                                window.location.assign("./admin2.html")
+                            }
+                        })
+                        /*  aca iria un sweet alert    */
+                        //alert("Producto editado");
                 })
                 .catch(error => {
                     console.log(error)
                     Swal.fire({
-                        text: `${error}`,
+                        text: `${error.response.data}`,
                         confirmButtonColor: 'lightgray',
-                        
+
                     })
                 })
         },
@@ -83,14 +83,14 @@ const app = Vue.createApp({
                 .then(() => {
 
                     Swal.fire({
-                        text: `Removed product`,
-                        confirmButtonColor: 'lightgray',
-                        willClose: () => {
-                            window.location.assign("./admin2.html")
-                        }
-                    })
-                    /*  aca iria un sweet alert    */
-                    //alert("producto eliminado");
+                            text: `Removed product`,
+                            confirmButtonColor: 'lightgray',
+                            willClose: () => {
+                                window.location.assign("./admin2.html")
+                            }
+                        })
+                        /*  aca iria un sweet alert    */
+                        //alert("producto eliminado");
 
                 })
                 .catch(error => {
@@ -98,10 +98,10 @@ const app = Vue.createApp({
                     Swal.fire({
                         text: `${error}`,
                         confirmButtonColor: 'lightgray',
-                        
+
                     })
                 })
-                
+
         },
 
         logout() {
@@ -111,9 +111,9 @@ const app = Vue.createApp({
     },
     computed: {
 
-        searchFilter(){
-            if(this.inputSearchVModel != ""){
-            this.productsEnableTrue = this.productsBackUp.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+        searchFilter() {
+            if (this.inputSearchVModel != "") {
+                this.productsEnableTrue = this.productsBackUp.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
             } else {
                 this.productsEnableTrue = this.productsBackUp
             }

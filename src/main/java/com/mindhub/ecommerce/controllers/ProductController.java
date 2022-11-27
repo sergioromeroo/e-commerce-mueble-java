@@ -48,9 +48,18 @@ public class ProductController {
 
     @PatchMapping("/products/update")
     public ResponseEntity<?> updateProduct(
-            @RequestParam int stock,
+            @RequestParam Integer stock,
             @RequestParam long id
     ){
+
+
+        if(id == 0){
+            return new ResponseEntity<>("The id not exist", HttpStatus.FORBIDDEN);
+        }
+
+        if(stock == null){
+            return new ResponseEntity<>("Missing stock", HttpStatus.FORBIDDEN);
+        }
 
 
 
