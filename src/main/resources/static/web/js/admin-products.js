@@ -53,19 +53,18 @@ const app = Vue.createApp({
                     })
                 })
         },
-        editProduct() {
+/*         editProduct() {
             axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
                 .then(() => {
 
                     Swal.fire({
-                        text: `Edit product ok`,
+                        text: `The Product Has Been Edited Succesfully`,
                         confirmButtonColor: 'lightgray',
                         willClose: () => {
                             window.location.assign("./admin2.html")
                         }
                     })
-                    /*  aca iria un sweet alert    */
-                    //alert("Producto editado");
+                 
                 })
                 .catch(error => {
                     console.log(error)
@@ -75,34 +74,102 @@ const app = Vue.createApp({
                         
                     })
                 })
-        },
+        }, */
+            editProduct() {
+        
+
+            Swal.fire({
+                    title: "Are you sure you want to edit this product?" ,
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#808080',
+                    cancelButtonColor: '#ff0000',
+                    confirmButtonText: 'Confirm Edit'
+                })
+    
+                .then((result) => {
+                    if (result.isConfirmed) {
+    
+                        axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
+                            .then(() => {
+                                Swal.fire({
+                                    title: 'The product Has been edited Succsefully!',
+                                    text: "The Page would Reload on a second!",
+                                    icon: "success",
+                                    confirmButtonColor: 'lightgray',
+                                    timer: 2500
+    
+                                })
+                                .then(response =>  window.location.href = "./admin2.html")
+    
+                            })
+    
+                            .catch( function(error) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: error.response.data,
+    
+                                })
+                            })
+    
+    
+                    }
+    
+    
+                });
+            },
+
 
         deleteProduct(productChecket) {
-            console.log(productChecket.id);
-            axios.patch('/api/products/delete', "id=" + productChecket.id)
-                .then(() => {
+            console.log(productChecket)
 
-                    Swal.fire({
-                        text: `Removed product`,
-                        confirmButtonColor: 'lightgray',
-                        willClose: () => {
-                            window.location.assign("./admin2.html")
-                        }
-                    })
-                    /*  aca iria un sweet alert    */
-                    //alert("producto eliminado");
-
+            Swal.fire({
+                    title: "Are you sure you want to Delete this product?" ,
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#808080',
+                    cancelButtonColor: '#ff0000',
+                    confirmButtonText: 'Delete Now'
                 })
-                .catch(error => {
-                    console.log(error)
-                    Swal.fire({
-                        text: `${error}`,
-                        confirmButtonColor: 'lightgray',
-                        
-                    })
-                })
-                
-        },
+    
+                .then((result) => {
+                    if (result.isConfirmed) {
+    
+                        axios.patch('/api/products/delete', "id=" + productChecket.id)
+                            .then(() => {
+                                Swal.fire({
+                                    title: 'The product Has been deleted Succsefully!',
+                                    text: "The Page would Reload on a second!",
+                                    icon: "success",
+                                    confirmButtonColor: 'lightgray',
+                                    timer: 2500
+    
+                                })
+                                .then(response =>  window.location.href = "./admin2.html")
+    
+                            })
+    
+                            .catch( function(error) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: error.response.data,
+    
+                                })
+                            })
+    
+    
+                    }
+    
+    
+                });
+            },
+       
+        
+        
+        
+    
+    
+        
 
         logout() {
             axios.post('/api/logout')
