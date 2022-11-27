@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Drom Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheet/ordersMaria.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <!-- SIDE MENU -->
+
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>D<span>rommel</span></h3>
+        </div>
+
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img"
+                    style="background-image: url(https://imgs.search.brave.com/J85_wRuk7EA_aBWvPfTP1WhERLb1dfq7R3Z78HNPZ8o/rs:fit:470:352:1/g:ce/aHR0cHM6Ly9ib2xh/dmlwLmNvbS9fX2V4/cG9ydC8xNjI4MDM0/OTIzNjA2L3NpdGVz/L2JvbGF2aXAvaW1n/LzIwMjEvMDgvMDMv/bWVtZS1wZXJyaXRv/LWxvcy1xdWVyZW1v/cy1tdWNob19jcm9w/MTYyODAzNDc0NzY2/MC5qcGdfMzMxMzE2/MzYuanBn)">
+                </div>
+                <h4>Admin </h4>
+                <small>General Admin</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="./admin2.html">
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+
+
+                    <a href="./clients.html">
+                        <span class="las la-user"></span>
+                        <small>Clients</small>
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="active">
+                            <span class="las la-shopping-cart"></span>
+                            <small>Orders</small>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./addproduct.html">
+                            <span class="las la-plus"></span>
+                            <small>Add Product</small>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="app" class="main-content">
+        {{searchFilter}}
+
+        <!-- NAV -->
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+
+            <div class="page-header">
+                <h1>Tickets</h1>
+                <small>Future Furniture</small>
+            </div>
+
+            <div class="page-content">
+                <div class="records table-responsive">
+
+                    <!-- CATEGORY/PRICE FILTER -->
+                    <!-- <div class="record-header">
+                        <div class="browse">
+                            <span>Category Filter:</span>
+                            <select name="" id="">
+                                <option value="">Category Table</option>
+                                <option value="">Category Sofa</option>
+                                <option value="">Category Storge</option>
+                                <option value="">Category Garden</option>
+
+                            </select>
+                            <span>Order By:</span>
+                            <select name="" id="">
+                                <option value="">Stock more than</option>
+                            </select>
+
+                        </div>
+
+                    </div> -->
+
+                    <!-- SEARCH FILTER -->
+                    <form class="form-search" method="get" action="#">
+                        <input type="text" name="search" v-model="inputSearchVModel"
+                            placeholder="Search ticket by id here.">
+                        <button type="submit">Search</button>
+
+                    </form>
+
+
+                    <div>
+                        <!--                         <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th># Product Id</th>
+                                    <th><span class="las la-sort"></span> Product</th>
+                                    <th><span class="las la-sort"></span> Price</th>
+                                    <th><span class="las la-sort"></span> Category</th>
+                                    <th><span class="las la-sort"></span> Stock</th>
+                                    <th><span class="las la-sort"></span> Edit/Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tr" v-for="producto in productsEnableTrue">
+                                    <td>#{{producto.id}}</td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
+                                            <div class="client-info">
+                                                <h4>{{producto.name}}</h4>
+                                                <small> Material :  {{producto.materialType}}</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {{producto.price}}
+                                    </td>
+                                    <td>
+                                        {{producto.type}}
+                                    </td>
+                                    <td>
+                                        {{producto.stock}}
+                                    </td>
+                                    <td>
+                           
+                                        <button class="botons"><i class="las la-edit
+                                            [&#xf1f8;]"></i>
+                                        </button>
+                                        <button class="botons2" v-on:click="deleteProduct(producto)"><i class="las la-trash
+                                            [&#xf1f8;]"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+
+
+
+
+                            </tbody>
+                        </table> -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Ticket id</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Amout</th>
+                                    <th scope="col">Products</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="ticket in tickets">
+                                    <td data-label="Ticket id"> # {{ticket.id}}</td>
+                                    <td data-label="Date"> {{ticket.date.slice(0,10)}} {{ticket.date.slice(11,16)}}</td>
+                                    <td data-label="Amout"> ${{ticket.amount}}</td>
+                                    <td><button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary" @click="productTicket(ticket)">Ver
+                                    </button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3 class="text-center mt-2" v-if="tickets.length == 0">Ticket not found.</h3>
+
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Products</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="m-5">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Product id</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Material type</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">quantity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="product in productForTicket">
+                                                    <td>{{product.id}}</td>
+                                                    <td>{{product.name}}</td>
+                                                    <td>{{product.materialType}}</td>
+                                                    <td>${{product.price}}</td>
+                                                    <td>{{product.quantity}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="m-5">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Material type</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col">quantity</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="product in productForTicket">
+                                                        <td scope="row">{{product.name}}</td>
+                                                        <td>{{product.materialType}}</td>
+                                                        <td>${{product.price}}</td>
+                                                        <td>{{product.quantity}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="../js/ordersMaria.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</html>

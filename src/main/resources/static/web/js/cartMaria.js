@@ -59,6 +59,7 @@ const app = Vue.createApp({
         productTicket(ticket) {
             //this.productForTicket = ticket.product
             console.log(this.productForTicket)
+            this.productForTicket = []
 
             ticket.product.forEach(product => {
                 this.products.forEach(prod => {

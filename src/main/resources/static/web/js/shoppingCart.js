@@ -85,10 +85,20 @@ const app = Vue.createApp({
         deleteProduct(selectProduct) {
             this.shoppingCart = this.shoppingCart.filter(product => product != selectProduct)
             this.cartStorage()
+            Swal.fire({
+                text: `Product removed from cart`,
+                confirmButtonColor: 'lightgray',
+            })
         },
         emptyCart() {
             localStorage.clear()
-            window.location.reload()
+            Swal.fire({
+                text: `Empty cart`,
+                confirmButtonColor: 'lightgray',
+                willClose: () => {
+                    window.location.assign("./products.html")
+                }
+            })
         },
 
         createTicket() {
@@ -101,26 +111,25 @@ const app = Vue.createApp({
                             console.log(resp)
                             Swal.fire({
                                 text: `${response.data}`,
-                                text: `go to index`,
-                                confirmButtonColor: 'lightgreen',
+                                confirmButtonColor: 'lightgray',
                                 willClose: () => {
-                                    this.emptyCart()
+                                    localStorage.clear()
                                     window.location.assign("./index.html")
                                 }
                             })
+                        }).catch(error => {
+                            console.log(error)
+                            Swal.fire({
+                                text: `${error}`,
+                                confirmButtonColor: 'lightgray',
+                            })
                         })
-                }).catch(error => {
-                    console.log(error)
-                    Swal.fire({
-                        text: `${error.response.data}`,
-                        confirmButtonColor: 'lightgreen',
-                    })
                 })
                 .catch(error => {
                     console.log(error)
                     Swal.fire({
-                        text: `${error}`,
-                        confirmButtonColor: 'lightgreen',
+                        text: `${error.response.data}`,
+                        confirmButtonColor: 'lightgray',
                     })
                 })
         },

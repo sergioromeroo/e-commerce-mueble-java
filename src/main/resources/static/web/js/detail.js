@@ -79,6 +79,10 @@ const app = Vue.createApp({
                     }
                 })
                 this.cartStorage()
+                Swal.fire({
+                    text: `Product added to cart`,
+                    confirmButtonColor: 'lightgray',
+                })
             }
             else {
                 // CASO EN EL QUE NO ESTA
@@ -89,6 +93,10 @@ const app = Vue.createApp({
                 })
                 this.shoppingCart.push(selectProduct)
                 this.cartStorage()
+                Swal.fire({
+                    text: `Product added to cart`,
+                    confirmButtonColor: 'lightgray',
+                })
             }
 
             //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))

@@ -3,6 +3,8 @@ const app = Vue.createApp({
         return {
             clients: [],
             urlApi: "/api/clients",
+            clientsBackUp: [],
+            inputSearchVModel: "",
         
         }
     },
@@ -18,6 +20,7 @@ const app = Vue.createApp({
                 .then((response) => {
                     console.log(response)
                     this.clients= response.data;
+                    this.clientsBackUp = this.clients
 
                     
 
@@ -52,6 +55,14 @@ const app = Vue.createApp({
         }
     },
     computed: {
+
+        searchFilter(){
+            if(this.inputSearchVModel != ""){
+            this.clients = this.clientsBackUp.filter(client => client.email.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+            } else {
+                this.clients = this.clientsBackUp
+            }
+        }
         /* filtroBuscador() {
             this.productos = this.productos.filter(producto => producto.name.toLowerCase().includes(this.busqueda.toLowerCase()))
         } */
