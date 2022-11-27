@@ -63,6 +63,7 @@ public class ProductController {
 
 
 
+
         Product productFound =  productService.findById(id);
 
         productFound.setStock(stock);

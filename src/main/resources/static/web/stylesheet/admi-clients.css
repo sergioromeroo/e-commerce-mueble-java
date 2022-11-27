@@ -136,12 +136,35 @@
     font-size: 1.9rem;
     margin-right: 20px;
     color: green;
+    border: none;
 
 }
+.modal-header{
+    display: flex;
+    justify-content: center;
+    align-items: center
+    ;
+}
+
+.botons :hover{
+    color: blue;
+
+}
+.swal2-popup {
+    font-size: 1.2rem !important;
+    font-family: 'Raleway', sans-serif !important;
+  }
+  
 .botons2{
     font-size: 1.9rem;
     margin-right: 20px;
     color: red;
+    border: none;
+
+}
+.botons2 :hover{
+    color: darkred
+    ;
 
 }
 #menu-toggle:checked ~ .sidebar {
@@ -283,15 +306,14 @@ main {
 .form-search input{
     width: 30%;
     box-sizing: border-box;
-    border-bottom-left-radius: 2px;
-    border-top-left-radius: 2px;
     background-color:  #ffffff;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
     padding: 14px 15px 14px 40px;
     border: 1px solid #b6c3cd;;
-    border-right: 0;
     color:#4E565C;
     outline: none;
+    height: 30px;
+    margin-left: 10px;
     -webkit-appearance: none;
 }
 
@@ -574,6 +596,17 @@ table {
       float: left;
       font-weight: bold;
     
+    }
+    .botons{
+        font-size: 1.2rem;
+        margin-right: 20px;
+        color: green;
+    
+    }
+    .botons2{
+        font-size: 1.2rem;
+        margin-right: 20px;
+        color: red;
     }
     
     table td:last-child {
