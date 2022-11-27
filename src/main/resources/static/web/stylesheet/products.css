@@ -119,9 +119,14 @@
     color: var(--black);
     font-size: 1.6rem;
     line-height: 1.7;
-    min-height: 87vh;
+    min-height: 100vh;
   }
   
+  .products main{
+    min-height: 63vh;
+  }
+
+
   body.active { overflow: hidden; }
   
   :focus-visible { outline-offset: 4px; }
@@ -140,6 +145,13 @@
     #REUSED STYLE
   \*-----------------------------------*/
   
+
+
+
+.products header {
+  height: unset
+
+}
   
 .header-products {
     height: 85px;
@@ -194,6 +206,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
 /* 
@@ -207,6 +221,7 @@
 
 .products .section-filters {
   width: 100%;
+  margin-top: 8rem;
 }
 
 .products .collapse {
@@ -239,6 +254,7 @@
   color: black;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .products .filter-nav i.bx-chevron-down{
