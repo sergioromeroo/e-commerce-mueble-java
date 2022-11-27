@@ -177,10 +177,10 @@
                              
                             </li>
                             <li>
-                                <a href="">contact us</a>
+                                <a href="./contact.html">contact us</a>
                             </li>
                             <li>
-                                <a href="">About us</a>
+                                <a href="./about-us.html">About us</a>
                             </li>              
                         </ul>
                     </div>
@@ -195,10 +195,10 @@
                             <a href="">
                                 <img src="./img/icons/cart.png" alt="">
                             </a>
-                            <a href="">
+                            <!-- <a href="">
                                 <img src="./img/icons/search.png" alt="">
                             </a>
-                        
+                         -->
                     
                         </div>
                         <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -253,10 +253,10 @@
                                 <a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
                             </li>   
                             <li>
-                                <a class="ancors-nav-burger" href="">contact us</a>
+                                <a href="./contact.html" class="ancors-nav-burger" href="">contact us</a>
                             </li>
                             <li>
-                                <a class="ancors-nav-burger" href="">About us</a>
+                                <a href="./about-us.html" class="ancors-nav-burger" href="">About us</a>
                             </li>              
                         </ul>
 
@@ -338,10 +338,29 @@
                                 <div class="filter-btn-item-box1">
                                     <label for="higherPrice ">mayor precio</label>
                                     <input v-model="priceVModel" type="radio" name="higherPrice" id="higherPrice" value="higher">
+                                    <div class="container">
+                                        <input type="checkbox" id="cbx" style="display: none;">
+                                        <label for="cbx" class="check">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                                                <polyline points="1 9 7 14 15 4"></polyline>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="filter-btn-item-box2">
                                     <label for="lowerPrice ">menor precio</label>
                                     <input v-model="priceVModel" type="radio" name="lowerPrice" id="lowerPrice" value="lower">
+                                    <div class="container">
+                                        <input type="checkbox" id="cbx" style="display: none;">
+                                        <label for="cbx" class="check">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                                                <polyline points="1 9 7 14 15 4"></polyline>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    
                                 </div>
                              
                             </li>
@@ -525,7 +544,7 @@
             <div class="footer">
                 <div class="footer-top">
                     <div class="footer-top1">
-                        <div><p>Drommel © 2022</p></div>
+                        <div><p>Furniture Future © 2022</p></div>
                         <div class="store-online-footer"><p>Online furniture store</p></div>
                     </div>
                     <div class="footer-top2">
