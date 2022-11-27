@@ -3,12 +3,20 @@
 .detail  h1, h2, h3 {
     overflow-y: hidden;
 }
+.detail .card{
+    --bs-card-border-color: none;
+    background: #f5f5f5;
+
+}
+
 .detail{
     line-height: 1.5;
     box-sizing: border-box;
-    padding: 0;
+    padding: 60px 0px;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    background: #f5f5f5;
+
 }
 .detail .card-wrapper{
     max-width: 1100px;
@@ -150,10 +158,11 @@
     color: #fff;
 }
 .detail .purchase-info .btn:first-of-type{
-    background: black;
+    background: #212529;
 }
 .detail .purchase-info .btn:last-of-type{
-    background: black;
+    background: #212529;
+    width: 50%;
 }
 .detail .purchase-info .btn:hover{
     opacity: 0.9;
@@ -171,7 +180,7 @@
     height: 38px;
     color: #000;
     border: 1px solid #000;
-    margin: 0 0.2rem;
+    margin: 0 1rem;
     border-radius: 50%;
     text-decoration: none;
     font-size: 1.8rem;
