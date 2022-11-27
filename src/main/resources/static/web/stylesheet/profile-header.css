@@ -1,4 +1,5 @@
-body{
+.profile-header{
+    font-size: 15px
 }
 
 .profile-header .hero{
@@ -47,4 +48,58 @@ body{
     top: 100%;
     right: 10%;
     width: 320px;
+
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.profile-header .sub-menu-wrap.open-menu{
+    max-width: 400px;
+}
+
+
+.profile-header .sub-menu{
+    background: white;
+    padding: 20px;
+    margin: 10px;
+}
+.profile-header .user-info{
+    display: flex;
+    align-items: center;
+}
+.profile-header .user-info h2{
+    font-weight: 500;
+}
+.profile-header .user-info img{
+    width: 90px;
+    border-radius: 30%;
+    margin-right: 15px;
+}
+.profile-header .sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+.profile-header .sub-menu-link{
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+.profile-header .sub-menu-link p{
+    width: 100%;
+}
+.profile-header .sub-menu-link span .sub-menu-link:hover p{
+    font-size: 18px;
+    transition: transform 0.5s;
+}
+.profile-header .sub-menu-link:hover span,.sub-menu-link:hover p{
+    transform: translateX(7px);
+}
+.profile-header .sub-menu-link p{
+    font-weight: 600;
 }
