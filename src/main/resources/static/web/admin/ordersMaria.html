@@ -196,7 +196,7 @@
                                     <td data-label="Ticket id"> # {{ticket.id}}</td>
                                     <td data-label="Date"> {{ticket.date.slice(0,10)}} {{ticket.date.slice(11,16)}}</td>
                                     <td data-label="Amout"> ${{ticket.amount}}</td>
-                                    <td><button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary" @click="productTicket(ticket)">Ver
+                                    <td data-label="Products" ><button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary" @click="productTicket(ticket)">Ver
                                     </button></td>
                                 </tr>
                             </tbody>
@@ -216,7 +216,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="m-5">
+                                    <div>
                                         <table class="table">
                                             <thead>
                                                 <tr>
@@ -229,11 +229,11 @@
                                             </thead>
                                             <tbody>
                                                 <tr v-for="product in productForTicket">
-                                                    <td>{{product.id}}</td>
-                                                    <td>{{product.name}}</td>
-                                                    <td>{{product.materialType}}</td>
-                                                    <td>${{product.price}}</td>
-                                                    <td>{{product.quantity}}</td>
+                                                    <td data-label="Product id">#{{product.id}}</td>
+                                                    <td data-label="Product name">{{product.name}}</td>
+                                                    <td data-label="Product material type">{{product.materialType}}</td>
+                                                    <td data-label="Products price">${{product.price}}</td>
+                                                    <td data-label="Products quantity">{{product.quantity}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
