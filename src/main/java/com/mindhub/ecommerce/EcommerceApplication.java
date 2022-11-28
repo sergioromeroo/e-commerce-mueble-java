@@ -123,8 +123,8 @@ public class EcommerceApplication {
 			ticketRepository.save(ticket2);
 
 
-			TicketProduct ticketProduct1 = new TicketProduct(ticket1,product1);
-			TicketProduct ticketProduct2 = new TicketProduct(ticket2,product1);
+			TicketProduct ticketProduct1 = new TicketProduct(ticket1,product1, 1);
+			TicketProduct ticketProduct2 = new TicketProduct(ticket2,product1, 1);
 
 			ticketProductRepository.save(ticketProduct1);
 			ticketProductRepository.save(ticketProduct2);

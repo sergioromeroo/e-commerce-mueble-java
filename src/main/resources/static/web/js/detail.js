@@ -88,6 +88,7 @@ const app = Vue.createApp({
                 // CASO EN EL QUE NO ESTA
                 this.products.filter(product => {
                     if (product.id == selectProduct.id) {
+                        selectProduct.quantity++
                         product.stock--
                     }
                 })
