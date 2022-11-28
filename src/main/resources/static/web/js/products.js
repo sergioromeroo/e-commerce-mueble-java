@@ -184,7 +184,10 @@ const app = Vue.createApp({
                   // CASO EN EL QUE NO ESTA
                   this.productsBackUp.filter(product => {
                       if (product.id == selectProduct.id) {
+                        console.log(selectProduct)
+                            selectProduct.quantity++
                               product.stock--
+                              console.log(selectProduct)
                       }
                   })
                   this.shoppingCart.push(selectProduct)
