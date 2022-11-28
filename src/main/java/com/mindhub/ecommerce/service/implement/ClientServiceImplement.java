@@ -40,6 +40,11 @@ public class ClientServiceImplement  implements ClientService {
     }
 
     @Override
+    public void deleteClient(Client client) {
+        clientRepository.delete(client);
+    }
+
+    @Override
     public Client findAllByid(Long id) {
         return clientRepository.findAllByid(id);
     }

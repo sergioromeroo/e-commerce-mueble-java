@@ -31,7 +31,7 @@ public class SendMailController {
         email.setTo(contactTo);
         email.setFrom("estodounatema23@gmail.com");
         email.setSubject("Codigo de verificacion de email");
-        email.setText("Gracias por registrarter la palabra es: Orange");
+        email.setText("Gracias por registrarter la palabra es: chair");
 
 
         mail.send(email);

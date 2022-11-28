@@ -148,7 +148,37 @@ const app = Vue.createApp({
             console.log(this.idProducts)
             console.log(this.quantityProducts)
         },
-        
+        Imprimir() {
+           const doc = new jsPDF({});
+
+            doc.setFontSize(20);
+             doc.text(65, 20, 'Resumen De compra', { align: 'center' });
+            doc.setLineWidth(1.5);
+             doc.line(10, 25, 200, 25);
+            
+
+
+
+
+            doc.setFontSize(17)
+            doc.text(10,35,"Nombre")
+            doc.text(90,35,"Categorio")
+            doc.text(170,35,"Precio")
+
+            let numero = 40
+            this.shoppingCart.forEach(item => {
+                numero = numero + 10
+                doc.setFontSize(15);
+                doc.text(10, numero , item.name , { align: 'center' });
+                doc.text(95, numero , item.type  , { align: 'center' });
+                doc.text(170, numero ,`${item.price}` , { align: 'center' });
+
+
+            })
+
+             doc.save("two-by-four.pdf");
+
+        }
     },
     computed: {
     }

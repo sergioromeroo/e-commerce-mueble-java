@@ -80,7 +80,22 @@ public class ClientController {
     }
 
 
+    @PutMapping("/clients/delete")
+    public ResponseEntity<?> deleteClient(
+            @RequestParam String email
+    ){
 
+        Client clientFound = clientService.getClientByEmail(email);
+
+        if(clientFound == null){
+            return new ResponseEntity<>("The client not exist", HttpStatus.FORBIDDEN);
+        }
+
+
+        clientService.deleteClient(clientFound);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 }
