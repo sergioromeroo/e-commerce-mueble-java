@@ -17,6 +17,7 @@ public class TicketProductDTO {
 
     private double price;
 
+    private int quantity;
 
     public TicketProductDTO() {
     }
@@ -27,6 +28,7 @@ public class TicketProductDTO {
         this.name = ticketProduct.getProduct().getName();
         this.type = ticketProduct.getProduct().getType();
         this.price = ticketProduct.getProduct().getPrice();
+        this.quantity = ticketProduct.getQuantity();
 
     }
 
@@ -47,4 +49,7 @@ public class TicketProductDTO {
         return price;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
 }

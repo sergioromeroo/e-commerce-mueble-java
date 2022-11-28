@@ -22,12 +22,15 @@ public class TicketProduct {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    private int quantity;
+
     public TicketProduct() {
     }
 
-    public TicketProduct(Ticket ticket, Product product) {
+    public TicketProduct(Ticket ticket, Product product, int quantity) {
         this.ticket = ticket;
         this.product = product;
+        this.quantity = quantity;
     }
 
     public long getId() {
@@ -52,6 +55,11 @@ public class TicketProduct {
         this.product = product;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
 
-
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
