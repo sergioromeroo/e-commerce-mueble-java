@@ -148,7 +148,7 @@ const app = Vue.createApp({
             console.log(this.idProducts)
             console.log(this.quantityProducts)
         },
-
+        
     },
     computed: {
     }
