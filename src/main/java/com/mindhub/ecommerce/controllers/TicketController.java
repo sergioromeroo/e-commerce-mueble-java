@@ -85,7 +85,7 @@ public class TicketController {
             productService.saveProduct(productFound);
 
 
-            ticketProductRepository.save(new TicketProduct(ticketCurrent, productFound)); // aca guardamos el ticket product
+            ticketProductRepository.save(new TicketProduct(ticketCurrent, productFound, subtraction)); // aca guardamos el ticket product
         }
 
 

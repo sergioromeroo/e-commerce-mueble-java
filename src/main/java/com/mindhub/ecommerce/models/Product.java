@@ -28,7 +28,7 @@ public class Product {
 
     private String materialType;
 
-    private int quantity = 1;
+    private int quantity = 0;
 
     private String description;
 

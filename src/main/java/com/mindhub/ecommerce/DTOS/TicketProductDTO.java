@@ -11,23 +11,45 @@ public class TicketProductDTO {
 
     private long idProduct;
 
+    private String name;
 
+    private String type;
 
+    private double price;
+
+    private int quantity;
 
     public TicketProductDTO() {
     }
 
     public TicketProductDTO(TicketProduct ticketProduct) {
 
-
         this.idProduct = ticketProduct.getProduct().getId();
+        this.name = ticketProduct.getProduct().getName();
+        this.type = ticketProduct.getProduct().getType();
+        this.price = ticketProduct.getProduct().getPrice();
+        this.quantity = ticketProduct.getQuantity();
 
     }
 
 
-
-
     public long getIdProduct() {
         return idProduct;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }
