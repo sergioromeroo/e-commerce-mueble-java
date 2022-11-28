@@ -28,7 +28,7 @@ public class EcommerceApplication {
 
 
 	@Bean
-	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository, ProductFavoriteRepository productFavoriteRepository){
+	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository, ProductFavoriteRepository productFavoriteRepository,ClientProductFavRepository clientProductFavRepository){
 		return args -> {
 
 			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456);
@@ -44,8 +44,7 @@ public class EcommerceApplication {
 			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron", "prueba");
 
 
-			List<Integer> prueba = List.of(1,1);
-			List<Integer> prueba2 = List.of(2,1);
+
 			productRepository.save(product1);
 			productRepository.save(product2);
 
@@ -131,9 +130,14 @@ public class EcommerceApplication {
 			ticketProductRepository.save(ticketProduct2);
 
 
-			ProductFavorite producFav = new ProductFavorite("sillon","x",1000);
+			ProductFavorite producFav = new ProductFavorite(1,"sillon","x",1000);
 
 			productFavoriteRepository.save(producFav);
+
+			ClientProducFav clientProducFav1 = new ClientProducFav(client1,producFav);
+
+
+			clientProductFavRepository.save(clientProducFav1);
 
 //			ClientProducFav clientProducFav = new ClientProducFav(client1, producFav);
 

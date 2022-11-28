@@ -15,8 +15,8 @@ const app = Vue.createApp({
             materialType: "",
             description: "",
             productsEnableTrue: [],
-            stock2: null,
-            id: null,
+            stock2: "",
+            id: ""
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -30,7 +30,7 @@ const app = Vue.createApp({
             axios.get(url) //con axios estoy consumiendo una api 
                 .then((response) => {
                     this.products = response.data;
-                    
+
                     this.ticket = this.products.tickets
                     this.productsEnableTrue = this.products.filter(product => product.enable == true)
                     this.productsBackUp = this.productsEnableTrue
@@ -53,131 +53,123 @@ const app = Vue.createApp({
                     })
                 })
         },
-/*         editProduct() {
-            axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
-                .then(() => {
+        /*         editProduct() {
+                    axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
+                        .then(() => {
 
-                    Swal.fire({
-                        text: `The Product Has Been Edited Succesfully`,
-                        confirmButtonColor: 'lightgray',
-                        willClose: () => {
-                            window.location.assign("./admin2.html")
-                        }
-                    })
-                 
-                })
-                .catch(error => {
-                    console.log(error)
-                    Swal.fire({
-                        text: `${error}`,
-                        confirmButtonColor: 'lightgray',
-                        
-                    })
-                })
-        }, */
-            editProduct() {
-        
+                            Swal.fire({
+                                text: `The Product Has Been Edited Succesfully`,
+                                confirmButtonColor: 'lightgray',
+                                willClose: () => {
+                                    window.location.assign("./admin2.html")
+                                }
+                            })
+                         
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            Swal.fire({
+                                text: `${error}`,
+                                confirmButtonColor: 'lightgray',
+                                
+                            })
+                        })
+                }, */
+        editProduct() {
+
 
             Swal.fire({
-                    title: "Are you sure you want to edit this product?" ,
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: '#808080',
-                    cancelButtonColor: '#ff0000',
-                    confirmButtonText: 'Confirm Edit'
-                })
-    
-                .then((result) => {
-                    if (result.isConfirmed) {
-    
-                        axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
-                            .then(() => {
-                                Swal.fire({
+                title: "Are you sure you want to edit this product?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#808080',
+                cancelButtonColor: '#ff0000',
+                confirmButtonText: 'Confirm Edit'
+            })
+
+            .then((result) => {
+                if (result.isConfirmed) {
+
+                    axios.patch('/api/products/update', `stock=${this.stock2}&id=${this.id}`)
+                        .then(() => {
+                            Swal.fire({
                                     title: 'The product Has been edited Succsefully!',
                                     text: "The Page would Reload on a second!",
                                     icon: "success",
                                     confirmButtonColor: 'lightgray',
                                     timer: 2500
-    
+
                                 })
-                                .then(response =>  window.location.href = "./admin2.html")
-    
-                            })
-    
-                            .catch( function(error) {
-                                console.log(error)
-                                if(error.response.status == 400) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    text: `Missing data`,
-    
-                                })} else {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        text: `${error.response.data}`,
-        
-                                    })
-                                }
-                            })
-    
-    
-                    }
-    
-    
-                });
-            },
+                                .then(response => window.location.href = "./admin2.html")
+
+                        })
+
+                    .catch(function(error) {
+                        Swal.fire({
+                            icon: 'error',
+                            text: error.response.data,
+
+                        })
+                    })
+
+
+                }
+
+
+            });
+        },
 
 
         deleteProduct(productChecket) {
             console.log(productChecket)
 
             Swal.fire({
-                    title: "Are you sure you want to Delete this product?" ,
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: '#808080',
-                    cancelButtonColor: '#ff0000',
-                    confirmButtonText: 'Delete Now'
-                })
-    
-                .then((result) => {
-                    if (result.isConfirmed) {
-    
-                        axios.patch('/api/products/delete', "id=" + productChecket.id)
-                            .then(() => {
-                                Swal.fire({
+                title: "Are you sure you want to Delete this product?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#808080',
+                cancelButtonColor: '#ff0000',
+                confirmButtonText: 'Delete Now'
+            })
+
+            .then((result) => {
+                if (result.isConfirmed) {
+
+                    axios.patch('/api/products/delete', "id=" + productChecket.id)
+                        .then(() => {
+                            Swal.fire({
                                     title: 'The product Has been deleted Succsefully!',
                                     text: "The Page would Reload on a second!",
                                     icon: "success",
                                     confirmButtonColor: 'lightgray',
                                     timer: 2500
-    
+
                                 })
-                                .then(response =>  window.location.href = "./admin2.html")
-    
-                            })
-    
-                            .catch( function(error) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    text: `${error.response.data}`,
-    
-                                })
-                            })
-    
-    
-                    }
-    
-    
-                });
-            },
-       
-        
-        
-        
-    
-    
-        
+                                .then(response => window.location.href = "./admin2.html")
+
+                        })
+
+                    .catch(function(error) {
+                        Swal.fire({
+                            icon: 'error',
+                            text: error.response.data,
+
+                        })
+                    })
+
+
+                }
+
+
+            });
+        },
+
+
+
+
+
+
+
 
         logout() {
             axios.post('/api/logout')
@@ -186,9 +178,9 @@ const app = Vue.createApp({
     },
     computed: {
 
-        searchFilter(){
-            if(this.inputSearchVModel != ""){
-            this.productsEnableTrue = this.productsBackUp.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+        searchFilter() {
+            if (this.inputSearchVModel != "") {
+                this.productsEnableTrue = this.productsBackUp.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
             } else {
                 this.productsEnableTrue = this.productsBackUp
             }

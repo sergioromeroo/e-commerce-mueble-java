@@ -16,6 +16,8 @@ public class ProductFavorite {
     @GenericGenerator(name="native",strategy = "native")
     private long id;
 
+
+    private long product_id;
     private String nameProduct;
 
     private String urlImgProduct;
@@ -35,8 +37,8 @@ public class ProductFavorite {
 
 
 
-    public ProductFavorite(String nameProduct, String urlImgProduct, double priceProduct) {
-
+    public ProductFavorite(long product_id,String nameProduct, String urlImgProduct, double priceProduct) {
+        this.product_id = product_id;
         this.nameProduct = nameProduct;
         this.urlImgProduct = urlImgProduct;
         this.priceProduct = priceProduct;
@@ -78,6 +80,15 @@ public class ProductFavorite {
 
     public Set<ClientProducFav> getClient() {
         return client;
+    }
+
+
+    public long getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(long product_id) {
+        this.product_id = product_id;
     }
 }
 

@@ -17,6 +17,8 @@ public class ClientDTO {
 
     private Set<TicketDTO> tickets = new HashSet<>();
 
+    private Set<ClientProductFavDTO> clientProductFav = new HashSet<>();
+
     public ClientDTO() {
     }
 
@@ -28,6 +30,7 @@ public class ClientDTO {
         this.password = client.getPassword();
         this.cellphone = client.getCellPhone();
         this.tickets = client.getTickets().stream().map(ticket -> new TicketDTO(ticket)).collect(Collectors.toSet());
+        this.clientProductFav = client.getProductsFavorites().stream().map(clientProducFav -> new ClientProductFavDTO(clientProducFav)).collect(Collectors.toSet());
 
     }
 
@@ -86,5 +89,9 @@ public class ClientDTO {
 
     public void setTickets(Set<TicketDTO> tickets) {
         this.tickets = tickets;
+    }
+
+    public Set<ClientProductFavDTO> getClientProductFav() {
+        return clientProductFav;
     }
 }

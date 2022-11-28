@@ -11,10 +11,7 @@ backdrop-filter: blur(8.3px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
-.pedirot{
-    width: 100%;
-    height: 100%;    
-}
+
 
 .fontContat{
     font-size: 15px
@@ -32,13 +29,9 @@ background-image: url("https://drommel.com.ua/image/cache/catalog/sub2-2-1920x86
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
-background-size: 200rem 150rem;
+background-size: 100% 100%;
 }
-.footerDelContat{
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background-color: white;
+
+@media (max-width: 992px) {
+ 
 }
