@@ -118,7 +118,7 @@ ul.nav-menu-ul-bottom li a {
 
 
 .container-fluid {
-    padding: 17px 9px;
+    padding: 10px 9px;
 }
 
 
@@ -434,15 +434,20 @@ footer p{
     width: 100%;
 }
 
+.index a{
+    text-decoration: none;
+}
 
 .index .icons-footer{
     display: flex;
     width: 100%;
+    
 
 }
 
 .index .icons-footer a{
     font-size: 28px;
+    color: black;
 }
 
 .index .icons-footer .ig{

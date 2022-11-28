@@ -247,10 +247,10 @@
                     <div class="nav-menu-burger">
                         <ul class="nav-menu-ul">
                             <li>
-                                <a href="./index.html" class="ancors-nav-burger" href="./index.html">Home</a>
+                                <a href="./index.html" class="ancors-nav-burger" href="">Home</a>
                             </li>
                             <li>
-                                <a href="./products.html" class="ancors-nav-burger" href="#">Shop</a>
+                                <a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
                             </li>   
                             <li>
                                 <a href="./contact.html" class="ancors-nav-burger" href="">contact us</a>
@@ -293,7 +293,7 @@
             
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid filter-nav ">
-                  <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4>
+                  <!-- <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4> -->
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="burger-menu-filter "><img class="burger-menu-filter "  src="./img/icons/filter.png" alt=""></span>
                   </button>
@@ -306,14 +306,17 @@
                         </a>
                         <ul class="dropdown-menu filter-btn-list">
 
-                            <li class="filter-btn-item" v-for="type in typeCategory">
-                              <label :for="type" class="me-2">{{type}}</label>
-                              <input v-model="typeVModel" type="checkbox" :name="type" :id="type" :value="type">
+
+                            <li class="filter-btn-item" v-for="Type in typeCategory"> 
+                                <label  :for="Type" class="me-2">{{Type}}</label>
+                                <input v-model="typeVModel" type="checkbox" :name="Type" :id="Type" :value="Type">
                             </li>
             
                         </ul>
                         
                       </li>
+
+
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Material Type<i class='bx bx-chevron-down' ></i>
@@ -324,11 +327,19 @@
                               <label :for="materialType" class="me-2">{{materialType}}</label>
                               <input v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
                                 :value="materialType">
+
+                                <!-- <label class="container-material"  :for="materialType">
+                                    {{materialType}}
+                                    <input checked="checked" type="checkbox"  v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
+                                    :value="materialType">
+                                    <div class="checkmark"></div>
+                                </label> -->
+
                             </li>
                             
                         </ul>
                       </li>
-                      <li class="nav-item dropdown">
+                      <li class="nav-item dropdown price-mob">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Price<i class='bx bx-chevron-down' ></i>
                         </a>
@@ -336,43 +347,43 @@
 
                             <li class="filter-btn-item price-container">
                                 <div class="filter-btn-item-box1">
-                                    <label for="higherPrice ">mayor precio</label>
+                                    <label for="higherPrice" v-model="priceVModel">mayor precio</label>
                                     <input v-model="priceVModel" type="radio" name="higherPrice" id="higherPrice" value="higher">
-                                    <div class="container">
-                                        <input type="checkbox" id="cbx" style="display: none;">
-                                        <label for="cbx" class="check">
-                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                                <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                                                <polyline points="1 9 7 14 15 4"></polyline>
-                                            </svg>
-                                        </label>
-                                    </div>
                                 </div>
                                 <div class="filter-btn-item-box2">
-                                    <label for="lowerPrice ">menor precio</label>
+                                    <label for="lowerPrice" v-model="priceVModel">menor precio</label>
                                     <input v-model="priceVModel" type="radio" name="lowerPrice" id="lowerPrice" value="lower">
-                                    <div class="container">
-                                        <input type="checkbox" id="cbx" style="display: none;">
-                                        <label for="cbx" class="check">
-                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                                <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                                                <polyline points="1 9 7 14 15 4"></polyline>
-                                            </svg>
-                                        </label>
-                                    </div>
                                     
                                 </div>
                              
                             </li>
                           </ul>
-                      </li>
+                      </li> 
+                      <li class="filter-btn-item price-container price-deks">
+                        <div class="filter-btn-item-box1">
+                            <label for="higherPrice">mayor precio</label>
+                            <input v-model="priceVModel" type="radio" name="higherPrice" id="higherPrice" value="higher">
+                        </div>
+                        <div class="filter-btn-item-box2">
+                            <label for="lowerPrice">menor precio</label>
+                            <input v-model="priceVModel" type="radio" name="lowerPrice" id="lowerPrice" value="lower">
+                            
+                        </div>
+                     
+                    </li>
                     
                     
                     </ul>
-                    <form class="d-flex" role="search">
+                    <!-- <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="inputSearchVModel">
-             <!--          <button class="btn btn-outline-success" type="submit">Search</button> -->
-                    </form>
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form> -->
+                    <div class="group search-uiv">
+                        <input required="" type="text" class="input" v-model="inputSearchVModel">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label >Search</label>
+                      </div>
                   </div>
                 </div>
               </nav>
@@ -403,7 +414,7 @@
                 </a>
 
             </template>
-            <div class="text-danger" v-show="products.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
+            <div class="text-dark" v-show="products.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
           </div>
 
 
