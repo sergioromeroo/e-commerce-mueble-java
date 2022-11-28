@@ -48,13 +48,17 @@ public class ProductController {
 
     @PatchMapping("/products/update")
     public ResponseEntity<?> updateProduct(
-            @RequestParam int stock,
+            @RequestParam Integer stock,
             @RequestParam long id
     ){
+
+
+
 
         if(stock < 0){
             return new ResponseEntity<>("the stock cannot be less than 0", HttpStatus.FORBIDDEN);
         }
+
 
         Product productFound =  productService.findById(id);
 
