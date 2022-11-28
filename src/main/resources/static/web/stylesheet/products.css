@@ -644,8 +644,8 @@ li.filter-btn-item.price-container.price-deks {
   background-color: black;
   color: white;
 }
-
-/* label:before ,
+/* 
+label:before ,
 label:before {
   content: "";
   width: 17px;
@@ -667,7 +667,13 @@ label:before {
   justify-content:center
 }
 
+.btns-price:checked{
+  background-color: black;
+}
 
+label.btn.btns-cat {
+  border-radius: 0;
+}
 
 @media (min-width: 768px) {
 
