@@ -40,18 +40,20 @@ const app = Vue.createApp({
         },
         productTicket(ticket) {
             //this.productForTicket = ticket.product
-            console.log(this.productForTicket)
-            this.productForTicket = []
+            // console.log(this.productForTicket)
+            // this.productForTicket = []
 
-            ticket.product.forEach(product => {
-                this.products.forEach(prod => {
-                    if (prod.id == product.idProduct) {
-                        this.productForTicket.push(prod)
-                    }
-                })
-            })
+            // ticket.product.forEach(product => {
+            //     this.products.forEach(prod => {
+            //         if (prod.id == product.idProduct) {
+            //             this.productForTicket.push(prod)
+            //         }
+            //     })
+            // })
 
-            console.log(this.productForTicket)
+            // console.log(this.productForTicket)
+            
+            this.productForTicket = ticket.product
         },
 
 
