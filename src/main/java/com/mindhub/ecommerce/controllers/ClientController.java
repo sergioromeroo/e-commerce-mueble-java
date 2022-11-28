@@ -6,6 +6,7 @@ import com.mindhub.ecommerce.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +25,16 @@ public class ClientController {
     public List<ClientDTO> getListOfClientsDTO() {
         return clientService.getClientsDTO();
     }
+
     @RequestMapping("/clients/{id}")
     public ClientDTO getClient(@PathVariable Long id) {
         return clientService.getClientDTO(id);
+    }
+
+    @RequestMapping("/clientcurrent")
+    public ClientDTO getClientCurrent(Authentication authentication) {
+        Client clientCurrent = clientService.getClientByEmail(authentication.getName());
+        return new ClientDTO(clientCurrent);
     }
     @PostMapping("/clients")
     public ResponseEntity<Object> register(
@@ -80,7 +88,22 @@ public class ClientController {
     }
 
 
+    @PutMapping("/clients/delete")
+    public ResponseEntity<?> deleteClient(
+            @RequestParam String email
+    ){
 
+        Client clientFound = clientService.getClientByEmail(email);
+
+        if(clientFound == null){
+            return new ResponseEntity<>("The client not exist", HttpStatus.FORBIDDEN);
+        }
+
+
+        clientService.deleteClient(clientFound);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 }

@@ -17,13 +17,13 @@ const app = Vue.createApp({
             if (this.nameVModel == "" || this.emailVModel == "" || this.reasonVModel == "" || this.messageVModel == "") {
                 Swal.fire({
                     text: `Please fill all the form`,
-                    confirmButtonColor: 'lightgreen',
+                    confirmButtonColor: 'lightgray',
                 })
             } else {
                 if (!this.emailVModel.includes("@")) {
                     Swal.fire({
                         text: `The email must contain @`,
-                        confirmButtonColor: 'lightgreen',
+                        confirmButtonColor: 'lightgray',
                     })
                 } else {
                     // let timerInterval
@@ -48,7 +48,7 @@ const app = Vue.createApp({
 
                     Swal.fire({
                         text: `Thank you very much for contacting us!`,
-                        confirmButtonColor: 'lightgreen',
+                        confirmButtonColor: 'lightgray',
                         
                     })
 
@@ -64,7 +64,7 @@ const app = Vue.createApp({
                             console.log(error)
                             Swal.fire({
                                 text: `Something went wrong! :(`,
-                                confirmButtonColor: 'lightgreen',
+                                confirmButtonColor: 'lightgray',
                             })
                         })
                 }
