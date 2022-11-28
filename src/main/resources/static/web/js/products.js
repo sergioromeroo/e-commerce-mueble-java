@@ -93,6 +93,10 @@ const app = Vue.createApp({
           products: [],
           productsBackUp: [],
           typeCategory: [],
+          categorySofa: [],
+          categoryStorage: [],
+          categoryTable: [],
+          categoryGarden:[],
           materialTypeCategory: [],
           typeVModel: [],
           materialTypeVModel: [],
@@ -103,7 +107,8 @@ const app = Vue.createApp({
           totalAmount: 0,
 
 
-
+          productsIndex:[],
+        
 
           hola: "hola",
             
@@ -147,7 +152,18 @@ const app = Vue.createApp({
                   this.productsBackUp = this.products
                   this.products.forEach(product => !this.typeCategory.includes(product.type) ? this.typeCategory.push(product.type) : "")
                   this.products.forEach(product => !this.materialTypeCategory.includes(product.materialType) ? this.materialTypeCategory.push(product.materialType) : "")
-                  console.log(this.products)
+
+                  this.products.forEach(product => product.type == "sofa" ? this.categorySofa.push(product): "" )
+                  this.products.forEach(product => product.type == "storage" ? this.categoryStorage.push(product): "" )
+                  this.products.forEach(product => product.type == "table" ? this.categoryTable.push(product): "" )
+                  this.products.forEach(product => product.type == "garden" ? this.categoryGarden.push(product): "" )
+                console.log(this.categorySofa);
+
+                //   console.log(this.products)
+
+
+
+
 
               })
               .catch(error => console.log(error))
@@ -245,10 +261,27 @@ const app = Vue.createApp({
     closeTools(){
         this.login = false;
         this.register = false;
+    },
+    buttonChecked(){
+
+        if(this.priceVModel == "lower"){
+            document.getElementById("lower").classList.add("checked");
+            document.getElementById("lowermob").classList.remove("checked");
+            document.getElementById("higher").classList.remove("checked");
+            document.getElementById("highermob").classList.remove("checked");
+
+            
+        }
+        
+        if(this.priceVModel == "higher"){
+            document.getElementById("higher").classList.add("checked");
+            document.getElementById("lower").classList.remove("checked");
+     
+        }
+   
     }
-
-
   },
+
   computed: {
       filter() {
           let firstFilter = this.productsBackUp.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))

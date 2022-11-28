@@ -579,11 +579,16 @@ li.filter-btn-item.price-container.price-deks {
   top: 0;
   left: 0;
   height: 1.3em;
-  background-color: #343434;
+  background-color: rgba(255, 255, 255, 0);
   width: 1.3em;
   border-radius: 5px;
   transition: all 0.5s;
  }
+
+ .checkmark:hover {
+
+  background-color: black;
+}
  
  /* When the checkbox is checked, add a blue background */
  .container-material input:checked ~ .checkmark {
@@ -666,6 +671,18 @@ label:before {
 .products .filter-nav li.filter-btn-item input[type="checkbox"]:checked + label {
   justify-content:center
 }
+
+.checked{
+  background-color:black;
+  color: white
+}
+
+
+.products .btn-check:checked{
+  background-color:black;
+  color: white;
+}
+
 
 .btns-price:checked{
   background-color: black;

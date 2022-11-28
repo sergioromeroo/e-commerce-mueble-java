@@ -408,7 +408,7 @@
 
 
           <div class="section-products">
-            <template v-for="product in products">
+            <template v-for="product in categoryTable">
                 <a :href="'./detail.html?id=' + product.id" class="category-index category-sofa" v-if="product.id > 2">
                     <div class="category-title">
                         <h3>{{product.name}}</h3>
@@ -422,7 +422,7 @@
                 </a>
 
             </template>
-            <div class="text-dark" v-show="products.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
+            <div class="text-dark" v-show="categoryTable.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
           </div>
 
 
