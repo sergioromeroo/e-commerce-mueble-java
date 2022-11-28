@@ -39,6 +39,7 @@ public class ProductFavoriteController {
             @RequestParam String nameProduct,
             @RequestParam String urlProduct,
             @RequestParam double price,
+            @RequestParam long id,
             Authentication authentication
     ){
 
@@ -63,7 +64,7 @@ public class ProductFavoriteController {
         }
 
 
-        ProductFavorite productFavorite = new ProductFavorite(nameProduct,urlProduct,price);
+        ProductFavorite productFavorite = new ProductFavorite(id,nameProduct,urlProduct,price);
 
 
 

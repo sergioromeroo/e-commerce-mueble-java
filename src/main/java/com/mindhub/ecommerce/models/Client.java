@@ -32,7 +32,7 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     Set<Ticket> tickets = new HashSet<>();
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "clients", fetch = FetchType.EAGER)
     Set<ClientProducFav> productsFavorites = new HashSet<>();
 
 

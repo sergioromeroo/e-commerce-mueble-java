@@ -16,7 +16,7 @@ public class ClientProducFav {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    private Client client;
+    private Client clients;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -30,7 +30,7 @@ public class ClientProducFav {
 
 
     public ClientProducFav(Client client, ProductFavorite productFavorite) {
-        this.client = client;
+        this.clients = client;
         this.productFavorite = productFavorite;
     }
 
@@ -40,11 +40,11 @@ public class ClientProducFav {
     }
 
     public Client getClient() {
-        return client;
+        return clients;
     }
 
     public void setClient(Client client) {
-        this.client = client;
+        this.clients = client;
     }
 
     public ProductFavorite getProductFavorite() {
