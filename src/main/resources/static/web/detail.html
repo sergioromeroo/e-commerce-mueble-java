@@ -1,306 +1,306 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Detail Product | Nogal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">    
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Detail Product | Nogal</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="./stylesheet/style.css">
+		<link rel="stylesheet" href="./stylesheet/style.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  </head>
-  <body class="index products" id="app">
-
-
-      <header class="header-products">
-
-          
-        <nav class="navbar fixed-top">
-          <div class="container-fluid">
-            <a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoBlanco.png" alt=""></a>
-            <div class="nav-menu-container">
-                  <div class="nav-menu">
-                      <ul class="nav-menu-ul">
-                          <li>
-                              <a href="./index.html">Home</a>
-                          </li>
-                          <li>
-                              <a href="./products.html">Shop</a>
-                              <ul>
-                                  <li></li>
-                              </ul>
-                          </li>
-                          <li>
-                              <a href="./contact.html">Contact</a>
-                          </li>
-                          <li>
-                              <a href="./about-us.html">About us</a>
-                          </li>              
-                      </ul>
-                  </div>
-                  <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                      <div class="nav-icons">
-                          <a href="">
-                              <img src="./img/icons/wishlist.png" alt="">
-                          </a> 
-                          <a v-on:click="accounts">
-                              <img  type="button" src="./img/icons/account.png" alt="">
-                          </a>
-                          <a href="./cart.html">
-                              <img src="./img/icons/cart.png" alt="">
-                          </a>
-                          <a href="">
-                              <img src="./img/icons/search.png" alt="">
-                          </a>
-                      
-                          <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
-                      </div>
-                  </button>
-            </div>
-              
-  
-  
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header">
-
-                  <div class="burger-menu-mob">
-                      <a href="./index.html" class="burger-menu-mob open-menu">
-                              <img src="./img/logo/logoBlanco.png" alt="">
-                      </a>
-                  </div>  
-                 
-                  <div class="nav-icons open-menu">
-                      <a href="">
-                          <img src="./img/icons/wishlist.png" alt="">
-                      </a> 
-                      <a v-on:click="accounts">
-                          <img  type="button" src="./img/icons/account.png" alt="">
-                      </a>
-                      <a href="./cart.html">
-                          <img src="./img/icons/cart.png" alt="">
-                      </a>
-                      <a href="">
-                          <img src="./img/icons/search.png" alt="">
-                      </a>
-                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                     
-                  </div>        
-               
-              </div>
-  
-  
-  
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  
-              
-                  <div class="nav-menu-burger">
-                      <ul class="nav-menu-ul">
-                          <li class="nav-item dropdown">
-                            <li>
-                              <a class="nav-link ancors-nav-burger" href="./index.html">Home</a>
-                             </li>
-                              <a class="nav-link ancors-nav-burger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Shop
-                              </a>
-                             
-                            </li>
-                 
-                          <li>
-                              <a class="ancors-nav-burger" href="./contact.html">Contact</a>
-                          </li>
-                          <li>
-                              <a class="ancors-nav-burger" href="./about-us.html">About us</a>
-                          </li>              
-                      </ul>
-
-                      <ul class="nav-menu-ul-bottom">
-                          <li>
-                              <a href="">Where to find us?</a>
-                              <a href="">need help?</a>
-                              <a href="">Payment Methods</a>
-                          </li>
-                      </ul>
-
-                  </div>
-                  
-                </ul>
-                
-              </div>
-  
-  
-            </div>
-
-          </div>
-        </nav>
-
-      </header>
-      
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Roboto:wght@400;500;700&display=swap"
+					rel="stylesheet">
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+	</head>
+	<body class="index products" id="app">
 
 
-    <div class="detail">
-    
-    <div class = "card-wrapper">
-      <div class = "card">
-        <!-- card left -->
-        <div class = "product-imgs">
-          <div class = "img-display">
-            <div class = "img-showcase">
-              <img :src = "details.urlImg" alt = "shoe image">
-              <img src = "./images/default2.png" alt = "shoe image">
-              <img src = "./images/default2.png" alt = "shoe image">
-              <img src = "./images/default2.png" alt = "shoe image">
-            </div>
-          </div>
-          <!-- <div class = "img-select">
-            <div class = "img-item">
-              <a href = "#" data-id = "1">
-                <img src = "./images/default2.png" alt = "shoe image">
-              </a>
-            </div>
-            <div class = "img-item">
-              <a href = "#" data-id = "2">
-                <img src = "./images/default2.png" alt = "shoe image">
-              </a>
-            </div>
-            <div class = "img-item">
-              <a href = "#" data-id = "3">
-                <img src = "./images/default2.png" alt = "shoe image">
-              </a>
-            </div>
-            <div class = "img-item">
-              <a href = "#" data-id = "4">
-                <img src = "./images/default2.png" alt = "shoe image">
-              </a>
-            </div>
-          </div> -->
-        </div>
-        <!-- card right -->
-        <div class = "product-content">
-          <h2 class = "product-title">{{details.name}}</h2>
-          <a href = "#" class = "product-link">product new</a>
+		<header class="header-products">
 
 
-          <div class = "product-detail">
-            <h2>Description: </h2>
-            <p>{{details.description}}</p>
-          </div>
-            <div class = "product-price">
-              <p class = "new-price"> Price: <span>$ {{details.price}} </span></p>
-            </div>
+			<nav class="navbar fixed-top">
+				<div class="container-fluid">
+					<a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoBlanco.png" alt=""></a>
+					<div class="nav-menu-container">
+						<div class="nav-menu">
+							<ul class="nav-menu-ul">
+								<li>
+									<a href="./index.html">Home</a>
+								</li>
+								<li>
+									<a href="./products.html">Shop</a>
+									<ul>
+										<li></li>
+									</ul>
+								</li>
+								<li>
+									<a href="./contact.html">Contact</a>
+								</li>
+								<li>
+									<a href="./about-us.html">About us</a>
+								</li>
+							</ul>
+						</div>
+						<button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+							<div class="nav-icons">
+								<a href="">
+									<img src="./img/icons/wishlist.png" alt="">
+								</a>
+								<a v-on:click="accounts">
+									<img  type="button" src="./img/icons/account.png" alt="">
+								</a>
+								<a href="./cart.html">
+									<img src="./img/icons/cart.png" alt="">
+								</a>
+								<a href="">
+									<img src="./img/icons/search.png" alt="">
+								</a>
 
-            <div class="cajaflex">
-              <div class="caja"><p>Category: {{details.type}}</p></div>
-            <div class="caja"><p>Material: {{details.materialType}}</p></div>
-            <div class="caja"><p>Stock: {{details.stock}}</p></div>
-            </div>
-
-            <button type="button" class="btn btn-dark btn-lg" @click="addToFavorites()">🤍</button>
-            
-
-
-          <div class = "purchase-info">
-            <button type = "button" class = "btn" @click="addProductToShoppingCart(details)">
-              Add to Cart <i class = "fas fa-shopping-cart"></i>
-            </button>
-          </div>
-
-          <div class = "social-links">
-            <p>Share At: </p>
-            <a href = "#">
-              <i class = "fab fa-facebook-f"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-twitter"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-instagram"></i>
-            </a>
-            <a href = "#">
-              <i class = "fab fa-whatsapp"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h3>RELATED PRODUCTS</h3>
-    </div>
-  </div>
-
-  <!-- ====productos relacionados======== -->
-
-  
-<div class="index d-flex justify-content-center">
-
-    <section class="index-categories">
-      <template v-for="product in relacionados">
-    
-      <a :href="'./detail.html?id=' + product.id" class="category-index category-sofa" >
-          <div class="category-title">
-              <h3>{{product.name}}</h3>
-          </div>
-          <div class="category-img">
-              <img :src =product.urlImg alt="">
-          </div>
-          <div class="category-desc">
-              <p>${{product.price}}</p>
-          </div>
-      </a>
-
-    </template>
-
-  </section>
-</div>
-
-<footer>
-  <div class="footer">
-      <div class="footer-top">
-          <div class="footer-top1">
-              <div><p>Nogal © 2012</p></div>
-              <div class="store-online-footer"><p>Online furniture store</p></div>
-          </div>
-          <div class="footer-top2">
-              <p>privacy policy</p>
-              <p>public offer</p>
-              <p>where to find us</p>
-              <div class="icons-footer">
-                  <a href=""><i class='bx bxl-facebook'></i></a>
-                  <a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
-              </div>
-          </div>
-      </div>            
-      <div class="footer-bottom">
-          <div class="footer-bottom-text">
-              <p>website development: <span>  mindhub</span> </p>
-          </div>
-      </div>
-  </div>
-</footer>  
+								<span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
+							</div>
+						</button>
+					</div>
 
 
 
-  </body>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./js/detail.js"></script>
+					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+
+							<div class="burger-menu-mob">
+								<a href="./index.html" class="burger-menu-mob open-menu">
+									<img src="./img/logo/logoBlanco.png" alt="">
+								</a>
+							</div>
+
+							<div class="nav-icons open-menu">
+								<a href="">
+									<img src="./img/icons/wishlist.png" alt="">
+								</a>
+								<a v-on:click="accounts">
+									<img  type="button" src="./img/icons/account.png" alt="">
+								</a>
+								<a href="./cart.html">
+									<img src="./img/icons/cart.png" alt="">
+								</a>
+								<a href="">
+									<img src="./img/icons/search.png" alt="">
+								</a>
+								<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+							</div>
+
+						</div>
+
+
+
+						<div class="offcanvas-body">
+							<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+
+								<div class="nav-menu-burger">
+									<ul class="nav-menu-ul">
+										<li class="nav-item dropdown">
+											<li>
+												<a class="nav-link ancors-nav-burger" href="./index.html">Home</a>
+											</li>
+											<a class="nav-link ancors-nav-burger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+												Shop
+											</a>
+
+										</li>
+
+										<li>
+											<a class="ancors-nav-burger" href="./contact.html">Contact</a>
+										</li>
+										<li>
+											<a class="ancors-nav-burger" href="./about-us.html">About us</a>
+										</li>
+									</ul>
+
+									<ul class="nav-menu-ul-bottom">
+										<li>
+											<a href="">Where to find us?</a>
+											<a href="">need help?</a>
+											<a href="">Payment Methods</a>
+										</li>
+									</ul>
+
+								</div>
+
+							</ul>
+
+						</div>
+
+
+					</div>
+
+				</div>
+			</nav>
+
+		</header>
+
+
+
+		<div class="detail">
+
+			<div class = "card-wrapper">
+				<div class = "card">
+					<!-- card left -->
+					<div class = "product-imgs">
+						<div class = "img-display">
+							<div class = "img-showcase">
+								<img :src = "details.urlImg" alt = "shoe image">
+								<img src = "./images/default2.png" alt = "shoe image">
+								<img src = "./images/default2.png" alt = "shoe image">
+								<img src = "./images/default2.png" alt = "shoe image">
+							</div>
+						</div>
+						<!-- <div class = "img-select">
+							<div class = "img-item">
+							<a href = "#" data-id = "1">
+							<img src = "./images/default2.png" alt = "shoe image">
+							</a>
+							</div>
+							<div class = "img-item">
+							<a href = "#" data-id = "2">
+							<img src = "./images/default2.png" alt = "shoe image">
+							</a>
+							</div>
+							<div class = "img-item">
+							<a href = "#" data-id = "3">
+							<img src = "./images/default2.png" alt = "shoe image">
+							</a>
+							</div>
+							<div class = "img-item">
+							<a href = "#" data-id = "4">
+							<img src = "./images/default2.png" alt = "shoe image">
+							</a>
+							</div>
+							</div> -->
+					</div>
+					<!-- card right -->
+					<div class = "product-content">
+						<h2 class = "product-title">{{details.name}}</h2>
+						<a href = "#" class = "product-link">product new</a>
+
+
+						<div class = "product-detail">
+							<h2>Description: </h2>
+							<p>{{details.description}}</p>
+						</div>
+						<div class = "product-price">
+							<p class = "new-price"> Price: <span>$ {{details.price}} </span></p>
+						</div>
+
+						<div class="cajaflex">
+							<div class="caja"><p>Category: {{details.type}}</p></div>
+							<div class="caja"><p>Material: {{details.materialType}}</p></div>
+							<div class="caja"><p>Stock: {{details.stock}}</p></div>
+						</div>
+
+						<button type="button" class="btn btn-dark btn-lg" @click="addToFavorites()">🤍</button>
+
+
+
+						<div class = "purchase-info">
+							<button type = "button" class = "btn" @click="addProductToShoppingCart(details)">
+								Add to Cart <i class = "fas fa-shopping-cart"></i>
+							</button>
+						</div>
+
+						<div class = "social-links">
+							<p>Share At: </p>
+							<a href = "#">
+								<i class = "fab fa-facebook-f"></i>
+							</a>
+							<a href = "#">
+								<i class = "fab fa-twitter"></i>
+							</a>
+							<a href = "#">
+								<i class = "fab fa-instagram"></i>
+							</a>
+							<a href = "#">
+								<i class = "fab fa-whatsapp"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h3>RELATED PRODUCTS</h3>
+			</div>
+		</div>
+
+		<!-- ====productos relacionados======== -->
+
+
+		<div class="index d-flex justify-content-center">
+
+			<section class="index-categories">
+				<template v-for="product in relacionados">
+
+					<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa" >
+						<div class="category-title">
+							<h3>{{product.name}}</h3>
+						</div>
+						<div class="category-img">
+							<img :src =product.urlImg alt="">
+						</div>
+						<div class="category-desc">
+							<p>${{product.price}}</p>
+						</div>
+					</a>
+
+				</template>
+
+			</section>
+		</div>
+
+		<footer>
+			<div class="footer">
+				<div class="footer-top">
+					<div class="footer-top1">
+						<div><p>Nogal © 2012</p></div>
+						<div class="store-online-footer"><p>Online furniture store</p></div>
+					</div>
+					<div class="footer-top2">
+						<p>privacy policy</p>
+						<p>public offer</p>
+						<p>where to find us</p>
+						<div class="icons-footer">
+							<a href=""><i class='bx bxl-facebook'></i></a>
+							<a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<div class="footer-bottom-text">
+						<p>website development: <span>  mindhub</span> </p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+
+	</body>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="./js/detail.js"></script>
 
 </html>

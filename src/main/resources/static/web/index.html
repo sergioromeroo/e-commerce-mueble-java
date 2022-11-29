@@ -1,453 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Nogal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">
-    <link rel="stylesheet" href="./stylesheet/style.css">
-
-</head>
-
-<body class="index">
-    <div id="app">
-        <header>
-            <!-- <div href="./index.html" class="img-background-contain"><img class="img-background" src="./img/header imagen.jpg" srcset="https://drommel.com.ua/image/cache/catalog/sub2-2-1920x860.jpg 1366w, https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg 922w, https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg 320w" alt="" loading="lazy"></div> -->
-            <!-- <div href="./index.html" class="img-background-contain"><img class="img-background" src="./img/header imagen.jpg" alt="" loading="lazy"></div> -->
-            <div href="./index.html" class="img-background-contain"><img class="img-background" src="./img/header imagen.jpg" alt="" loading="lazy"></div>
-      
-
-            <nav class="navbar ">
-                <div class="container-fluid">
-                    <a class="navbar-brand burger-menu-mob" href="./index.html"><img src="./img/logo/logoBlanco.png" alt=""></a>
-                    <div class="nav-menu-container">
-                        <div class="nav-menu">
-                            <ul class="nav-menu-ul">
-                                <li>
-                                    <a href="./index.html">Home</a>
-                                </li>
-                                <li>
-                                    <a href="./products.html">Shop</a>
-
-                                </li>
-                                <li>
-                                    <a href="./contact.html">Contact</a>
-                                </li>
-                                <li>
-                                    <a href="./about-us.html">About us</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="nav-icons-and-menu-burger">
-                            <div class="nav-icons">
-                                <a href="">
-                                    <img src="./img/icons/wishlist.png" alt="">
-                                </a>
-                                <a v-on:click="accounts">
-                                    <img type="button" src="./img/icons/account.png" alt="">
-                                </a>
-                                <a href="./cart.html">
-                                    <img src="./img/icons/cart.png" alt="">
-                                </a>
-                                <!-- <a href="">
-                                    <img src="./img/icons/search.png" alt="">
-                                </a>
-                             -->
-                        
-                            </div>
-                            <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                            
-                                <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
-                            </button>
-                        </div>
-                    </div>
-
-
-
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
-
-                            <div class="burger-menu-mob">
-                                <a href="./index.html" class="burger-menu-mob open-menu">
-
-                                    <img src="./img/logo/logoBlanco.png" alt="">
-                                </a>
-                            </div>
-
-                            <div class="nav-icons open-menu">
-                                <a href="">
-                                    <img src="./img/icons/wishlist.png" alt="">
-                                </a>
-                                <a v-on:click="accounts">
-                                    <img type="button" src="./img/icons/account.png" alt="">
-                                </a>
-                                <a href="./cart.html">
-                                    <img src="./img/icons/cart.png" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="./img/icons/search.png" alt="">
-                                </a>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-
-
-                                <div class="nav-menu-burger">
-                                    <ul class="nav-menu-ul">
-                                        <li>
-                                            <a href="./index.html" class="ancors-nav-burger" href="">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
-                                        </li>
-                                        <li>
-                                            <a href="./contact.html" class="ancors-nav-burger" href="">Contact</a>
-                                        </li>
-                                        <li>
-                                            <a href="./about-us.html" class="ancors-nav-burger" href="">About us</a>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="nav-menu-ul-bottom">
-                                        <li>
-                                            <a href="">Where to find us?</a>
-                                            <a href="">need help?</a>
-                                            <a href="">Payment Methods</a>
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                            </ul>
-
-                        </div>
-
-
-                    </div>
-
-
-
-
-                </div>
-            </nav>
-
-
-
-            <div class="text-header">
-                <div class="title-text-header">
-                    <h2>100 days to change the table</h2>
-                </div>
-                <div class="p-text">
-                    <p> If the color should be darker and the size larger, we will replace it for free</p>
-                </div>
-                <a href="./productsTable.html" class="btn-choose-table">Choose a table</a>
-                <!-- <a href="./products.html"><H2>Products</H2></a> -->
-            </div>
-
-        </header>
-        <main>
-            <section class="index-categories">
-                <a href="./productsSofa.html" class="category-index category-sofa">
-                    <div class="category-title">
-                        <h3>Sofa</h3>
-                    </div>
-                    <div class="category-img">
-                        <img src="https://uploads-ssl.webflow.com/60cb21bdbf0542c0a4a45727/62ff096baf0efc4cbf5ce411_xander.jpg" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>sofa-1423</p>
-                    </div>
-                </a>
-                <a href="./productsTable.html" class="category-index category-table">
-                    <div class="category-title">
-                        <h3>Table</h3>
-                    </div>
-                    <div class="category-img table-img">
-                        <img src="./img/tables/drom281-bl-n-610x610-610x610.jpeg" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>table-5241</p>
-                    </div>
-                </a>
-                <a href="./productsStorage.html" class="category-index category-storage">
-                    <div class="category-title">
-                        <h3>Storage</h3>
-                    </div>
-                    <div class="category-img storage-img">
-                        <img src="./img/storage/storageandcat.jpg" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>storage-5124</p>
-                    </div>
-                </a>
-                <a href="./productsGarden.html" class="category-index category-garden">
-                    <div class="category-title">
-                        <h3>Garden</h3>
-                    </div>
-                    <div class="category-img garden-img">
-                        <img src="./img/garden/pngwing.com (3).png" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>garden-6913</p>
-                    </div>
-                </a>
-            </section>
-
-            <section class="categories-with-img">
-                <div class="tables">
-                    <!-- <div class="img-back-tables"><img src="https://drommel.com.ua/image/cache/catalog/tables-banner-960x850.jpg" alt=""></div> -->
-                    <div class="tables-title">
-                        <h3>Garden</h3>
-                    </div>
-                    <div class="tables-btn-buy">
-                        <a href="./productsGarden.html">buy now</a>
-                    </div>
-                </div>
-                <div class="storage">
-                    <!-- <div class="img-back-storage"><img src="" alt=""></div> -->
-                    <div class="storage-title">
-                        <h3>Storage</h3>
-                    </div>
-                    <div class="storage-btn-buy">
-                        <a href="./productsGarden.html">buy now</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="index-categories section3-categories">
-                <a href='./detail.html?id=12' class="category-index category-sofa category-index-sectior3">
-                    <div class="category-title section3-title">
-                        <h3>Table living room</h3>
-                    </div>
-                    <div class="category-img table-img">
-                        <img src="https://drommel.com.ua/image/cache/catalog/products/%D0%9E%D0%BF%D0%BE%D1%80%D0%B0%20%D0%BA%20%D1%81%D1%82%D0%BE%D0%BB%D1%83%20Y/DROM155-BL-610x610.jpg" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>table-1631</p>
-                    </div>
-                </a>
-                <a href='./detail.html?id=14' class="category-index category-table category-index-sectior3">
-                    <div class="category-title section3-title">
-                        <h3>Table-living room</h3>
-                    </div>
-                    <div class="category-img table-img">
-                        <img src="https://drommel.com.ua/image/cache/catalog/el15black-610x610-610x610.png" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>table-6123</p>
-                    </div>
-                </a>
-                <a href='./detail.html?id=10' class="category-index category-storage category-index-sectior3">
-                    <div class="category-title section3-title">
-                        <h3>table desk working</h3>
-                    </div>
-                    <div class="category-img table-img">
-                        <img src="./img/tables/DROM255-WH_BR-330x330.jpg" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>storage-5124</p>
-                    </div>
-                </a>
-
-            </section>
-
-
-            <!-- LOGIN Y REGISTER -->
-            <!-- LOGIN  -->
-            <transition name="bounce">
-                <div class="container loginRegisterPositon py-5 h-100  " v-if="login  == true">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                            <div class="card  text-white colorLoginAndRegister" style="border-radius: 1rem;">
-
-                                <div class="card-body p-5 text-center ">
-                                    <img class="icons" src="./img/icons/close.png" v-on:click="closeTools" alt="" style="filter: brightness(6);">
-                                    <div class="mb-md-5 mt-md-4 pb-5">
-
-                                        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-
-
-                                        <p class="text-white-50 mb-5">Please enter your login and password!</p>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="email" v-model="emailVModel" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Email</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" v-model="passwordVModel" id="typePasswordX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Password</label>
-                                        </div>
-
-                                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
-                                                password?</a></p>
-
-                                        <button class="btn btn-outline-light btn-lg px-5" type="submit" @click="access()">Login</button>
-
-                                        <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                            <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                            <a href="#!" class="text-white"><i
-                                                    class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                            <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="d-flex justify-content-center ">
-                                        <p class="mb-0" type="button" v-on:click="theLoginAndRegister">Don't have an account? <a class="text-white-50 fw-bold boderLoginAndRegister">Sign Up</a>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </transition>
-
-            <!-- REGISTER -->
-            <transition name="bounce">
-                <div class="container py-5 loginRegisterPositon " v-if="register == true">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                            <div class="card colorLoginAndRegister text-white " style="border-radius: 1rem;">
-                                <div class="card-body p-5 text-center">
-                                    <img class="icons" src="./img/icons/close.png" type="button" v-on:click="closeTools" alt="" style="filter: brightness(6);">
-                                    <div class="mb-md-5 mt-md-4 pb-5">
-
-                                        <h2 class="fw-bold mb-2 text-uppercase">Register </h2>
-
-                                        <p class="text-white-50 mb-5">Please create your account</p>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="firstName" v-model="firstNameRegisterVModel" id="firstName" class="form-control form-control-lg" />
-                                            <label class="form-label" for="firstName">First name</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="lastName" v-model="lastNameRegisterVModel" id="lastName" class="form-control form-control-lg" />
-                                            <label class="form-label" for="lastName">Last name</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="email" v-model="emailVModel" id="typeEmail" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmail">Email</label>
-                                        </div>
-
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" v-model="passwordVModel" id="typePasswordX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Password</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="number" v-model="celPhoneRegisterVModel" id="cellPhone" class="form-control form-control-lg" />
-                                            <label class="form-label" for="cellPhone">Cellphone</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" v-model="addresVModel" id="adress" class="form-control form-control-lg" />
-                                            <label class="form-label" for="adress">Adress</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" v-model="cityVModel" id="city" class="form-control form-control-lg" />
-                                            <label class="form-label" for="city">City</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" v-model="stateVModel" id="state" class="form-control form-control-lg" />
-                                            <label class="form-label" for="state">State</label>
-                                        </div>
-
-                                        <button class="btn btn-outline-light btn-lg px-5" type="submit" @click="clientRegister()">Create
-                                            account</button>
-
-                                        <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                            <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                            <a href="#!" class="text-white"><i
-                                                    class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                            <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="d-flex justify-content-center ">
-                                        <p class="mb-0" type="button" v-on:click="theLoginAndRegister">You have account
-                                            <a class="text-white-50 fw-bold boderLoginAndRegister">login Up</a>
-                                        </p>
-                                    </div>
-
-
-
-                                    <!-- <div class="d-flex justify-content-center ">
-                                    <p class="mb-0" v-on:click="theLoginAndRegister">you have account
-                                        <a href="#!" class="text-white-50 fw-bold boderLoginAndRegiste">login Up</a>
-                                    </p>
-                                </div> -->
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </transition>
-
-            <!-- TERMINA EL LOGIN Y EL REGISTER -->
-
-
-
-        </main>
-        <a href="#" class="btn-top"><i class='bx bx-chevron-up'></i></a>
-        <footer>
-            <div class="footer">
-                <div class="footer-top">
-                    <div class="footer-top1">
-                        <div>
-                            <p>Nogal © 2012</p>
-                        </div>
-                        <div class="store-online-footer">
-                            <p>Online furniture store</p>
-                        </div>
-                    </div>
-                    <div class="footer-top2">
-                        <p>privacy policy</p>
-                        <p>public offer</p>
-                        <p>where to find us</p>
-                        <div class="icons-footer">
-                            <a href=""><i class='bx bxl-facebook'></i></a>
-                            <a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="footer-bottom-text">
-                        <p>website development: <span>  mindhub</span> </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-</body>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="./js/login-register.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Home | Nogal</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">
+		<link rel="stylesheet" href="./stylesheet/style.css">
+
+	</head>
+
+	<body class="index">
+		<div id="app">
+			<header>
+				<!-- <div href="./index.html" class="img-background-contain"><img class="img-background" src="./img/header imagen.jpg" srcset="https://drommel.com.ua/image/cache/catalog/sub2-2-1920x860.jpg 1366w, https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg 922w, https://drommel.com.ua/image/cache/catalog/sub2-2-480x215.jpg 320w" alt="" loading="lazy"></div> -->
+				<!-- <div href="./index.html" class="img-background-contain"><img class="img-background" src="./img/header imagen.jpg" alt="" loading="lazy"></div> -->
+				<div href="./index.html" class="img-background-contain"><img class="img-background" src="./img/header imagen.jpg" alt="" loading="lazy"></div>
+
+
+				<nav class="navbar ">
+					<div class="container-fluid">
+						<a class="navbar-brand burger-menu-mob" href="./index.html"><img src="./img/logo/logoBlanco.png" alt=""></a>
+						<div class="nav-menu-container">
+							<div class="nav-menu">
+								<ul class="nav-menu-ul">
+									<li>
+										<a href="./index.html">Home</a>
+									</li>
+									<li>
+										<a href="./products.html">Shop</a>
+
+									</li>
+									<li>
+										<a href="./contact.html">Contact</a>
+									</li>
+									<li>
+										<a href="./about-us.html">About us</a>
+									</li>
+								</ul>
+							</div>
+							<div class="nav-icons-and-menu-burger">
+								<div class="nav-icons">
+									<a href="">
+										<img src="./img/icons/wishlist.png" alt="">
+									</a>
+									<a v-on:click="accounts">
+										<img type="button" src="./img/icons/account.png" alt="">
+									</a>
+									<a href="./cart.html">
+										<img src="./img/icons/cart.png" alt="">
+									</a>
+									<!-- <a href="">
+										<img src="./img/icons/search.png" alt="">
+										</a>
+									-->
+
+								</div>
+								<button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+
+									<span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
+								</button>
+							</div>
+						</div>
+
+
+
+						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+							<div class="offcanvas-header">
+
+								<div class="burger-menu-mob">
+									<a href="./index.html" class="burger-menu-mob open-menu">
+
+										<img src="./img/logo/logoBlanco.png" alt="">
+									</a>
+								</div>
+
+								<div class="nav-icons open-menu">
+									<a href="">
+										<img src="./img/icons/wishlist.png" alt="">
+									</a>
+									<a v-on:click="accounts">
+										<img type="button" src="./img/icons/account.png" alt="">
+									</a>
+									<a href="./cart.html">
+										<img src="./img/icons/cart.png" alt="">
+									</a>
+									<a href="">
+										<img src="./img/icons/search.png" alt="">
+									</a>
+									<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+								</div>
+
+							</div>
+
+
+
+							<div class="offcanvas-body">
+								<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+
+									<div class="nav-menu-burger">
+										<ul class="nav-menu-ul">
+											<li>
+												<a href="./index.html" class="ancors-nav-burger" href="">Home</a>
+											</li>
+											<li>
+												<a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
+											</li>
+											<li>
+												<a href="./contact.html" class="ancors-nav-burger" href="">Contact</a>
+											</li>
+											<li>
+												<a href="./about-us.html" class="ancors-nav-burger" href="">About us</a>
+											</li>
+										</ul>
+
+										<ul class="nav-menu-ul-bottom">
+											<li>
+												<a href="">Where to find us?</a>
+												<a href="">need help?</a>
+												<a href="">Payment Methods</a>
+											</li>
+										</ul>
+
+									</div>
+
+								</ul>
+
+							</div>
+
+
+						</div>
+
+
+
+
+					</div>
+				</nav>
+
+
+
+				<div class="text-header">
+					<div class="title-text-header">
+						<h2>100 days to change the table</h2>
+					</div>
+					<div class="p-text">
+						<p> If the color should be darker and the size larger, we will replace it for free</p>
+					</div>
+					<a href="./productsTable.html" class="btn-choose-table">Choose a table</a>
+					<!-- <a href="./products.html"><H2>Products</H2></a> -->
+				</div>
+
+			</header>
+			<main>
+				<section class="index-categories">
+					<a href="./productsSofa.html" class="category-index category-sofa">
+						<div class="category-title">
+							<h3>Sofa</h3>
+						</div>
+						<div class="category-img">
+							<img src="https://uploads-ssl.webflow.com/60cb21bdbf0542c0a4a45727/62ff096baf0efc4cbf5ce411_xander.jpg" alt="">
+						</div>
+						<div class="category-desc">
+							<p>sofa-1423</p>
+						</div>
+					</a>
+					<a href="./productsTable.html" class="category-index category-table">
+						<div class="category-title">
+							<h3>Table</h3>
+						</div>
+						<div class="category-img table-img">
+							<img src="./img/tables/drom281-bl-n-610x610-610x610.jpeg" alt="">
+						</div>
+						<div class="category-desc">
+							<p>table-5241</p>
+						</div>
+					</a>
+					<a href="./productsStorage.html" class="category-index category-storage">
+						<div class="category-title">
+							<h3>Storage</h3>
+						</div>
+						<div class="category-img storage-img">
+							<img src="./img/storage/storageandcat.jpg" alt="">
+						</div>
+						<div class="category-desc">
+							<p>storage-5124</p>
+						</div>
+					</a>
+					<a href="./productsGarden.html" class="category-index category-garden">
+						<div class="category-title">
+							<h3>Garden</h3>
+						</div>
+						<div class="category-img garden-img">
+							<img src="./img/garden/pngwing.com (3).png" alt="">
+						</div>
+						<div class="category-desc">
+							<p>garden-6913</p>
+						</div>
+					</a>
+				</section>
+
+				<section class="categories-with-img">
+					<div class="tables">
+						<!-- <div class="img-back-tables"><img src="https://drommel.com.ua/image/cache/catalog/tables-banner-960x850.jpg" alt=""></div> -->
+						<div class="tables-title">
+							<h3>Garden</h3>
+						</div>
+						<div class="tables-btn-buy">
+							<a href="./productsGarden.html">buy now</a>
+						</div>
+					</div>
+					<div class="storage">
+						<!-- <div class="img-back-storage"><img src="" alt=""></div> -->
+						<div class="storage-title">
+							<h3>Storage</h3>
+						</div>
+						<div class="storage-btn-buy">
+							<a href="./productsGarden.html">buy now</a>
+						</div>
+					</div>
+				</section>
+
+				<section class="index-categories section3-categories">
+					<a href='./detail.html?id=12' class="category-index category-sofa category-index-sectior3">
+						<div class="category-title section3-title">
+							<h3>Table living room</h3>
+						</div>
+						<div class="category-img table-img">
+							<img src="https://drommel.com.ua/image/cache/catalog/products/%D0%9E%D0%BF%D0%BE%D1%80%D0%B0%20%D0%BA%20%D1%81%D1%82%D0%BE%D0%BB%D1%83%20Y/DROM155-BL-610x610.jpg" alt="">
+						</div>
+						<div class="category-desc">
+							<p>table-1631</p>
+						</div>
+					</a>
+					<a href='./detail.html?id=14' class="category-index category-table category-index-sectior3">
+						<div class="category-title section3-title">
+							<h3>Table-living room</h3>
+						</div>
+						<div class="category-img table-img">
+							<img src="https://drommel.com.ua/image/cache/catalog/el15black-610x610-610x610.png" alt="">
+						</div>
+						<div class="category-desc">
+							<p>table-6123</p>
+						</div>
+					</a>
+					<a href='./detail.html?id=10' class="category-index category-storage category-index-sectior3">
+						<div class="category-title section3-title">
+							<h3>table desk working</h3>
+						</div>
+						<div class="category-img table-img">
+							<img src="./img/tables/DROM255-WH_BR-330x330.jpg" alt="">
+						</div>
+						<div class="category-desc">
+							<p>storage-5124</p>
+						</div>
+					</a>
+
+				</section>
+
+
+
+				<!-- LOGIN Y REGISTER 2 -->
+				<!-- LOGIN  -->
+				<transition name="bounce">
+				<div class="container loginRegisterPositon py-5 h-100  " v-if="login  == true">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+							<div class="card  text-white colorLoginAndRegister" style="border-radius: 1rem;">
+
+								<div class="card-body p-5 text-center ">
+									<img class="icons" src="./img/icons/close.png" v-on:click="closeTools" alt="" style="filter: brightness(6);">
+									<div class="mb-md-5 mt-md-4 pb-5">
+
+										<h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+
+
+										<p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+										<div class="form-outline form-white mb-4">
+											<input type="email" v-model="emailVModel" id="typeEmailX" class="form-control form-control-lg" />
+											<label class="form-label" for="typeEmailX">Email</label>
+										</div>
+
+										<div class="form-outline form-white mb-4">
+											<input type="password" v-model="passwordVModel" id="typePasswordX" class="form-control form-control-lg" />
+											<label class="form-label" for="typePasswordX">Password</label>
+										</div>
+
+										<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
+											password?</a></p>
+
+										<button class="btn btn-outline-light btn-lg px-5" type="submit" @click="access()">Login</button>
+
+										<div class="d-flex justify-content-center text-center mt-4 pt-1">
+											<a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+											<a href="#!" class="text-white"><i
+																	 class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+											<a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+										</div>
+
+									</div>
+
+									<div class="d-flex justify-content-center ">
+										<p class="mb-0" type="button" v-on:click="theLoginAndRegister">Don't have an account? <a class="text-white-50 fw-bold boderLoginAndRegister">Sign Up</a>
+										</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</transition>
+
+				<!-- REGISTER -->
+				<transition name="bounce">
+				<div class="container py-5 loginRegisterPositon " v-if="login  == true" >
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+							<div class="card colorLoginAndRegister text-white " style="border-radius: 1rem;">
+								<div class="card-body p-5 text-center">
+									<img class="icons" src="./img/icons/close.png" type="button" v-on:click="closeTools" alt="" style="filter: brightness(6);">
+									<div class="mb-md-5 mt-md-4 pb-5">
+
+										<h2 class="fw-bold mb-2 text-uppercase">Register </h2>
+
+										<p class="text-white-50 mb-5">Please create your account</p>
+
+
+										<div class="form-outline form-white mb-4">
+											<input type="email" v-model="emailVModel" id="typeEmail" class="form-control form-control-lg" />
+											<label class="form-label" for="typeEmail">Email</label>
+										</div>
+
+
+										<div class="form-outline form-white mb-4">
+											<input type="password" v-model="passwordVModel" id="typePasswordX" class="form-control form-control-lg" />
+											<label class="form-label" for="typePasswordX">Password</label>
+										</div>
+										<div class="row d-flex ">
+
+											<div class="form-outline form-white mb-4 col">
+												<input type="firstName" v-model="firstNameRegisterVModel" id="firstName" class="form-control form-control-lg" />
+												<label class="form-label" for="firstName">First name</label>
+											</div>
+
+											<div class="form-outline form-white mb-4 col">
+												<input type="lastName" v-model="lastNameRegisterVModel" id="lastName" class="form-control form-control-lg" />
+												<label class="form-label" for="lastName">Last name</label>
+											</div>
+										</div>
+										<div class="row d-flex">
+
+											<div class="form-outline col form-white mb-4">
+												<input type="number" v-model="celPhoneRegisterVModel" id="cellPhone" class="form-control form-control-lg" />
+												<label class="form-label" for="cellPhone">Cellphone</label>
+											</div>
+
+											<div class="form-outline col form-white mb-4">
+												<input type="text" v-model="addresVModel" id="adress" class="form-control form-control-lg" />
+												<label class="form-label" for="adress">Adress</label>
+											</div>
+
+											<div class="form-outline col form-white mb-4">
+												<input type="text" v-model="cityVModel" id="city" class="form-control form-control-lg" />
+												<label class="form-label" for="city">City</label>
+											</div>
+
+											<div class="form-outline col form-white mb-4">
+												<input type="text" v-model="stateVModel" id="state" class="form-control form-control-lg" />
+												<label class="form-label" for="state">State</label>
+											</div>
+										</div>
+
+										<button class="btn btn-outline-light btn-lg px-5" type="submit" @click="clientRegister()">Create
+											account</button>
+
+										<div class="d-flex justify-content-center text-center mt-4 pt-1">
+											<a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+											<a href="#!" class="text-white"><i
+																	 class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+											<a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+										</div>
+
+									</div>
+									<div class="d-flex justify-content-center ">
+										<p class="mb-0" type="button" v-on:click="theLoginAndRegister">You have account
+										<a class="text-white-50 fw-bold boderLoginAndRegister">login Up</a>
+										</p>
+									</div>
+
+
+
+									<!-- <div class="d-flex justify-content-center ">
+										<p class="mb-0" v-on:click="theLoginAndRegister">you have account
+										<a href="#!" class="text-white-50 fw-bold boderLoginAndRegiste">login Up</a>
+										</p>
+										</div> -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</transition>
+
+				<!-- TERMINA EL LOGIN Y EL REGISTER -->
+
+			</main>
+			<a href="#" class="btn-top"><i class='bx bx-chevron-up'></i></a>
+			<footer>
+				<div class="footer">
+					<div class="footer-top">
+						<div class="footer-top1">
+							<div>
+								<p>Nogal © 2012</p>
+							</div>
+							<div class="store-online-footer">
+								<p>Online furniture store</p>
+							</div>
+						</div>
+						<div class="footer-top2">
+							<p>privacy policy</p>
+							<p>public offer</p>
+							<p>where to find us</p>
+							<div class="icons-footer">
+								<a href=""><i class='bx bxl-facebook'></i></a>
+								<a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<div class="footer-bottom-text">
+							<p>website development: <span>  mindhub</span> </p>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+	</body>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+	<script src="./js/login-register.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
