@@ -91,6 +91,64 @@ public class ClientController {
     }
 
 
+    @PutMapping("/clients/modify")
+    public ResponseEntity<?> putClient(
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam long cellPhone,
+            @RequestParam String addres,
+            @RequestParam String email,
+            @RequestParam String password,
+            Authentication authentication
+    ){
+
+        Client clientCurrent = clientService.getClientByEmail(authentication.getName());
+
+        if(firstName.isEmpty()){
+            return new ResponseEntity<>("The name is empty",HttpStatus.FORBIDDEN);
+        }
+
+
+        if(lastName.isEmpty()){
+            return new ResponseEntity<>("The lastname is empty",HttpStatus.FORBIDDEN);
+        }
+
+        if(cellPhone == 0){
+            return new ResponseEntity<>("The cell phone is 0",HttpStatus.FORBIDDEN);
+        }
+
+        if(addres.isEmpty()){
+            return new ResponseEntity<>("The addres is empty",HttpStatus.FORBIDDEN);
+        }
+
+        if(email.isEmpty()){
+            return new ResponseEntity<>("The email is empty",HttpStatus.FORBIDDEN);
+        }
+
+        if(password.isEmpty()){
+            return new ResponseEntity<>("The password is empty",HttpStatus.FORBIDDEN);
+        }
+
+        if(clientCurrent == null){
+            return new ResponseEntity<>("The client not exist",HttpStatus.FORBIDDEN);
+        }
+
+
+        clientCurrent.setAddres(addres);
+        clientCurrent.setEmail(email);
+        clientCurrent.setFirstname(firstName);
+        clientCurrent.setLastname(lastName);
+        clientCurrent.setCellPhone(cellPhone);
+        clientCurrent.setPassword(password);
+
+
+        clientService.saveClient(clientCurrent);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
     @PutMapping("/clients/delete")
     public ResponseEntity<?> deleteClient(
             @RequestParam String email
