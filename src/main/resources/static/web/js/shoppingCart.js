@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            clientCurrent: {},
             shoppingCart: [],
             totalAmount: 0,
             paymentMethodVModel: "",
@@ -11,9 +12,27 @@ const app = Vue.createApp({
 
             numberCardVModel: null,
             cvvCardVModel: null,
+            heading: "Sample PDF Generator",
+            moreText: [
+                "This is another few sentences of text to look at it.",
+                "Just testing the paragraphs to see how they format.",
+                "jsPDF likes arrays for sentences.",
+                "Do paragraphs wrap properly?",
+                "Yes, they do!",
+                "What does it look like?",
+                "Not bad at all."
+            ],
+            items: [
+                { title: "Item 1", body: "I am item 1 body text" },
+                { title: "Item 2", body: "I am item 2 body text" },
+                { title: "Item 3", body: "I am item 3 body text" },
+                { title: "Item 4", body: "I am item 4 body text" }
+            ]
+
         }
     },
     created() {
+        this.loadClientCurrent()
     },
     mounted() {
 
@@ -30,6 +49,16 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        loadClientCurrent(){
+            axios.get('/api/clientcurrent')
+            .then(response => {
+                console.log(response)
+                this.clientCurrent = response.data
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        },
         finalAmount() {
             this.totalAmount = 0
             this.shoppingCart.map(product => {
@@ -149,36 +178,102 @@ const app = Vue.createApp({
             console.log(this.quantityProducts)
         },
         Imprimir() {
-           const doc = new jsPDF({});
-
-            doc.setFontSize(20);
-             doc.text(65, 20, 'Resumen De compra', { align: 'center' });
-            doc.setLineWidth(1.5);
-             doc.line(10, 25, 200, 25);
+            const doc = new jsPDF({});
             
+ 
+             doc.setFontSize(20);
+              doc.text(170, 20,' # Ticket', { align: 'right' });
+              doc.text(20, 20, 'Future Furtniture');
+              doc.setFontSize(13);
+              doc.text(20,28,"Slogan de la compaÃ±ia");
+              doc.setFontSize(14);
+              doc.text(20,40,"Street Adress")
+              doc.text(20,48,"City,Zip Code")
+              doc.text(20,56,"Phone 231932103103-21321313")
+ 
+             doc.setLineWidth(1.5);
+              doc.line(10, 95, 200, 95);
+ 
+ 
+              doc.setFontSize(11);
+              doc.text(20,65,"To:")
+              doc.text(20,72,"First name: ") //this.clientCurrent.firstName 
+              doc.text(20,78,"Last name:") //this.clientCurrent.lastName
+              doc.text(20,84,"Email:") //this.clientCurrent.email
+              doc.text(20,90,"Phone:") //this.clientCurrent.celphone
+ 
+              doc.text(148,65," Ship To:")
+              doc.text(150,72,"Street:") //this.clientCurrent.addres
+              doc.text(150,78,"City:") //this.clientCurrent.city
+              doc.text(150,84,"State:") //this.clientCurrent.state
+              //doc.text(150,90,"Phone:")
+ 
+                  doc.setFontSize(13)
+ 
+             doc.text(20,105,"DESCRIPTION")
+             doc.text(80,105,"QUANTITY")
+ 
+             doc.text(120,105,"UNIT PRICE :")
+             doc.text(170,105,"TOTAL:")
+             doc.text(150,255,"SUBTOTAL : $")
+             doc.text(150,265,"SHIPPING: $")
+             doc.text(150,275,"TOTAL : $ ________")
+ 
+             let numero = 105
+ 
+             this.shoppingCart.forEach(item => {
+                 console.log(this.shoppingCart)
+                 numero = numero + 10
+                 doc.setFontSize(15);
+                 doc.text(20, numero , item.name  , { align: 'center' });
+                 doc.text(88,numero,`${item.quantity}`,{ align: 'center' })
+                 doc.text(125, numero , ` $${item.price}` , { align: 'center' });
+                 doc.text(170, numero , `$${item.price*item.quantity}` , { align: 'center' });
+                 doc.text(175,275,`${this.totalAmount}`,{ align: 'center' });
+ 
+                 
+ 
+ 
+             })
+ 
+ 
+             doc.text(10,265,"Payment Method:__________ ")
+             doc.text(10,275,"Card/Check Number:____________ ")
+             
+ 
+ 
+ 
+ 
+ /*             doc.setFontSize(17)
+             doc.text(10,45,"Item Id")
+             doc.text(60,45,"Description")
+             doc.text(120,45,"Quantity")
+ 
+             doc.text(170,45,"Unit Price")
+             doc.text(150,175,"Total : $")
+ 
+             let numero = 45
+             this.shoppingCart.forEach(item => {
+                 console.log(this.shoppingCart)
+                 numero = numero + 10
+                 doc.setFontSize(15);
+                 doc.text(15, numero ,`${item.id}`, { align: 'center' });
+                 doc.text(60, numero , item.name  , { align: 'center' });
+                 doc.text(130,numero,`${item.quantity}`,{ align: 'center' })
+                 doc.text(170, numero , `${item.price}` , { align: 'center' });
+                 doc.text(175,175,`${this.totalAmount}`,{ align: 'center' });
+ 
+                 
+ 
+ 
+             }) */
+ 
+             
+ 
+              doc.save("two-by-four.pdf");
+ 
+         },
 
-
-
-
-            doc.setFontSize(17)
-            doc.text(10,35,"Nombre")
-            doc.text(90,35,"Categorio")
-            doc.text(170,35,"Precio")
-
-            let numero = 40
-            this.shoppingCart.forEach(item => {
-                numero = numero + 10
-                doc.setFontSize(15);
-                doc.text(10, numero , item.name , { align: 'center' });
-                doc.text(95, numero , item.type  , { align: 'center' });
-                doc.text(170, numero ,`${item.price}` , { align: 'center' });
-
-
-            })
-
-             doc.save("two-by-four.pdf");
-
-        }
     },
     computed: {
     }

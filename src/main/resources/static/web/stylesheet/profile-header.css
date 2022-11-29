@@ -43,6 +43,12 @@
 }
 
 
+.profile-header .icono-profile{
+    width: 50px;
+    height: 40px;
+}
+
+
 .profile-header .sub-menu-wrap{
     position: absolute;
     top: 100%;
@@ -55,7 +61,7 @@
 }
 
 .profile-header .sub-menu-wrap.open-menu{
-    max-width: 400px;
+    max-height: 400px;
 }
 
 
@@ -88,7 +94,7 @@
     text-align: center;
     text-decoration: none;
     color: #525252;
-    margin: 12px 0;
+    margin: 12px 28px 20px;
 }
 .profile-header .sub-menu-link p{
     width: 100%;

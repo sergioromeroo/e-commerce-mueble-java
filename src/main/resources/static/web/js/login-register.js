@@ -10,6 +10,9 @@ createApp({
             firstNameRegisterVModel: "",
             lastNameRegisterVModel: "",
             celPhoneRegisterVModel: null,
+            addresVModel: "",
+            cityVModel: "",
+            stateVModel: "",
 
             login: false,
             register: false,
@@ -44,12 +47,12 @@ createApp({
             if (!this.emailVModel.includes("@")) {
                 Swal.fire({
                     text: `The email Must Contain @ to be valid`,
-                    confirmButtonColor: 'lightgrey',
+                    confirmButtonColor: 'lightgray',
                     timer: 5500
                 })
-            }
+            } else {
 
-            axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailVModel}&password=${this.passwordVModel}&cellphone=${this.celPhoneRegisterVModel}`)
+            axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailVModel}&password=${this.passwordVModel}&cellphone=${this.celPhoneRegisterVModel}&city=${this.cityVModel}&addres=${this.addresVModel}&state=${this.stateVModel}`)
                 .then(response => {
 
 
@@ -85,29 +88,33 @@ createApp({
                 })
 
             .catch(function(error) {
+                console.log(error)
                 Swal.fire({
                     icon: 'error',
-                    title: error.response.data,
+                    title: "Missing information",
                     confirmButtonColor: 'lightgray',
                     confirmButtonText: 'Ok',
 
                 })
             })
-
+        }
         },
         deleteClient(email) {
             axios.put('/api/clients/delete', "email=" + email)
                 .then(() => {
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'You write bad the secret code, please register again',
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'You write bad the secret code, please register again',
+                            confirmButtonColor: 'lightgray',
+                            confirmButtonText: 'Ok',
 
-                    })
+                        })
+                        .then(() => {
+                            window.location.href = '/web/index.html'
+                        })
                 })
-                .then(() => {
-                    window.location.href = '/web/index.html'
-                })
+
         },
 
         theLoginAndRegister() {
