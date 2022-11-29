@@ -6,10 +6,8 @@ const app = Vue.createApp({
             totalAmount: 0,
             paymentMethodVModel: "",
             cart_alert: false,
-
             idProducts: [],
             quantityProducts: [],
-
             numberCardVModel: null,
             cvvCardVModel: null,
             heading: "Sample PDF Generator",
@@ -179,13 +177,16 @@ const app = Vue.createApp({
         },
         Imprimir() {
             const doc = new jsPDF({});
-            
- 
+             //const logo = require('@/icons/png/logo.png')
+             //var imgLogo = new Image()
+             //imgLogo.src = logo
+             //doc.addImage(imgLogo, 'PNG', 200, 100, 24, 8)
+
              doc.setFontSize(20);
               doc.text(170, 20,' # Ticket', { align: 'right' });
-              doc.text(20, 20, 'Future Furtniture');
+              doc.text(20, 20, 'Nogal');
               doc.setFontSize(13);
-              doc.text(20,28,"Slogan de la compaÃ±ia");
+              doc.text(20,28,"Future Furtniture");
               doc.setFontSize(14);
               doc.text(20,40,"Street Adress")
               doc.text(20,48,"City,Zip Code")
@@ -197,15 +198,15 @@ const app = Vue.createApp({
  
               doc.setFontSize(11);
               doc.text(20,65,"To:")
-              doc.text(20,72,"First name: ") //this.clientCurrent.firstName 
-              doc.text(20,78,"Last name:") //this.clientCurrent.lastName
-              doc.text(20,84,"Email:") //this.clientCurrent.email
-              doc.text(20,90,"Phone:") //this.clientCurrent.celphone
+              doc.text(20,72,`First name:${this.clientCurrent.firstname}`) //this.clientCurrent.firstName 
+              doc.text(20,78,`Last name:${this.clientCurrent.Gonzales}`) //this.clientCurrent.lastName
+              doc.text(20,84,`Email:${this.clientCurrent.email}`) //this.clientCurrent.email
+              doc.text(20,90,`Phone:${this.clientCurrent.cellphone}`) //this.clientCurrent.celphone
  
               doc.text(148,65," Ship To:")
-              doc.text(150,72,"Street:") //this.clientCurrent.addres
-              doc.text(150,78,"City:") //this.clientCurrent.city
-              doc.text(150,84,"State:") //this.clientCurrent.state
+              doc.text(150,72,`Street:${this.clientCurrent.addres}`) //this.clientCurrent.addres
+              doc.text(150,78,`City:${this.clientCurrent.city}`) //this.clientCurrent.city
+              doc.text(150,84,`State:${this.clientCurrent.state}`) //this.clientCurrent.state
               //doc.text(150,90,"Phone:")
  
                   doc.setFontSize(13)
@@ -222,7 +223,6 @@ const app = Vue.createApp({
              let numero = 105
  
              this.shoppingCart.forEach(item => {
-                 console.log(this.shoppingCart)
                  numero = numero + 10
                  doc.setFontSize(15);
                  doc.text(20, numero , item.name  , { align: 'center' });
