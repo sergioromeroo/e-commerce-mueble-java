@@ -29,7 +29,7 @@ public class ClientProductFavDTO {
     public ClientProductFavDTO(ClientProducFav clientProducFav) {
         this.id = clientProducFav.getId();
         this.client_id = clientProducFav.getClient().getId();
-        this.productFavorite_id = clientProducFav.getProductFavorite().getId();
+        this.productFavorite_id = clientProducFav.getProductFavorite().getProduct_id();
         this.product_name = clientProducFav.getProductFavorite().getNameProduct();
         this.url = clientProducFav.getProductFavorite().getUrlImgProduct();
         this.price = clientProducFav.getProductFavorite().getPriceProduct();

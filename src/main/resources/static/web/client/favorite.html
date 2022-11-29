@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Client Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Client Dashboard | Nogal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../stylesheet/profile-client.css">
     <link rel="stylesheet" href="../stylesheet/style.css">
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 
-<body class="profile">
+<body class="profile" id="app">
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
@@ -21,16 +23,17 @@
         <div class="side-content">
             <div class="profile">
                 <div class="profile-img bg-img" style="background-image: url(../images/usuario.png)"></div>
-                <h4>{{client.name}}</h4>
-                <small>General Client</small>
+                <h4>{{clientCurrent.firstname}} {{clientCurrent.lastname}}</h4>
+                <small>Client</small>
             </div>
 
             <div class="side-menu">
                 <ul>
+
                     <li>
                         <a href="./profileClient.html">
                             <span>
-                                <box-icon name='user-detail' type='solid' animation='burst' color='#4253ce' ></box-icon>
+                                <box-icon name='user-detail' type='solid' animation='burst' color='#4253ce'></box-icon>
                             </span>
                             <small>Profile</small>
                         </a>
@@ -48,7 +51,7 @@
 
 
                     <li>
-                        <a href="./shopping.html" >
+                        <a href="./shopping.html">
                             <span>
                                 <box-icon name='shopify' type='logo' animation='burst' color='gray'></box-icon>
                             </span>
@@ -73,76 +76,65 @@
 
     <div class="main-content">
 
-            <div class="header-content">
-                <label for="menu-toggle">
-                    <span class="las la-bars"></span>
-                </label>
-            </div>
+        <div class="header-content">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+        </div>
 
 
         <main>
+
+            <div class="page-header">
+                <h1>Favorites ♡</h1>
+                <small>Nogal</small>
+            </div>
 
             <!-- ========contenido====== -->
 
             <div class="index">
 
-                <div class="detail">
-                <div>
-                    <h3>My Favorites 🤍</h3>
-                  </div>
+                <div class="section-products d-flex flex-wrap justify-content-center m-3">
+                    <template v-for="favorite in favorites">
+                        <a :href="'../detail.html?id=' + favorite.productFavorite_id"
+                            class="category-index category-sofa">
+                            <div class="category-title">
+                                <h3>{{favorite.product_name}}</h3>
+                            </div>
+                            <div class="category-img">
+                                <img :src="favorite.url" :alt="favorite.product_name">
+                            </div>
+                            <div class="category-desc">
+                                <p>$ {{favorite.price}}</p>
+                            </div>
+                        </a>
+
+                    </template>
+                    <div class="text-dark" v-show="favorites.length <= 0">
+                        <h2>EMPTY</h2>
+                    </div>
                 </div>
-            
-                <section class="index-categories section3-categories">
-                    <a class="category-index category-sofa category-index-sectior3">
-                        <div class="category-title section3-title">
-                            <h3>Table living room</h3>
-                        </div>
-                        <div class="category-img table-img">
-                            <img src="../img/tables/drom75-wh-bl-330x330.jpg" alt="">
-                        </div>
-                        <div class="category-desc">
-                            <p>table-1631</p>
-                        </div>
-                    </a>
-                    <a class="category-index category-table category-index-sectior3">
-                        <div  class="category-title section3-title">
-                            <h3>Table-living room</h3>
-                        </div>
-                        <div class="category-img table-img">
-                            <img src="../img/tables/drom75-wh-n-610x610-330x330.jpeg" alt="">
-                        </div>
-                        <div class="category-desc">
-                            <p>table-6123</p>
-                        </div>
-                    </a>
-                    <a class="category-index category-storage category-index-sectior3">
-                        <div  class="category-title section3-title">
-                            <h3>table desk working</h3>
-                        </div>
-                        <div class="category-img table-img">
-                            <img src="../img/tables/DROM255-WH_BR-330x330.jpg" alt="">
-                        </div>
-                        <div class="category-desc">
-                            <p>storage-5124</p>
-                        </div>
-                    </a>
-            
-                </section>
-            
+
             </div>
 
 
             <!--============== fin de contenido========= -->
-</main>
+        </main>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-<script src="../js/admin-products.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../js/client.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

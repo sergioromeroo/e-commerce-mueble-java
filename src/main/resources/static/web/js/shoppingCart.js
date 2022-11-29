@@ -47,15 +47,15 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        loadClientCurrent(){
+        loadClientCurrent() {
             axios.get('/api/clientcurrent')
-            .then(response => {
-                console.log(response)
-                this.clientCurrent = response.data
-            })
-            .catch(error => {
-                console.log(error)
-            })
+                .then(response => {
+                    console.log(response)
+                    this.clientCurrent = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         },
         finalAmount() {
             this.totalAmount = 0
@@ -68,6 +68,7 @@ const app = Vue.createApp({
         cartStorage() {
             localStorage.setItem('cart', JSON.stringify(this.shoppingCart))
             this.finalAmount()
+            console.log(this.shoppingCart)
         },
         addProductToShoppingCart(selectProduct) {
 
@@ -129,7 +130,18 @@ const app = Vue.createApp({
         },
 
         createTicket() {
-            axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
+            Swal.fire({
+                title: "Confirm purchase?",
+                text: `Total amount: $${this.totalAmount}`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#808080',
+                cancelButtonColor: '#ff0000',
+                confirmButtonText: 'Confirm Edit'
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
                 .then(response => {
                     console.log(response)
                     this.ordenateArray()
@@ -137,13 +149,15 @@ const app = Vue.createApp({
                         .then(resp => {
                             console.log(resp)
                             Swal.fire({
-                                text: `${response.data}`,
+                                title: 'Thank you',
+                                text: "The Page would Reload on a second!",
+                                icon: "success",
                                 confirmButtonColor: 'lightgray',
-                                willClose: () => {
-                                    localStorage.clear()
-                                    window.location.assign("./index.html")
-                                }
+                                timer: 2500
                             })
+                            .then(response => {
+                                localStorage.clear()
+                                window.location.href = "../client/shopping.html"})
                         }).catch(error => {
                             console.log(error)
                             Swal.fire({
@@ -154,11 +168,21 @@ const app = Vue.createApp({
                 })
                 .catch(error => {
                     console.log(error)
-                    Swal.fire({
-                        text: `${error.response.data}`,
-                        confirmButtonColor: 'lightgray',
-                    })
+                    if (error.response.status == 500) {
+                        Swal.fire({
+                            text: `Missing data`,
+                            confirmButtonColor: 'lightgray',
+                        })
+                    } else {
+                        Swal.fire({
+                            text: `${error.response.data}`,
+                            confirmButtonColor: 'lightgray',
+                        })
+                    }
                 })
+                }
+            })
+            
         },
 
         ordenateArray() {
