@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            clientCurrent: {},
             shoppingCart: [],
             totalAmount: 0,
             paymentMethodVModel: "",
@@ -31,6 +32,7 @@ const app = Vue.createApp({
         }
     },
     created() {
+        this.loadClientCurrent()
     },
     mounted() {
 
@@ -47,6 +49,16 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        loadClientCurrent(){
+            axios.get('/api/clientcurrent')
+            .then(response => {
+                console.log(response)
+                this.clientCurrent = response.data
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        },
         finalAmount() {
             this.totalAmount = 0
             this.shoppingCart.map(product => {
@@ -185,23 +197,23 @@ const app = Vue.createApp({
  
               doc.setFontSize(11);
               doc.text(20,65,"To:")
-              doc.text(20,72,"Name:")
-              doc.text(20,78,"Street:")
-              doc.text(20,84,"City:")
-              doc.text(20,90,"Phone:")
+              doc.text(20,72,"First name: ") //this.clientCurrent.firstName 
+              doc.text(20,78,"Last name:") //this.clientCurrent.lastName
+              doc.text(20,84,"Email:") //this.clientCurrent.email
+              doc.text(20,90,"Phone:") //this.clientCurrent.celphone
  
               doc.text(148,65," Ship To:")
-              doc.text(150,72,"Name:")
-              doc.text(150,78,"Street:")
-              doc.text(150,84,"City:")
-              doc.text(150,90,"Phone:")
+              doc.text(150,72,"Street:") //this.clientCurrent.addres
+              doc.text(150,78,"City:") //this.clientCurrent.city
+              doc.text(150,84,"State:") //this.clientCurrent.state
+              //doc.text(150,90,"Phone:")
  
                   doc.setFontSize(13)
  
              doc.text(20,105,"DESCRIPTION")
              doc.text(80,105,"QUANTITY")
  
-             doc.text(120,105,"UNIT PRICE")
+             doc.text(120,105,"UNIT PRICE :")
              doc.text(170,105,"TOTAL")
              doc.text(150,255,"SUBTOTAL : $")
              doc.text(150,265,"SHIPPING: $")
@@ -215,8 +227,8 @@ const app = Vue.createApp({
                  doc.setFontSize(15);
                  doc.text(20, numero , item.name  , { align: 'center' });
                  doc.text(88,numero,`${item.quantity}`,{ align: 'center' })
-                 doc.text(125, numero , `${item.price}` , { align: 'center' });
-                 doc.text(170, numero , `${item.price*item.quantity}` , { align: 'center' });
+                 doc.text(125, numero , ` $${item.price}` , { align: 'center' });
+                 doc.text(170, numero , `$${item.price*item.quantity}` , { align: 'center' });
                  doc.text(175,275,`${this.totalAmount}`,{ align: 'center' });
  
                  
