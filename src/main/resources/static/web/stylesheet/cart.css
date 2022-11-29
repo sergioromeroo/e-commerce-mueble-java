@@ -168,9 +168,13 @@ a:hover{
     background-position-y: center;
 }
 
+
 .fontGotham{
     font-family: 'Gotham Pro', sans-serif;
     /* font-family: 'Gotham Pro Medium', sans-serif; */
+}
+.maringCart{
+	height:100rem;
 }
 @media (max-width: 486px) {
 .sizeItemsCart{
@@ -178,6 +182,9 @@ a:hover{
     margin: 13px;
 }
 
+.maringCart{
+height: auto;
+}
 }
 @media(max-width:767px){
     .summary{
