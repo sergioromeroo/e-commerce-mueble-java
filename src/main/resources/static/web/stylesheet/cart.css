@@ -1,4 +1,13 @@
-
+.fondo_imagen{
+    background-color: #161313!important;
+    background-image: url("https://drommel.com.ua/image/cache/catalog/sub2-2-1920x860.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-size: 100% 100%;
+    }
+    
+    
 .title{
     margin-bottom: 5vh;
 }
@@ -174,7 +183,7 @@ a:hover{
     /* font-family: 'Gotham Pro Medium', sans-serif; */
 }
 .maringCart{
-	height:100rem;
+	height:auto;
 }
 @media (max-width: 486px) {
 .sizeItemsCart{
@@ -183,8 +192,13 @@ a:hover{
 }
 
 .maringCart{
-height: auto;
 }
+
+}
+@media(min-width: 767px){
+    .maringCart{
+        height: 100rem;
+    }    
 }
 @media(max-width:767px){
     .summary{
