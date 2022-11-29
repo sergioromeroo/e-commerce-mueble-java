@@ -113,6 +113,7 @@ ul.nav-menu-ul-bottom li a {
 }
 
 
+
 /* 
 .container-fluid {
     padding: 10px 9px;
@@ -312,7 +313,7 @@ ul.nav-menu-ul-bottom li a {
 
 .index .categories-with-img .tables .tables-btn-buy a {
     border: 1px solid white;
-    color: white;
+    color: white !important;
     padding: 10px;
     text-align: center;
     width: 16rem;
@@ -321,6 +322,9 @@ ul.nav-menu-ul-bottom li a {
     text-transform: uppercase;
     font-weight: bold;
 }
+
+
+
 
 .index .section3-categories {
     justify-content: unset
@@ -351,7 +355,7 @@ ul.nav-menu-ul-bottom li a {
 
 .index .categories-with-img .storage .storage-btn-buy a {
     border: 1px solid white;
-    color: white;
+    color: white !important;
     padding: 10px;
     text-align: center;
     width: 16rem;
@@ -362,13 +366,13 @@ ul.nav-menu-ul-bottom li a {
 }
 
 .index .categories-with-img .storage .storage-btn-buy a:hover {
-    background-color: #fff;
-    color: black
+    background-color: black;
+    color: white !important;
 }
 
 .index .categories-with-img .tables .tables-btn-buy a:hover {
-    background-color: #fff;
-    color: black
+    background-color: black;
+   
 }
 
 .index .section3-title h3 {
@@ -488,6 +492,14 @@ i.bx.bx-chevron-up {
     .index .nav-logo {
         padding: 0 35px;
     }
+
+    .index  .burger-menu-mob img {
+        width: 122px;
+        filter: brightness(6);
+        margin-left: 15px;
+        margin-top: 1px;
+    }
+
     .nav-icons a {
         margin: 0 0.8rem;
     }
@@ -495,7 +507,7 @@ i.bx.bx-chevron-up {
         /* padding: 17px 18px; */
         /* padding: 7px 10px; */
         /* padding: 4px 10px; */
-        height: 8rem;
+        min-height: 8rem;
     }
     .filter-nav {
         padding: 17px 18px;
@@ -547,7 +559,7 @@ i.bx.bx-chevron-up {
         height: 796px
     }
     .index .section3-categories {
-        justify-content: unset
+        justify-content: center;
     }
     .footer-top2 {
         flex-direction: unset
@@ -557,6 +569,7 @@ i.bx.bx-chevron-up {
         margin-left: 15px;
         margin-top: 1px;
     }
+    
 }
 
 @media(min-width:1024px) {
@@ -582,7 +595,7 @@ i.bx.bx-chevron-up {
     }
     .index .nav-menu a {
         font-size: 13px;
-        color: white;
+        color: white !important;
         padding: 0 3rem;
         text-transform: uppercase;
         letter-spacing: 1px;
