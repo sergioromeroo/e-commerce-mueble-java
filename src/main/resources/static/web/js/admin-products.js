@@ -86,7 +86,6 @@ const app = Vue.createApp({
                 cancelButtonColor: '#ff0000',
                 confirmButtonText: 'Confirm Edit'
             })
-
             .then((result) => {
                 if (result.isConfirmed) {
 
@@ -98,10 +97,8 @@ const app = Vue.createApp({
                                     icon: "success",
                                     confirmButtonColor: 'lightgray',
                                     timer: 2500
-
                                 })
                                 .then(response => window.location.href = "./admin2.html")
-
                         })
 
                     .catch(function(error) {

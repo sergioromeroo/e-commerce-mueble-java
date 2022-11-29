@@ -49,15 +49,15 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        loadClientCurrent(){
+        loadClientCurrent() {
             axios.get('/api/clientcurrent')
-            .then(response => {
-                console.log(response)
-                this.clientCurrent = response.data
-            })
-            .catch(error => {
-                console.log(error)
-            })
+                .then(response => {
+                    console.log(response)
+                    this.clientCurrent = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         },
         finalAmount() {
             this.totalAmount = 0
@@ -70,6 +70,7 @@ const app = Vue.createApp({
         cartStorage() {
             localStorage.setItem('cart', JSON.stringify(this.shoppingCart))
             this.finalAmount()
+            console.log(this.shoppingCart)
         },
         addProductToShoppingCart(selectProduct) {
 
@@ -131,7 +132,18 @@ const app = Vue.createApp({
         },
 
         createTicket() {
-            axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
+            Swal.fire({
+                title: "Confirm purchase?",
+                text: `Total amount: $${this.totalAmount}`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#808080',
+                cancelButtonColor: '#ff0000',
+                confirmButtonText: 'Confirm Edit'
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
                 .then(response => {
                     console.log(response)
                     this.ordenateArray()
@@ -139,13 +151,15 @@ const app = Vue.createApp({
                         .then(resp => {
                             console.log(resp)
                             Swal.fire({
-                                text: `${response.data}`,
+                                title: 'Thank you',
+                                text: "The Page would Reload on a second!",
+                                icon: "success",
                                 confirmButtonColor: 'lightgray',
-                                willClose: () => {
-                                    localStorage.clear()
-                                    window.location.assign("./index.html")
-                                }
+                                timer: 2500
                             })
+                            .then(response => {
+                                localStorage.clear()
+                                window.location.href = "../client/shopping.html"})
                         }).catch(error => {
                             console.log(error)
                             Swal.fire({
@@ -156,11 +170,21 @@ const app = Vue.createApp({
                 })
                 .catch(error => {
                     console.log(error)
-                    Swal.fire({
-                        text: `${error.response.data}`,
-                        confirmButtonColor: 'lightgray',
-                    })
+                    if (error.response.status == 500) {
+                        Swal.fire({
+                            text: `Missing data`,
+                            confirmButtonColor: 'lightgray',
+                        })
+                    } else {
+                        Swal.fire({
+                            text: `${error.response.data}`,
+                            confirmButtonColor: 'lightgray',
+                        })
+                    }
                 })
+                }
+            })
+            
         },
 
         ordenateArray() {
@@ -179,100 +203,100 @@ const app = Vue.createApp({
         },
         Imprimir() {
             const doc = new jsPDF({});
+
+
+            doc.setFontSize(20);
+            doc.text(170, 20, ' # Ticket', { align: 'right' });
+            doc.text(20, 20, 'Future Furtniture');
+            doc.setFontSize(13);
+            doc.text(20, 28, "Slogan de la compaÃ±ia");
+            doc.setFontSize(14);
+            doc.text(20, 40, "Street Adress")
+            doc.text(20, 48, "City,Zip Code")
+            doc.text(20, 56, "Phone 231932103103-21321313")
+
+            doc.setLineWidth(1.5);
+            doc.line(10, 95, 200, 95);
+
+
+            doc.setFontSize(11);
+            doc.text(20, 65, "To:")
+            doc.text(20, 72, "First name: ") //this.clientCurrent.firstName 
+            doc.text(20, 78, "Last name:") //this.clientCurrent.lastName
+            doc.text(20, 84, "Email:") //this.clientCurrent.email
+            doc.text(20, 90, "Phone:") //this.clientCurrent.celphone
+
+            doc.text(148, 65, " Ship To:")
+            doc.text(150, 72, "Street:") //this.clientCurrent.addres
+            doc.text(150, 78, "City:") //this.clientCurrent.city
+            doc.text(150, 84, "State:") //this.clientCurrent.state
+            //doc.text(150,90,"Phone:")
+
+            doc.setFontSize(13)
+
+            doc.text(20, 105, "DESCRIPTION")
+            doc.text(80, 105, "QUANTITY")
+
+            doc.text(120, 105, "UNIT PRICE :")
+            doc.text(170, 105, "TOTAL:")
+            doc.text(150, 255, "SUBTOTAL : $")
+            doc.text(150, 265, "SHIPPING: $")
+            doc.text(150, 275, "TOTAL : $ ________")
+
+            let numero = 105
+
+            this.shoppingCart.forEach(item => {
+                console.log(this.shoppingCart)
+                numero = numero + 10
+                doc.setFontSize(15);
+                doc.text(20, numero, item.name, { align: 'center' });
+                doc.text(88, numero, `${item.quantity}`, { align: 'center' })
+                doc.text(125, numero, ` $${item.price}`, { align: 'center' });
+                doc.text(170, numero, `$${item.price * item.quantity}`, { align: 'center' });
+                doc.text(175, 275, `${this.totalAmount}`, { align: 'center' });
+
+
+
+
+            })
+
+
+            doc.text(10, 265, "Payment Method:__________ ")
+            doc.text(10, 275, "Card/Check Number:____________ ")
+
+
+
+
+
+            /*             doc.setFontSize(17)
+                        doc.text(10,45,"Item Id")
+                        doc.text(60,45,"Description")
+                        doc.text(120,45,"Quantity")
             
- 
-             doc.setFontSize(20);
-              doc.text(170, 20,' # Ticket', { align: 'right' });
-              doc.text(20, 20, 'Future Furtniture');
-              doc.setFontSize(13);
-              doc.text(20,28,"Slogan de la compaÃ±ia");
-              doc.setFontSize(14);
-              doc.text(20,40,"Street Adress")
-              doc.text(20,48,"City,Zip Code")
-              doc.text(20,56,"Phone 231932103103-21321313")
- 
-             doc.setLineWidth(1.5);
-              doc.line(10, 95, 200, 95);
- 
- 
-              doc.setFontSize(11);
-              doc.text(20,65,"To:")
-              doc.text(20,72,"First name: ") //this.clientCurrent.firstName 
-              doc.text(20,78,"Last name:") //this.clientCurrent.lastName
-              doc.text(20,84,"Email:") //this.clientCurrent.email
-              doc.text(20,90,"Phone:") //this.clientCurrent.celphone
- 
-              doc.text(148,65," Ship To:")
-              doc.text(150,72,"Street:") //this.clientCurrent.addres
-              doc.text(150,78,"City:") //this.clientCurrent.city
-              doc.text(150,84,"State:") //this.clientCurrent.state
-              //doc.text(150,90,"Phone:")
- 
-                  doc.setFontSize(13)
- 
-             doc.text(20,105,"DESCRIPTION")
-             doc.text(80,105,"QUANTITY")
- 
-             doc.text(120,105,"UNIT PRICE :")
-             doc.text(170,105,"TOTAL:")
-             doc.text(150,255,"SUBTOTAL : $")
-             doc.text(150,265,"SHIPPING: $")
-             doc.text(150,275,"TOTAL : $ ________")
- 
-             let numero = 105
- 
-             this.shoppingCart.forEach(item => {
-                 console.log(this.shoppingCart)
-                 numero = numero + 10
-                 doc.setFontSize(15);
-                 doc.text(20, numero , item.name  , { align: 'center' });
-                 doc.text(88,numero,`${item.quantity}`,{ align: 'center' })
-                 doc.text(125, numero , ` $${item.price}` , { align: 'center' });
-                 doc.text(170, numero , `$${item.price*item.quantity}` , { align: 'center' });
-                 doc.text(175,275,`${this.totalAmount}`,{ align: 'center' });
- 
-                 
- 
- 
-             })
- 
- 
-             doc.text(10,265,"Payment Method:__________ ")
-             doc.text(10,275,"Card/Check Number:____________ ")
-             
- 
- 
- 
- 
- /*             doc.setFontSize(17)
-             doc.text(10,45,"Item Id")
-             doc.text(60,45,"Description")
-             doc.text(120,45,"Quantity")
- 
-             doc.text(170,45,"Unit Price")
-             doc.text(150,175,"Total : $")
- 
-             let numero = 45
-             this.shoppingCart.forEach(item => {
-                 console.log(this.shoppingCart)
-                 numero = numero + 10
-                 doc.setFontSize(15);
-                 doc.text(15, numero ,`${item.id}`, { align: 'center' });
-                 doc.text(60, numero , item.name  , { align: 'center' });
-                 doc.text(130,numero,`${item.quantity}`,{ align: 'center' })
-                 doc.text(170, numero , `${item.price}` , { align: 'center' });
-                 doc.text(175,175,`${this.totalAmount}`,{ align: 'center' });
- 
-                 
- 
- 
-             }) */
- 
-             
- 
-              doc.save("two-by-four.pdf");
- 
-         },
+                        doc.text(170,45,"Unit Price")
+                        doc.text(150,175,"Total : $")
+            
+                        let numero = 45
+                        this.shoppingCart.forEach(item => {
+                            console.log(this.shoppingCart)
+                            numero = numero + 10
+                            doc.setFontSize(15);
+                            doc.text(15, numero ,`${item.id}`, { align: 'center' });
+                            doc.text(60, numero , item.name  , { align: 'center' });
+                            doc.text(130,numero,`${item.quantity}`,{ align: 'center' })
+                            doc.text(170, numero , `${item.price}` , { align: 'center' });
+                            doc.text(175,175,`${this.totalAmount}`,{ align: 'center' });
+            
+                            
+            
+            
+                        }) */
+
+
+
+            doc.save("two-by-four.pdf");
+
+        },
 
     },
     computed: {
