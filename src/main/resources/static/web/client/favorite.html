@@ -105,7 +105,7 @@
                                 <img :src="favorite.url" :alt="favorite.product_name">
                             </div>
                             <div class="category-desc">
-                                <p>$ {{favorite.price}}</p>
+                                <p>$ {{balanceFormateado(favorite.price).split("A")[0]}}</p>
                             </div>
                         </a>
 

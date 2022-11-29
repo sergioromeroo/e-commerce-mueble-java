@@ -25,7 +25,9 @@ const app = Vue.createApp({
                 { title: "Item 2", body: "I am item 2 body text" },
                 { title: "Item 3", body: "I am item 3 body text" },
                 { title: "Item 4", body: "I am item 4 body text" }
-            ]
+            ],
+            cardPdf: "XXXX-XXXX-XXXX-",
+            paymentMethodPdf: "",
 
         }
     },
@@ -56,6 +58,9 @@ const app = Vue.createApp({
                 .catch(error => {
                     console.log(error)
                 })
+        },
+        balanceFormateado(numero){
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
         },
         finalAmount() {
             this.totalAmount = 0
@@ -131,7 +136,7 @@ const app = Vue.createApp({
         createTicket() {
             Swal.fire({
                     title: "Confirm purchase?",
-                    text: `Total amount: $${this.totalAmount}`,
+                    text: `Total amount: $${this.balanceFormateado(this.totalAmount).split("A")[0]}`,
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: '#808080',
@@ -140,10 +145,12 @@ const app = Vue.createApp({
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
-                        axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
+                        axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `Nogal purchase` })
                             .then(response => {
                                 console.log(response)
                                 this.ordenateArray()
+                                this.cardPdf = this.cardPdf + this.numberCardVModel.toString().slice(12,17)
+                                this.paymentMethodPdf = response.data.slice(8,15)
                                 axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${response.data}&idProduct=${this.idProducts}&quantity=${this.quantityProducts}`)
                                     .then(() => {
                                         this.Imprimir();
@@ -152,7 +159,7 @@ const app = Vue.createApp({
                                         console.log(resp)
                                         Swal.fire({
                                                 title: 'Thank you',
-                                                text: "The Page would Reload on a second!",
+                                                text: "You will be redirected to your customer panel!",
                                                 icon: "success",
                                                 confirmButtonColor: 'lightgray',
                                                 timer: 2500
@@ -198,9 +205,6 @@ const app = Vue.createApp({
                 this.quantityProducts.push(product.quantity)
             })
 
-            console.log(this.shoppingCart)
-            console.log(this.idProducts)
-            console.log(this.quantityProducts)
         },
         Imprimir() {
             const doc = new jsPDF({});
@@ -213,9 +217,8 @@ const app = Vue.createApp({
             doc.text(170, 20, ' # Ticket', { align: 'right' });
             doc.text(20, 20, 'Nogal');
             doc.setFontSize(13);
-            doc.text(20, 28, "Future Furtniture");
             doc.setFontSize(14);
-            doc.text(20, 40, " Nueva York E 41 st St")
+            doc.text(20, 40, "Nueva York E 41 st St")
             doc.text(20, 48, "New York City,10001")
             doc.text(20, 56, "Phone 212-277-0000")
 
@@ -225,15 +228,15 @@ const app = Vue.createApp({
 
             doc.setFontSize(11);
             doc.text(20, 65, "To:")
-            doc.text(20, 72, `First name:${this.clientCurrent.firstname}`) //this.clientCurrent.firstName 
-            doc.text(20, 78, `Last name:${this.clientCurrent.lastname}`) //this.clientCurrent.lastName
-            doc.text(20, 84, `Email:${this.clientCurrent.email}`) //this.clientCurrent.email
-            doc.text(20, 90, `Phone:${this.clientCurrent.cellphone}`) //this.clientCurrent.celphone
+            doc.text(20, 72, `First name: ${this.clientCurrent.firstname}`) //this.clientCurrent.firstName 
+            doc.text(20, 78, `Last name: ${this.clientCurrent.lastname}`) //this.clientCurrent.lastName
+            doc.text(20, 84, `Email: ${this.clientCurrent.email}`) //this.clientCurrent.email
+            doc.text(20, 90, `Phone: ${this.clientCurrent.cellphone}`) //this.clientCurrent.celphone
 
             doc.text(148, 65, " Ship To:")
-            doc.text(150, 72, `Street:${this.clientCurrent.addres}`) //this.clientCurrent.addres
-            doc.text(150, 78, `City:${this.clientCurrent.city}`) //this.clientCurrent.city
-            doc.text(150, 84, `State:${this.clientCurrent.state}`) //this.clientCurrent.state
+            doc.text(150, 72, `Street: ${this.clientCurrent.addres}`) //this.clientCurrent.addres
+            doc.text(150, 78, `City: ${this.clientCurrent.city}`) //this.clientCurrent.city
+            doc.text(150, 84, `State: ${this.clientCurrent.state}`) //this.clientCurrent.state
                 //doc.text(150,90,"Phone:")
 
             doc.setFontSize(13)
@@ -254,9 +257,9 @@ const app = Vue.createApp({
                 doc.setFontSize(15);
                 doc.text(20, numero, item.name, { align: 'center' });
                 doc.text(88, numero, `${item.quantity}`, { align: 'center' })
-                doc.text(125, numero, ` $${item.price}`, { align: 'center' });
-                doc.text(170, numero, `$${item.price*item.quantity}`, { align: 'center' });
-                doc.text(175, 275, `${this.totalAmount}`, { align: 'center' });
+                doc.text(125, numero, ` $${this.balanceFormateado(item.price).split("A")[0]}`, { align: 'center' });
+                doc.text(170, numero, `$${this.balanceFormateado(item.price*item.quantity).split("A")[0]}`, { align: 'center' });
+                doc.text(175, 275, `${this.balanceFormateado(this.totalAmount).split("A")[0]}`, { align: 'center' });
 
 
 
@@ -264,8 +267,8 @@ const app = Vue.createApp({
             })
 
 
-            doc.text(10, 265, "Payment Method:__________ ")
-            doc.text(10, 275, "Card/Check Number:____________ ")
+            doc.text(10, 265, `Payment method: ${this.paymentMethodPdf}`)
+            doc.text(10, 275, `Card Number: ${this.cardPdf}`)
 
 
 
@@ -297,7 +300,7 @@ const app = Vue.createApp({
 
 
 
-            doc.save("two-by-four.pdf");
+            doc.save("Nogal-purchase.pdf");
 
         },
 
