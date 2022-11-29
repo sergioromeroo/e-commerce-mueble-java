@@ -39,18 +39,16 @@ public class EcommerceApplication {
 			clientRepository.save(client1);
 			clientRepository.save(client3);
 
+			/*SOFA*/
 
-			Product product1 = new Product("table","silla",3000.00,"x",10,"wood", "prueba");
-			Product product2 = new Product("sofa","sofa",5000.00,"x",15,"iron", "prueba");
-
+			Product product1 = new Product("sofa","Iron sofa",786.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family.");
+			Product product2 = new Product("sofa","Corner sofa",678.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape.");
 
 
 			productRepository.save(product1);
 			productRepository.save(product2);
 
-			/*SOFA*/
-			productRepository.save(new Product("sofa","Iron sofa",786.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family."));
-			productRepository.save(new Product("sofa","Corner sofa",678.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape."));
+
 			productRepository.save(new Product("sofa","Modular sofa",1245.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-jardin-modular-3-plazas-gris-oscuro-kuddarna-beige__0835243_pe778361_s5.jpg?f=xl",7,"iron","All sections of the sofa can be used independently or combined to create a modular sofa in the right size for your balcony or patio."));
 			productRepository.save(new Product("sofa","Hammock",1345.00,"https://d3ugyf2ht6aenh.cloudfront.net/stores/001/232/181/products/111-44ed3d1867ce194b3516482549866260-1024-1024.png",4,"iron","Hanging Chair Simil Rattan Myanmar"));
 
@@ -130,7 +128,7 @@ public class EcommerceApplication {
 			ticketProductRepository.save(ticketProduct2);
 
 
-			ProductFavorite producFav = new ProductFavorite(1,"sillon","x",1000);
+			ProductFavorite producFav = new ProductFavorite(product1.getId(),product1.getName(),product1.getUrlImg(),product1.getPrice());
 
 			productFavoriteRepository.save(producFav);
 
