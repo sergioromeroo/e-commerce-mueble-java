@@ -87,8 +87,8 @@
   ion-icon { display: block; }
   
   a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit !important;
+    text-decoration: none !important;
   }
   
   img { height: auto; }

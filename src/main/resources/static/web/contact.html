@@ -17,28 +17,31 @@
     <link rel="stylesheet" href="./stylesheet/style.css">
 </head>
 
-<body class="index fondo_imagen">
+<body class="index contact">
     <div id="app" class="d-flex flex-column"  >
 
 
         <nav class="navbar">
             <div class="container-fluid ">
-              <a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoNegro.png" alt=""></a>
+              <a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoBlanco.png" alt=""></a>
               <div class="nav-menu-container">
                     <div class="nav-menu">
                         <ul class="nav-menu-ul">
                             <li>
-                                <a href="./index.html">home</a>
+                                <a class="nav-a" href="./admin/admin2.html">Admin</a>
                             </li>
                             <li>
-                                <a href="./products.html">shop</a>
+                                <a class="nav-a" href="./index.html">Home</a>
+                            </li>
+                            <li>
+                                <a class="nav-a" href="./products.html">Shop</a>
                              
                             </li>
                             <li>
-                                <a href="./contact.html">contact us</a>
+                                <a class="nav-a" href="./contact.html">Contact</a>
                             </li>
                             <li>
-                                <a href="./about-us.html">About us</a>
+                                <a class="nav-a" href="./about-us.html">About us</a>
                             </li>              
                         </ul>
                     </div>
@@ -72,8 +75,8 @@
                 <div class="offcanvas-header">
 
                     <div class="burger-menu-mob">
-                        <a href="#" class="burger-menu-mob open-menu">
-                                <img src="./img/logo/logoNegro.png" alt="">
+                        <a href="./index.html" class="burger-menu-mob open-menu">
+                                <img src="./img/logo/logoBlanco.png" alt="">
                         </a>
                     </div>  
                    
@@ -105,10 +108,13 @@
                     <div class="nav-menu-burger">
                         <ul class="nav-menu-ul">
                             <li>
-                                <a href="./index.html" class="ancors-nav-burger" href="./index.html">Home</a>
+                                <a href="./admin/admin2.html">Admin</a>
                             </li>
                             <li>
-                                <a href="./products.html" class="ancors-nav-burger" href="#">Shop</a>
+                                <a href="./index.html" class="ancors-nav-burger" href="">Home</a>
+                            </li>
+                            <li>
+                                <a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
                             </li>   
                             <li>
                                 <a href="./contact.html" class="ancors-nav-burger" href="./contact.html">Contact</a>
@@ -140,7 +146,6 @@
     
             </div>
           </nav>
-        
 
 
 
@@ -154,38 +159,39 @@
 
 
 
-        <main  style="display: block;  height: 120rem;">
-            <section class="" >
+
+
+        <main  style=" min-height: 79rem;">
+            <section class="section-contact" >
 
                 <div class="container concact py-5  h-100">
 
-                    <div class="row d-flex justify-content-center align-items-center h-100 ">
+                    <div class="row d-flex justify-content-center align-items-center h-100 container-address">
 
-                        <div class="col-12 col-md-8 col-lg-6  col-xl-5">
-                            <div style="border-radius: 1rem;">
-
-                                <div class="card-body p-5 text-center ">
+                        <div class="address-map-container col-12 col-md-8 col-lg-6  col-xl-5">
+                                <div class="address-container card-body" >
                                     <div class="mb-md-5 mt-md-4 pb-5">
-                                        <div class="fw-bold mb-2 text-uppercase">
+                                        <div class="address-number fw-bold mb-2 text-uppercase">
                                             <h2>Address</h2>
                                             <p class=" linksContact nenoHrefDecoration "><a
                                                     href="https://goo.gl/maps/7sT4EPoaLYj2mFNBA"
                                                     class="nenoHrefDecoration">Alcorta 1906</a></p>
                                         </div>
-                                        <div class="fw-bold mb-2 text-uppercase">
+                                        <div class="address-telephone fw-bold mb-2 text-uppercase">
                                             <h2>Lets Talk</h2>
                                             <p class="nenoHrefDecoration"><a class="nenoHrefDecoration"
                                                     href=""> +1 3569 1239 </a></p>
                                         </div>
-                                        <div class="fw-bold mb-2 text-uppercase">
+                                        <div class="address-email fw-bold mb-2 text-uppercase">
                                             <h2>General Support</h2>
                                             <p class=" nenoHrefDecoration"><a href=""
                                                     class="nenoHrefDecoration">Nogal@mindhub.com.ar </a></p>
                                         </div>
                                     </div>
-
+                                    <div class="map-contact">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d18577.52188949342!2d-58.37834086762948!3d-34.60231738555109!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1669735380019!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
 
 
@@ -195,42 +201,42 @@
 
 
 
-                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                            <div class="card  text-white colorLoginAndRegister" style="border-radius: 1rem;">
+                        <div class="col-12 col-md-8 col-lg-6 col-xl-5 card-contact-container">
+                            <div class="card  text-white card-contact">
 
                                 <div class="card-body p-5 text-center ">
-                                    <div class="mb-md-5 mt-md-4 pb-5">
-
+                                    <div class="form-contact mb-md-5 mt-md-4 pb-5">
+                                        
                                         <h2 class="fw-bold mb-2 text-uppercase">Contact</h2>
 
 
-                                        <p class="text-white-50 mb-5"> Please fill all the form</p>
+                                        <p class="mb-5"> Please fill all the form</p>
 
                                         <div class="form-outline form-white mb-4">
+                                            <label class="form-label" for="typeEmailX">Email</label>
                                             <input type="email" id="typeEmailX" v-model="emailVModel"
                                                 class="form-control fontContat form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Email</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
+                                            <label class="form-label" for="name">Name</label>
                                             <input type="name" id="name" v-model="nameVModel"
                                                 class="form-control fontContat form-control-lg" />
-                                            <label class="form-label" for="name">Name</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
+                                            <label class="form-label" for="reason">Reason</label>
                                             <input type="name" id="reason" v-model="reasonVModel"
                                                 class="form-control fontContat form-control-lg" />
-                                            <label class="form-label" for="reason">Reason</label>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
+                                            <label for="message">Message</label>
                                             <textarea class="form-control fontContat" v-model="messageVModel" id="message"
                                                 rows="4"></textarea>
-                                            <label for="message">Message</label>
                                         </div>
 
-                                        <button class="btn btn-outline-light btn-lg px-5 m-5"
+                                        <button class="btn  "
                                             type="submit" @click="sendEmail()">Send</button>
 
                                     </div>
