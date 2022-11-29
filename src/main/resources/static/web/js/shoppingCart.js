@@ -214,7 +214,7 @@ const app = Vue.createApp({
              doc.text(80,105,"QUANTITY")
  
              doc.text(120,105,"UNIT PRICE :")
-             doc.text(170,105,"TOTAL")
+             doc.text(170,105,"TOTAL:")
              doc.text(150,255,"SUBTOTAL : $")
              doc.text(150,265,"SHIPPING: $")
              doc.text(150,275,"TOTAL : $ ________")
