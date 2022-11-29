@@ -167,49 +167,100 @@ const app = Vue.createApp({
         },
         Imprimir() {
             const doc = new jsPDF({});
-
-
-            doc.setFontSize(20);
-            doc.text(90, 20, 'Ticket', { align: 'center' });
-            doc.text(20, 20, 'Future Furtniture');
-            doc.setLineWidth(1.5);
-            doc.line(10, 25, 200, 25);
-
-
-
-
-
-            doc.setFontSize(17)
-            doc.text(10, 35, "name")
-            doc.text(60, 35, "Description")
-            doc.text(120, 35, "Quantity")
-
-            doc.text(170, 35, "Unit Price")
-            doc.text(150, 280, "Total : $")
-            doc.setLineWidth(1.0);
-            doc.line(150, 285, 195, 285);
-            let numero = 40
-            this.shoppingCart.forEach(item => {
-                numero = numero + 10
-                doc.setFontSize(15);
-                doc.text(15, numero, `${item.name}`, { align: 'center' });
-                doc.text(60, numero, item.name, { align: 'center' });
-                doc.text(130, numero, `${item.quantity}`, { align: 'center' })
-                doc.text(170, numero, `${item.price * item.quantity}`, { align: 'center' });
-                doc.text(175, 280, `${this.totalAmount}`, { align: 'center' });
-
-
-
-
-            })
             
-
-
-             doc.save("two-by-four.pdf");
-
-        },
-
-
+ 
+             doc.setFontSize(20);
+              doc.text(170, 20,' # Ticket', { align: 'right' });
+              doc.text(20, 20, 'Future Furtniture');
+              doc.setFontSize(13);
+              doc.text(20,28,"Slogan de la compaÃ±ia");
+              doc.setFontSize(14);
+              doc.text(20,40,"Street Adress")
+              doc.text(20,48,"City,Zip Code")
+              doc.text(20,56,"Phone 231932103103-21321313")
+ 
+             doc.setLineWidth(1.5);
+              doc.line(10, 95, 200, 95);
+ 
+ 
+              doc.setFontSize(11);
+              doc.text(20,65,"To:")
+              doc.text(20,72,"Name:")
+              doc.text(20,78,"Street:")
+              doc.text(20,84,"City:")
+              doc.text(20,90,"Phone:")
+ 
+              doc.text(148,65," Ship To:")
+              doc.text(150,72,"Name:")
+              doc.text(150,78,"Street:")
+              doc.text(150,84,"City:")
+              doc.text(150,90,"Phone:")
+ 
+                  doc.setFontSize(13)
+ 
+             doc.text(20,105,"DESCRIPTION")
+             doc.text(80,105,"QUANTITY")
+ 
+             doc.text(120,105,"UNIT PRICE")
+             doc.text(170,105,"TOTAL")
+             doc.text(150,255,"SUBTOTAL : $")
+             doc.text(150,265,"SHIPPING: $")
+             doc.text(150,275,"TOTAL : $ ________")
+ 
+             let numero = 105
+ 
+             this.shoppingCart.forEach(item => {
+                 console.log(this.shoppingCart)
+                 numero = numero + 10
+                 doc.setFontSize(15);
+                 doc.text(20, numero , item.name  , { align: 'center' });
+                 doc.text(88,numero,`${item.quantity}`,{ align: 'center' })
+                 doc.text(125, numero , `${item.price}` , { align: 'center' });
+                 doc.text(170, numero , `${item.price*item.quantity}` , { align: 'center' });
+                 doc.text(175,275,`${this.totalAmount}`,{ align: 'center' });
+ 
+                 
+ 
+ 
+             })
+ 
+ 
+             doc.text(10,265,"Payment Method:__________ ")
+             doc.text(10,275,"Card/Check Number:____________ ")
+             
+ 
+ 
+ 
+ 
+ /*             doc.setFontSize(17)
+             doc.text(10,45,"Item Id")
+             doc.text(60,45,"Description")
+             doc.text(120,45,"Quantity")
+ 
+             doc.text(170,45,"Unit Price")
+             doc.text(150,175,"Total : $")
+ 
+             let numero = 45
+             this.shoppingCart.forEach(item => {
+                 console.log(this.shoppingCart)
+                 numero = numero + 10
+                 doc.setFontSize(15);
+                 doc.text(15, numero ,`${item.id}`, { align: 'center' });
+                 doc.text(60, numero , item.name  , { align: 'center' });
+                 doc.text(130,numero,`${item.quantity}`,{ align: 'center' })
+                 doc.text(170, numero , `${item.price}` , { align: 'center' });
+                 doc.text(175,175,`${this.totalAmount}`,{ align: 'center' });
+ 
+                 
+ 
+ 
+             }) */
+ 
+             
+ 
+              doc.save("two-by-four.pdf");
+ 
+         },
 
     },
     computed: {
