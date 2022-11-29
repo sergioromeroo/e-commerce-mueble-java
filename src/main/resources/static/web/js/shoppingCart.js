@@ -157,7 +157,7 @@ const app = Vue.createApp({
                             })
                             .then(response => {
                                 localStorage.clear()
-                                window.location.href = "../client/shopping.html"})
+                                window.location.href = "../web/client/shopping.html"})
                         }).catch(error => {
                             console.log(error)
                             Swal.fire({

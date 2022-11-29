@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>My shopping dashboard | Nogal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../stylesheet/profile-client.css">
     <link rel="stylesheet" href="../stylesheet/style.css">
     <link rel="stylesheet"
@@ -32,7 +33,7 @@
                     <li>
                         <a href="./profileClient.html">
                             <span>
-                                <box-icon name='user-detail' type='solid' animation='burst' color='#4253ce' ></box-icon>
+                                <box-icon name='user-detail' type='solid' animation='burst' color='#4253ce'></box-icon>
                             </span>
                             <small>Profile</small>
                         </a>
@@ -90,47 +91,45 @@
             </div>
 
             <!-- ========contenido====== -->
+            <div class="d-flex w-100 justify-content-center">
+                <div class="accordion accordion-flush w-75 mt-3" id="accordionFlushExample">
+                    <div class="accordion-item" v-for="ticket in tickets">
+                        <h2 class="accordion-header" :id="'flush-heading'+ticket.id">
+                            <button class="accordion-button collapsed fs-3 text-black d-flex" type="button"
+                                data-bs-toggle="collapse" :data-bs-target="'#flush-collapse'+ticket.id"
+                                aria-expanded="false" :aria-controls="'flush-collapse'+ticket.id"
+                                @click="productsInTicket(ticket)">
+                                Order number: {{ticket.id}} 
+                            </button>
+                        </h2>
+                        <div :id="'flush-collapse'+ticket.id" class="accordion-collapse collapse"
+                            :aria-labelledby="'flush-heading'+ticket.id" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <table>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                    <tr v-for="product in products">
+                                        <td class="d-flex justify-content-center"><img :src="product.urlImg" alt=""
+                                                style="width: 40px; height:40px"></td>
+                                        <td data-label="Name">{{product.name}}</td>
+                                        <td data-label="Price">${{product.price}}</td>
+                                        <td data-label="Quantity">{{product.quantity}}</td>
+                                    </tr>
+                                </table>
 
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Accordion Item #1
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <p class="mt-2">Date: {{ticket.date.slice(0,10)}}</p>
+                                <p class="mt-2">Total amount: ${{ticket.amount}}</p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Accordion Item #2
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Accordion Item #3
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            
-            <div class="shopping">
+            </div>
+
+            <!-- <div class="shopping">
 
                 <div class="small-container cart-page">
 
@@ -172,7 +171,7 @@
 
                     </table>
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -183,7 +182,9 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
 
 <script src="../js/client.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

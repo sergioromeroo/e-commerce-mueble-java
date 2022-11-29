@@ -4,6 +4,7 @@ const app = Vue.createApp({
             clientCurrent: {},
             favorites: [],
             tickets: [],
+            products: []
 
         }
     },
@@ -21,12 +22,15 @@ const app = Vue.createApp({
                     console.log(this.clientCurrent)
                     this.favorites = this.clientCurrent.clientProductFav
                     console.log(this.favorites)
-                    this.tickets = this.clientCurrent.tickets
+                    this.tickets = this.clientCurrent.tickets.sort((a, b) => { if (a.id < b.id) { return 1 } if (a.id > b.id) { return -1 } })
                     console.log(this.tickets)
 
                 })
                 .catch(error => console.log(error))
         },
+        productsInTicket(ticket){
+            this.products = ticket.product.sort((a, b) => { if (a.id > b.id) { return 1 } if (a.id < b.id) { return -1 } })
+        }
     },
     computed: {
     }
