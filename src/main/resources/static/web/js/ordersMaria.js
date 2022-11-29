@@ -70,11 +70,11 @@ const app = Vue.createApp({
               doc.text(170, 20,' # Ticket', { align: 'right' });
               doc.text(20, 20, 'Nogal');
               doc.setFontSize(13);
-              doc.text(20,28,"Future Furtniture");
+              doc.text(20,28,"Future Furniture");
               doc.setFontSize(14);
-              doc.text(20,40,"Street Adress")
-              doc.text(20,48,"City,Zip Code")
-              doc.text(20,56,"Phone 231932103103-21321313")
+             doc.text(20, 40, " Nueva York E 41 st St")
+                   doc.text(20, 48, "New York City,10001")
+                   doc.text(20, 56, "Phone 212-277-0000")
  
              doc.setLineWidth(1.5);
               doc.line(10, 95, 200, 95);
