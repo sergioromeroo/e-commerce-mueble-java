@@ -84,8 +84,9 @@ public class TicketController {
             productFound.setStock(productFound.getStock() - subtraction);
             productService.saveProduct(productFound);
 
-
-            ticketProductRepository.save(new TicketProduct(ticketCurrent, productFound, subtraction)); // aca guardamos el ticket product
+            if(subtraction != 0) {
+                ticketProductRepository.save(new TicketProduct(ticketCurrent, productFound, subtraction));
+            }// aca guardamos el ticket product
         }
 
 
