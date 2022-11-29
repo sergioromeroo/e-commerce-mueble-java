@@ -11,6 +11,23 @@ const app = Vue.createApp({
 
             numberCardVModel: null,
             cvvCardVModel: null,
+            heading: "Sample PDF Generator",
+            moreText: [
+              "This is another few sentences of text to look at it.",
+              "Just testing the paragraphs to see how they format.",
+              "jsPDF likes arrays for sentences.",
+              "Do paragraphs wrap properly?",
+              "Yes, they do!",
+              "What does it look like?",
+              "Not bad at all."
+            ],
+            items: [
+              { title: "Item 1", body: "I am item 1 body text" },
+              { title: "Item 2", body: "I am item 2 body text" },
+              { title: "Item 3", body: "I am item 3 body text" },
+              { title: "Item 4", body: "I am item 4 body text" }
+            ]
+            
         }
     },
     created() {
@@ -150,9 +167,11 @@ const app = Vue.createApp({
         },
         Imprimir() {
            const doc = new jsPDF({});
+           
 
             doc.setFontSize(20);
-             doc.text(65, 20, 'Resumen De compra', { align: 'center' });
+             doc.text(90, 20, 'Ticket', { align: 'center' });
+             doc.text(20, 20, 'Future Furtniture');
             doc.setLineWidth(1.5);
              doc.line(10, 25, 200, 25);
             
@@ -161,24 +180,37 @@ const app = Vue.createApp({
 
 
             doc.setFontSize(17)
-            doc.text(10,35,"Nombre")
-            doc.text(90,35,"Categorio")
-            doc.text(170,35,"Precio")
+            doc.text(10,35,"Item Id")
+            doc.text(60,35,"Description")
+            doc.text(120,35,"Quantity")
+
+            doc.text(170,35,"Unit Price")
+            doc.text(150,175,"Total : $")
 
             let numero = 40
             this.shoppingCart.forEach(item => {
+                console.log(this.shoppingCart)
                 numero = numero + 10
                 doc.setFontSize(15);
-                doc.text(10, numero , item.name , { align: 'center' });
-                doc.text(95, numero , item.type  , { align: 'center' });
-                doc.text(170, numero ,`${item.price}` , { align: 'center' });
+                doc.text(15, numero ,`${item.id}`, { align: 'center' });
+                doc.text(60, numero , item.name  , { align: 'center' });
+                doc.text(130,numero,`${item.quantity}`,{ align: 'center' })
+                doc.text(170, numero , `${item.price}` , { align: 'center' });
+                doc.text(175,175,`${this.totalAmount}`,{ align: 'center' });
+
+                
 
 
             })
 
+            
+
              doc.save("two-by-four.pdf");
 
-        }
+        },
+
+        
+
     },
     computed: {
     }

@@ -99,15 +99,18 @@ createApp({
             axios.put('/api/clients/delete', "email=" + email)
                 .then(() => {
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'You write bad the secret code, please register again',
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'You write bad the secret code, please register again',
+                            confirmButtonColor: 'lightgray',
+                            confirmButtonText: 'Ok',
 
-                    })
+                        })
+                        .then(() => {
+                            window.location.href = '/web/index.html'
+                        })
                 })
-                .then(() => {
-                    window.location.href = '/web/index.html'
-                })
+
         },
 
         theLoginAndRegister() {
