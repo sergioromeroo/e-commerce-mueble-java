@@ -142,7 +142,6 @@ const app = Vue.createApp({
                     if (result.isConfirmed) {
                         axios.post('https://homebanking-production-8635.up.railway.app/api/payments', { number: `${this.numberCardVModel}`, cvv: `${this.cvvCardVModel}`, amount: `${this.totalAmount}`, description: `FF purchase` })
                             .then(response => {
-<<<<<<< HEAD
                                 console.log(response)
                                 this.ordenateArray()
                                 axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${response.data}&idProduct=${this.idProducts}&quantity=${this.quantityProducts}`)
@@ -183,15 +182,6 @@ const app = Vue.createApp({
                                         confirmButtonColor: 'lightgray',
                                     })
                                 }
-=======
-                                localStorage.clear()
-                                window.location.href = "../web/client/shopping.html"})
-                        }).catch(error => {
-                            console.log(error)
-                            Swal.fire({
-                                text: `${error}`,
-                                confirmButtonColor: 'lightgray',
->>>>>>> origin/master
                             })
                     }
                 })
