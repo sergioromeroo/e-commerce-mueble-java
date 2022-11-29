@@ -60,7 +60,8 @@
     font-weight: 700;
     position: relative;
     color: #12263a;
-    margin: 1rem 0;
+    margin: 4rem 0;
+    font-family: 'Raleway';
 }
 .detail .product-title::after{
     content: "";
@@ -79,9 +80,10 @@
     display: inline-block;
     margin-bottom: 0.5rem;
     background: black;
-    color: #fff;
+    color: #fff !important;
     padding: 0 0.3rem;
     transition: all 0.5s ease;
+    padding: 9px 19px;
 }
 .detail .product-link:hover{
     opacity: 0.9;
@@ -163,6 +165,7 @@
 .detail .purchase-info .btn:last-of-type{
     background: #212529;
     width: 55%;
+    padding: 12px;
 }
 .detail .purchase-info .btn:hover{
     opacity: 0.9;
@@ -197,6 +200,8 @@
     border: 2px solid #939393;
     text-align: center;
     width: 28%;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 .detail .cajaflex{
     display: flex;

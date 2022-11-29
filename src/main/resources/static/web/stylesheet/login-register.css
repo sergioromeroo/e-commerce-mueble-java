@@ -1,25 +1,22 @@
 .loginRegisterPositon{
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    min-height: 100%; */
     position: absolute;
     background: rgba(229, 230, 233, 0.23);
-    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    /* -webkit-backdrop-filter: blur(5px); */
     border: 1px solid rgba(229, 230, 233, 0.03);
         z-index: 2;
-        top: 8rem;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 10%;
     }
-    .colorLoginAndRegister{
-        background-color: #483838;
-    }
+    .colorLoginAndRegister {
+      /* background-color: #423737; */
+      background-color: #4d4038
+  }
     .boderLoginAndRegister{
         border-bottom: rgba(255, 255, 255, 0.801) 2px solid;
-        width: 15rem;
+        /* width: 15rem; */
     }
     .boderLoginAndRegister:hover{
         border: rgb(255, 255, 255) 2px solid;
@@ -62,10 +59,142 @@
         }
       }
       .bounce-enter-active {
-        -webkit-animation: text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
-                animation: text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+        -webkit-animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+                animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
     }
     .bounce-leave-active  {
-        -webkit-animation: text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-                animation: text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -webkit-animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+                animation: text-blur-out 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     }
+
+    img.icons {
+      cursor: pointer;
+  }
+  
+  
+
+.swal2-popup.swal2-modal.swal2-show {
+
+  background: #f4f4f4;
+  text-transform: uppercase;
+}
+
+.swal2-actions:not(.swal2-loading) .swal2-styled:hover {
+
+  color: black
+}
+
+.login-container {
+  width: 94% !important;
+}
+.register-container{
+  width:  94% !important;
+}
+
+button.btn-login {
+  width: 19rem;
+  padding: 9px;
+  border-radius: inherit;
+  font-size: 15px;
+}
+
+
+button.btn-login:hover {
+  background: white;
+  color: #423737;
+  border-radius: inherit;
+}
+
+.btn-create-account{
+  width: 19rem;
+  padding: 9px;
+  border-radius: inherit;
+  font-size: 15px;
+}
+
+
+
+.btn-create-account:hover {
+  background: white;
+  color: #423737;
+  border-radius: inherit;
+}
+
+.form-control{
+  border-radius: inherit;
+  border: none !important;
+}
+
+.form-control-lg {
+   border-radius: inherit; 
+   border: none !important;
+   padding: 10px;
+   font-size: 15px;
+}
+
+
+.intento-de-iconos {
+  display: none !important;
+}
+
+.title-login{
+  letter-spacing:2px
+}
+.title-register{
+  letter-spacing:2px
+}
+
+
+
+@media (min-width: 550px) {
+  .login-container{
+    width: 85% !important;
+  }
+  
+  .register-container{
+    width: 85% !important;
+  }
+  .container-register{
+    padding: 0 40px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .container-register {
+    padding: 0 57px;
+  }
+}
+
+
+@media (min-width: 992px){
+  .login-container {
+    width: 60% !important;
+  }
+
+  .register-container{
+    width: 80% !important;
+  }
+
+  .container-register1 {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .container-register-box1 {
+    width: 40%;
+  }
+  .container-register-box2 {
+    width: 40%;
+  }
+
+  .login-container img {
+    margin-left: 3rem;
+    height: auto;
+  }
+  img.close-login-register {
+    margin-left: 4rem;
+  }
+ 
+
+}
+

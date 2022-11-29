@@ -1,457 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | Nogal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">
-    <link rel="stylesheet" href="./stylesheet/style.css">
-    
-</head>
-<body class="index products">
-    <div id="app">
-        {{filter}}
-        {{priceFilter}}
-        <header class="header-products">
-  
-          <nav class="navbar fixed-top">
-            <div class="container-fluid ">
-              <a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoBlanco.png" alt=""></a>
-              <div class="nav-menu-container">
-                    <div class="nav-menu">
-                        <ul class="nav-menu-ul">
-                            <li>
-                                <a href="./admin/admin2.html">Admin</a>
-                            </li>
-                            <li>
-                                <a href="./index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="./products.html">Shop</a>
-                             
-                            </li>
-                            <li>
-                                <a href="./contact.html">Contact</a>
-                            </li>
-                            <li>
-                                <a href="./about-us.html">About us</a>
-                            </li>              
-                        </ul>
-                    </div>
-                    <div class="nav-icons-and-menu-burger">
-                        <div class="nav-icons">
-                            <a href="">
-                                <img src="./img/icons/wishlist.png" alt="">
-                            </a> 
-                            <a v-on:click="accounts">
-                                <img  type="button" src="./img/icons/account.png" alt="">
-                            </a>
-                            <a href="./cart.html">
-                                <img src="./img/icons/cart.png" alt="">
-                            </a>
-                            <!-- <a href="">
-                                <img src="./img/icons/search.png" alt="">
-                            </a>
-                         -->
-                    
-                        </div>
-                        <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                        
-                            <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
-                        </button>
-                    </div>
-              </div>
-                
-    
-    
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-
-                    <div class="burger-menu-mob">
-                        <a href="./index.html" class="burger-menu-mob open-menu">
-                                <img src="./img/logo/logoBlanco.png" alt="">
-                        </a>
-                    </div>  
-                   
-                    <div class="nav-icons open-menu">
-                        <a href="">
-                            <img src="./img/icons/wishlist.png" alt="">
-                        </a> 
-                        <a v-on:click="accounts">
-                            <img  type="button" src="./img/icons/account.png" alt="">
-                        </a>
-                        <a href="./cart.html">
-                            <img src="./img/icons/cart.png" alt="">
-                        </a>
-                        <a href="">
-                            <img src="./img/icons/search.png" alt="">
-                        </a>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                       
-                    </div>        
-                 
-                </div>
-    
-    
-    
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    
-                
-                    <div class="nav-menu-burger">
-                        <ul class="nav-menu-ul">
-                            <li>
-                                <a href="./admin/admin2.html">Admin</a>
-                            </li>
-                            <li>
-                                <a href="./index.html" class="ancors-nav-burger" href="">Home</a>
-                            </li>
-                            <li>
-                                <a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
-                            </li>   
-                            <li>
-                                <a href="./contact.html" class="ancors-nav-burger" href="./contact.html">Contact</a>
-                            </li>
-                            <li>
-                                <a href="./about-us.html" class="ancors-nav-burger" href="./about-us.html">About us</a>
-                            </li>              
-                        </ul>
-
-                        <ul class="nav-menu-ul-bottom">
-                            <li>
-                                <a href="">Where to find us?</a>
-                                <a href="">need help?</a>
-                                <a href="">Payment Methods</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    
-                  </ul>
-                  
-                </div>
-    
-    
-              </div>
-    
-    
-    
-    
-            </div>
-          </nav>
-
-
-
-
-
-          <div class="section-filters">
-            
-
-            
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container-fluid filter-nav ">
-                  <!-- <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4> -->
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="burger-menu-filter "><img class="burger-menu-filter "  src="./img/icons/filter.png" alt=""></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Categories<i class='bx bx-chevron-down' ></i>
-                        </a>
-                        <ul class="dropdown-menu filter-btn-list">
-
-
-                            <li class="filter-btn-item" v-for="Type in typeCategory"> 
-                                <!-- <label  :for="Type" class="me-2">{{Type}}</label>
-                                <input v-model="typeVModel" type="checkbox" :name="Type" :id="Type" :value="Type"> -->
-                                <label class="container-material"  :for="Type">
-                                    {{Type}}
-                                    <input checked="checked" type="checkbox" v-model="typeVModel" type="checkbox" :name="Type" :id="Type" :value="Type">
-                                    <div class="checkmark"></div>
-                                </label>
-
-                            </li>
-            
-                        </ul>
-                        
-                      </li>
-
-
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Material Type<i class='bx bx-chevron-down' ></i>
-                        </a>
-                           <ul class="dropdown-menu filter-btn-list">
-
-                            <li class="filter-btn-item" v-for="materialType in materialTypeCategory">
-                              <!-- <label :for="materialType" class="me-2">{{materialType}}</label>
-                                <input v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
-                                    :value="materialType"> -->
-
-                                <label class="container-material"  :for="materialType">
-                                    {{materialType}}
-                                    <input checked="checked" type="checkbox"  v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
-                                    :value="materialType">
-                                    <div class="checkmark"></div>
-                                </label>
-
-                            </li>
-                            
-                        </ul>
-                      </li>
-                      <li class="nav-item dropdown price-mob">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Price<i class='bx bx-chevron-down' ></i>
-                        </a>
-                        <ul class="dropdown-menu filter-btn-list">
-
-                            <li class="filter-btn-item price-container">
-                                <div class="filter-btn-item-box1" id="highermob">
-                                    <label for="higherPrice" v-model="priceVModel">mayor precio</label>
-                                    <input v-model="priceVModel" type="radio" class="btn-check" name="higherPrice" id="higherPrice" value="higher">
-                                </div>
-                                <div class="filter-btn-item-box2" id="lowermob">
-                                    <label for="lowerPrice" v-model="priceVModel">menor precio</label>
-                                    <input v-model="priceVModel" type="radio" class="btn-check" name="lowerPrice" id="lowerPrice" value="lower">
-                                    
-                                </div>
-                             
-                            </li>
-                          </ul>
-                      </li> 
-                      <li class="filter-btn-item price-container price-deks">
-                        <div class="filter-btn-item-box1">
-                            <label for="higherPrice" id="higher" @click="buttonChecked">mayor precio</label>
-                            <!-- <label class="btn  btns-cat" for="higherPrice">mayor precio</label> -->
-                            <input v-model="priceVModel"  type="radio" class="btn-check"  name="price" id="higherPrice" value="higher" >
-                        </div>
-                        <div class="filter-btn-item-box2">
-                            <label for="lowerPrice" id="lower" @click="buttonChecked" >menor precio</label>
-                            <!-- <label class="btn  btns-cat" for="lowerPrice">menor precio</label> -->
-                            <input v-model="priceVModel"  type="radio" class="btn-check"  name="price" id="lowerPrice" value="lower">
-                            
-                        </div>
-                     
-                    </li>
-                    
-                    
-                    </ul>
-                    <!-- <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="inputSearchVModel">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form> -->
-                    <div class="group search-uiv">
-                        <input required="" type="text" class="input" v-model="inputSearchVModel">
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label >Search</label>
-                      </div>
-                  </div>
-                </div>
-              </nav>
-
-              
-          </div>
-
-
-        </header>
-        <main class="main-products">
-          
-         
-
-
-
-          <div class="section-products">
-            <template v-for="product in products">
-                <a :href="'./detail.html?id=' + product.id" class="category-index category-sofa">
-                    <div class="category-title">
-                        <h3>{{product.name}}</h3>
-                    </div>
-                    <div class="category-img">
-                        <img :src="product.urlImg" alt="">
-                    </div>
-                    <div class="category-desc">
-                        <p>$ {{balanceFormateado(product.price).split("A")[0]}}</p>
-                    </div>
-                </a>
-
-            </template>
-            <div class="text-dark" v-show="products.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
-          </div>
-
-
-
-
-
-
-
-
-            <!-- LOGIN Y REGISTER -->
-            <!-- LOGIN  -->
-            <transition name="bounce">
-                <div class="container loginRegisterPositon py-5 h-100  " v-if="login  == true">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                            <div class="card  text-white colorLoginAndRegister" style="border-radius: 1rem;">
-
-                                <div class="card-body p-5 text-center ">
-                                    <img class="icons" src="./img/icons/close.png" v-on:click="closeTools" alt=""
-                                        style="filter: brightness(6);">
-                                    <div class="mb-md-5 mt-md-4 pb-5">
-
-                                        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-
-
-                                        <p class="text-white-50 mb-5">Please enter your login and password!</p>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Email</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Password</label>
-                                        </div>
-
-                                        <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
-                                                password?</a></p>
-
-                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-
-                                        <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                            <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                            <a href="#!" class="text-white"><i
-                                                    class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                            <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="d-flex justify-content-center ">
-                                        <p class="mb-0" type="button" v-on:click="theLoginAndRegister">Don't have an
-                                            account? <a class="text-white-50 fw-bold boderLoginAndRegister">Sign Up</a>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </transition>
-
-            <!-- REGITER -->
-            <transition name="bounce">
-                <div class="container py-5 loginRegisterPositon " v-if="register == true">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                            <div class="card colorLoginAndRegister text-white " style="border-radius: 1rem;">
-                                <div class="card-body p-5 text-center">
-                                    <img class="icons" src="./img/icons/close.png" type="button" v-on:click="closeTools"
-                                        alt="" style="filter: brightness(6);">
-                                    <div class="mb-md-5 mt-md-4 pb-5">
-
-                                        <h2 class="fw-bold mb-2 text-uppercase">Register </h2>
-
-                                        <p class="text-white-50 mb-5">Please create your account</p>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="name" id="name" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Name</label>
-                                        </div>
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Email</label>
-                                        </div>
-
-
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Password</label>
-                                        </div>
-
-
-                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Create
-                                            account</button>
-
-                                        <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                            <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                            <a href="#!" class="text-white"><i
-                                                    class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                            <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                                        </div>
-
-                                    </div>
-                                    <div class="d-flex justify-content-center ">
-                                        <p class="mb-0" type="button" v-on:click="theLoginAndRegister">You have account
-                                            <a class="text-white-50 fw-bold boderLoginAndRegister">login Up</a>
-                                        </p>
-                                    </div>
-
-
-
-                                    <!-- <div class="d-flex justify-content-center ">
-                                    <p class="mb-0" v-on:click="theLoginAndRegister">you have account
-                                        <a href="#!" class="text-white-50 fw-bold boderLoginAndRegiste">login Up</a>
-                                    </p>
-                                </div> -->
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </transition>
-
-            <!-- TERMINA EL LOGIN Y EL REGISTER -->
-
-
-
-        </main>
-        <a href="#" class="btn-top"><i class='bx bx-chevron-up'></i></a>
-        <footer>
-            <div class="footer">
-                <div class="footer-top">
-                    <div class="footer-top1">
-                        <div><p>Nogal © 2012</p></div>
-                        <div class="store-online-footer"><p>Online furniture store</p></div>
-                    </div>
-                    <div class="footer-top2">
-                        <p>privacy policy</p>
-                        <p>public offer</p>
-                        <p>where to find us</p>
-                        <div class="icons-footer">
-                            <a href=""><i class='bx bxl-facebook'></i></a>
-                            <a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
-                        </div>
-                    </div>
-                </div>            
-                <div class="footer-bottom">
-                    <div class="footer-bottom-text">
-                        <p>website development: <span>  mindhub</span> </p>
-                    </div>
-                </div>
-            </div>
-        </footer>    
-      
-    </div>
-</body>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="./js/products.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Products | Nogal</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953" rel="stylesheet">
+		<link rel="stylesheet" href="./stylesheet/style.css">
+
+	</head>
+	<body class="index products">
+		<div id="app">
+			{{filter}}
+			{{priceFilter}}
+			<header class="header-products">
+
+				<nav class="navbar fixed-top">
+					<div class="container-fluid ">
+						<a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoBlanco.png" alt=""></a>
+						<div class="nav-menu-container">
+							<div class="nav-menu">
+								<ul class="nav-menu-ul">
+									<li>
+										<a href="./admin/admin2.html">Admin</a>
+									</li>
+									<li>
+										<a href="./index.html">Home</a>
+									</li>
+									<li>
+										<a href="./products.html">Shop</a>
+
+									</li>
+									<li>
+										<a href="./contact.html">Contact</a>
+									</li>
+									<li>
+										<a href="./about-us.html">About us</a>
+									</li>
+								</ul>
+							</div>
+							<div class="nav-icons-and-menu-burger">
+								<div class="nav-icons">
+									<a href="">
+										<img src="./img/icons/wishlist.png" alt="">
+									</a>
+									<a v-on:click="accounts">
+										<img  type="button" src="./img/icons/account.png" alt="">
+									</a>
+									<a href="./cart.html">
+										<img src="./img/icons/cart.png" alt="">
+									</a>
+									<!-- <a href="">
+										<img src="./img/icons/search.png" alt="">
+										</a>
+									-->
+
+								</div>
+								<button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+
+									<span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
+								</button>
+							</div>
+						</div>
+
+
+
+						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+							<div class="offcanvas-header">
+
+								<div class="burger-menu-mob">
+									<a href="./index.html" class="burger-menu-mob open-menu">
+										<img src="./img/logo/logoBlanco.png" alt="">
+									</a>
+								</div>
+
+								<div class="nav-icons open-menu">
+									<a href="">
+										<img src="./img/icons/wishlist.png" alt="">
+									</a>
+									<a v-on:click="accounts">
+										<img  type="button" src="./img/icons/account.png" alt="">
+									</a>
+									<a href="./cart.html">
+										<img src="./img/icons/cart.png" alt="">
+									</a>
+									<a href="">
+										<img src="./img/icons/search.png" alt="">
+									</a>
+									<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+								</div>
+
+							</div>
+
+
+
+							<div class="offcanvas-body">
+								<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+
+									<div class="nav-menu-burger">
+										<ul class="nav-menu-ul">
+											<li>
+												<a href="./admin/admin2.html">Admin</a>
+											</li>
+											<li>
+												<a href="./index.html" class="ancors-nav-burger" href="">Home</a>
+											</li>
+											<li>
+												<a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
+											</li>
+											<li>
+												<a href="./contact.html" class="ancors-nav-burger" href="./contact.html">Contact</a>
+											</li>
+											<li>
+												<a href="./about-us.html" class="ancors-nav-burger" href="./about-us.html">About us</a>
+											</li>
+										</ul>
+
+										<ul class="nav-menu-ul-bottom">
+											<li>
+												<a href="">Where to find us?</a>
+												<a href="">need help?</a>
+												<a href="">Payment Methods</a>
+											</li>
+										</ul>
+
+									</div>
+
+								</ul>
+
+							</div>
+
+
+						</div>
+
+
+
+
+					</div>
+				</nav>
+
+
+
+
+
+				<div class="section-filters">
+
+
+
+					<nav class="navbar navbar-expand-lg bg-light">
+						<div class="container-fluid filter-nav ">
+							<!-- <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4> -->
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="burger-menu-filter "><img class="burger-menu-filter "  src="./img/icons/filter.png" alt=""></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											Categories<i class='bx bx-chevron-down' ></i>
+										</a>
+										<ul class="dropdown-menu filter-btn-list">
+
+
+											<li class="filter-btn-item" v-for="Type in typeCategory">
+												<!-- <label  :for="Type" class="me-2">{{Type}}</label>
+													<input v-model="typeVModel" type="checkbox" :name="Type" :id="Type" :value="Type"> -->
+													<label class="container-material"  :for="Type">
+														{{Type}}
+														<input checked="checked" type="checkbox" v-model="typeVModel" type="checkbox" :name="Type" :id="Type" :value="Type">
+														<div class="checkmark"></div>
+													</label>
+
+											</li>
+
+										</ul>
+
+									</li>
+
+
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											Material Type<i class='bx bx-chevron-down' ></i>
+										</a>
+										<ul class="dropdown-menu filter-btn-list">
+
+											<li class="filter-btn-item" v-for="materialType in materialTypeCategory">
+												<!-- <label :for="materialType" class="me-2">{{materialType}}</label>
+													<input v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
+													:value="materialType"> -->
+
+													<label class="container-material"  :for="materialType">
+														{{materialType}}
+														<input checked="checked" type="checkbox"  v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
+																																																	 :value="materialType">
+														<div class="checkmark"></div>
+													</label>
+
+											</li>
+
+										</ul>
+									</li>
+									<li class="nav-item dropdown price-mob">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											Price<i class='bx bx-chevron-down' ></i>
+										</a>
+										<ul class="dropdown-menu filter-btn-list">
+
+											<li class="filter-btn-item price-container">
+												<div class="filter-btn-item-box1" id="highermob">
+													<label for="higherPrice" v-model="priceVModel">mayor precio</label>
+													<input v-model="priceVModel" type="radio" class="btn-check" name="higherPrice" id="higherPrice" value="higher">
+												</div>
+												<div class="filter-btn-item-box2" id="lowermob">
+													<label for="lowerPrice" v-model="priceVModel">menor precio</label>
+													<input v-model="priceVModel" type="radio" class="btn-check" name="lowerPrice" id="lowerPrice" value="lower">
+
+												</div>
+
+											</li>
+										</ul>
+									</li>
+									<li class="filter-btn-item price-container price-deks">
+										<div class="filter-btn-item-box1">
+											<label for="higherPrice" id="higher" @click="buttonChecked">mayor precio</label>
+											<!-- <label class="btn  btns-cat" for="higherPrice">mayor precio</label> -->
+											<input v-model="priceVModel"  type="radio" class="btn-check"  name="price" id="higherPrice" value="higher" >
+										</div>
+											<div class="filter-btn-item-box2">
+												<label for="lowerPrice" id="lower" @click="buttonChecked" >menor precio</label>
+												<!-- <label class="btn  btns-cat" for="lowerPrice">menor precio</label> -->
+												<input v-model="priceVModel"  type="radio" class="btn-check"  name="price" id="lowerPrice" value="lower">
+
+											</div>
+
+									</li>
+
+
+								</ul>
+								<!-- <form class="d-flex" role="search">
+									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="inputSearchVModel">
+									<button class="btn btn-outline-success" type="submit">Search</button>
+									</form> -->
+									<div class="group search-uiv">
+										<input required="" type="text" class="input" v-model="inputSearchVModel">
+										<span class="highlight"></span>
+										<span class="bar"></span>
+										<label >Search</label>
+									</div>
+							</div>
+						</div>
+					</nav>
+
+
+				</div>
+
+
+			</header>
+			<main class="main-products">
+
+
+
+
+
+				<div class="section-products">
+					<template v-for="product in products">
+						<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa">
+							<div class="category-title">
+								<h3>{{product.name}}</h3>
+							</div>
+							<div class="category-img">
+								<img :src="product.urlImg" alt="">
+							</div>
+							<div class="category-desc">
+								<p>$ {{balanceFormateado(product.price).split("A")[0]}}</p>
+							</div>
+						</a>
+
+					</template>
+					<div class="text-dark" v-show="products.length <= 0" ><h2>PRODUCT NOT AVILABLE</h2></div>
+				</div>
+
+
+
+
+
+				<!-- LOGIN Y REGISTER 2 -->
+				<!-- LOGIN  -->
+				<transition name="bounce">
+				<div class="container loginRegisterPositon py-5 h-100  " v-if="login  == true">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+							<div class="card  text-white colorLoginAndRegister" style="border-radius: 1rem;">
+
+								<div class="card-body p-5 text-center ">
+									<img class="icons" src="./img/icons/close.png" v-on:click="closeTools" alt="" style="filter: brightness(6);">
+									<div class="mb-md-5 mt-md-4 pb-5">
+
+										<h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+
+
+										<p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+										<div class="form-outline form-white mb-4">
+											<input type="email" v-model="emailVModel" id="typeEmailX" class="form-control form-control-lg" />
+											<label class="form-label" for="typeEmailX">Email</label>
+										</div>
+
+										<div class="form-outline form-white mb-4">
+											<input type="password" v-model="passwordVModel" id="typePasswordX" class="form-control form-control-lg" />
+											<label class="form-label" for="typePasswordX">Password</label>
+										</div>
+
+										<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot
+											password?</a></p>
+
+										<button class="btn btn-outline-light btn-lg px-5" type="submit" @click="access()">Login</button>
+
+										<div class="d-flex justify-content-center text-center mt-4 pt-1">
+											<a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+											<a href="#!" class="text-white"><i
+																	 class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+											<a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+										</div>
+
+									</div>
+
+									<div class="d-flex justify-content-center ">
+										<p class="mb-0" type="button" v-on:click="theLoginAndRegister">Don't have an account? <a class="text-white-50 fw-bold boderLoginAndRegister">Sign Up</a>
+										</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</transition>
+
+				<!-- REGISTER -->
+				<transition name="bounce">
+				<div class="container py-5 loginRegisterPositon " v-if="register  == true" >
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+							<div class="card colorLoginAndRegister text-white " style="border-radius: 1rem;">
+								<div class="card-body p-5 text-center">
+									<img class="icons" src="./img/icons/close.png" type="button" v-on:click="closeTools" alt="" style="filter: brightness(6);">
+									<div class="mb-md-5 mt-md-4 pb-5">
+
+										<h2 class="fw-bold mb-2 text-uppercase">Register </h2>
+
+										<p class="text-white-50 mb-5">Please create your account</p>
+
+
+										<div class="form-outline form-white mb-4">
+											<input type="email" v-model="emailVModel" id="typeEmail" class="form-control form-control-lg" />
+											<label class="form-label" for="typeEmail">Email</label>
+										</div>
+
+
+										<div class="form-outline form-white mb-4">
+											<input type="password" v-model="passwordVModel" id="typePasswordX" class="form-control form-control-lg" />
+											<label class="form-label" for="typePasswordX">Password</label>
+										</div>
+										<div class="row d-flex ">
+
+											<div class="form-outline form-white mb-4 col">
+												<input type="firstName" v-model="firstNameRegisterVModel" id="firstName" class="form-control form-control-lg" />
+												<label class="form-label" for="firstName">First name</label>
+											</div>
+
+											<div class="form-outline form-white mb-4 col">
+												<input type="lastName" v-model="lastNameRegisterVModel" id="lastName" class="form-control form-control-lg" />
+												<label class="form-label" for="lastName">Last name</label>
+											</div>
+										</div>
+										<div class="row d-flex">
+
+											<div class="form-outline col form-white mb-4">
+												<input type="number" v-model="celPhoneRegisterVModel" id="cellPhone" class="form-control form-control-lg" />
+												<label class="form-label" for="cellPhone">Cellphone</label>
+											</div>
+
+											<div class="form-outline col form-white mb-4">
+												<input type="text" v-model="addresVModel" id="adress" class="form-control form-control-lg" />
+												<label class="form-label" for="adress">Adress</label>
+											</div>
+
+											<div class="form-outline col form-white mb-4">
+												<input type="text" v-model="cityVModel" id="city" class="form-control form-control-lg" />
+												<label class="form-label" for="city">City</label>
+											</div>
+
+											<div class="form-outline col form-white mb-4">
+												<input type="text" v-model="stateVModel" id="state" class="form-control form-control-lg" />
+												<label class="form-label" for="state">State</label>
+											</div>
+										</div>
+
+										<button class="btn btn-outline-light btn-lg px-5" type="submit" @click="clientRegister()">Create
+											account</button>
+
+										<div class="d-flex justify-content-center text-center mt-4 pt-1">
+											<a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+											<a href="#!" class="text-white"><i
+																	 class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+											<a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+										</div>
+
+									</div>
+									<div class="d-flex justify-content-center ">
+										<p class="mb-0" type="button" v-on:click="theLoginAndRegister">You have account
+										<a class="text-white-50 fw-bold boderLoginAndRegister">login Up</a>
+										</p>
+									</div>
+
+
+
+									<!-- <div class="d-flex justify-content-center ">
+										<p class="mb-0" v-on:click="theLoginAndRegister">you have account
+										<a href="#!" class="text-white-50 fw-bold boderLoginAndRegiste">login Up</a>
+										</p>
+										</div> -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</transition>
+
+				<!-- TERMINA EL LOGIN Y EL REGISTER -->
+
+
+
+
+
+			</main>
+			<a href="#" class="btn-top"><i class='bx bx-chevron-up'></i></a>
+			<footer>
+				<div class="footer">
+					<div class="footer-top">
+						<div class="footer-top1">
+							<div><p>Nogal © 2012</p></div>
+							<div class="store-online-footer"><p>Online furniture store</p></div>
+						</div>
+						<div class="footer-top2">
+							<p>privacy policy</p>
+							<p>public offer</p>
+							<p>where to find us</p>
+							<div class="icons-footer">
+								<a href=""><i class='bx bxl-facebook'></i></a>
+								<a class="ig" href=""><i class='bx bxl-instagram' ></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<div class="footer-bottom-text">
+							<p>website development: <span>  mindhub</span> </p>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+	</body>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+	<script src="./js/products.js"></script>
 </html>
