@@ -149,15 +149,6 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
 
 @media (min-width: 768px) {
 
-    .section-contact{
-        width: 90vw;
-    }
-
-    .col-md-8 {
-        flex: 0 0 auto;
-        width: 86.666667%;
-    }
-
     .p-5 {
         padding: 3rem 11px!important;
     }
