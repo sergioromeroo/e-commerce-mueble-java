@@ -90,8 +90,7 @@ public class TicketController {
         }
 
 
-
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(ticketCurrent.getId(),HttpStatus.CREATED);
     }
 
 

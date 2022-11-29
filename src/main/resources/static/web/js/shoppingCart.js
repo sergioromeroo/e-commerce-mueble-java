@@ -28,6 +28,7 @@ const app = Vue.createApp({
             ],
             cardPdf: "XXXX-XXXX-XXXX-",
             paymentMethodPdf: "",
+            ticketId: null,
 
         }
     },
@@ -141,7 +142,7 @@ const app = Vue.createApp({
                     showCancelButton: true,
                     confirmButtonColor: '#808080',
                     cancelButtonColor: '#ff0000',
-                    confirmButtonText: 'Confirm Edit'
+                    confirmButtonText: 'Confirm purchase?'
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
@@ -152,8 +153,9 @@ const app = Vue.createApp({
                                 this.cardPdf = this.cardPdf + this.numberCardVModel.toString().slice(12,17)
                                 this.paymentMethodPdf = response.data.slice(8,15)
                                 axios.post('/api/tickets', `amount=${this.totalAmount}&paymentMethod=${response.data}&idProduct=${this.idProducts}&quantity=${this.quantityProducts}`)
-                                    .then(() => {
-                                        this.Imprimir();
+                                    .then((res) => {
+                                        this.ticketId = res.data
+                                        this.print();
                                     })
                                     .then(resp => {
                                         console.log(resp)
@@ -206,7 +208,7 @@ const app = Vue.createApp({
             })
 
         },
-        Imprimir() {
+        print() {
             const doc = new jsPDF({});
             //const logo = require('@/icons/png/logo.png')
             //var imgLogo = new Image()
@@ -214,7 +216,7 @@ const app = Vue.createApp({
             //doc.addImage(imgLogo, 'PNG', 200, 100, 24, 8)
 
             doc.setFontSize(20);
-            doc.text(170, 20, ' # Ticket', { align: 'right' });
+            doc.text(170, 20, `Ticket #${this.ticketId}`, { align: 'right' });
             doc.text(20, 20, 'Nogal');
             doc.setFontSize(13);
             doc.setFontSize(14);
@@ -246,8 +248,7 @@ const app = Vue.createApp({
 
             doc.text(120, 105, "UNIT PRICE :")
             doc.text(170, 105, "TOTAL:")
-            doc.text(150, 255, "SUBTOTAL : $")
-            doc.text(150, 265, "SHIPPING: $")
+            doc.text(150, 265, "SHIPPING: FREE")
             doc.text(150, 275, "TOTAL : $ ________")
 
             let numero = 105
