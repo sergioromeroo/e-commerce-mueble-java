@@ -21,6 +21,10 @@
 
 }
 
+.contact main{
+    min-height: 79rem;
+}
+
 .fontContat {
     font-size: 15px;
     border: none;
@@ -46,8 +50,12 @@
 }
 
 
-
 .contact .burger-menu-mob img {
+ 
+    filter: brightness(0);
+ 
+}
+ .burger-menu-mob img {
     width: 122px;
     filter: brightness(0);
 }
@@ -106,8 +114,29 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
     letter-spacing: 1px;
 }
 
-.address-number,.address-telephone ,.address-email {
+.contact button.btn:hover{
+    background: black;
+    color: white;
+}
+
+
+.contact .address-number,.address-telephone ,.address-email {
     width: 100% !important;
+}
+
+.contact .section-contact {
+    width: 90vw;
+    background: white;
+    padding: 38px;
+}
+
+.contact h2.title-contact.fw-bold.mb-2.text-uppercase {
+    font-size: 23px;
+}
+
+.contact p.text-contact{
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 @media (min-width: 550px) {
@@ -206,3 +235,11 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
 
 
 }
+
+
+@media (min-width: 1440px) {
+    .contact main {
+        min-height: 100rem;
+    }
+}
+

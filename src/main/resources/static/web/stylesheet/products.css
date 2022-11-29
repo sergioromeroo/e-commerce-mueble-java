@@ -181,7 +181,7 @@
 .products .nav-menu a {
   text-decoration: none;
   font-size: 13px;
-  color: black;
+  color: black !important;
   padding: 0 3rem;
   text-transform: uppercase;
   letter-spacing: 1px;

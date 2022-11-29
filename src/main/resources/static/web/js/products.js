@@ -280,7 +280,11 @@ const app = Vue.createApp({
      
         }
    
-    }
+    },
+    balanceFormateado(numero){
+        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
+    },
+
   },
 
   computed: {
