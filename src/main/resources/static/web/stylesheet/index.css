@@ -208,7 +208,7 @@ ul.nav-menu-ul-bottom li a {
 
 .index .btn-choose-table:hover {
     background-color: #fff;
-    color: black;
+    color: black !important;
 }
 
 

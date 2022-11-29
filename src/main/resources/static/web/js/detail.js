@@ -131,7 +131,11 @@ const app = Vue.createApp({
             // @RequestParam String name,
             // @RequestParam String url,
             // @RequestParam double price,
-        }
+        },
+        balanceFormateado(numero){
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
+        },
+    
 
 
     },

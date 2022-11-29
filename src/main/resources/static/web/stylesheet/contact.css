@@ -22,7 +22,7 @@
 }
 
 .contact main{
-    min-height: 79rem;
+    min-height: 100rem;
 }
 
 .fontContat {
@@ -76,6 +76,7 @@
 
 
 .contact .address-container iframe {
+    width: 100%;;
     height: 100%;
     filter: brightness(0.8);
 }
@@ -127,7 +128,7 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
 .contact .section-contact {
     width: 90vw;
     background: white;
-    padding: 38px;
+    padding: 18px;
 }
 
 .contact h2.title-contact.fw-bold.mb-2.text-uppercase {
@@ -139,11 +140,21 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
     text-transform: uppercase;
 }
 
+.map-contact {
+    padding-bottom: 3rem;
+}
+
 @media (min-width: 550px) {
     .address-container {
         display: flex;
         justify-content: space-between;
     }
+    .contact .section-contact {
+ 
+        padding: 38px;
+       
+    }
+    
 }
 
 
@@ -231,6 +242,10 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
         height: 100%;
     }
 
+    .map-contact {
+        padding-bottom: unset;
+    }
+    
 
 
 
