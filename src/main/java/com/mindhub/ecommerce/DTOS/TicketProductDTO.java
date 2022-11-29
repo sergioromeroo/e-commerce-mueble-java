@@ -13,6 +13,8 @@ public class TicketProductDTO {
 
     private String name;
 
+    private String urlImg;
+
     private String type;
 
     private double price;
@@ -26,6 +28,7 @@ public class TicketProductDTO {
 
         this.idProduct = ticketProduct.getProduct().getId();
         this.name = ticketProduct.getProduct().getName();
+        this.urlImg = ticketProduct.getProduct().getUrlImg();
         this.type = ticketProduct.getProduct().getType();
         this.price = ticketProduct.getProduct().getPrice();
         this.quantity = ticketProduct.getQuantity();
@@ -39,6 +42,10 @@ public class TicketProductDTO {
 
     public String getName() {
         return name;
+    }
+
+    public String getUrlImg() {
+        return urlImg;
     }
 
     public String getType() {

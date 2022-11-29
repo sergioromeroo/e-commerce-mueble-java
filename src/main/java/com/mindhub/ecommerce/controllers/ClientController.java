@@ -97,7 +97,6 @@ public class ClientController {
             @RequestParam String lastName,
             @RequestParam long cellPhone,
             @RequestParam String addres,
-            @RequestParam String email,
             @RequestParam String password,
             Authentication authentication
     ){
@@ -121,9 +120,7 @@ public class ClientController {
             return new ResponseEntity<>("The addres is empty",HttpStatus.FORBIDDEN);
         }
 
-        if(email.isEmpty()){
-            return new ResponseEntity<>("The email is empty",HttpStatus.FORBIDDEN);
-        }
+
 
         if(password.isEmpty()){
             return new ResponseEntity<>("The password is empty",HttpStatus.FORBIDDEN);
@@ -135,7 +132,6 @@ public class ClientController {
 
 
         clientCurrent.setAddres(addres);
-        clientCurrent.setEmail(email);
         clientCurrent.setFirstname(firstName);
         clientCurrent.setLastname(lastName);
         clientCurrent.setCellPhone(cellPhone);

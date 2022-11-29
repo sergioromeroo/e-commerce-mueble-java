@@ -112,6 +112,8 @@ ul.nav-menu-ul-bottom li a {
     color: black
 }
 
+
+
 /* 
 .container-fluid {
     padding: 10px 9px;
@@ -507,8 +509,7 @@ i.bx.bx-chevron-up {
         /* padding: 4px 10px; */
         min-height: 8rem;
     }
-
-    .filter-nav{
+    .filter-nav {
         padding: 17px 18px;
     }
     .index .text-header {
@@ -563,7 +564,6 @@ i.bx.bx-chevron-up {
     .footer-top2 {
         flex-direction: unset
     }
-
     .products .burger-menu-mob img {
         width: 122px;
         margin-left: 15px;
