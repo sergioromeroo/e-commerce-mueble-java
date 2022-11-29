@@ -198,9 +198,6 @@ const app = Vue.createApp({
                 this.quantityProducts.push(product.quantity)
             })
 
-            console.log(this.shoppingCart)
-            console.log(this.idProducts)
-            console.log(this.quantityProducts)
         },
         Imprimir() {
             const doc = new jsPDF({});
