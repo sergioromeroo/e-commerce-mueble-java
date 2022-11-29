@@ -42,7 +42,10 @@ public class ClientController {
             @RequestParam String lastName,
             @RequestParam String email,
             @RequestParam String password,
-            @RequestParam long cellphone
+            @RequestParam long cellphone,
+            @RequestParam String city,
+            @RequestParam String addres,
+            @RequestParam String state
     ) {
 
 
@@ -78,7 +81,7 @@ public class ClientController {
 
 
 
-        Client newClient=new Client(firstName, lastName, email, passwordEncoder.encode(password) ,cellphone);
+        Client newClient=new Client(firstName, lastName, email, passwordEncoder.encode(password) ,cellphone,city,addres,state);
         clientService.saveClient(newClient);
 
 

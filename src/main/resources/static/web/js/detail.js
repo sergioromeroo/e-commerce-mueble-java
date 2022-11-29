@@ -103,6 +103,33 @@ const app = Vue.createApp({
             //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
         },
 
+        /* ADD PRODUCT TO FAVORITES */
+
+        addToFavorites(){
+            axios.post('/api/clientproductfav', `id=${this.details.id}&name=${this.details.name}&url=${this.details.urlImg}&price=${this.details.price}`)
+            .then(response => {
+                console.log(response)
+                Swal.fire({
+                    text: `Product added to favorites`,
+                    confirmButtonColor: 'lightgray',
+                })
+            })
+            .catch(error => {
+                console.log(error)
+                Swal.fire({
+                    text: `${error.response.data}`,
+                    confirmButtonColor: 'lightgray',
+                })
+            })
+
+
+
+            // @RequestParam long id,
+            // @RequestParam String name,
+            // @RequestParam String url,
+            // @RequestParam double price,
+        }
+
 
     },
     computed: {

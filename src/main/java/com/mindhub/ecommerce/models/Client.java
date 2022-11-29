@@ -28,6 +28,11 @@ public class Client {
     private String password;
     private long cellPhone;
 
+    private String city;
+
+    private String addres;
+
+    private String state;
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     Set<Ticket> tickets = new HashSet<>();
@@ -41,12 +46,15 @@ public class Client {
 
     }
 
-    public Client(String firstname, String lastname, String email, String password, long cellPhone) {
+    public Client(String firstname, String lastname, String email, String password, long cellPhone, String city, String addres, String state) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.cellPhone = cellPhone;
+        this.city = city;
+        this.addres = addres;
+        this.state = state;
     }
 
 
@@ -117,5 +125,30 @@ public class Client {
 
     public Set<ClientProducFav> getProductsFavorites() {
         return productsFavorites;
+    }
+
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddres() {
+        return addres;
+    }
+
+    public void setAddres(String addres) {
+        this.addres = addres;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

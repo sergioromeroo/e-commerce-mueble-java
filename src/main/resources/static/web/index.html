@@ -398,6 +398,20 @@
                                             <label class="form-label" for="cellPhone">Cellphone</label>
                                         </div>
 
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="text" v-model="addresVModel" id="adress" class="form-control form-control-lg" />
+                                            <label class="form-label" for="adress">Adress</label>
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="text" v-model="cityVModel" id="city" class="form-control form-control-lg" />
+                                            <label class="form-label" for="city">City</label>
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="text" v-model="stateVModel" id="state" class="form-control form-control-lg" />
+                                            <label class="form-label" for="state">State</label>
+                                        </div>
 
                                         <button class="btn btn-outline-light btn-lg px-5" type="submit" @click="clientRegister()">Create
                                             account</button>

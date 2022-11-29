@@ -77,6 +77,12 @@ public class ClientProductFavController {
 
         productFavoriteService.saveProductFavorite(productFavorite);
 
+        List<ClientProducFav> favoriteForId = clienCurrent.getProductsFavorites().stream().filter(favorite -> favorite.getProductFavorite().getProduct_id()==id).collect(Collectors.toList());
+
+        if(favoriteForId.size() > 0) {
+            return new ResponseEntity<>("Product already in favorites", HttpStatus.FORBIDDEN);
+        }
+
         ClientProducFav clientProducFav = new ClientProducFav(clienCurrent,productFavorite);
 
         clientProductFavRepository.save(clientProducFav);
