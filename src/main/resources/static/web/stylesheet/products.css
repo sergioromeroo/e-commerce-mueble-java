@@ -196,7 +196,7 @@
 
 .products  .burger-menu-mob img {
   width: 122px;
-  filter: brightness(1);
+  filter: brightness(0);
 }
 
 .products  .burger-menu img {
@@ -579,11 +579,16 @@ li.filter-btn-item.price-container.price-deks {
   top: 0;
   left: 0;
   height: 1.3em;
-  background-color: #343434;
+  background-color: rgba(255, 255, 255, 0);
   width: 1.3em;
   border-radius: 5px;
   transition: all 0.5s;
  }
+
+ .checkmark:hover {
+
+  background-color: black;
+}
  
  /* When the checkbox is checked, add a blue background */
  .container-material input:checked ~ .checkmark {
@@ -644,8 +649,8 @@ li.filter-btn-item.price-container.price-deks {
   background-color: black;
   color: white;
 }
-
-/* label:before ,
+/* 
+label:before ,
 label:before {
   content: "";
   width: 17px;
@@ -667,7 +672,25 @@ label:before {
   justify-content:center
 }
 
+.checked{
+  background-color:black;
+  color: white
+}
 
+
+.products .btn-check:checked{
+  background-color:black;
+  color: white;
+}
+
+
+.btns-price:checked{
+  background-color: black;
+}
+
+label.btn.btns-cat {
+  border-radius: 0;
+}
 
 @media (min-width: 768px) {
 

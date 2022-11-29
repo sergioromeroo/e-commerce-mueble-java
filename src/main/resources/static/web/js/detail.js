@@ -8,7 +8,7 @@ const app = Vue.createApp({
             id: (new URLSearchParams(location.search).get("id")),
             details: [],
             relacionados: [],
-
+           
 
         }
     },
@@ -40,8 +40,11 @@ const app = Vue.createApp({
                             this.relacionados.push(product)
                         }
                     })
+
+                 
                     console.log(this.products)
 
+                    
 
                 })
         },
