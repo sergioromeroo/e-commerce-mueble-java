@@ -4,7 +4,8 @@ const app = Vue.createApp({
             clientCurrent: {},
             favorites: [],
             tickets: [],
-            products: []
+            products: [],
+            initials: ""
 
         }
     },
@@ -24,13 +25,17 @@ const app = Vue.createApp({
                     console.log(this.favorites)
                     this.tickets = this.clientCurrent.tickets.sort((a, b) => { if (a.id < b.id) { return 1 } if (a.id > b.id) { return -1 } })
                     console.log(this.tickets)
-
+                    this.initials = this.clientCurrent.firstname.slice(0,1) + this.clientCurrent.lastname.slice(0,1)
+                    console.log(this.initials)
                 })
                 .catch(error => console.log(error))
         },
         productsInTicket(ticket){
             this.products = ticket.product.sort((a, b) => { if (a.id > b.id) { return 1 } if (a.id < b.id) { return -1 } })
-        }
+        },
+        balanceFormateado(numero){
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
+        },
     },
     computed: {
     }

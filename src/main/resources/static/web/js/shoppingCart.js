@@ -57,6 +57,9 @@ const app = Vue.createApp({
                     console.log(error)
                 })
         },
+        balanceFormateado(numero){
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
+        },
         finalAmount() {
             this.totalAmount = 0
             this.shoppingCart.map(product => {

@@ -116,13 +116,13 @@
                                         <td class="d-flex justify-content-center"><img :src="product.urlImg" alt=""
                                                 style="width: 40px; height:40px"></td>
                                         <td data-label="Name">{{product.name}}</td>
-                                        <td data-label="Price">${{product.price}}</td>
+                                        <td data-label="Price">${{balanceFormateado(product.price).split("A")[0]}}</td>
                                         <td data-label="Quantity">{{product.quantity}}</td>
                                     </tr>
                                 </table>
 
                                 <p class="mt-2">Date: {{ticket.date.slice(0,10)}}</p>
-                                <p class="mt-2">Total amount: ${{ticket.amount}}</p>
+                                <p class="mt-2">Total amount: ${{balanceFormateado(ticket.amount).split("A")[0]}}</p>
                             </div>
                         </div>
                     </div>

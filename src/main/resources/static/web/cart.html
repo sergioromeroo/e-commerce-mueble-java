@@ -71,7 +71,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col">$ {{product.price * product.quantity}}<span class="close"></span>
+                                <div class="col">$ {{balanceFormateado(product.price * product.quantity).split("A")[0]}}<span class="close"></span>
                                     <button class="btn-close  cartRed" @click="deleteProduct(product)"></button>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                         </form>
                         <div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0">
                             <div class="col">Total price:</div>
-                            <div class="col text-right">$ {{totalAmount}}</div>
+                            <div class="col text-right">$ {{balanceFormateado(totalAmount).split("A")[0]}}</div>
                         </div>
                         <button class="btn_cart fontGotham  btn  cart_CHECKOUT" style="font-size:10px;" @click="createTicket()">CHECKOUT</button>
 
