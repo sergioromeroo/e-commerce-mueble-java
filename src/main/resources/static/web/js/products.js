@@ -168,19 +168,19 @@ const app = Vue.createApp({
               })
               .catch(error => console.log(error))
       },
-      finalAmount() {
+    finalAmount() {
           this.totalAmount = 0
           this.shoppingCart.map(product => {
               let addition = product.quantity * product.price
               this.totalAmount += addition
           })
           localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
-      },
-      cartStorage(){
+    },
+    cartStorage(){
           localStorage.setItem('cart', JSON.stringify(this.shoppingCart))
           this.finalAmount()
-      },
-      addProductToShoppingCart(selectProduct){
+    },
+    addProductToShoppingCart(selectProduct){
 
               let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
 
@@ -209,8 +209,8 @@ const app = Vue.createApp({
               }
 
               //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
-      },
-      deleteOneItem(selectProduct){
+    },
+    deleteOneItem(selectProduct){
           if(selectProduct.quantity > 0){
               this.shoppingCart.filter(product => {
                   if(product.id == selectProduct.id){
@@ -220,16 +220,16 @@ const app = Vue.createApp({
               })
           }
           this.cartStorage()
-      },
-      deleteProduct(selectProduct){
+    },
+    deleteProduct(selectProduct){
           this.shoppingCart = this.shoppingCart.filter(product => product != selectProduct)
           this.cartStorage()
-      },
-      emptyCart() {
+    },
+    emptyCart() {
           localStorage.clear()
           window.location.reload()
-      },
-      access() {
+    },
+    access() {
         axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
         .then(response => console.log(response))
         .catch(error => console.log(error))
