@@ -329,7 +329,7 @@
 							<p>{{details.description}}</p>
 						</div>
 						<div class = "product-price">
-							<p class = "new-price"> Price: <span>$ {{details.price}} </span></p>
+							<p class = "new-price"> Price: <span>$ {{balanceFormateado(details.price).split("A")[0]}} </span></p>
 						</div>
 
 						<div class="cajaflex">
@@ -388,7 +388,7 @@
 							<img :src =product.urlImg alt="">
 						</div>
 						<div class="category-desc">
-							<p>${{product.price}}</p>
+							<p>${{balanceFormateado(product.price).split("A")[0]}}</p>
 						</div>
 					</a>
 
