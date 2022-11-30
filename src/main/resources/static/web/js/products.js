@@ -276,25 +276,25 @@ const app = Vue.createApp({
         this.login = false;
         this.register = false;
     },
-    buttonChecked(){
+    // buttonChecked(){
 
-        if(this.priceVModel == "lower"){
-            document.getElementById("lower").classList.add("checked");
-            document.getElementById("lowermob").classList.remove("checked");
-            document.getElementById("higher").classList.remove("checked");
-            document.getElementById("highermob").classList.remove("checked");
+    //     if(this.priceVModel == "lower"){
+    //         document.getElementById("lower").classList.add("checked");
+    //         document.getElementById("lowermob").classList.remove("checked");
+    //         document.getElementById("higher").classList.remove("checked");
+    //         document.getElementById("highermob").classList.remove("checked");
 
             
-        }
+    //     }
         
-        if(this.priceVModel == "higher"){
-            document.getElementById("higher").classList.add("checked");
-            document.getElementById("highermob").classList.remove("checked");
-            document.getElementById("lower").classList.remove("checked");
-            document.getElementById("lowermob").classList.remove("checked");
-        }
+    //     if(this.priceVModel == "higher"){
+    //         document.getElementById("higher").classList.add("checked");
+    //         document.getElementById("highermob").classList.remove("checked");
+    //         document.getElementById("lower").classList.remove("checked");
+    //         document.getElementById("lowermob").classList.remove("checked");
+    //     }
    
-    },
+    // },
     balanceFormateado(numero){
         return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(numero)
     },
