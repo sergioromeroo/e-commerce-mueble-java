@@ -69,12 +69,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./editprofile.html">
+                        <!-- <a href="./editprofile.html">
                             <span>
                                 <box-icon name='log-out' animation='burst' ></box-icon>
                             </span>
                             <small>Logout</small>
-                        </a>
+                        </a> -->
+                        <button class="btn btn-secondary" @click="logout()">Logout</button>
+
                     </li>
 
 
@@ -120,7 +122,7 @@
 
                     </template>
                     <div class="text-dark" v-show="favorites.length <= 0">
-                        <h2>EMPTY</h2>
+                        <h2>You haven't added products to favorites yet</h2>
                     </div>
                 </div>
 

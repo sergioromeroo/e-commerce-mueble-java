@@ -51,8 +51,17 @@ const app = Vue.createApp({
 
         logout() {
             axios.post('/api/logout')
-                .then(() => window.location.pathname = '/web/index.html')
-        }
+                  .then(() => {
+                        Swal.fire({
+                              title: 'Successful logout :)',
+                              text: 'You will be redirected',
+                              confirmButtonColor: 'lightgray',
+                              timer: 1500
+                        })
+                              .then(() => window.location.pathname = '/web/index.html')
+                  })
+                  .catch(error => console.log(error))
+      },
     },
     computed: {
 

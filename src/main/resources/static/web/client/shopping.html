@@ -69,12 +69,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./editprofile.html">
+                        <!-- <a href="./editprofile.html">
                             <span>
                                 <box-icon name='log-out' animation='burst' ></box-icon>
                             </span>
                             <small>Logout</small>
-                        </a>
+                        </a> -->
+                        <button class="btn btn-secondary" @click="logout()">Logout</button>
+
                     </li>
 
 
@@ -138,6 +140,7 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="text-center mt-2" v-if="tickets.length == 0">You haven't made any purchase yet</h3>
             </div>
 
             <!-- <div class="shopping">
