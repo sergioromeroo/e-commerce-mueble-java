@@ -116,6 +116,7 @@
   .quienesomos .h2 { 
     font-size: var(--fs-2); 
     text-transform: uppercase;
+    font-family: 'Raleway'
   }
   
   .quienesomos .h3 { font-size: var(--fs-3); }
@@ -232,6 +233,9 @@
   .quienesomos .blog-card .card-title {
     margin-block: 20px 10px;
     transition: var(--transition-1);
+    text-transform: uppercase;
+    font-family: 'Raleway';
+    font-weight: bolder;
   }
   
   .quienesomos .blog-card .card-title:is(:hover, :focus) { color: var(--tan-crayola); }

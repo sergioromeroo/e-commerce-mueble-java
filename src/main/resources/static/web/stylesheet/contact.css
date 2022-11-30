@@ -55,7 +55,8 @@
     filter: brightness(0);
  
 }
- .burger-menu-mob img {
+
+.contact .burger-menu-mob img {
     width: 122px;
     filter: brightness(0);
 }

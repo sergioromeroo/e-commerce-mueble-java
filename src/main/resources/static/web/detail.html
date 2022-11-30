@@ -367,17 +367,19 @@
 				</div>
 			</div>
 
-			<div>
-				<h3>RELATED PRODUCTS</h3>
-			</div>
+			
 		</div>
 
 		<!-- ====productos relacionados======== -->
 
 
-		<div class="index d-flex justify-content-center">
+		<div class="index  products-related-container d-flex justify-content-center">
 
-			<section class="index-categories">
+			<section class="index-categories products-related">
+				<div class="title-product-related">
+					<h3>RELATED PRODUCTS</h3>
+				</div>
+				<div class="container-productsRelated">
 				<template v-for="product in relacionados">
 
 					<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa" >
@@ -393,7 +395,7 @@
 					</a>
 
 				</template>
-
+				</div>
 			</section>
 		</div>
 

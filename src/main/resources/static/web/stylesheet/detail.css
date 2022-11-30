@@ -54,15 +54,15 @@
 .detail .product-content{
     padding: 2rem 1rem;
 }
-.detail .product-title{
+.detail .product-title {
     font-size: 5rem;
-    text-transform: capitalize;
-    font-weight: 700;
     position: relative;
     color: #12263a;
     margin: 4rem 0;
     font-family: 'Raleway';
+    text-transform: uppercase;
 }
+
 .detail .product-title::after{
     content: "";
     position: absolute;
@@ -168,7 +168,8 @@
     padding: 12px;
 }
 .detail .purchase-info .btn:hover{
-    opacity: 0.9;
+    background: white;
+    color: black;
 }
 .detail .social-links{
     display: flex;
@@ -184,15 +185,17 @@
     color: #000;
     border: 1px solid #000;
     margin: 0 1rem;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     text-decoration: none;
     font-size: 1.8rem;
     transition: all 0.5s ease;
 }
+
+
 .detail .social-links a:hover{
     background: #000;
     border-color: transparent;
-    color: #fff;
+    color: #fff !important;
 }
 
 
@@ -230,6 +233,7 @@
 
 .detail p{
     margin-top: 10px;
+    text-transform: uppercase;
 }
 
 .detail h3{
@@ -244,6 +248,26 @@
 }
 
 
+.container-productsRelated {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+}
+.products-related {
+    margin-top: 3rem !important;
+}
+
+.title-product-related {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.title-product-related h3 {
+    font-size: 28px;
+    font-family: 'Raleway';
+}
+
 @media screen and (min-width: 992px){
     .detail .card{
         display: grid;
@@ -251,7 +275,6 @@
         grid-gap: 1.5rem;
     }
     .detail .card-wrapper{
-        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
