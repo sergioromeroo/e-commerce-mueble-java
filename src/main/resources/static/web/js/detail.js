@@ -8,12 +8,12 @@ const app = Vue.createApp({
             id: (new URLSearchParams(location.search).get("id")),
             details: [],
             relacionados: [],
-           
-
+            clientCurrent: null,
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
         this.loadData(this.urlApi)
+        this.loadClientCurrent()
     },
     mounted() { /* es cuando se creo la parte visual cuando este renderizado */
         let currentCart = JSON.parse(localStorage.getItem('cart'))
@@ -41,12 +41,20 @@ const app = Vue.createApp({
                         }
                     })
 
-                 
+
                     console.log(this.products)
 
-                    
+
 
                 })
+        },
+        loadClientCurrent() {
+            axios.get('/api/clientcurrent')
+                .then(response => {
+                    this.clientCurrent = response.data
+                    console.log(response)
+                })
+                .then(error => console.log(error))
         },
         logout() {
             axios.post('/api/logout')
@@ -68,74 +76,80 @@ const app = Vue.createApp({
             this.finalAmount()
         },
         addProductToShoppingCart(selectProduct) {
+            if (this.clientCurrent == null) {
+                Swal.fire({
+                    text: `please login first`,
+                    confirmButtonColor: 'lightgray',
+                })
+            } else {
 
-            let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
+                let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
 
-            if (repeatedProduct.length > 0) {
-                // CASO EN EL QUE ESTA EL ELEMENTO YA EN EL CARRITO
-                this.shoppingCart.filter(item => {
-                    if (item.id == selectProduct.id) {
-                        if (item.stock > 0) {
-                            item.quantity++
-                            item.stock--
+                if (repeatedProduct.length > 0) {
+                    // CASO EN EL QUE ESTA EL ELEMENTO YA EN EL CARRITO
+                    this.shoppingCart.filter(item => {
+                        if (item.id == selectProduct.id) {
+                            if (item.stock > 0) {
+                                item.quantity++
+                                item.stock--
+                            }
                         }
-                    }
-                })
-                this.cartStorage()
-                Swal.fire({
-                    text: `Product added to cart`,
-                    confirmButtonColor: 'lightgray',
-                })
+                    })
+                    this.cartStorage()
+                    Swal.fire({
+                        text: `Product added to cart`,
+                        confirmButtonColor: 'lightgray',
+                    })
+                }
+                else {
+                    // CASO EN EL QUE NO ESTA
+                    this.products.filter(product => {
+                        if (product.id == selectProduct.id) {
+                            selectProduct.quantity++
+                            product.stock--
+                        }
+                    })
+                    this.shoppingCart.push(selectProduct)
+                    this.cartStorage()
+                    Swal.fire({
+                        text: `Product added to cart`,
+                        confirmButtonColor: 'lightgray',
+                    })
+                }
             }
-            else {
-                // CASO EN EL QUE NO ESTA
-                this.products.filter(product => {
-                    if (product.id == selectProduct.id) {
-                        selectProduct.quantity++
-                        product.stock--
-                    }
-                })
-                this.shoppingCart.push(selectProduct)
-                this.cartStorage()
-                Swal.fire({
-                    text: `Product added to cart`,
-                    confirmButtonColor: 'lightgray',
-                })
-            }
-
             //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
         },
 
         /* ADD PRODUCT TO FAVORITES */
 
-        addToFavorites(){
+        addToFavorites() {
+            if (this.clientCurrent == null) {
+                Swal.fire({
+                    text: `please login first`,
+                    confirmButtonColor: 'lightgray',
+                })
+            } else {
             axios.post('/api/clientproductfav', `id=${this.details.id}&name=${this.details.name}&url=${this.details.urlImg}&price=${this.details.price}`)
-            .then(response => {
-                console.log(response)
-                Swal.fire({
-                    text: `Product added to favorites`,
-                    confirmButtonColor: 'lightgray',
+                .then(response => {
+                    console.log(response)
+                    Swal.fire({
+                        text: `Product added to favorites`,
+                        confirmButtonColor: 'lightgray',
+                    })
                 })
-            })
-            .catch(error => {
-                console.log(error)
-                Swal.fire({
-                    text: `${error.response.data}`,
-                    confirmButtonColor: 'lightgray',
+                .catch(error => {
+                    console.log(error)
+                    Swal.fire({
+                        text: `${error.response.data}`,
+                        confirmButtonColor: 'lightgray',
+                    })
                 })
-            })
-
-
-
-            // @RequestParam long id,
-            // @RequestParam String name,
-            // @RequestParam String url,
-            // @RequestParam double price,
+            }
         },
-        balanceFormateado(numero){
+        balanceFormateado(numero) {
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
         },
-    
+
 
 
     },

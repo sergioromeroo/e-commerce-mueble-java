@@ -183,7 +183,7 @@
                                 <td data-label="Product Id"> # {{producto.id}}</td>
                                 <td data-label="Name"> <a :href="'http://localhost:8080/web/detail.html?id=' + producto.id">{{producto.name}}</a></td>
                                 <td data-label="Material Type"> {{producto.materialType}}</td>
-                                <td data-label="Price"> ${{producto.price}}</td>
+                                <td data-label="Price"> ${{balanceFormateado(producto.price).split("A")[0]}}</td>
                                 <td data-label="Type"> {{producto.type}}</td>
                                 <td data-label="Stock"> {{producto.stock}}</td>
                                 <td data-label="Edit/Delete">     

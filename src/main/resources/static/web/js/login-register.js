@@ -31,7 +31,17 @@ createApp({
             axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
                 .then(response => {
                     console.log(response)
-                    window.location.reload()
+                    console.log(this.emailVModel)
+                    if(this.emailVModel.includes("@admin")){
+                        window.location.assign("./admin/admin2.html")
+                    } else {
+                        Swal.fire({
+                            title: `¡Welcome!`,
+                            confirmButtonColor: 'lightgray',
+                            timer: 1500
+                        })
+                        .then(() => window.location.reload())
+                    }
                 })
                 .catch(function(error) {
                     Swal.fire({

@@ -76,8 +76,6 @@ const app = Vue.createApp({
                         })
                 }, */
         editProduct() {
-
-
             Swal.fire({
                 title: "Are you sure you want to edit this product?",
                 icon: "warning",
@@ -105,21 +103,12 @@ const app = Vue.createApp({
                         Swal.fire({
                             icon: 'error',
                             text: error.response.data,
-
                         })
                     })
-
-
                 }
-
-
             });
         },
-
-
         deleteProduct(productChecket) {
-            console.log(productChecket)
-
             Swal.fire({
                 title: "Are you sure you want to Delete this product?",
                 icon: "warning",
@@ -143,35 +132,23 @@ const app = Vue.createApp({
 
                                 })
                                 .then(response => window.location.href = "./admin2.html")
-
                         })
-
                     .catch(function(error) {
                         Swal.fire({
                             icon: 'error',
                             text: error.response.data,
-
                         })
                     })
-
-
                 }
-
-
             });
         },
-
-
-
-
-
-
-
-
         logout() {
             axios.post('/api/logout')
                 .then(() => window.location.pathname = '/web/index.html')
-        }
+        },
+        balanceFormateado(numero){
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
+        },
     },
     computed: {
 
