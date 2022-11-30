@@ -94,9 +94,13 @@ const app = Vue.createApp({
           productsBackUp: [],
           typeCategory: [],
           categorySofa: [],
+          productsSofaBackup: [],
           categoryStorage: [],
+          productsStorageBackup: [],
           categoryTable: [],
+          productsTableBackup: [],
           categoryGarden:[],
+          productsGardenBackup: [],
           materialTypeCategory: [],
           typeVModel: [],
           materialTypeVModel: [],
@@ -108,7 +112,9 @@ const app = Vue.createApp({
 
 
           productsIndex:[],
-        
+
+          materialTypeSofa: [],
+
 
           hola: "hola",
             
@@ -157,7 +163,14 @@ const app = Vue.createApp({
                   this.products.forEach(product => product.type == "storage" ? this.categoryStorage.push(product): "" )
                   this.products.forEach(product => product.type == "table" ? this.categoryTable.push(product): "" )
                   this.products.forEach(product => product.type == "garden" ? this.categoryGarden.push(product): "" )
-                console.log(this.categorySofa);
+
+                  this.categorySofa.forEach( product => !this.materialTypeSofa.includes(product.materialType) ? this.materialTypeSofa.push(product.materialType) : "" )
+                  console.log(this.materialTypeSofa);
+
+                  this.productsSofaBackup = this.categorySofa
+                  this.productsStorageBackup = this.categoryStorage
+                  this.productsGardenBackup = this.categoryGarden
+                  this.productsTableBackup = this.categoryTable
 
                 //   console.log(this.products)
 
@@ -276,13 +289,14 @@ const app = Vue.createApp({
         
         if(this.priceVModel == "higher"){
             document.getElementById("higher").classList.add("checked");
+            document.getElementById("highermob").classList.remove("checked");
             document.getElementById("lower").classList.remove("checked");
-     
+            document.getElementById("lowermob").classList.remove("checked");
         }
    
     },
     balanceFormateado(numero){
-        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
+        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(numero)
     },
 
   },
@@ -304,6 +318,68 @@ const app = Vue.createApp({
           }
 
       },
+      filterSofa(){
+        let firstFilter = this.productsSofaBackup.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+        if (this.typeVModel.length && !this.materialTypeVModel.length) {
+            this.categorySofa = firstFilter.filter(product => this.typeVModel.includes(product.type))
+        }
+        else if (this.materialTypeVModel.length && !this.typeVModel.length) {
+            this.categorySofa = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType))
+        }
+        else if(this.typeVModel.length && this.materialTypeVModel.length){
+            this.categorySofa = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType)).filter(product => this.typeVModel.includes(product.type))
+        }
+        else {
+            this.categorySofa = firstFilter
+        }
+
+      },
+      filterStorage(){
+        let firstFilter = this.productsStorageBackup.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+        if (this.typeVModel.length && !this.materialTypeVModel.length) {
+            this.categoryStorage = firstFilter.filter(product => this.typeVModel.includes(product.type))
+        }
+        else if (this.materialTypeVModel.length && !this.typeVModel.length) {
+            this.categoryStorage = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType))
+        }
+        else if(this.typeVModel.length && this.materialTypeVModel.length){
+            this.categoryStorage = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType)).filter(product => this.typeVModel.includes(product.type))
+        }
+        else {
+            this.categoryStorage = firstFilter
+        }
+
+      },
+      filterTable(){
+        let firstFilter = this.productsTableBackup.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+        if (this.typeVModel.length && !this.materialTypeVModel.length) {
+            this.categoryTable = firstFilter.filter(product => this.typeVModel.includes(product.type))
+        }
+        else if (this.materialTypeVModel.length && !this.typeVModel.length) {
+            this.categoryTable = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType))
+        }
+        else if(this.typeVModel.length && this.materialTypeVModel.length){
+            this.categoryTable = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType)).filter(product => this.typeVModel.includes(product.type))
+        }
+        else {
+            this.categoryTable = firstFilter
+        }
+      },
+      filterGarden(){
+        let firstFilter = this.productsGardenBackup.filter(product => product.name.toLowerCase().includes(this.inputSearchVModel.toLowerCase()))
+        if (this.typeVModel.length && !this.materialTypeVModel.length) {
+            this.categoryGarden = firstFilter.filter(product => this.typeVModel.includes(product.type))
+        }
+        else if (this.materialTypeVModel.length && !this.typeVModel.length) {
+            this.categoryGarden = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType))
+        }
+        else if(this.typeVModel.length && this.materialTypeVModel.length){
+            this.categoryGarden = firstFilter.filter(product => this.materialTypeVModel.includes(product.materialType)).filter(product => this.typeVModel.includes(product.type))
+        }
+        else {
+            this.categoryGarden = firstFilter
+        }
+      },
       priceFilter (){
           if(this.priceVModel == "higher"){
           this.products = this.productsBackUp.sort((a,b) => { if(a.price > b.price) {return -1} if(a.price < b.price) {return 1}})
@@ -311,6 +387,39 @@ const app = Vue.createApp({
           else if(this.priceVModel == "lower"){
               this.products = this.productsBackUp.sort((a,b) => { if(a.price > b.price) {return 1} if(a.price < b.price) {return -1}})
           }
+      },
+      priceFilterSofa(){
+        if(this.priceVModel == "higher"){
+            this.categorySofa = this.productsSofaBackup.sort((a,b) => { if(a.price > b.price) {return -1} if(a.price < b.price) {return 1}})
+            }
+        else if(this.priceVModel == "lower"){
+                this.categorySofa = this.productsSofaBackup.sort((a,b) => { if(a.price > b.price) {return 1} if(a.price < b.price) {return -1}})
+        }
+      },
+      priceFilterStorage(){
+        if(this.priceVModel == "higher"){
+            this.categoryStorage = this.productsStorageBackup.sort((a,b) => { if(a.price > b.price) {return -1} if(a.price < b.price) {return 1}})
+            }
+        else if(this.priceVModel == "lower"){
+                this.categoryStorage = this.productsStorageBackup.sort((a,b) => { if(a.price > b.price) {return 1} if(a.price < b.price) {return -1}})
+        }
+      },
+      priceFilterTable(){
+        if(this.priceVModel == "higher"){
+            this.categoryTable = this.productsTableBackup.sort((a,b) => { if(a.price > b.price) {return -1} if(a.price < b.price) {return 1}})
+            }
+        else if(this.priceVModel == "lower"){
+                this.categoryTable = this.productsTableBackup.sort((a,b) => { if(a.price > b.price) {return 1} if(a.price < b.price) {return -1}})
+        }
+      },
+      priceFilterGarden(){
+        if(this.priceVModel == "higher"){
+            this.categoryGarden = this.productsGardenBackup.sort((a,b) => { if(a.price > b.price) {return -1} if(a.price < b.price) {return 1}})
+            }
+        else if(this.priceVModel == "lower"){
+                this.categoryGarden = this.productsGardenBackup.sort((a,b) => { if(a.price > b.price) {return 1} if(a.price < b.price) {return -1}})
+        }
       }
+
   }
 }).mount('#app')

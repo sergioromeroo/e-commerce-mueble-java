@@ -16,8 +16,8 @@
 	</head>
 	<body class="index products">
 		<div id="app">
-			{{filter}}
-			{{priceFilter}}
+			{{filterStorage}}
+			{{priceFilterStorage}}
 			<header class="header-products">
 
 
@@ -402,7 +402,7 @@
 								<img :src="product.urlImg" alt="">
 							</div>
 							<div class="category-desc">
-								<p>$ {{product.price}}</p>
+								<p>{{balanceFormateado(product.price).split("A")[0]}}</p>
 							</div>
 						</a>
 
