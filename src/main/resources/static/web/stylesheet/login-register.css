@@ -144,7 +144,9 @@ button.btn-login:hover {
 .title-register{
   letter-spacing:2px
 }
-
+img.close-login-register {
+  cursor: pointer;
+}
 
 
 @media (min-width: 550px) {

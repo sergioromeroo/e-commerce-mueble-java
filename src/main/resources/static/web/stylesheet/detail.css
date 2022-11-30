@@ -12,7 +12,6 @@
 .detail{
     line-height: 1.5;
     box-sizing: border-box;
-    padding: 50px 0px;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     background: #f5f5f5;
@@ -252,6 +251,7 @@
     width: 100%;
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
 }
 .products-related {
     margin-top: 3rem !important;
@@ -266,6 +266,21 @@
 .title-product-related h3 {
     font-size: 28px;
     font-family: 'Raleway';
+}
+
+
+.btn-atras-detail {
+    padding-left: 1rem;
+    background: #f4f4f4;
+    padding: 15px 15px 0px 15px;
+}
+.btn-atras-detail i.bx.bx-left-arrow-alt {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.btn-atras-detail i.bx.bx-left-arrow-alt:hover {
+    transform: scale(1.1);
 }
 
 @media screen and (min-width: 992px){
@@ -287,4 +302,6 @@
     .detail .product-content{
         padding-top: 0;
     }
+
+
 }
