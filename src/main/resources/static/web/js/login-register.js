@@ -17,17 +17,38 @@ createApp({
             login: false,
             register: false,
 
+            clientCurrent: null,
+            clientPage: "./client/profileClient.html",
+            mailCurrent: true,
+
         }
 
     },
-    created() {},
+    created() {
+        this.loadClientCurrent()
+        console.log(this.clientCurrent)
+        console.log(this.mailCurrent)
+    },
 
     mounted() {},
 
     methods: {
 
-        access() {
+        loadClientCurrent(){
+            axios.get('/api/clientcurrent')
+            .then(response => {
+                console.log(response)
+                this.clientCurrent = response.data
+                if(this.clientCurrent.email.includes("@admin")){
+                    this.mailCurrent = false
+                    this.clientPage = "./admin/admin2.html"
+                }
+                console.log(this.mailCurrent)
+            })
+            .catch(error => console.log(error))
+        },
 
+        access() {
             axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
                 .then(response => {
                     console.log(response)
