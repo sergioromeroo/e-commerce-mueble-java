@@ -185,7 +185,15 @@ const app = Vue.createApp({
 
             doc.save("Nogal-purchase.pdf");
 
-        }
+        },
+        home(){
+            window.location.pathname = '/web/index.html'
+    
+           },
+            logout() {
+                axios.post('/api/logout')
+                    .then(() => window.location.pathname = '/web/index.html')
+            }
 
 
     },

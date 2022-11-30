@@ -146,6 +146,10 @@ const app = Vue.createApp({
             axios.post('/api/logout')
                 .then(() => window.location.pathname = '/web/index.html')
         },
+        home() {
+         
+                 window.location.pathname = '/web/index.html'
+        },
         balanceFormateado(numero){
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
         },

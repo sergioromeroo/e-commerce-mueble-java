@@ -48,7 +48,10 @@ const app = Vue.createApp({
                     window.location.pathname = '/web/admin/admin2.html';
                 })
         },
+       home(){
+        window.location.pathname = '/web/index.html'
 
+       },
         logout() {
             axios.post('/api/logout')
                 .then(() => window.location.pathname = '/web/index.html')
