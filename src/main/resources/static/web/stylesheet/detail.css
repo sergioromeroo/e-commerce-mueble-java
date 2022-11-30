@@ -112,9 +112,11 @@
     font-size: 21px;
 }
 .detail .product-detail h2{
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: #12263a;
     padding-bottom: 0.6rem;
+    font-size: 17px;
+    margin-top: 1rem;
 }
 .detail .product-detail p{
     font-size: 1.5rem;
@@ -197,7 +199,10 @@
     border-color: transparent;
     color: #fff !important;
 }
-
+.detail .nav-menu a {
+    font-weight: bold;
+    font-size: 14px;
+}
 
 .detail .caja{
     border: 2px solid #939393;
@@ -205,6 +210,7 @@
     width: 28%;
     font-size: 13px;
     text-transform: uppercase;
+    padding: 6px;
 }
 .detail .cajaflex{
     display: flex;
@@ -275,10 +281,10 @@
     transform: scale(1.1);
 }
 
-.detail .nav-menu a {
+/* .detail .nav-menu a {
 
     font-weight: 700;
-}
+} */
 
 .products-related-container.d-flex.justify-content-center {
     background: white;
@@ -288,6 +294,9 @@
     border-bottom: unset;
 }
 
+.products-related h3{
+    font-weight: unset !important;
+}
 
 @media screen and (min-width: 992px){
     .detail .card{
