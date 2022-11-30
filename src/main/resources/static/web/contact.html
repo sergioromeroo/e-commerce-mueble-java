@@ -28,9 +28,6 @@
 							<div class="nav-menu">
 								<ul class="nav-menu-ul">
 									<li>
-										<a href="./admin/admin2.html">Admin</a>
-									</li>
-									<li>
 										<a href="./index.html">Home</a>
 									</li>
 									<li>
@@ -47,13 +44,13 @@
 							</div>
 							<div class="nav-icons-and-menu-burger">
 								<div class="nav-icons">
-									<a href="">
+									<a href="./client/favorite.html" v-if="clientCurrent != null">
 										<img src="./img/icons/wishlist.png" alt="">
 									</a>
-									<a v-on:click="accounts">
+									<a :href="clientPage" v-if="clientCurrent != null">
 										<img  type="button" src="./img/icons/account.png" alt="">
 									</a>
-									<a href="./cart.html">
+									<a href="./cart.html" v-if="clientCurrent != null">
 										<img src="./img/icons/cart.png" alt="">
 									</a>
 									<!-- <a href="">
@@ -81,7 +78,7 @@
 								</div>
 
 								<div class="nav-icons open-menu">
-									<a href="">
+									<!-- <a href="">
 										<img src="./img/icons/wishlist.png" alt="">
 									</a>
 									<a v-on:click="accounts">
@@ -92,7 +89,7 @@
 									</a>
 									<a href="">
 										<img src="./img/icons/search.png" alt="">
-									</a>
+									</a> -->
 									<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
 								</div>
@@ -107,9 +104,6 @@
 
 									<div class="nav-menu-burger">
 										<ul class="nav-menu-ul">
-											<li>
-												<a href="./admin/admin2.html">Admin</a>
-											</li>
 											<li>
 												<a href="./index.html" class="ancors-nav-burger" href="">Home</a>
 											</li>
@@ -126,9 +120,8 @@
 
 										<ul class="nav-menu-ul-bottom">
 											<li>
-												<a href="">Where to find us?</a>
-												<a href="">need help?</a>
-												<a href="">Payment Methods</a>
+												<a href="./contact.html">Where to find us?</a>
+												<a href="./contact.html">need help?</a>
 											</li>
 										</ul>
 
