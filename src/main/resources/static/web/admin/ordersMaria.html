@@ -225,7 +225,7 @@
                                                 <tr>
                                                     <th scope="col">Product id</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Material type</th>
+                                                    <th scope="col">Category</th>
                                                     <th scope="col">Price</th>
                                                     <th scope="col">quantity</th>
                                                 </tr>
@@ -234,7 +234,7 @@
                                                 <tr v-for="product in productForTicket">
                                                     <td data-label="Product id">#{{product.idProduct}}</td>
                                                     <td data-label="Product name">{{product.name}}</td>
-                                                    <td data-label="Product material type">{{product.materialType}}</td>
+                                                    <td data-label="Product material type">{{product.type}}</td>
                                                     <td data-label="Products price">${{balanceFormateado(product.price).split("A")[0]}}</td>
                                                     <td data-label="Products quantity">{{product.quantity}}</td>
                                                 </tr>
