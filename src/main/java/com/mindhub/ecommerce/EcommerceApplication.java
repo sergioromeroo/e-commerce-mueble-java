@@ -31,8 +31,8 @@ public class EcommerceApplication {
 	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository, ProductFavoriteRepository productFavoriteRepository,ClientProductFavRepository clientProductFavRepository){
 		return args -> {
 
-			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456,"Mar del plata","pirulin 345","Buenos aires");
-			Client client2 = new Client("Franco","Rodriguez","franco@mail.com",passwordEncoder.encode("234"),43546,"Capital Federal","Garcia 435","Buenos aires");
+			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456,"Austin","3651 S (South) INTERSTATE 35","Texas");
+			Client client2 = new Client("Franco","Rodriguez","franco@mail.com",passwordEncoder.encode("234"),43546,"Boston"," 55 Fruit S","Massachusetts");
 			Client client3=new Client("admin","admin","admin@admin.com",passwordEncoder.encode("123"),1234,"admin","admin","admin");
 
 			clientRepository.save(client2);
