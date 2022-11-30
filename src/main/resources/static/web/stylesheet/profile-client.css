@@ -90,7 +90,7 @@
 } */
 .profile .initial{
     font-family: arial;
-    margin: 30px 83px 30px;
+    margin: 30px auto 30px;
     height: 80px;
     width: 80px;
     /* Center vertically and horizontally */
