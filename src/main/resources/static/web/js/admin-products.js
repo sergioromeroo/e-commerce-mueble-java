@@ -142,6 +142,9 @@ const app = Vue.createApp({
                 }
             });
         },
+        home(){
+            window.location.pathname = '/web/index.html'
+        },
         logout() {
             axios.post('/api/logout')
                   .then(() => {
