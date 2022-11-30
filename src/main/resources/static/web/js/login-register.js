@@ -42,7 +42,6 @@ createApp({
                         })
                         .then(() => window.location.reload())
                     }
-                    //window.location.reload()
                 })
                 .catch(function(error) {
                     Swal.fire({
