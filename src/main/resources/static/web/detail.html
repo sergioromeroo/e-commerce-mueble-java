@@ -58,8 +58,11 @@
 							<a href="">
 								<img src="./img/icons/wishlist.png" alt="">
 							</a> 
-							<a v-on:click="accounts">
-								<img  type="button" src="./img/icons/account.png" alt="">
+							<a v-on:click="accounts" v-if="clientCurrent == null">
+								<img type="button" src="./img/icons/account.png" alt="">
+							</a>
+							<a v-if="clientCurrent != null" :href="clientPage">
+								<img type="button" src="./img/icons/account.png" alt="">
 							</a>
 							<a href="./cart.html">
 								<img src="./img/icons/cart.png" alt="">
