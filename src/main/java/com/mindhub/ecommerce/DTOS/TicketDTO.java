@@ -16,6 +16,8 @@ public class TicketDTO {
 
     private long id;
 
+    private long client_id;
+
     private LocalDateTime date;
 
     private double amount;
@@ -25,15 +27,12 @@ public class TicketDTO {
 
 
 
-
-
-
-
     public TicketDTO() {
     }
 
     public TicketDTO(Ticket ticket) {
         this.id = ticket.getId();
+        this.client_id = ticket.getClient().getId();
         this.date = ticket.getDate();
         this.amount = ticket.getAmount();
         this.product = ticket.getProducts().stream().map(ticketProduct -> new TicketProductDTO(ticketProduct)).collect(Collectors.toSet());
@@ -47,6 +46,9 @@ public class TicketDTO {
         return id;
     }
 
+    public long getClient_id() {
+        return client_id;
+    }
 
     public LocalDateTime getDate() {
         return date;
