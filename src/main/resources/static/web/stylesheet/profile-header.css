@@ -2,17 +2,17 @@
     font-size: 15px
 }
 
+.dropdown-menu {
+    --bs-dropdown-min-width: 0;
+}
+
 .profile-header .hero{
     width: 100%;
-    min-height: 100vh;
     background: #eceaff;
     color: #525252;
 }
 
 .profile-header .hero nav{
-    background: #1a1a1a;
-    width: 100%;
-    padding: 10px 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,9 +53,8 @@
     position: absolute;
     top: 100%;
     right: 10%;
-    width: 320px;
+    width: 290px;
 
-    max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
 }
@@ -66,9 +65,9 @@
 
 
 .profile-header .sub-menu{
-    background: white;
-    padding: 20px;
-    margin: 10px;
+    background: #bbbbbb7d;
+    padding: 5px;
+    color: white;
 }
 .profile-header .user-info{
     display: flex;
