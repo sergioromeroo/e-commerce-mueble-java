@@ -56,7 +56,10 @@
                                 <a href="">
                                     <img src="./img/icons/wishlist.png" alt="">
                                 </a>
-                                <a v-on:click="accounts">
+                                <a v-on:click="accounts" v-if="clientCurrent == null">
+                                    <img type="button" src="./img/icons/account.png" alt="">
+                                </a>
+                                <a v-if="clientCurrent != null" :href="clientPage">
                                     <img type="button" src="./img/icons/account.png" alt="">
                                 </a>
                                 <a href="./cart.html">
@@ -284,7 +287,7 @@
                         <h3>Storage</h3>
                     </div>
                     <div class="storage-btn-buy">
-                        <a href="">buy now</a>
+                        <a href="./productsStorage.html">buy now</a>
                     </div>
                 </div>
             </section>
@@ -532,40 +535,6 @@
     </div>
 </body>
 
-
-<!-- menu deplegable para client o admin -->
-
-<div class="profile-header">
-    <div class="hero">
-        <nav>
-            <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <img src="./images/usuario.png" alt="">
-                        <h2>sergio romero</h2>
-                    </div>
-                    <hr>
-                    <a href="#" class="sub-menu-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        <p>Setting & privacy</p>
-                        <span>></span>
-                    </a>
-
-                    <a href="#" class="sub-menu-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        <p>Edit Profile</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="sub-menu-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        <p>Logout</p>
-                        <span>></span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </div>
-</div>
 
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
