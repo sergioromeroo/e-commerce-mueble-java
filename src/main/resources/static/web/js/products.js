@@ -130,11 +130,15 @@ const app = Vue.createApp({
           login:false,
           register:false,
 
+          clientCurrent: null,
+            clientPage: "./client/profileClient.html",
+            mailCurrent: true,
+
       }
   },
   created() {
       this.loadProducts()
-
+    this.loadClientCurrent()
   },
   mounted() {
 
@@ -181,77 +185,176 @@ const app = Vue.createApp({
               })
               .catch(error => console.log(error))
       },
-    finalAmount() {
-          this.totalAmount = 0
-          this.shoppingCart.map(product => {
-              let addition = product.quantity * product.price
-              this.totalAmount += addition
-          })
-          localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
+      loadClientCurrent(){
+        axios.get('/api/clientcurrent')
+        .then(response => {
+            console.log(response)
+            this.clientCurrent = response.data
+            if(this.clientCurrent.email.includes("@admin")){
+                this.mailCurrent = false
+                this.clientPage = "./admin/admin2.html"
+            }
+            console.log(this.mailCurrent)
+        })
+        .catch(error => console.log(error))
     },
-    cartStorage(){
-          localStorage.setItem('cart', JSON.stringify(this.shoppingCart))
-          this.finalAmount()
-    },
-    addProductToShoppingCart(selectProduct){
+    // finalAmount() {
+    //       this.totalAmount = 0
+    //       this.shoppingCart.map(product => {
+    //           let addition = product.quantity * product.price
+    //           this.totalAmount += addition
+    //       })
+    //       localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
+    // },
+    // cartStorage(){
+    //       localStorage.setItem('cart', JSON.stringify(this.shoppingCart))
+    //       this.finalAmount()
+    // },
+    // addProductToShoppingCart(selectProduct){
 
-              let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
+    //           let repeatedProduct = this.shoppingCart.filter(product => product.id == selectProduct.id)
 
-              if (repeatedProduct.length > 0) {
-                  // CASO EN EL QUE ESTA EL ELEMENTO YA EN EL CARRITO
-                  this.shoppingCart.filter(item => {
-                      if (item.id == selectProduct.id) {
-                          if (item.stock > 0) {
-                              item.quantity++
-                              item.stock--
-                          }
-                      }
-                  })
-                  this.cartStorage()
-              }
-              else {
-                  // CASO EN EL QUE NO ESTA
-                  this.productsBackUp.filter(product => {
-                      if (product.id == selectProduct.id) {
-                            selectProduct.quantity++
-                              product.stock--
-                      }
-                  })
-                  this.shoppingCart.push(selectProduct)
-                  this.cartStorage()
-              }
+    //           if (repeatedProduct.length > 0) {
+    //               // CASO EN EL QUE ESTA EL ELEMENTO YA EN EL CARRITO
+    //               this.shoppingCart.filter(item => {
+    //                   if (item.id == selectProduct.id) {
+    //                       if (item.stock > 0) {
+    //                           item.quantity++
+    //                           item.stock--
+    //                       }
+    //                   }
+    //               })
+    //               this.cartStorage()
+    //           }
+    //           else {
+    //               // CASO EN EL QUE NO ESTA
+    //               this.productsBackUp.filter(product => {
+    //                   if (product.id == selectProduct.id) {
+    //                         selectProduct.quantity++
+    //                           product.stock--
+    //                   }
+    //               })
+    //               this.shoppingCart.push(selectProduct)
+    //               this.cartStorage()
+    //           }
 
-              //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
-    },
-    deleteOneItem(selectProduct){
-          if(selectProduct.quantity > 0){
-              this.shoppingCart.filter(product => {
-                  if(product.id == selectProduct.id){
-                      product.quantity--
-                      product.stock++
-                  }
-              })
-          }
-          this.cartStorage()
-    },
-    deleteProduct(selectProduct){
-          this.shoppingCart = this.shoppingCart.filter(product => product != selectProduct)
-          this.cartStorage()
-    },
-    emptyCart() {
-          localStorage.clear()
-          window.location.reload()
-    },
+    //           //localStorage.setItem('totalAmount', JSON.stringify(this.totalAmount))
+    // },
+    // deleteOneItem(selectProduct){
+    //       if(selectProduct.quantity > 0){
+    //           this.shoppingCart.filter(product => {
+    //               if(product.id == selectProduct.id){
+    //                   product.quantity--
+    //                   product.stock++
+    //               }
+    //           })
+    //       }
+    //       this.cartStorage()
+    // },
+    // deleteProduct(selectProduct){
+    //       this.shoppingCart = this.shoppingCart.filter(product => product != selectProduct)
+    //       this.cartStorage()
+    // },
+    // emptyCart() {
+    //       localStorage.clear()
+    //       window.location.reload()
+    // },
+
     access() {
         axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
+            .then(response => {
+                console.log(response)
+                console.log(this.emailVModel)
+                if(this.emailVModel.includes("@admin")){
+                    window.location.assign("./admin/admin2.html")
+                } else {
+                    Swal.fire({
+                        title: `¡Welcome!`,
+                        confirmButtonColor: 'lightgray',
+                        timer: 1500
+                    })
+                    .then(() => window.location.reload())
+                }
+            })
+            .catch(function(error) {
+                Swal.fire({
+                    title: 'Wrong Password or UserMail Check Again',
+                    confirmButtonColor: 'lightgray',
+                    confirmButtonText: 'Try again',
+                    timer: 2500
+
+                })
+            })
     },
     clientRegister() {
-        axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailRegisterVModel}&password=${this.passwordRegisterVModel}&cellphone=${this.celPhoneRegisterVModel}`)
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
+        if (!this.emailVModel.includes("@")) {
+            Swal.fire({
+                text: `The email Must Contain @ to be valid`,
+                confirmButtonColor: 'lightgray',
+                timer: 5500
+            })
+        } else {
+
+        axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailVModel}&password=${this.passwordVModel}&cellphone=${this.celPhoneRegisterVModel}&city=${this.cityVModel}&addres=${this.addresVModel}&state=${this.stateVModel}`)
+            .then(response => {
+
+
+                axios.post('/api/sendemailvalidation', "contactTo=" + this.emailVModel);
+
+
+                Swal.fire({
+                    title: 'Write the secret word sended to your email',
+                    input: 'text',
+                    showCancelButton: true,
+                    inputValidator: (value) => {
+                        return new Promise((resolve) => {
+                            if (value === 'chair') {
+                                Swal.fire(
+                                        'Successful registration!',
+                                        'Welcome!',
+                                        'success'
+                                    )
+                                    .then(() => {
+
+                                        this.access()
+
+                                    })
+                            } else {
+                                /* resolve(); */
+                                this.deleteClient(this.emailVModel);
+                            }
+                        })
+                    }
+                })
+
+
+            })
+
+        .catch(function(error) {
+            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: "Missing information",
+                confirmButtonColor: 'lightgray',
+                confirmButtonText: 'Ok',
+
+            })
+        })
+    }
     },
+
+
+
+    // access() {
+    //     axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
+    //     .then(response => console.log(response))
+    //     .catch(error => console.log(error))
+    // },
+    // clientRegister() {
+    //     axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailRegisterVModel}&password=${this.passwordRegisterVModel}&cellphone=${this.celPhoneRegisterVModel}`)
+    //     .then(response => console.log(response))
+    //     .catch(error => console.log(error))
+    // },
 
     theLoginAndRegister(){
         if(this.register == false ){

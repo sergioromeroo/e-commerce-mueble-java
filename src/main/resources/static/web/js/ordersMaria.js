@@ -55,6 +55,20 @@ const app = Vue.createApp({
         balanceFormateado(numero){
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
         },
+        logout() {
+            axios.post('/api/logout')
+                  .then(() => {
+                        Swal.fire({
+                              title: 'Successful logout :)',
+                              text: 'You will be redirected',
+                              confirmButtonColor: 'lightgray',
+                              timer: 1500
+                        })
+                              .then(() => window.location.pathname = '/web/index.html')
+                  })
+                  .catch(error => console.log(error))
+      },
+
         // print(producto) {
         //     const doc = new jsPDF({});
 
