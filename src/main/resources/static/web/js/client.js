@@ -20,14 +20,14 @@ const app = Vue.createApp({
             axios.get('/api/clientcurrent')
                 .then(response => {
                     this.clientCurrent = response.data
-                    console.log(this.clientCurrent)
+
                     this.favorites = this.clientCurrent.clientProductFav
-                    console.log(this.favorites)
+
                     this.tickets = this.clientCurrent.tickets.sort((a, b) => { if (a.id < b.id) { return 1 } if (a.id > b.id) { return -1 } })
-                    console.log(this.tickets)
+
                     this.initials = this.clientCurrent.firstname.slice(0,1) + this.clientCurrent.lastname.slice(0,1)
-                    console.log(this.initials)
-                })
+
+                  })
                 .catch(error => console.log(error))
         },
         productsInTicket(ticket){
@@ -36,18 +36,17 @@ const app = Vue.createApp({
         balanceFormateado(numero){
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
         },
-        print(ticket) {
-
+        print(ticket){
             const doc = new jsPDF({});
 
             doc.setFontSize(20);
-            doc.text(170, 20, `Ticket #${ticket.id}`, { align: 'right' });
+            doc.text(170, 20, `Ticket`, { align: 'right' });
             doc.text(20, 20, 'Nogal');
             doc.setFontSize(13);
             doc.setFontSize(14);
-            doc.text(20, 40, "Nueva York E 41 st St")
-            doc.text(20, 48, "New York City,10001")
-            doc.text(20, 56, "Phone 212-277-0000")
+            // doc.text(20, 40, "Nueva York E 41 st St")
+            // doc.text(20, 48, "New York City,10001")
+            // doc.text(20, 56, "Phone 212-277-0000")
 
             doc.setLineWidth(1.5);
             doc.line(10, 95, 200, 95);
@@ -74,7 +73,7 @@ const app = Vue.createApp({
             doc.text(120, 105, "UNIT PRICE :")
             doc.text(170, 105, "TOTAL:")
             doc.text(150, 265, "SHIPPING: FREE")
-            doc.text(150, 275, "TOTAL : $ ___________")
+            doc.text(150, 275, "TOTAL : $ ______________")
 
             let numero = 105
             let total = 0
@@ -82,7 +81,6 @@ const app = Vue.createApp({
             ticket.product.forEach(item => {
 
                 total = total + item.price*item.quantity
-                console.log(total)
                 numero = numero + 10
                 doc.setFontSize(15);
                 doc.text(20, numero, item.name, { align: 'center' });
@@ -91,7 +89,10 @@ const app = Vue.createApp({
                 doc.text(170, numero, `$${this.balanceFormateado(item.price*item.quantity).split("A")[0]}`, { align: 'center' });
             })
 
-            doc.text(175, 275, `${this.balanceFormateado(total).split("A")[0]}`, { align: 'center' });
+             totalFomratiado =  new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(ticket.amount)
+
+
+            doc.text(175, 275,totalFomratiado , { align: 'center' });
 
             doc.save("Nogal-purchase.pdf");
 
