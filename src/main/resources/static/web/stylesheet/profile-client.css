@@ -1,4 +1,4 @@
-
+ 
 
 :root {
     --main-color:#B0B0B0;
@@ -75,6 +75,20 @@
 .profile .profile {
     text-align: center;
     padding: 2rem 0rem;
+
+      font-size: 24px;
+  margin: 25px;
+  width: 350px;
+  height: 200px;
+  outline: dashed 1px black;
+  /* Center vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pInitials{
+
+
 }
 
 .profile .bg-img {
@@ -83,6 +97,7 @@
     background-position: center;
     border-radius: 50%;
     background-size: cover;
+    
 }
 
 .profile-img {
