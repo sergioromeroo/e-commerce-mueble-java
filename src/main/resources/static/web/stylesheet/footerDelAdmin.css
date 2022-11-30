@@ -1,0 +1,100 @@
+footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer {
+    width: 90%;
+    font-family: 'Raleway', sans-serif;
+}
+
+footer p {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.footer-top1 {
+    width: 100%;
+}
+
+.footer-top2 {
+    margin-top: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-top2 p {
+    line-height: 30px;
+    width: 100%;
+}
+.footer-bottom-text {
+    padding: 10px 0;
+}
+
+.footer-bottom-text p {
+    display: flex;
+    letter-spacing: .5px;
+}
+
+.footer-bottom-text span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+@media (min-width:1200px) {
+
+    .index .index-categories {
+        margin-top: 13rem;
+        height: 71vh;
+    }
+    .footer-top {
+        display: flex;
+    }
+    .footer-top1 {
+        display: flex;
+        align-items: center;
+    }
+    .footer-top2 {
+        margin-top: unset;
+    }
+    .store-online-footer {
+        margin-left: 3rem;
+    }
+    .index .icons-footer a {
+        font-size: 21px;
+    }
+}
+@media (min-width:1920px) {
+
+    footer .footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-top {
+        width: 75%;
+    }
+    .index .footer-bottom {
+        border-top: unset
+    }
+    footer p {
+        font-size: 13px;
+    }
+}
+
+@media(min-width:768px) {
+
+
+    .footer-top2 {
+        flex-direction: unset
+    }
+
+    
+}
+.espacioParaElfooter{
+    height:50rem;
+}
+  
