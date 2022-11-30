@@ -215,7 +215,7 @@
 										<ul class="dropdown-menu filter-btn-list">
 
 											<li class="filter-btn-item price-container">
-												<div class="filter-btn-item-box1" id="highermob">
+												<!-- <div class="filter-btn-item-box1" id="highermob">
 													<label for="higherPrice" v-model="priceVModel">mayor precio</label>
 													<input v-model="priceVModel" type="radio" class="btn-check" name="higherPrice" id="higherPrice" value="higher">
 												</div>
@@ -223,23 +223,46 @@
 													<label for="lowerPrice" v-model="priceVModel">menor precio</label>
 													<input v-model="priceVModel" type="radio" class="btn-check" name="lowerPrice" id="lowerPrice" value="lower">
 
+												</div> -->
+												<div class="filter-btn-item-box1">
+													<label for="higherPrice" id="highermob" class="container-material" @click="buttonChecked">mayor precio
+													<!-- <label class="btn  btns-cat" for="higherPrice">mayor precio</label> -->
+														<input v-model="priceVModel" checked="checked"  type="radio" class="btn-check"  name="price" id="higherPrice" value="higher" >
+														<div class="checkmark"></div>
+													</label>
 												</div>
-
+												<div class="filter-btn-item-box2 ">
+													<label for="lowerPrice" id="lowermob" class="container-material" @click="buttonChecked" >menor precio
+													<!-- <label class="btn  btns-cat" for="lowerPrice">menor precio</label> -->
+													<input v-model="priceVModel" checked="checked"  type="radio" class="btn-check"  name="price" id="lowerPrice" value="lower">
+													<div class="checkmark"></div>
+													</label>
+												</div>
 											</li>
 										</ul>
 									</li>
 									<li class="filter-btn-item price-container price-deks">
-										<div class="filter-btn-item-box1">
-											<label for="higherPrice" id="higher" @click="buttonChecked">mayor precio</label>
-											<!-- <label class="btn  btns-cat" for="higherPrice">mayor precio</label> -->
-											<input v-model="priceVModel"  type="radio" class="btn-check"  name="price" id="higherPrice" value="higher" >
-										</div>
-											<div class="filter-btn-item-box2">
-												<label for="lowerPrice" id="lower" @click="buttonChecked" >menor precio</label>
-												<!-- <label class="btn  btns-cat" for="lowerPrice">menor precio</label> -->
-												<input v-model="priceVModel"  type="radio" class="btn-check"  name="price" id="lowerPrice" value="lower">
-
+											<div class="filter-btn-item-box1">
+												<label for="higherPrice" id="higher" class="container-material" @click="buttonChecked">mayor precio
+												<!-- <label class="btn  btns-cat" for="higherPrice">mayor precio</label> -->
+													<input v-model="priceVModel" checked="checked"  type="radio" class="btn-check"  name="price" id="higherPrice" value="higher" >
+													<div class="checkmark"></div>
+												</label>
 											</div>
+											<div class="filter-btn-item-box2 ">
+												<label for="lowerPrice" id="lower" class="container-material" @click="buttonChecked" >menor precio
+												<!-- <label class="btn  btns-cat" for="lowerPrice">menor precio</label> -->
+												<input v-model="priceVModel" checked="checked"  type="radio" class="btn-check"  name="price" id="lowerPrice" value="lower">
+												<div class="checkmark"></div>
+												</label>
+											</div>
+
+											<!-- <label class="container-material"  :for="materialType">
+												{{materialType}}
+												<input checked="checked" type="checkbox"  v-model="materialTypeVModel" type="checkbox" :name="materialType" :id="materialType"
+																																															 :value="materialType">
+												<div class="checkmark"></div>
+											</label> -->
 
 									</li>
 
