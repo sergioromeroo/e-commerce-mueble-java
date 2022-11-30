@@ -64,6 +64,7 @@ const app = Vue.createApp({
                 .then(error => console.log(error))
         },
 
+        /* LOGIN AND REGISTER */
         access() {
             axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
                 .then(response => {
@@ -150,6 +151,29 @@ const app = Vue.createApp({
         logout() {
             axios.post('/api/logout')
                 .then(() => window.location.pathname = '/web/index.html')
+        },
+
+        theLoginAndRegister() {
+            if (this.register == false) {
+                this.login = false
+                this.register = true;
+            } else {
+                this.login = true;
+                this.register = false;
+            }
+        },
+        accounts() {
+            if (this.register == false) {
+                this.login = !this.login;
+                this.register = false;
+            } else {
+                this.login == false;
+                this.register = false;
+            }
+        },
+        closeTools() {
+            this.login = false;
+            this.register = false;
         },
 
         /* ADD PRODUCT TO CART */
