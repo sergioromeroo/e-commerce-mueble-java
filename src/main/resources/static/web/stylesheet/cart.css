@@ -1,13 +1,25 @@
-.fondo_imagen{
-    background-color: #161313!important;
-    background-image: url("https://drommel.com.ua/image/cache/catalog/sub2-2-1920x860.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-size: 100% 100%;
+/* .cart_bg{
+
+    width: 100%;
+    height: 100%;
+    padding: 11px;
+
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.3px);
+    -webkit-backdrop-filter: blur(8.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     }
+     */
     
-    
+
+
+ .section-cart {
+        width: 90vw;
+        background: white;
+        padding: 18px;
+}
+
 .title{
     margin-bottom: 5vh;
 }
