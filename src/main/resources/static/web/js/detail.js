@@ -10,6 +10,9 @@ const app = Vue.createApp({
             relacionados: [],
             clientCurrent: null,
 
+            login: false,
+            register: false,
+
             clientPage: "./client/profileClient.html",
             mailCurrent: true,
         }
