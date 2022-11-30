@@ -1,4 +1,4 @@
-
+ 
 
 :root {
     --main-color:#B0B0B0;
@@ -72,26 +72,43 @@
   background: #b30000; 
 }
 
-.profile .profile {
+/* .profile .profile {
     text-align: center;
     padding: 2rem 0rem;
-}
-
-.profile .bg-img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
-    background-size: cover;
-}
-
+      font-size: 24px;
+} */
 .profile-img {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    height: 80px;
+    width: 80px;
+    /* Center vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto .5rem auto;
+    border: solid 2px black;
+    border-radius: 33000px;
+    
+
+background: linear-gradient(
+
+    #4a5591, #fec0c8 ) 
+
+
+  }
+
+  
+
+
+/* .profile-img {
     height: 80px;
     width: 80px;
     display: inline-block;
     margin: 0 auto .5rem auto;
     border: 3px solid #899DC1;
-}
+} */
 
 .profile h4 {
     color: black;
