@@ -28,9 +28,39 @@
     max-width: 950px;
     width: 90%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 1rem;
     border: transparent;
 }
+
+.row {
+    border-radius: none !important;
+}
+
+.cart-body .nav-icons a {
+    margin: 0px -0.2rem;
+}
+.cart-body main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Raleway', sans-serif; 
+    background-color: #f4f4f4
+}
+
+.cart-body .nav-menu a {
+    font-size: 13px;
+    color: black !important;
+    padding: 0 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+}
+.cart-body .nav-icons a img {
+    color: black !important;
+    width: 18px;
+    filter: unset !important
+}
+
 
 .alert_trash{
     position: absolute;
@@ -67,6 +97,8 @@ border: 1px solid rgba(235, 224, 224, 1);
         border-top-right-radius: 1rem;
     }
 }
+
+
 .summary{
     
     border-bottom-right-radius: 1rem;
@@ -76,7 +108,7 @@ border: 1px solid rgba(235, 224, 224, 1);
     backdrop-filter: blur(15px) saturate(139%);
     -webkit-backdrop-filter: blur(15px) saturate(139%);
     background-color: rgba(253, 254, 255, 0.47);
-    border-radius: 12px;
+
     border: 1px solid rgba(255, 255, 255, 0.125)
 
 }
@@ -114,9 +146,11 @@ img{
 .back-to-shop{
     margin-top: 4.5rem;
 }
-h5{
-    margin-top: 4vh;
+
+.cart-body b {
+    font-size: 20px;
 }
+
 hr{
     margin-top: 1.25rem;
 }
@@ -168,20 +202,16 @@ input:focus::-webkit-input-placeholder
 
 .btn_cart:hover{
 
-    color: #000;
+   
 
 }
 
 a{
     color: black; 
 }
-a:hover{
-    color: black;
-    text-decoration: none;
-}
-.cartRed:hover{
-   color: 	 	#d11141;
-}
+
+
+
  #code{
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
     background-repeat: no-repeat;
@@ -197,20 +227,66 @@ a:hover{
 .maringCart{
 	height:auto;
 }
+
+.cart-body div#app {
+    background: white;
+}
+
+.cart-body .container-fluid {
+    background: white;
+}
+
+.cart-body .burger-menu-mob img {
+ 
+    filter: brightness(0);
+   
+}
+
+.card_cart .burger-menu img {
+    width: 18px;
+    filter: unset !important
+}
+
+.card_cart button.btn_cart.fontGotham.btn.cart_CHECKOUT {
+    font-size: 15px;
+    font-family: 'Raleway';
+    padding: 11px;
+}
+
+.card_cart button.btn_cart.fontGotham.btn.cart_CHECKOUT:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.card_cart .back-to-shop {
+    display: flex;
+    align-items: center;
+}
+
+.card_cart .span-back-to-shop {
+
+    padding: 10px;
+}
+
+
+.card_cart .fontGotham {
+    font-family: raleway;
+}
+
+
 @media (max-width: 486px) {
 .sizeItemsCart{
     font-size: 20px;
     margin: 13px;
 }
 
-.maringCart{
-}
 
 }
 @media(min-width: 767px){
-    .maringCart{
-        height: 100rem;
-    }    
+    .maringCart {
+        height: 69rem;
+    } 
 }
 @media(max-width:767px){
     .summary{
@@ -231,12 +307,7 @@ a:hover{
         padding: 0 35px;
     }
 
-    .index  .burger-menu-mob img {
-        width: 122px;
-        filter: brightness(6);
-        margin-left: 15px;
-        margin-top: 1px;
-    }
+ 
 
     .nav-icons a {
         margin: 0 0.8rem;
@@ -314,34 +385,7 @@ a:hover{
     .burger-menu img {
         display: none;
     }
-    .index .section3-categories {
-        justify-content: unset;
-        padding-left: 9rem;
-    }
-    .index div#offcanvasNavbar {
-        display: none;
-    }
-    .offcanvas-backdrop {
-        display: none
-    }
-    .index .nav-menu {
-        display: flex;
-        margin-top: 1rem;
-    }
-    .index .nav-menu ul {
-        display: flex;
-    }
-    .index .nav-menu a {
-        font-size: 13px;
-        color: white !important;
-        padding: 0 3rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: flex;
-    }
-    .index .nav-menu a i.bx.bx-chevron-down {
-        font-size: 20px;
-    }
+  
 }
 
 @media (min-width:1200px) {
@@ -430,4 +474,10 @@ a:hover{
     footer p {
         font-size: 13px;
     }
+
+    .maringCart {
+        height: 86vh;
+    }
 }
+
+
