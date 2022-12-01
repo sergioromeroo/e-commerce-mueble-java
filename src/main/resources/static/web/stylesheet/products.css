@@ -892,3 +892,30 @@ label.btn.btns-cat {
 
 } 
 
+/* MARIA CLIENT */
+
+.cuadrado {
+  border-radius: 0px !important;
+}
+
+@media (max-width:475px){
+  
+  .sinVista {
+    display: none !important;
+  }
+
+  .tarjetaMovil {
+    width: 280px !important;
+    text-align: center !important;
+  }
+
+  .columna {
+    flex-direction: column !important;
+  }
+
+  .perfil {
+    width: 300px !important;
+
+  }
+
+} 

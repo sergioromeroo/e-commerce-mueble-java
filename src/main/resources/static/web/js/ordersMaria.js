@@ -59,7 +59,7 @@ const app = Vue.createApp({
             axios.post('/api/logout')
                   .then(() => {
                         Swal.fire({
-                              title: 'Successful logout :)',
+                              title: 'Successful logout',
                               text: 'You will be redirected',
                               confirmButtonColor: 'lightgray',
                               timer: 1500
