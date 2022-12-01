@@ -1,341 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8 " />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Shopping cart | Nogal</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet" />
+<head>
+	<meta charset="UTF-8 " />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Shopping cart | Nogal</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet" />
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-																																												 integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-		<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-		<link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953"
-					rel="stylesheet" />
-		<link rel="stylesheet" href="./stylesheet/style.css" />
-		<link rel="stylesheet" href="./stylesheet/cart.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
-	    <link rel="shortcut icon" href="./img/favIcon.png" type="image/x-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+	<link href="https://fonts.cdnfonts.com/css/gotham-pro?styles=24950,24948,24951,24952,14946,24949,24953"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="./stylesheet/style.css" />
+	<link rel="stylesheet" href="./stylesheet/cart.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+	<link rel="shortcut icon" href="./img/favIcon.png" type="image/x-icon" />
+</head>
 
-	
-	</head>
+<body class="index fondo_imagen bg-dark cart-body">
+	<div id="app">
+		<nav class="navbar">
+			<div class="container-fluid">
+				<a class="navbar-brand burger-menu-mob" href="./index.html"><img src="./img/logo-final.png" alt="" /></a>
+				<div class="nav-menu-container">
+					<div class="nav-menu">
+						<ul class="nav-menu-ul">
+							<li>
+								<a href="./index.html">Home</a>
+							</li>
+							<li>
+								<a href="./products.html">Shop</a>
+							</li>
+							<li>
+								<a href="./contact.html">Contact</a>
+							</li>
+							<li>
+								<a href="./about-us.html">About us</a>
+							</li>
+						</ul>
+					</div>
+					<div class="nav-icons-and-menu-burger">
+						<div class="nav-icons">
+							<a href="">
+								<img src="./img/icons/wishlist.png" alt="" />
+							</a>
+							<a v-on:click="accounts" v-if="clientCurrent == null">
+								<img type="button" src="./img/icons/account.png" alt="" />
+							</a>
+							<a v-if="clientCurrent != null" :href="clientPage">
+								<img type="button" src="./img/icons/account.png" alt="" />
+							</a>
+							<a href="./cart.html">
+								<img src="./img/icons/cart.png" alt="" />
+							</a>
 
-	<body class="index fondo_imagen bg-dark cart-body">
-		<div id="app">
-			<nav class="navbar ">
-                <div class="container-fluid">
-                    <a class="navbar-brand burger-menu-mob" href="./index.html"><img src="./img/logo/logo.png"
-                            alt=""></a>
-                    <div class="nav-menu-container">
-                        <div class="nav-menu">
-                            <ul class="nav-menu-ul">
-                                <li>
-                                    <a href="./index.html">Home</a>
-                                </li>
-                                <li>
-                                    <a href="./products.html">Shop</a>
+							<!-- desplegable client -->
+							<div style="display: none" class="dropdown">
+								<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									<box-icon name="child" rotate="90" animation="tada" color="#ece5e5"
+										class="icono-profile">
+									</box-icon>
+								</a>
 
-                                </li>
-                                <li>
-                                    <a href="./contact.html">Contact</a>
-                                </li>
-                                <li>
-                                    <a href="./about-us.html">About us</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="nav-icons-and-menu-burger">
-                            <div class="nav-icons">
-                                <a href="">
-                                    <img src="./img/icons/wishlist.png" alt="">
-                                </a>
-                                <a v-on:click="accounts" v-if="clientCurrent == null">
-                                    <img type="button" src="./img/icons/account.png" alt="">
-                                </a>
-                                <a v-if="clientCurrent != null" :href="clientPage">
-                                    <img type="button" src="./img/icons/account.png" alt="">
-                                </a>
-                                <a href="./cart.html">
-                                    <img src="./img/icons/cart.png" alt="">
-                                </a>
+								<ul class="dropdown-menu">
+									<div class="profile-header">
+										<div class="hero">
+											<nav>
+												<div class="sub-menu-wrap" id="subMenu">
+													<div class="sub-menu">
+														<div class="user-info">
+															<img src="./images/usuario.png" alt="" />
+															<h2>nameclient</h2>
+														</div>
+														<hr />
+														<a href="../web/client/profileClient.html"
+															class="sub-menu-link">
+															<box-icon type="solid" name="cog"></box-icon>
+															<p>Setting & privacy</p>
+															<span>></span>
+														</a>
 
+														<a href="./client/editprofile.html" class="sub-menu-link">
+															<box-icon name="edit" type="solid"></box-icon>
+															<p>Edit Profile</p>
+															<span>></span>
+														</a>
+														<a href="#" class="sub-menu-link">
+															<box-icon name="log-out"></box-icon>
+															<p>Logout</p>
+															<span>></span>
+														</a>
+													</div>
+												</div>
+											</nav>
+										</div>
+									</div>
+								</ul>
+							</div>
 
-
-                                <!-- desplegable client -->
-                                <div style="display:none;" class="dropdown">
-                                    <a  href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <box-icon name='child' rotate='90' animation='tada' color='#ece5e5' class="icono-profile" >
-                                        </box-icon>
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-
-                                        <div class="profile-header">
-                                            <div class="hero">
-                                                <nav>
-                                                    <div class="sub-menu-wrap" id="subMenu">
-                                                        <div class="sub-menu">
-                                                            <div class="user-info">
-                                                                <img src="./images/usuario.png" alt="">
-                                                                <h2>nameclient</h2>
-                                                            </div>
-                                                            <hr>
-                                                            <a href="../web/client/profileClient.html" class="sub-menu-link">
-                                                                <box-icon type='solid' name='cog'></box-icon>
-                                                                <p>Setting & privacy</p>
-                                                                <span>></span>
-                                                            </a>
-
-                                                            <a href="./client/editprofile.html" class="sub-menu-link">
-                                                                <box-icon name='edit' type='solid' ></box-icon>
-                                                                <p>Edit Profile</p>
-                                                                <span>></span>
-                                                            </a>
-                                                            <a href="#" class="sub-menu-link">
-                                                                <box-icon name='log-out' ></box-icon>
-                                                                <p>Logout</p>
-                                                                <span>></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                    </ul>
-                                </div>
-
-
-                                <!-- <a href="">
+							<!-- <a href="">
                                     <img src="./img/icons/search.png" alt="">
                                 </a>
                              -->
+						</div>
+						<button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+							aria-controls="offcanvasNavbar">
+							<span class="burger-menu"><img src="./img/icons/burger.png" alt="" style="    filter: brightness(0);" ></span>
+						</button>
+					</div>
+				</div>
 
-                            </div>
-                            <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                                aria-controls="offcanvasNavbar">
-
-                                <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
-                            </button>
-                        </div>
-
-                    </div>
-
-
-
-
-
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
-
-                            <div class="burger-menu-mob">
-                                <a href="./index.html" class="burger-menu-mob open-menu">
-
-                                    <img src="./img/logo/logo.png" alt="">
-                                </a>
-                            </div>
-
-                            <div class="nav-icons open-menu">
-                                <a href="">
-                                    <img src="./img/icons/wishlist.png" alt="">
-                                </a>
-                                <a v-on:click="accounts">
-                                    <img type="button" src="./img/icons/account.png" alt="">
-                                </a>
-                                <a href="./cart.html">
-                                    <img src="./img/icons/cart.png" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="./img/icons/search.png" alt="">
-                                </a>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-
-
-                                <div class="nav-menu-burger">
-                                    <ul class="nav-menu-ul">
-                                        <li>
-                                            <a href="./index.html" class="ancors-nav-burger" href="">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
-                                        </li>
-                                        <li>
-                                            <a href="./contact.html" class="ancors-nav-burger" href="">Contact</a>
-                                        </li>
-                                        <li>
-                                            <a href="./about-us.html" class="ancors-nav-burger" href="">About us</a>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="nav-menu-ul-bottom">
-                                        <li>
-                                            <a href="">Where to find us?</a>
-                                            <a href="">need help?</a>
-                                            <a href="">Payment Methods</a>
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                            </ul>
-
-                        </div>
-
-
-                    </div>
-
-
-
-
-                </div>
-            </nav>
-
-			<main   class="maringCart">
-				<div class="card_cart">
-					<div class="row">
-						<div class="col-md-8 cart">
-							<div class="title">
-								<div class="row">
-									<div class="col">
-										<h4><b>Shopping Cart</b></h4>
-									</div>
-									<div class="col align-self-center text-right text-muted">
-										{{shoppingCart.length}} items
-
-									</div>
-									<div class="col d-flex justify-content-end text-left">
-										<i class="bi bi-trash3-fill cartRed h3 text-left" @click="cart_alert = true"></i>
-									</div>
-								</div>
-
-							</div>
-							<div class="row border-top border-bottom" v-for="product in shoppingCart">
-								<div class="row align-items-center">
-									<div class="col-2">
-										<img class="img-fluid w-100" :src="product.urlImg" />
-									</div>
-									<div class="col">
-										<div class="row text-muted">{{product.type}}</div>
-										<div class="row">{{product.name}}</div>
-									</div>
-									<div class="col">
-										<div class="row  ">
-											<i class="col w-100 bi bi-plus-circle sizeItemsCart h3" @click="addProductToShoppingCart(product)" :class="{'text-secondary': product.stock == 0}"></i>
-											<a href="#" class="col w-100 border sizeItemsCart h2 ">{{product.quantity}}</a>
-											<i class="bi col w-100 bi-dash-circle sizeItemsCart h3" @click="deleteOneItem(product)" :class="{'text-secondary': product.quantity == 0}"></i>
-
-										</div>
-									</div>
-									<div class="col">$ {{balanceFormateado(product.price * product.quantity).split("A")[0]}}<span class="close"></span>
-										<button class="btn-close  cartRed" @click="deleteProduct(product)"></button>
-									</div>
-								</div>
-							</div>
-							<div class="col">
-								<h3 v-if="shoppingCart.length == 0"><b>The cart is empty</b></h3>
-							</div>
-							<a class="back-to-shop" href="./products.html">&leftarrow;
-								<span class="span-back-to-shop text-muted">Back to shop</span>
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+					aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header">
+						<div class="burger-menu-mob">
+							<a href="./index.html" class="open-menu">
+								<img src="./img/logo-final.png" alt="" />
 							</a>
 						</div>
 
-						<div class="col-md-4 summary">
-							<div>
-								<h5><b>Summary</b></h5>
+						<div class="nav-icons open-menu">
+							<a href="">
+								<img src="./img/icons/wishlist.png" alt="" />
+							</a>
+							<a v-on:click="accounts">
+								<img type="button" src="./img/icons/account.png" alt="" />
+							</a>
+							<a href="./cart.html">
+								<img src="./img/icons/cart.png" alt="" />
+							</a>
+							<a href="">
+								<img src="./img/icons/search.png" alt="" />
+							</a>
+							<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+								aria-label="Close"></button>
+						</div>
+					</div>
+
+					<div class="offcanvas-body">
+						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+							<div class="nav-menu-burger">
+								<ul class="nav-menu-ul">
+									<li>
+										<a href="./index.html" class="ancors-nav-burger" href="">Home</a>
+									</li>
+									<li>
+										<a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
+									</li>
+									<li>
+										<a href="./contact.html" class="ancors-nav-burger" href="">Contact</a>
+									</li>
+									<li>
+										<a href="./about-us.html" class="ancors-nav-burger" href="">About us</a>
+									</li>
+								</ul>
+
+								<ul class="nav-menu-ul-bottom">
+									<li>
+										<a href="">Where to find us?</a>
+										<a href="">need help?</a>
+										<a href="">Payment Methods</a>
+									</li>
+								</ul>
 							</div>
-							<hr />
-							<!-- <div class="row">
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<main class="maringCart">
+			<div class="card_cart">
+				<div class="row">
+					<div class="col-md-8 cart">
+						<div class="title">
+							<div class="row">
+								<div class="col">
+									<h4><b>Shopping Cart</b></h4>
+								</div>
+								<div class="col align-self-center text-right text-muted">
+									{{shoppingCart.length}} items
+								</div>
+								<div class="col d-flex justify-content-end text-left">
+									<i class="bi bi-trash3-fill cartRed h3 text-left" @click="cart_alert = true"></i>
+								</div>
+							</div>
+						</div>
+						<div class="row border-top border-bottom" v-for="product in shoppingCart">
+							<div class="row align-items-center">
+								<div class="col-2">
+									<img class="img-fluid w-100" :src="product.urlImg" />
+								</div>
+								<div class="col">
+									<div class="row text-muted">{{product.type}}</div>
+									<div class="row">{{product.name}}</div>
+								</div>
+								<div class="col">
+									<div class="row">
+										<i class="col w-100 bi bi-plus-circle sizeItemsCart h3"
+											@click="addProductToShoppingCart(product)"
+											:class="{'text-secondary': product.stock == 0}"></i>
+										<a href="#" class="col w-100 border sizeItemsCart h2">{{product.quantity}}</a>
+										<i class="bi col w-100 bi-dash-circle sizeItemsCart h3"
+											@click="deleteOneItem(product)"
+											:class="{'text-secondary': product.quantity == 0}"></i>
+									</div>
+								</div>
+								<div class="col">
+									$ {{balanceFormateado(product.price *
+									product.quantity).split("A")[0]}}<span class="close"></span>
+									<button class="btn-close cartRed" @click="deleteProduct(product)"></button>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<h3 v-if="shoppingCart.length == 0">
+								<b>The cart is empty</b>
+							</h3>
+						</div>
+						<a class="back-to-shop" href="./products.html">&leftarrow;
+							<span class="span-back-to-shop text-muted">Back to shop</span>
+						</a>
+					</div>
+
+					<div class="col-md-4 summary">
+						<div>
+							<h5><b>Summary</b></h5>
+						</div>
+						<hr />
+						<!-- <div class="row">
 								<div class="col" style="padding-left: 0">ITEMS </div>
 								<div class="col text-right">132.00</div>
 								</div> -->
-								<form>
-									<div >
-										<p>Enter your card number</p>
-										<input id="card_number" v-model="numberCardVModel" type="number" class="fontGotham" placeholder="Card" />
-
-										<p>Enter your cvv</p>
-										<input id="cvv" class="fontGotham" v-model="cvvCardVModel" placeholder="Cvv" />
-									</div>
-									<p style="display: none;">GIVE CODE</p>
-									<input id="code" class="fontGotham"  placeholder="Enter your code"  style="display: none;"/>
-								</form>
-								<div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0">
-									<div class="col">Total price:</div>
-									<div class="col text-right">$ {{balanceFormateado(totalAmount).split("A")[0]}}</div>
-								</div>
-								<button class="btn_cart fontGotham  btn  cart_CHECKOUT"  @click="createTicket()">CHECKOUT</button>
-
-								<!-- <button class="btn_cart fontGotham  btn  cart_CHECKOUT" style="font-size:10px;" @click="print()">Imprimir pdf</button> -->
-						</div>
-					</div>
-				</div>
-				<div class="card_cart  w-50 alert_trash" v-if="cart_alert == true">
-					<div class="card-body">
-						<p class="card-text h3 fontGotham">Are you sure you want to delete the ENTIRE cart?.</p>
-						<div class="  d-flex justify-content-around">
-							<button class="btn_cart fontGotham btn" style="font-size:14px;" @click="emptyCart()">Yes</button>
-							<button class="btn_cart fontGotham btn " style="font-size:14px;" @click="cart_alert = false" >No</button>
-
-						</div>
-					</div>
-				</div>
-
-
-
-			</main>
-
-			<footer class="footerDelContat  foooter_contact bg-white">
-				<div class="footer">
-					<div class="footer-top">
-						<div class="footer-top1">
+						<form>
 							<div>
-								<p>Nogal © 2012</p>
+								<p>Enter your card number</p>
+								<input id="card_number" v-model="numberCardVModel" type="number" class="fontGotham"
+									placeholder="Card" />
+
+								<p>Enter your cvv</p>
+								<input id="cvv" class="fontGotham" v-model="cvvCardVModel" placeholder="Cvv" />
 							</div>
-							<div class="store-online-footer">
-								<p>Online furniture store</p>
+							<p style="display: none">GIVE CODE</p>
+							<input id="code" class="fontGotham" placeholder="Enter your code" style="display: none" />
+						</form>
+						<div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0">
+							<div class="col">Total price:</div>
+							<div class="col text-right">
+								$ {{balanceFormateado(totalAmount).split("A")[0]}}
 							</div>
 						</div>
-						<div class="footer-top2">
-							<p>privacy policy</p>
-							<p>public offer</p>
-							<p>where to find us</p>
-							<div class="icons-footer">
-								<a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a>
-								<a class="ig" href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a>
-							</div>
+						<button class="btn_cart fontGotham btn cart_CHECKOUT" @click="createTicket()">
+							CHECKOUT
+						</button>
+
+						<!-- <button class="btn_cart fontGotham  btn  cart_CHECKOUT" style="font-size:10px;" @click="print()">Imprimir pdf</button> -->
+					</div>
+				</div>
+			</div>
+			<div class="card_cart w-50 alert_trash" v-if="cart_alert == true">
+				<div class="card-body">
+					<p class="card-text h3 fontGotham">
+						Are you sure you want to delete the ENTIRE cart?.
+					</p>
+					<div class="d-flex justify-content-around">
+						<button class="btn_cart fontGotham btn" style="font-size: 14px" @click="emptyCart()">
+							Yes
+						</button>
+						<button class="btn_cart fontGotham btn" style="font-size: 14px" @click="cart_alert = false">
+							No
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="footerDelContat foooter_contact bg-white">
+			<div class="footer">
+				<div class="footer-top">
+					<div class="footer-top1">
+						<div>
+							<p>Nogal © 2012</p>
+						</div>
+						<div class="store-online-footer">
+							<p>Online furniture store</p>
 						</div>
 					</div>
-					<div class="footer-bottom">
-						<div class="footer-bottom-text">
-							<p>website development: <span> mindhub</span></p>
+					<div class="footer-top2">
+						<p>privacy policy</p>
+						<p>public offer</p>
+						<p>where to find us</p>
+						<div class="icons-footer">
+							<a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a>
+							<a class="ig" href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a>
 						</div>
 					</div>
 				</div>
-			</footer>
-		</div>
-	</body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-					integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
-	<script src="./js/shoppingCart.js"></script>
+				<div class="footer-bottom">
+					<div class="footer-bottom-text">
+						<p>website development: <span> mindhub</span></p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+	crossorigin="anonymous"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
+<script src="./js/shoppingCart.js"></script>
 
 </html>
