@@ -118,6 +118,9 @@
 
     margin-bottom: 15px;
 }
+.profile .side-menu small{
+    color: rgb(88, 88, 88);
+}
 
 .profile .sidebar {
     position: fixed;
