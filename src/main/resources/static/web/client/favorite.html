@@ -17,13 +17,16 @@
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <a class="navbar-brand burger-menu-mob" href="../index.html"><img src="../img/logo/logoBlanco.png"alt=""></a>
+            <a class="navbar-brand burger-menu-mob" href="../index.html"><img src="../img/logo/logoBlanco.png"
+                    alt=""></a>
 
         </div>
 
         <div class="side-content">
             <div class="profile">
-                <div class="profile-img   "> <p class="h1 ">{{initials}}</p></div>
+                <div class="profile-img   ">
+                    <p class="h1 ">{{initials}}</p>
+                </div>
                 <span>{{clientCurrent.firstname}} {{clientCurrent.lastname}}</span>
                 <span>Client</span>
             </div>
@@ -71,10 +74,10 @@
                     <li>
                         <a href="" @click.prevent="logout()">
                             <span>
-                                <box-icon name='log-out' animation='burst'  ></box-icon>
+                                <box-icon name='log-out' animation='burst'></box-icon>
                             </span>
                             <small>Logout</small>
-                        </a> 
+                        </a>
 
                     </li>
 
@@ -90,6 +93,16 @@
             <label for="menu-toggle">
                 <span class="las la-bars"></span>
             </label>
+
+            <!-- boton return -->
+            <a href="../index.html">
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">return home</span>
+                </button>
+            </a>
         </div>
 
 
