@@ -169,7 +169,7 @@ const app = Vue.createApp({
                   this.products.forEach(product => product.type == "garden" ? this.categoryGarden.push(product): "" )
 
                   this.categorySofa.forEach( product => !this.materialTypeSofa.includes(product.materialType) ? this.materialTypeSofa.push(product.materialType) : "" )
-                  console.log(this.materialTypeSofa);
+                  console.log(this.products);
 
                   this.productsSofaBackup = this.categorySofa
                   this.productsStorageBackup = this.categoryStorage
@@ -398,8 +398,9 @@ const app = Vue.createApp({
     //     }
    
     // },
+    
     balanceFormateado(numero){
-        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(numero)
+        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(numero)
     },
 
   },
