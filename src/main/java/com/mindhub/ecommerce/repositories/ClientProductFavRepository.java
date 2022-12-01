@@ -6,4 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface ClientProductFavRepository extends JpaRepository<ClientProducFav,Long> {
+
+    ClientProducFav findAllByid(long id);
+
 }

@@ -19,7 +19,7 @@ public class ClientProductFavDTO {
     private double price;
 
 
-
+    private boolean enable;
 
 
     public ClientProductFavDTO() {
@@ -33,6 +33,7 @@ public class ClientProductFavDTO {
         this.product_name = clientProducFav.getProductFavorite().getNameProduct();
         this.url = clientProducFav.getProductFavorite().getUrlImgProduct();
         this.price = clientProducFav.getProductFavorite().getPriceProduct();
+        this.enable = clientProducFav.isEnable();
     }
 
 
@@ -70,5 +71,13 @@ public class ClientProductFavDTO {
 
     public double getPrice() {
         return price;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

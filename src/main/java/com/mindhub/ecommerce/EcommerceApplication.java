@@ -31,9 +31,9 @@ public class EcommerceApplication {
 	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository, ProductFavoriteRepository productFavoriteRepository,ClientProductFavRepository clientProductFavRepository){
 		return args -> {
 
-			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456,"Austin","3651 S (South) INTERSTATE 35","Texas");
-			Client client2 = new Client("Franco","Rodriguez","franco@mail.com",passwordEncoder.encode("234"),43546,"Boston"," 55 Fruit S","Massachusetts");
-			Client client3=new Client("admin","admin","admin@admin.com",passwordEncoder.encode("123"),1234,"admin","admin","admin");
+			Client client1 = new Client("Mike","Smith","mike01@gmail.com",passwordEncoder.encode("1234"),2127709991,"Austin","3651 S (South) INTERSTATE 35","Texas");
+			Client client2 = new Client("John","Brown","johnbrown@outlook.com",passwordEncoder.encode("234"),2128903332,"Boston"," 55 Fruit S","Massachusetts");
+			Client client3=  new Client("admin","admin","admin@admin.com",passwordEncoder.encode("123"),1234,"admin","admin","admin");
 
 			clientRepository.save(client2);
 			clientRepository.save(client1);
@@ -43,13 +43,13 @@ public class EcommerceApplication {
 
 			Product product1 = new Product("sofa","Modular sofa",1245.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family.");
 			Product product2 = new Product("sofa","Hammock",1345.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape.");
-
+			Product product3 = new Product("sofa","Modular sofa",1245.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-jardin-modular-3-plazas-gris-oscuro-kuddarna-beige__0835243_pe778361_s5.jpg?f=xl",7,"iron","All sections of the sofa can be used independently or combined to create a modular sofa in the right size for your balcony or patio.");
 
 			productRepository.save(product1);
 			productRepository.save(product2);
 
 
-			productRepository.save(new Product("sofa","Modular sofa",1245.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-jardin-modular-3-plazas-gris-oscuro-kuddarna-beige__0835243_pe778361_s5.jpg?f=xl",7,"iron","All sections of the sofa can be used independently or combined to create a modular sofa in the right size for your balcony or patio."));
+			productRepository.save(product3);
 			productRepository.save(new Product("sofa","Hammock",1345.00,"https://d3ugyf2ht6aenh.cloudfront.net/stores/001/232/181/products/111-44ed3d1867ce194b3516482549866260-1024-1024.png",4,"iron","Hanging Chair Simil Rattan Myanmar"));
 
 			productRepository.save(new Product("sofa","Confort armchair",565.00,"https://www.ikea.com/es/es/images/products/pello-sillon-holmby-natural__0841137_pe600889_s5.jpg?f=xl",11,"wood","This armchair is a comfortable seat that transmits relaxation and with which you can create comfort zones in any part of the house. The secret is good back support and a slightly flexible structure."));
@@ -114,18 +114,26 @@ public class EcommerceApplication {
 
 
 
-			Ticket ticket1 = new Ticket(LocalDateTime.now(),3000,client1,"efectivo");
-			Ticket ticket2 = new Ticket(LocalDateTime.now(),5000,client1,"debito");
-
+			Ticket ticket1 = new Ticket(LocalDateTime.now(),1245,client1,"credit");
+			Ticket ticket2 = new Ticket(LocalDateTime.now(),1345,client1,"debit");
+			Ticket ticket3 = new Ticket(LocalDateTime.now(),2590,client1,"credit");
+			Ticket ticket4 = new Ticket(LocalDateTime.now(),1245,client1,"credit");
 			ticketRepository.save(ticket1);
 			ticketRepository.save(ticket2);
-
+			ticketRepository.save(ticket3);
+			ticketRepository.save(ticket4);
 
 			TicketProduct ticketProduct1 = new TicketProduct(ticket1,product1, 1);
-			TicketProduct ticketProduct2 = new TicketProduct(ticket2,product1, 1);
+			TicketProduct ticketProduct2 = new TicketProduct(ticket2,product2, 1);
+			TicketProduct ticketProduct3 = new TicketProduct(ticket3,product3,1);
+			TicketProduct ticketProduct4 = new TicketProduct(ticket3,product2,1);
+			TicketProduct ticketProduct5 = new TicketProduct(ticket4,product3,1);
 
 			ticketProductRepository.save(ticketProduct1);
 			ticketProductRepository.save(ticketProduct2);
+			ticketProductRepository.save(ticketProduct3);
+			ticketProductRepository.save(ticketProduct4);
+			ticketProductRepository.save(ticketProduct5);
 
 
 			ProductFavorite producFav = new ProductFavorite(product1.getId(),product1.getName(),product1.getUrlImg(),product1.getPrice());
@@ -134,30 +142,12 @@ public class EcommerceApplication {
 
 			ClientProducFav clientProducFav1 = new ClientProducFav(client1,producFav);
 
+			clientProducFav1.setEnable(true);
 
 			clientProductFavRepository.save(clientProducFav1);
 
 //			ClientProducFav clientProducFav = new ClientProducFav(client1, producFav);
 
-
-
-
-					/*		for(int  b = 0 ; b < 200 ; b++) {
-					String type[] = {"sofa","table","storage","garden" };
-					int ramodType = (int)(Math.random()*(3-0+1)+0);
-
-					String  materialType[] = {"wood" , "plastico", "iron"};
-
-					int ramdomMaterialType = (int)(Math.random()*(2-0+1)+0);
-					double  raomdPrice = (double)(Math.random()*(9000-0+1)+0);
-					int sotok = (int)(Math.random()*(60-0+1)+0);
-
-					String name[] = {"sillar relinablre ","table artesnal ","sofa","FRIHETEN ","FRIHETEN" ,"ÄPPLARYD","STOCKSUND", "Ikea", "con chaise longue" ,"VISCAFORS" ,"VALLENTUNA" ," Video Playlist "};
-
-					int nameraodm = (int)(Math.random()*(11-0+1)+0);
-
-					productRepository.save(new Product(type[ramodType],name[nameraodm],raomdPrice,"x",sotok,materialType[ramdomMaterialType]),"prueba");
-				}*/
 
 
 		};

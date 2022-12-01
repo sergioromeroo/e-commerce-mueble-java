@@ -24,6 +24,7 @@ public class ClientProducFav {
     private ProductFavorite productFavorite;
 
 
+    private boolean enable = false;
 
     public ClientProducFav() {
     }
@@ -54,4 +55,15 @@ public class ClientProducFav {
     public void setProductFavorite(ProductFavorite productFavorite) {
         this.productFavorite = productFavorite;
     }
+
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+
 }
