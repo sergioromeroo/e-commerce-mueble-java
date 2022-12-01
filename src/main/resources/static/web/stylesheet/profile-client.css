@@ -852,8 +852,23 @@
 }
 
 @media(max-width:425px) {
+    .profile .wrapper{
+        top: 61%;
+    }
 .profile table th {
     display: none;
     
   }
+  .profile footer{
+    margin-top: 0px;
 }
+}
+@media(max-width:320px) {
+    .profile .wrapper{
+        top: 65%;
+    }
+
+    .profile footer{
+        margin-top: 22%;
+    }
+    }
