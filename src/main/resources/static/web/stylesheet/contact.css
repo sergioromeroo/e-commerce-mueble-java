@@ -130,6 +130,7 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
     width: 90vw;
     background: white;
     padding: 18px;
+    box-shadow: 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .contact h2.title-contact.fw-bold.mb-2.text-uppercase {
@@ -250,3 +251,13 @@ button.btn.btn-outline-light.btn-lg.px-5.m-5 {
     }
 }
 
+@media (min-width: 1920px){
+    .contact .section-contact {
+        width: 68vw;
+       
+    }
+
+    .contact .contact main {
+        min-height: 96rem;
+    }
+}
