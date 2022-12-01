@@ -97,10 +97,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 33000px;
 
     color: white;
-    background: linear-gradient( #1e1e1e, #c7c7c7 );
+    background: linear-gradient( #383838, #6e6e6e );
 
 }
 
@@ -114,10 +113,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 33000px;
 
     color: white;
-    background: linear-gradient( #1e1e1e, #c7c7c7 );
+    background: linear-gradient( #383838, #6e6e6e );
 
 
   }
@@ -325,8 +323,7 @@
 
 .profile .page-header {
     padding: 1.3rem 1rem;
-    background: #E9edf2;
-    border-bottom: 1px solid #dee2e8;
+    background: linear-gradient(to right, #2f2f2f, #c1c1c1);    border-bottom: 1px solid #dee2e8;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -380,7 +377,7 @@
 
 
 .profile .page-header h1, .page-header small {
-    color: #74767d;
+    color: white;
 }
 
 .profile .page-content {
