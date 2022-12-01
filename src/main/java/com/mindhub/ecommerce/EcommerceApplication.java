@@ -41,8 +41,8 @@ public class EcommerceApplication {
 
 			/*SOFA*/
 
-			Product product1 = new Product("sofa","Iron sofa",786.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family.");
-			Product product2 = new Product("sofa","Corner sofa",678.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape.");
+			Product product1 = new Product("sofa","Modular sofa",1245.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family.");
+			Product product2 = new Product("sofa","Hammock",1345.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape.");
 
 
 			productRepository.save(product1);

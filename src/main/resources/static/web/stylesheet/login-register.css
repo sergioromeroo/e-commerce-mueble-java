@@ -73,16 +73,8 @@
   
   
 
-.swal2-popup.swal2-modal.swal2-show {
 
-  background: #f4f4f4;
-  text-transform: uppercase;
-}
 
-.swal2-actions:not(.swal2-loading) .swal2-styled:hover {
-
-  color: black
-}
 
 .login-container {
   width: 94% !important;
