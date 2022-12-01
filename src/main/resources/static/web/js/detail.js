@@ -209,6 +209,7 @@ const app = Vue.createApp({
             this.finalAmount()
         },
         addProductToShoppingCart(selectProduct) {
+            console.log(selectProduct)
             if (this.clientCurrent == null) {
                 Swal.fire({
                     text: `please login first`,

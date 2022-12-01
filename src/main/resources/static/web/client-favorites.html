@@ -33,8 +33,13 @@
                                     <a href="./index.html">Home</a>
                                 </li>
                                 <li>
-                                    <a href="./products.html">Shop</a>
-
+                                    <a href="./client-profile.html">PROFILE</a>
+                                </li>
+                                <li>
+                                    <a href="./client-favorites.html" class="activeMaria">FAVORITES</a>
+                                </li>
+                                <li>
+                                    <a href="./client-purchases.html">PURCHASES</a>
                                 </li>
                                 <li>
                                     <a href="#" @click="logout()">Logout</a>
@@ -114,8 +119,13 @@
                                             <a href="./index.html" class="ancors-nav-burger">HOME</a>
                                         </li>
                                         <li>
-                                            <a href="./products.html" class="ancors-nav-burger">SHOP</a>
-        
+                                            <a href="./client-profile.html" class="ancors-nav-burger">PROFILE</a>
+                                        </li>
+                                        <li>
+                                            <a href="./client-favorites.html" class="ancors-nav-burger">FAVORITES</a>
+                                        </li>
+                                        <li>
+                                            <a href="./client-purchases.html" class="ancors-nav-burger">PURCHASES</a>
                                         </li>
                                         <li>
                                             <a href="#" @click="logout()" class="ancors-nav-burger">LOGOUT</a>
@@ -146,9 +156,8 @@
 
             <div class="section-filters">
 
-                <nav class="navbar navbar-expand-lg bg-light">
+                <!-- <nav class="navbar navbar-expand-lg bg-light">
                     <div class="container-fluid filter-nav ">
-                        <!-- <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4> -->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -176,23 +185,23 @@
                             </ul>
                         </div>
                     </div>
-                </nav>
+                </nav> -->
 
 
             </div>
 
 
         </header>
-        <main class="main-products">
+        <main class="main-products" style="min-height: 600px">
 
             <!-- PRODUCTOS FAVORITOS -->
-            <div class="section-products">
+            <div class="section-products mt-5">
 					<template v-for="product in favorites">
-						<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa w-100">
+						<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa w-100 tarjetaBoton" style="max-width: 250px; max-height: 450px">
 							<div class="category-title">
                                 <div class="d-flex justify-content-between">
                                     <h3>{{product.product_name}}</h3>
-                                    <button class="btn btn-secondary cuadrado" @click="deleteFavorite()">X</button>
+                                    <button class="btn btn-secondary cuadrado botonEliminar" @click="deleteFavorite()">X</button>
                                 </div>
 								
 							</div>

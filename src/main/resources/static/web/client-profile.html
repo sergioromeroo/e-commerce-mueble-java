@@ -33,8 +33,13 @@
                                     <a href="./index.html">Home</a>
                                 </li>
                                 <li>
-                                    <a href="./products.html">Shop</a>
-
+                                    <a href="./client-profile.html" class="activeMaria">PROFILE</a>
+                                </li>
+                                <li>
+                                    <a href="./client-favorites.html">FAVORITES</a>
+                                </li>
+                                <li>
+                                    <a href="./client-purchases.html">PURCHASES</a>
                                 </li>
                                 <li>
                                     <a href="#" @click="logout()">Logout</a>
@@ -114,8 +119,13 @@
                                             <a href="./index.html" class="ancors-nav-burger">HOME</a>
                                         </li>
                                         <li>
-                                            <a href="./products.html" class="ancors-nav-burger">SHOP</a>
-        
+                                            <a href="./client-profile.html" class="ancors-nav-burger">PROFILE</a>
+                                        </li>
+                                        <li>
+                                            <a href="./client-favorites.html" class="ancors-nav-burger">FAVORITES</a>
+                                        </li>
+                                        <li>
+                                            <a href="./client-purchases.html" class="ancors-nav-burger">PURCHASES</a>
                                         </li>
                                         <li>
                                             <a href="#" @click="logout()" class="ancors-nav-burger">LOGOUT</a>
@@ -146,9 +156,8 @@
 
             <div class="section-filters">
 
-                <nav class="navbar navbar-expand-lg bg-light">
+                <!-- <nav class="navbar navbar-expand-lg bg-light">
                     <div class="container-fluid filter-nav ">
-                        <!-- <h4 class="navbar-brand text-filter" href="#">choose something specific<i class='bx bx-right-arrow-alt' ></i></h4> -->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -176,31 +185,35 @@
                             </ul>
                         </div>
                     </div>
-                </nav>
+                </nav> -->
 
 
             </div>
 
 
         </header>
-        <main class="main-products bg-secondary bg-opacity-10">
+        <main class="main-products bg-secondary bg-opacity-10" style="min-height: 620px">
 
             <!-- PROFILE -->
-            <div class="section-products m-4">
-                <div class="card mb-3 cuadrado perfil" style="width: 700px; height: 380px">
+            <div class="section-products m-4"  style="min-height: 500px">
+                <div class="card cuadrado perfil justify-content-around mt-5" style="width: 700px; min-height: 380px">
                     <div class="row g-0 cuadrado text-center p-2 d-flex flex-column">
-                        <div class="mt-5">
+                        <!-- <div class="mt-5">
                             <h1>{{clientCurrent.firstname}} {{clientCurrent.lastname}}</h1>
-                        </div>
-                        <div class="w-100 d-flex justify-content-around mt-5 columna">
-                            <div class="w-20 text-start">
-                                <h3 class="mb-5">Email: {{clientCurrent.email}}</h3>
-                                <h3 class="mb-5">Addres: {{clientCurrent.addres}}</h3>
+                        </div> -->
+                        <div class="w-100 d-flex justify-content-around mt-5 columna text-center">
+                            <div class="w-50 text-start d-flex flex-column align-items-center align-self-center" >
+                                <div style="width: 100px; height: 100px" class="border border-secondary bg-secondary bg-opacity-10 d-flex justify-content-center">
+                                    <p class="iniciales align-self-center">{{initials}}</p>
+                                </div>
+                                <h1 class="mt-5">{{clientCurrent.firstname}} {{clientCurrent.lastname}}</h1>
                             </div>
-                            <div class="w-20 text-start">
-                                <h3 class="mb-5">Phone: {{clientCurrent.cellphone}}</h3>
-                                <h3 class="mb-5">City: {{clientCurrent.city}}</h3>
-                                <h3 class="mb-5">State: {{clientCurrent.state}}</h3>
+                            <div class="w-50 text-start d-flex flex-column">
+                                <h3 class="mb-5"> <span class="spanMaria">Email: </span> {{clientCurrent.email}}</h3>
+                                <h3 class="mb-5"> <span class="spanMaria">Addres:</span> {{clientCurrent.addres}}</h3>
+                                <h3 class="mb-5"> <span class="spanMaria">Phone: </span>{{clientCurrent.cellphone}}</h3>
+                                <h3 class="mb-5"> <span class="spanMaria">City: </span>{{clientCurrent.city}}</h3>
+                                <h3 class="mb-5"> <span class="spanMaria">State: </span>{{clientCurrent.state}}</h3>
                             </div>
 
                         </div>

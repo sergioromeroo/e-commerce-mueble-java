@@ -894,8 +894,29 @@ label.btn.btns-cat {
 
 /* MARIA CLIENT */
 
+.activeMaria {
+  border: 1px solid black !important;
+  color: white !important;
+}
+
 .cuadrado {
   border-radius: 0px !important;
+}
+
+.iniciales {
+  font-size: 5rem !important;
+}
+
+.spanMaria {
+  font-weight: bolder !important;
+}
+
+.botonEliminar{
+  z-index: 10;
+}
+
+.tarjetaBoton {
+  z-index: 1;
 }
 
 @media (max-width:475px){
@@ -915,7 +936,6 @@ label.btn.btns-cat {
 
   .perfil {
     width: 300px !important;
-
   }
 
 } 
