@@ -122,10 +122,9 @@
     min-height: 100vh;
   }
   
-  .products main{
-    min-height: 63vh;
-  }
-
+  .products main {
+    min-height: 80vh;
+}
 
   body.active { overflow: hidden; }
   
@@ -790,7 +789,7 @@ label.btn.btns-cat {
   .products .filter-nav ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 7git 0%;
     align-items: baseline;
   }
   .products .filter-nav form.d-flex {
@@ -879,7 +878,7 @@ label.btn.btns-cat {
 
 @media (min-width:1920px){
   .products .filter-nav div#navbarSupportedContent {
-    padding: 0 14rem;
+    padding: 1rem 14rem 0;
   }
 
   .container-search {

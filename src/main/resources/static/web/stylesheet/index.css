@@ -473,7 +473,7 @@ footer p {
 
 a.btn-top:hover {
     background: black;
-    color: white;
+    color: white !important;
 }
 
 i.bx.bx-chevron-up {
