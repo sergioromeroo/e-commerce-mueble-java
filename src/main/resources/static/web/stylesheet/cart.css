@@ -218,3 +218,216 @@ a:hover{
     border-bottom-left-radius: 1rem;
     }
 }
+@media(min-width:768px) {
+    header {
+        height: 860px;
+        display: flex;
+        align-items: center;
+    }
+    .index .img-background {
+        height: 860px;
+    }
+    .index .nav-logo {
+        padding: 0 35px;
+    }
+
+    .index  .burger-menu-mob img {
+        width: 122px;
+        filter: brightness(6);
+        margin-left: 15px;
+        margin-top: 1px;
+    }
+
+    .nav-icons a {
+        margin: 0 0.8rem;
+    }
+    .container-fluid {
+        /* padding: 17px 18px; */
+        /* padding: 7px 10px; */
+        /* padding: 4px 10px; */
+        min-height: 8rem;
+    }
+    .filter-nav {
+        padding: 17px 18px;
+    }
+    .index .text-header {
+        padding: 0 3.5rem;
+        margin-top: 18rem;
+        width: 90%;
+    }
+    .index .title-text-header {
+        width: 42%;
+        font-weight: bolder;
+    }
+    .index .title-text-header h2 {
+        font-size: 54px;
+    }
+    .index .btn-choose-table {
+        width: 248px;
+    }
+    .index .index-categories {
+        margin-top: 13rem;
+        height: 142vh;
+    }
+    .index .category-index {
+        height: 595px;
+    }
+    .index .category-img img {
+        height: 26rem;
+    }
+    .index .category-index {
+        padding: 1.5rem 2rem;
+    }
+    .index .category-title h3 {
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .index .category-index .category-desc {
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+    .index .categories-with-img {
+        flex-direction: unset;
+    }
+    .index .categories-with-img .tables {
+        height: 796px
+    }
+    .index .categories-with-img .storage {
+        height: 796px
+    }
+    .index .section3-categories {
+        justify-content: center;
+    }
+    .footer-top2 {
+        flex-direction: unset
+    }
+    .products .burger-menu-mob img {
+        width: 122px;
+        margin-left: 15px;
+        margin-top: 1px;
+    }
+    
+}
+
+@media(min-width:1024px) {
+    .burger-menu img {
+        display: none;
+    }
+    .index .section3-categories {
+        justify-content: unset;
+        padding-left: 9rem;
+    }
+    .index div#offcanvasNavbar {
+        display: none;
+    }
+    .offcanvas-backdrop {
+        display: none
+    }
+    .index .nav-menu {
+        display: flex;
+        margin-top: 1rem;
+    }
+    .index .nav-menu ul {
+        display: flex;
+    }
+    .index .nav-menu a {
+        font-size: 13px;
+        color: white !important;
+        padding: 0 3rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+    }
+    .index .nav-menu a i.bx.bx-chevron-down {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:1200px) {
+    .index .category-index {
+        width: 24%;
+    }
+    .index .section3-categories {
+        width: 97%;
+    }
+    .index .category-index-sectior3 {
+        width: 33%;
+    }
+    .index .section3-categories {
+        width: 97%;
+        justify-content: center;
+        padding-right: 9rem;
+        padding-left: 5rem;
+    }
+    /* .index .index-categories {
+        max-width: 1200px;
+    } */
+    .index .section3-categories {
+        width: 97%;
+    }
+    .index .index-categories {
+        margin-top: 13rem;
+        height: 71vh;
+    }
+    .footer-top {
+        display: flex;
+    }
+    .footer-top1 {
+        display: flex;
+        align-items: center;
+    }
+    .footer-top2 {
+        margin-top: unset;
+    }
+    .store-online-footer {
+        margin-left: 3rem;
+    }
+    .index .icons-footer a {
+        font-size: 21px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .index .section3-categories {
+        margin-top: 13rem;
+        height: 71vh;
+        width: 100%;
+        padding-left: 7rem;
+    }
+}
+
+@media (min-width:1920px) {
+    .index .section3-categories {
+        width: 100%;
+        padding-left: 14rem;
+    }
+    .index .category-index-sectior3 {
+        width: 27%;
+    }
+    .index .categories-with-img .storage .storage-title h3 {
+        font-size: 54px;
+    }
+    .index .categories-with-img .tables .tables-title h3 {
+        font-size: 51px;
+    }
+    .index .categories-with-img .storage .storage-btn-buy a {
+        width: 26rem;
+    }
+    .index .categories-with-img .tables .tables-btn-buy a {
+        width: 26rem;
+    }
+    footer .footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-top {
+        width: 75%;
+    }
+    .index .footer-bottom {
+        border-top: unset
+    }
+    footer p {
+        font-size: 13px;
+    }
+}

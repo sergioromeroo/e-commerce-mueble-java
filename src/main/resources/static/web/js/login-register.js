@@ -92,16 +92,20 @@ createApp({
 
                     Swal.fire({
                         title: 'Write the secret word sended to your email',
-                        input: 'text',
+                        input: 'password',
                         showCancelButton: true,
                         inputValidator: (value) => {
                             return new Promise((resolve) => {
                                 if (value === 'chair') {
-                                    Swal.fire(
-                                            'Successful registration!',
-                                            'Welcome!',
-                                            'success'
-                                        )
+                                
+                                        Swal.fire({
+                                            title: 'Successful registration!',
+                                            text: "Welcome!",
+                                            icon: "success",
+                                            confirmButtonColor: 'lightgray',
+                                            timer: 4500
+        
+                                        })
                                         .then(() => {
 
                                             this.access()

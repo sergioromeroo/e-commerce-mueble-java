@@ -238,7 +238,6 @@
 }
 
 .detail p{
-    margin-top: 10px;
     text-transform: uppercase;
 }
 
@@ -267,10 +266,10 @@
 }
 
 
-.btn-atras-detail {
+.btn-atras-detail { 
     padding-left: 1rem;
-    background: #f4f4f4;
     padding: 15px 15px 0px 15px;
+    right:46vw;
 }
 .btn-atras-detail i.bx.bx-left-arrow-alt {
     font-size: 35px;

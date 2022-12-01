@@ -31,8 +31,8 @@ public class EcommerceApplication {
 	public CommandLineRunner initData(ProductRepository productRepository, ClientRepository clientRepository, TicketRepository ticketRepository, TicketProductRepository ticketProductRepository, ProductFavoriteRepository productFavoriteRepository,ClientProductFavRepository clientProductFavRepository){
 		return args -> {
 
-			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456,"Mar del plata","pirulin 345","Buenos aires");
-			Client client2 = new Client("Franco","Rodriguez","franco@mail.com",passwordEncoder.encode("234"),43546,"Capital Federal","Garcia 435","Buenos aires");
+			Client client1 = new Client("Rodrigo","Gonzales","rodri@mail.com",passwordEncoder.encode("1234"),123456,"Austin","3651 S (South) INTERSTATE 35","Texas");
+			Client client2 = new Client("Franco","Rodriguez","franco@mail.com",passwordEncoder.encode("234"),43546,"Boston"," 55 Fruit S","Massachusetts");
 			Client client3=new Client("admin","admin","admin@admin.com",passwordEncoder.encode("123"),1234,"admin","admin","admin");
 
 			clientRepository.save(client2);
@@ -41,8 +41,8 @@ public class EcommerceApplication {
 
 			/*SOFA*/
 
-			Product product1 = new Product("sofa","Iron sofa",786.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family.");
-			Product product2 = new Product("sofa","Corner sofa",678.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape.");
+			Product product1 = new Product("sofa","Modular sofa",1245.00,"https://www.ikea.com/es/es/images/products/hogsten-sofa-2-plazas-exterior-blanco__1028707_pe835497_s5.jpg?f=xl",10,"iron","Enjoy the outdoors all year long. This sofa has a low-maintenance material that will allow you to enjoy great moments with friends and family.");
+			Product product2 = new Product("sofa","Hammock",1345.00,"https://www.ikea.com/es/es/images/products/jutholmen-sofa-3-esquina-modular-exter-gris-oscuro-kuddarna-beige__0933026_pe791715_s5.jpg?f=xl",3,"iron","Combine different sections to create a sofa that perfectly fits your outdoor space in size and shape.");
 
 
 			productRepository.save(product1);

@@ -67,13 +67,15 @@
                     </li>
 
                     <li>
-                        <!-- <a href="" @click="logout()">
+                        
+                         <a href="" @click.prevent="logout()">
                             <span>
-                                <box-icon name='log-out' animation='burst' ></box-icon>
+                                <box-icon name='log-out' animation='burst'  ></box-icon>
                             </span>
                             <small>Logout</small>
-                        </a> -->
-                        <button class="btn btn-secondary" @click="logout()">Logout</button>
+                        </a> 
+                    
+                        
                     </li>
 
                 </ul>
@@ -100,9 +102,8 @@
            
             <div class="wrapper">
                 <div class="left">
-                    <img src="../images/usuario.png" alt="user" width="100">
+                    <div class="initial"> <p>{{initials}}</p></div>
                     <h4>{{clientCurrent.firstname}} {{clientCurrent.lastname}}</h4>
-                     <p>Client - Nogal</p>
                 </div>
                 <div class="right">
                     <div class="info">
