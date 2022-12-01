@@ -17,6 +17,7 @@ header {
     width: 101px !important;
     padding: 8px 0px 0px 8px;
     filter: brightness(1) !important;
+    margin-left: 22px !important;
 }
 
 .swal2-popup {
@@ -512,7 +513,7 @@ i.bx.bx-chevron-up {
         /* padding: 17px 18px; */
         /* padding: 7px 10px; */
         /* padding: 4px 10px; */
-        /* min-height: 8rem; */
+        min-height: 0  !important
     }
     .filter-nav {
         padding: 17px 18px;
