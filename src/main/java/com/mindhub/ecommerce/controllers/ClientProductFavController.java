@@ -85,11 +85,32 @@ public class ClientProductFavController {
 
         ClientProducFav clientProducFav = new ClientProducFav(clienCurrent,productFavorite);
 
+        clientProducFav.setEnable(true);
+
         clientProductFavRepository.save(clientProducFav);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 
+
+
+
+    @PatchMapping ("/clientproductfav")
+    public ResponseEntity<?> deleteProductFavorite(
+            @RequestParam long id
+    ){
+        ClientProducFav clientProducFavFound = clientProductFavRepository.findAllByid(id);
+
+        if(clientProducFavFound == null){
+            return new ResponseEntity<>("The product not exist in favorite", HttpStatus.FORBIDDEN);
+        }
+
+        clientProducFavFound.setEnable(false);
+
+        clientProductFavRepository.delete(clientProducFavFound);
+
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
 
 }
