@@ -16,9 +16,98 @@
 }
 .profile{
     font-size: 1.5rem;
-    font-family: gotan-pro;
     text-transform: uppercase;
+    font-weight: bold;
 }
+
+/* boton */
+.profile button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+   }
+   
+   .profile button.learn-more {
+    width: 17rem;
+    height: auto;
+   }
+   
+   .profile button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+   }
+   
+   .profile button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+   }
+   
+   .profile button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+   }
+   
+   .profile button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+   }
+   
+   .profile button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 4px 0;
+    margin: 0 0 0 10px;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+   }
+   
+   .profile button:hover .circle {
+    width: 100%;
+   }
+   
+   .profile button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+   }
+   
+   .profile button:hover .button-text {
+    color: #fff;
+   }
+/* fin boton */
 
 #menu-toggle {
     display: none;
@@ -97,10 +186,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 33000px;
 
     color: white;
-    background: linear-gradient( #1e1e1e, #c7c7c7 );
+    background: linear-gradient( #383838, #6e6e6e );
 
 }
 
@@ -114,10 +202,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 33000px;
 
     color: white;
-    background: linear-gradient( #1e1e1e, #c7c7c7 );
+    background: linear-gradient( #383838, #6e6e6e );
 
 
   }
@@ -325,8 +412,7 @@
 
 .profile .page-header {
     padding: 1.3rem 1rem;
-    background: #E9edf2;
-    border-bottom: 1px solid #dee2e8;
+    background: linear-gradient(to right, #2f2f2f, #c1c1c1);    border-bottom: 1px solid #dee2e8;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -380,7 +466,7 @@
 
 
 .profile .page-header h1, .page-header small {
-    color: #74767d;
+    color: white;
 }
 
 .profile .page-content {
@@ -766,8 +852,23 @@
 }
 
 @media(max-width:425px) {
+    .profile .wrapper{
+        top: 61%;
+    }
 .profile table th {
     display: none;
     
   }
+  .profile footer{
+    margin-top: 0px;
 }
+}
+@media(max-width:320px) {
+    .profile .wrapper{
+        top: 65%;
+    }
+
+    .profile footer{
+        margin-top: 22%;
+    }
+    }
