@@ -21,7 +21,7 @@
 }
 
 /* boton */
-.profile button {
+.profile .header-content button {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -35,12 +35,12 @@
     font-family: inherit;
    }
    
-   .profile button.learn-more {
+   .profile .header-content button.learn-more {
     width: 17rem;
     height: auto;
    }
    
-   .profile button.learn-more .circle {
+   .profile .header-content button.learn-more .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: relative;
     display: block;
@@ -50,7 +50,7 @@
     background: #282936;
    }
    
-   .profile button.learn-more .circle .icon {
+   .profile .header-content button.learn-more .circle .icon {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
@@ -59,7 +59,7 @@
     background: #fff;
    }
    
-   .profile button.learn-more .circle .icon.arrow {
+   .profile .header-content button.learn-more .circle .icon.arrow {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     left: 0.625rem;
     width: 1.125rem;
@@ -67,7 +67,7 @@
     background: none;
    }
    
-   .profile button.learn-more .circle .icon.arrow::before {
+   .profile .header-content button.learn-more .circle .icon.arrow::before {
     position: absolute;
     content: "";
     top: -0.29rem;
@@ -79,7 +79,7 @@
     transform: rotate(45deg);
    }
    
-   .profile button.learn-more .button-text {
+   .profile .header-content button.learn-more .button-text {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
@@ -95,16 +95,16 @@
     text-transform: uppercase;
    }
    
-   .profile button:hover .circle {
+   .profile .header-content button:hover .circle {
     width: 100%;
    }
    
-   .profile button:hover .circle .icon.arrow {
+   .profile .header-content button:hover .circle .icon.arrow {
     background: #fff;
     transform: translate(1rem, 0);
    }
    
-   .profile button:hover .button-text {
+   .profile .header-content button:hover .button-text {
     color: #fff;
    }
 /* fin boton */
