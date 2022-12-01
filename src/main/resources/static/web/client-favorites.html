@@ -111,14 +111,14 @@
                                 <div class="nav-menu-burger">
                                     <ul class="nav-menu-ul">
                                         <li>
-                                            <a href="./index.html">HOME</a>
+                                            <a href="./index.html" class="ancors-nav-burger">HOME</a>
                                         </li>
                                         <li>
-                                            <a href="./products.html">SHOP</a>
+                                            <a href="./products.html" class="ancors-nav-burger">SHOP</a>
         
                                         </li>
                                         <li>
-                                            <a href="#" @click="logout()">LOGOUT</a>
+                                            <a href="#" @click="logout()" class="ancors-nav-burger">LOGOUT</a>
                                         </li>
                                     </ul>
 
@@ -188,7 +188,7 @@
             <!-- PRODUCTOS FAVORITOS -->
             <div class="section-products">
 					<template v-for="product in favorites">
-						<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa">
+						<a :href="'./detail.html?id=' + product.id" class="category-index category-sofa w-100">
 							<div class="category-title">
                                 <div class="d-flex justify-content-between">
                                     <h3>{{product.product_name}}</h3>
@@ -203,7 +203,7 @@
 								<p>${{balanceFormateado(product.price).split("A")[0]}}</p>
 							</div>
 						</a>
-
+                    
 					</template>
 					<div class="text-dark" v-show="favorites.length <= 0" >
                         <h2>You haven't added products to favorites yet.</h2>
