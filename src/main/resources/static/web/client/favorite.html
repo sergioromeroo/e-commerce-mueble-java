@@ -123,6 +123,7 @@
                             class="category-index category-sofa">
                             <div class="category-title">
                                 <h3>{{favorite.product_name}}</h3>
+                                <button class="btn btn-secondary cuadrado" >X</button>
                             </div>
                             <div class="category-img">
                                 <img :src="favorite.url" :alt="favorite.product_name">
@@ -130,6 +131,7 @@
                             <div class="category-desc">
                                 <p>$ {{balanceFormateado(favorite.price).split("A")[0]}}</p>
                             </div>
+
                         </a>
 
                     </template>
@@ -160,7 +162,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../js/client.js"></script>
+<script src="../js/client-profile.js"></script>
 
 
 </html>
