@@ -197,7 +197,7 @@
                                     <td data-label="Ticket id"> # {{ticket.id}}</td>
                                     <td data-label="Date"> {{ticket.date.slice(0,10)}} {{ticket.date.slice(11,16)}}</td>
                                     <td data-label="Amout"> ${{balanceFormateado(ticket.amount).split("A")[0]}}</td>
-                                    <td data-label="Products" ><button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary" @click="productTicket(ticket)">Ver
+                                    <td data-label="Products" ><button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary" @click="productTicket(ticket)">See products
                                     </button></td>
                                     <td data-label="Products" ><button  class="btn btn-secondary" @click="print(ticket)">Pdf
                                     </button></td>
