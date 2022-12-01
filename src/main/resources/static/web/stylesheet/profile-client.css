@@ -47,7 +47,7 @@
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #282936;
+    background: #212529;
    }
    
    .profile .header-content button.learn-more .circle .icon {
@@ -116,7 +116,7 @@
     display: flex;
     justify-content: center;
 
-    margin-bottom: 15px;
+    margin-bottom: 15px;/* padding 13px */
 }
 .profile .side-menu small{
     color: rgb(88, 88, 88);
@@ -191,7 +191,7 @@
     align-items: center;
 
     color: white;
-    background: linear-gradient( #383838, #6e6e6e );
+    background: #212529;
 
 }
 
@@ -207,7 +207,7 @@
     align-items: center;
 
     color: white;
-    background: linear-gradient( #383838, #6e6e6e );
+    background: #212529;
 
 
   }
@@ -231,7 +231,7 @@
 }
 
 .profile small {
-    color: #899DC1;
+    color: #8f8f8f;
     font-weight: 600;
 }
 
@@ -246,7 +246,7 @@
 }
 
 .profile .side-menu a.active {
-    background: #2B384E;
+    background: #212529;
 }
 
 .profile .side-menu a.active span, .side-menu a.active small {
@@ -354,10 +354,12 @@
 
 .profile .header-content label:first-child span {
     font-size: 3.3rem;
+    padding: 13px 17px 0px;
 }
 
 .profile .header-content label {
     cursor: pointer;
+    padding: 15px;
 }
 
 .profile .header-menu {
@@ -415,7 +417,8 @@
 
 .profile .page-header {
     padding: 1.3rem 1rem;
-    background: linear-gradient(to right, #2f2f2f, #c1c1c1);    border-bottom: 1px solid #dee2e8;
+    background: #f4f4f4;
+    color: black;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -468,9 +471,7 @@
 }
 
 
-.profile .page-header h1, .page-header small {
-    color: white;
-}
+
 
 .profile .page-content {
     padding: 1.3rem 1rem;
@@ -856,7 +857,7 @@
 
 @media(max-width:425px) {
     .profile .wrapper{
-        top: 61%;
+        top: 64%;
     }
 .profile table th {
     display: none;
@@ -868,7 +869,7 @@
 }
 @media(max-width:320px) {
     .profile .wrapper{
-        top: 65%;
+        top: 74%;
     }
 
     .profile footer{
