@@ -13,6 +13,12 @@ header {
     width: 100%;
 }
 
+.logo-pag img {
+    width: 101px !important;
+    padding: 8px 0px 0px 8px;
+    filter: brightness(1) !important;
+}
+
 .swal2-popup {
     font-size: 1.2rem !important;
     font-family: 'Raleway', sans-serif !important;
@@ -506,7 +512,7 @@ i.bx.bx-chevron-up {
         /* padding: 17px 18px; */
         /* padding: 7px 10px; */
         /* padding: 4px 10px; */
-        min-height: 8rem;
+        /* min-height: 8rem; */
     }
     .filter-nav {
         padding: 17px 18px;
@@ -565,7 +571,7 @@ i.bx.bx-chevron-up {
     }
     .products .burger-menu-mob img {
         width: 122px;
-        margin-left: 15px;
+        margin-left: 30px;
         margin-top: 1px;
     }
     

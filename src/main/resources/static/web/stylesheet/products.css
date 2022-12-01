@@ -195,6 +195,7 @@
 
 .products  .burger-menu-mob img {
   width: 122px;
+  filter: brightness(1);
 }
 
 .products  .burger-menu img {
@@ -847,7 +848,10 @@ label.btn.btns-cat {
     width: 69%;
  
 }
-
+  .logo-pag img {
+    width: 110px !important;
+  
+  }
 } 
 
 
