@@ -59,7 +59,7 @@
 .wrapper .right .info_data,
 .wrapper .right .projects_data {
     display: flex;
-    justify-content: space-between;
+    
 }
 
 .wrapper .right .info_data .data,
@@ -131,16 +131,16 @@
     }
 
     .wrapper .left {
-        width: 85%;
+        width: 96%;
         background: linear-gradient(to right, #343636, #a7a7a7);
         padding: 14px 0px;
         text-align: center;
         color: #fff;
     }
     .wrapper .right {
-        width: 85%;
+        width: 96%;
         background: rgb(230, 230, 230);
-        padding: 30px 25px;
+        padding: 30px 35px;
     }
 
     .profile .header-content, .header-menu {
@@ -153,6 +153,7 @@
 @media(max-width:320px) {
     .wrapper{
         top: 65%;
+        width: 103%;
     }
     .profile .initial {
         margin: 30px auto 30px;
@@ -160,5 +161,14 @@
     .wrapper .right .info_data, .wrapper .right .projects_data {
         display: flex;
         flex-direction: column-reverse;
+    }
+    .wrapper .left {
+        width: 100%;
+
+    }
+    .wrapper .right {
+        width: 100%;
+        padding: 35px 13px;
+
     }
 }
