@@ -69,12 +69,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./editprofile.html">
+                        <a href="" @click.prevent="logout()">
                             <span>
-                                <box-icon name='log-out' animation='burst' ></box-icon>
+                                <box-icon name='log-out' animation='burst'  ></box-icon>
                             </span>
                             <small>Logout</small>
-                        </a>
+                        </a> 
+
                     </li>
 
 
@@ -122,6 +123,7 @@
                                         <th>Product</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
+                                        <th>Total</th>
                                     </tr>
                                     <tr v-for="product in products">
                                         <td class="d-flex justify-content-center"><img :src="product.urlImg" alt=""
@@ -129,6 +131,7 @@
                                         <td data-label="Name">{{product.name}}</td>
                                         <td data-label="Price">${{balanceFormateado(product.price).split("A")[0]}}</td>
                                         <td data-label="Quantity">{{product.quantity}}</td>
+                                        <td data-label="Total">${{balanceFormateado((product.price)*(product.quantity)).split("A")[0]}}</td>
                                     </tr>
                                 </table>
 
@@ -138,6 +141,7 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="text-center mt-2" v-if="tickets.length == 0">You haven't made any purchase yet</h3>
             </div>
 
             <!-- <div class="shopping">

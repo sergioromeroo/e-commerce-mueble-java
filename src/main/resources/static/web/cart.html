@@ -20,26 +20,135 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 	</head>
 
-	<body class="index fondo_imagen bg-dark">
-		<div id="app">
-			<div class="nav-logo">
-				<div class="logo">
-					<a href="./index.html" class="logo-contain">
-						<img src="./img/logo/logoBlanco.png" alt="" style="width:13rem ;">
-					</a>
-				</div>
-				<div class="nav">
-					<div class="nav-menu">
-						<a href="./products.html">Store</a>
-						<a href="#">Location</a>
-						<a href="./about-us.html">About us</a>
-					</div>
-				</div>
-			</div>
+	<body class="index products contact">
+		<div id="app" class="d-flex flex-column"  >
+			<header>
+				<nav class="navbar fixed-top">
+					<div class="container-fluid ">
+						<a class="navbar-brand burger-menu-mob" href="./index.html" ><img src="./img/logo/logoBlanco.png" alt=""></a>
+						<div class="nav-menu-container">
+							<div class="nav-menu">
+								<ul class="nav-menu-ul">
+									<li>
+										<a href="./index.html">Home</a>
+									</li>
+									<li>
+										<a href="./products.html">Shop</a>
 
-			<main style="display: block ; " class="maringCart">
-				<div class="card_cart">
-					<div class="row">
+									</li>
+									<li>
+										<a href="./contact.html">Contact</a>
+									</li>
+									<li>
+										<a href="./about-us.html">About us</a>
+									</li>
+								</ul>
+							</div>
+							<div class="nav-icons-and-menu-burger">
+								<div class="nav-icons">
+									<a href="./client/favorite.html" v-if="clientCurrent != null">
+										<img src="./img/icons/wishlist.png" alt="">
+									</a>
+									<a :href="clientPage" v-if="clientCurrent != null">
+										<img  type="button" src="./img/icons/account.png" alt="">
+									</a>
+									<a href="./cart.html" v-if="clientCurrent != null">
+										<img src="./img/icons/cart.png" alt="">
+									</a>
+									<!-- <a href="">
+										<img src="./img/icons/search.png" alt="">
+										</a>
+									-->
+
+								</div>
+								<button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+
+									<span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
+								</button>
+							</div>
+						</div>
+
+
+
+						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+							<div class="offcanvas-header">
+
+								<div class="burger-menu-mob">
+									<a href="./index.html" class="burger-menu-mob open-menu">
+										<img src="./img/logo/logoBlanco.png" alt="">
+									</a>
+								</div>
+
+								<div class="nav-icons open-menu">
+									<!-- <a href="">
+										<img src="./img/icons/wishlist.png" alt="">
+									</a>
+									<a v-on:click="accounts">
+										<img  type="button" src="./img/icons/account.png" alt="">
+									</a>
+									<a href="./cart.html">
+										<img src="./img/icons/cart.png" alt="">
+									</a>
+									<a href="">
+										<img src="./img/icons/search.png" alt="">
+									</a> -->
+									<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+								</div>
+
+							</div>
+
+
+
+							<div class="offcanvas-body">
+								<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+
+									<div class="nav-menu-burger">
+										<ul class="nav-menu-ul">
+											<li>
+												<a href="./index.html" class="ancors-nav-burger" href="">Home</a>
+											</li>
+											<li>
+												<a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
+											</li>
+											<li>
+												<a href="./contact.html" class="ancors-nav-burger" href="./contact.html">Contact</a>
+											</li>
+											<li>
+												<a href="./about-us.html" class="ancors-nav-burger" href="./about-us.html">About us</a>
+											</li>
+										</ul>
+
+										<ul class="nav-menu-ul-bottom">
+											<li>
+												<a href="./contact.html">Where to find us?</a>
+												<a href="./contact.html">need help?</a>
+											</li>
+										</ul>
+
+									</div>
+
+								</ul>
+
+							</div>
+
+
+						</div>
+
+
+
+
+					</div>
+				</nav>
+
+			</header>
+
+		
+
+			<main>
+				<div class="section-cart">
+					<div class="row d-flex justify-content-center align-items-center h-100 ">
 						<div class="col-md-8 cart">
 							<div class="title">
 								<div class="row">
@@ -86,7 +195,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 summary">
+						<div class="col-md-4 summary card-contact">
 							<div>
 								<h5><b>Summary</b></h5>
 							</div>

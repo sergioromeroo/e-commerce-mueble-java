@@ -9,6 +9,27 @@ const app = Vue.createApp({
             details: [],
             relacionados: [],
             clientCurrent: null,
+            clientPage: "./client/profileClient.html",
+            mailCurrent: true,
+
+
+            // login y register
+            emailVModel: "",
+            passwordVModel: "",
+
+            firstNameRegisterVModel: "",
+            lastNameRegisterVModel: "",
+            celPhoneRegisterVModel: null,
+            addresVModel: "",
+            cityVModel: "",
+            stateVModel: "",
+
+            login: false,
+            register: false,
+
+            clientCurrent: null,
+            clientPage: "./client/profileClient.html",
+            mailCurrent: true,
         }
     },
     created() { /* created es para  cuando el obejto, la aplicacion ya se creo se ejecuta estos metodos*/
@@ -53,12 +74,124 @@ const app = Vue.createApp({
                 .then(response => {
                     this.clientCurrent = response.data
                     console.log(response)
+                    if(this.clientCurrent.email.includes("@admin")){
+                        this.mailCurrent = false
+                        this.clientPage = "./admin/admin2.html"
+                    }
                 })
                 .then(error => console.log(error))
         },
+
+        /* LOGIN AND REGISTER */
+        access() {
+            axios.post('/api/login', `email=${this.emailVModel}&password=${this.passwordVModel}`)
+                .then(response => {
+                    console.log(response)
+                    console.log(this.emailVModel)
+                    if(this.emailVModel.includes("@admin")){
+                        window.location.assign("./admin/admin2.html")
+                    } else {
+                        Swal.fire({
+                            title: `¡Welcome!`,
+                            confirmButtonColor: 'lightgray',
+                            timer: 1500
+                        })
+                        .then(() => window.location.reload())
+                    }
+                })
+                .catch(function(error) {
+                    Swal.fire({
+                        title: 'Wrong Password or UserMail Check Again',
+                        confirmButtonColor: 'lightgray',
+                        confirmButtonText: 'Try again',
+                        timer: 2500
+
+                    })
+                })
+        },
+        clientRegister() {
+            if (!this.emailVModel.includes("@")) {
+                Swal.fire({
+                    text: `The email Must Contain @ to be valid`,
+                    confirmButtonColor: 'lightgray',
+                    timer: 5500
+                })
+            } else {
+
+            axios.post('/api/clients', `firstName=${this.firstNameRegisterVModel}&lastName=${this.lastNameRegisterVModel}&email=${this.emailVModel}&password=${this.passwordVModel}&cellphone=${this.celPhoneRegisterVModel}&city=${this.cityVModel}&addres=${this.addresVModel}&state=${this.stateVModel}`)
+                .then(response => {
+
+
+                    axios.post('/api/sendemailvalidation', "contactTo=" + this.emailVModel);
+
+
+                    Swal.fire({
+                        title: 'Write the secret word sended to your email',
+                        input: 'text',
+                        showCancelButton: true,
+                        inputValidator: (value) => {
+                            return new Promise((resolve) => {
+                                if (value === 'chair') {
+                                    Swal.fire(
+                                            'Successful registration!',
+                                            'Welcome!',
+                                            'success'
+                                        )
+                                        .then(() => {
+
+                                            this.access()
+
+                                        })
+                                } else {
+                                    /* resolve(); */
+                                    this.deleteClient(this.emailVModel);
+                                }
+                            })
+                        }
+                    })
+
+
+                })
+
+            .catch(function(error) {
+                console.log(error)
+                Swal.fire({
+                    icon: 'error',
+                    title: "Missing information",
+                    confirmButtonColor: 'lightgray',
+                    confirmButtonText: 'Ok',
+
+                })
+            })
+        }
+        },
+
         logout() {
             axios.post('/api/logout')
                 .then(() => window.location.pathname = '/web/index.html')
+        },
+
+        theLoginAndRegister() {
+            if (this.register == false) {
+                this.login = false
+                this.register = true;
+            } else {
+                this.login = true;
+                this.register = false;
+            }
+        },
+        accounts() {
+            if (this.register == false) {
+                this.login = !this.login;
+                this.register = false;
+            } else {
+                this.login == false;
+                this.register = false;
+            }
+        },
+        closeTools() {
+            this.login = false;
+            this.register = false;
         },
 
         /* ADD PRODUCT TO CART */

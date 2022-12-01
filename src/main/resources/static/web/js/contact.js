@@ -5,14 +5,30 @@ const app = Vue.createApp({
             nameVModel: "",
             reasonVModel: "",
             messageVModel: "",
+            
+            clientCurrent: null,
+            clientPage: "./client/profileClient.html",
+            mailCurrent: true,
 
         }
     },
     created() {
+        this.loadClientCurrent()
     },
     mounted() {
     },
     methods: {
+        loadClientCurrent(){
+            axios.get('/api/clientcurrent')
+            .then(response => {
+                this.clientCurrent = response.data
+                if(this.clientCurrent.email.includes("@admin")){
+                    this.mailCurrent = false
+                    this.clientPage = "./admin/admin2.html"
+                }
+            })
+            .catch(error => console.log(error))
+        },
         sendEmail() {
             if (this.nameVModel == "" || this.emailVModel == "" || this.reasonVModel == "" || this.messageVModel == "") {
                 Swal.fire({

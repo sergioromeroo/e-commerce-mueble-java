@@ -5,22 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../stylesheet/admi-clients.css">
-    <link rel="stylesheet" href="../stylesheet/footerDelAdmin.css">
+
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <h3>N<span>ogal</span></h3>
+
+            <h4>N<span>ogal</span></h4>
         </div>
 
         <div class="side-content">
             <div class="profile">
-                <div class="profile-img bg-img" style="background-image: url(https://imgs.search.brave.com/J85_wRuk7EA_aBWvPfTP1WhERLb1dfq7R3Z78HNPZ8o/rs:fit:470:352:1/g:ce/aHR0cHM6Ly9ib2xh/dmlwLmNvbS9fX2V4/cG9ydC8xNjI4MDM0/OTIzNjA2L3NpdGVz/L2JvbGF2aXAvaW1n/LzIwMjEvMDgvMDMv/bWVtZS1wZXJyaXRv/LWxvcy1xdWVyZW1v/cy1tdWNob19jcm9w/MTYyODAzNDc0NzY2/MC5qcGdfMzMxMzE2/MzYuanBn)"></div>
-                <h4>Admin </h4>
+                <h5>Admin </h5>
                 <small>General Admin</small>
             </div>
 
@@ -34,7 +36,7 @@
                     </li>
 
 
-                    <a class="active" href="#">
+                    <a href="./clients.html"  class="active">
                         <span class="las la-user"></span>
                         <small>Clients</small>
                     </a>
@@ -61,7 +63,6 @@
     </div>
 
     <div id="app" class="main-content">
-
         {{searchFilter}}
 
         <header>
@@ -80,19 +81,19 @@
                     <div class="user">
                         <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
 
-                        <span class="las la-power-off"></span>
-                        <span>Logout</span>
+                        <button  v-on:click="home()"class="boton4"><i class="fa fa-home"></i> Home</button>
+                        <button v-on:click="logout()"class="boton4"><i class="las la-power-off"></i> Logout</button>
                     </div>
                 </div>
             </div>
         </header>
 
 
-        <main class="espacioParaElfooter">
+        <main>
 
             <div class="page-header">
-                <h1>Clients</h1>
-                <small>Nogal</small>
+                <h1 class="admin">Clients </h1>
+                        <small>Nogal</small>
             </div>
 
             <div class="page-content">
@@ -103,82 +104,97 @@
                 <div class="records table-responsive">
                     <br>
 
-           
-                        <form class="form-search" method="get" action="#">
-                            <label for="">Search Client  : </label>
-                            <input type="search" name="search" v-model="inputSearchVModel" placeholder="Search Client here.">
-                            
-                        </form>
-
-                      
-                 
+                    <form class="form-search" method="get" action="#">
+                        <label for="">Search Client  : </label>
+                        <input type="search" name="search" v-model="inputSearchVModel" placeholder="Search Client here.">
+                        
+                    </form>
+                    
+            
 
                     <div>
 <!--                         <table width="100%">
                             <thead>
                                 <tr>
-                                    <th># Client Id</th>
-                                    <th><span class="las la-sort"></span> First Name </th>
-                                    <th><span class="las la-sort"></span> Last Name</th>
-                                    <th><span class="las la-sort"></span> email</th>
-                                    <th><span class="las la-sort"></span> Cellphone</th>
+                                    <th># Product Id</th>
+                                    <th><span class="las la-sort"></span> Product</th>
+                                    <th><span class="las la-sort"></span> Price</th>
+                                    <th><span class="las la-sort"></span> Category</th>
+                                    <th><span class="las la-sort"></span> Stock</th>
                                     <th><span class="las la-sort"></span> Edit/Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="tr" v-for="client in clients">
-                                    <td>#{{client.id}}</td>
+                                <tr class="tr" v-for="producto in productsEnableTrue">
+                                    <td>#{{producto.id}}</td>
                                     <td>
                                         <div class="client">
+                                            <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
                                             <div class="client-info">
-                                                <h4>{{client.firstname}}</h4>
-                                           
+                                                <h4>{{producto.name}}</h4>
+                                                <small> Material :  {{producto.materialType}}</small>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        {{client.lastname}}
+                                        {{producto.price}}
                                     </td>
                                     <td>
-                                        {{client.email}}
+                                        {{producto.type}}
                                     </td>
                                     <td>
-                                        {{client.cellphone}}
+                                        {{producto.stock}}
                                     </td>
                                     <td>
-                                        <!-- <a class="botons" href="/products/detail/<%= producto.id %>"><i class="las la-edit
-                                        [&#xf1f8;]"></i>
-                                        <a class="botons2" 
-                                        href="/products/detail/<%= producto.id %>"><i class="las la-trash
-                                        [&#xf1f8;]"></i>
-                                      </a>
+                           
+                                        <button class="botons"><i class="las la-edit
+                                            [&#xf1f8;]"></i>
+                                        </button>
+                                        <button class="botons2" v-on:click="deleteProduct(producto)"><i class="las la-trash
+                                            [&#xf1f8;]"></i>
+                                        </button>
 
-                                        </a> -->
-                                        <table>
-                                            <thead>
-                                              <tr>
-                                                <th scope="col">Client id</th>
-                                                <th scope="col">First Name</th>
-                                                <th scope="col">Last Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Phone</th>                                                
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr  v-for="client in clients">
-                                                <td data-label="Client id">#{{client.id}}</td>
-                                                <td data-label="First Name">{{client.firstname}}</td>
-                                                <td data-label="Last Name"> {{client.lastname}}</td>
-                                                <td data-label="Email"> {{client.email}}</td>
-                                                <td data-label="Phone"> {{client.cellphone}}</td>
-                                              </tr>
-                                           
-                                            </tbody>
-                                          </table>
+                                    </td>
 
-                                          <h3 class="text-center mt-2" v-if="clients.length == 0">Client not found.</h3>
+                                </tr>
+                                <tr>
 
-            
+
+
+
+
+                            </tbody>
+                        </table> -->
+                        <table>
+                            <thead>
+                              <tr>
+                                <th scope="col">Client id</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>                                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr  v-for="client in clients">
+                                <td data-label="Client id">#{{client.id}}</td>
+                                <td data-label="First Name">{{client.firstname}}</td>
+                                <td data-label="Last Name"> {{client.lastname}}</td>
+                                <td data-label="Email"> {{client.email}}</td>
+                                <td data-label="Phone"> {{client.cellphone}}</td>
+                              </tr>
+                           
+                            </tbody>
+                          </table>
+
+                          <h3 class="text-center mt-2" v-if="clients.length == 0">Client not found.</h3>
+
+                        
+                          
+                     
+                          
+                
+
                     </div>
 
                 </div>
@@ -186,39 +202,15 @@
             </div>
 
         </main>
-        <footer class=" bg-white">
-            <div class="footer">
-                <div class="footer-top">
-                    <div class="footer-top1">
-                        <div>
-                            <p>Nogal © 2012</p>
-                        </div>
-                        <div class="store-online-footer">
-                            <p>Online furniture store</p>
-                        </div>
-                    </div>
-                    <div class="footer-top2">
-                        <p>privacy policy</p>
-                        <p>public offer</p>
-                        <p>where to find us</p>
-                        <div class="icons-footer">
-                            <a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a>
-                            <a class="ig" href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="footer-bottom-text">
-                        <p>website development: <span> mindhub</span></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+   
     </div>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../js/admin-clients.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

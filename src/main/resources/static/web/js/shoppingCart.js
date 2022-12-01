@@ -182,7 +182,7 @@ const app = Vue.createApp({
                                 console.log(error)
                                 if (error.response.status == 500) {
                                     Swal.fire({
-                                        text: `Missing data`,
+                                        text: `Missing payment data`,
                                         confirmButtonColor: 'lightgray',
                                     })
                                 } else {

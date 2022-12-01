@@ -57,15 +57,15 @@
                   </div>
                   <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                       <div class="nav-icons">
-                          <a href="">
-                              <img src="./img/icons/wishlist.png" alt="">
-                          </a> 
-                          <a v-on:click="accounts">
-                              <img  type="button" src="./img/icons/account.png" alt="">
-                          </a>
-                          <a href="./cart.html">
-                              <img src="./img/icons/cart.png" alt="">
-                          </a>
+                        <a href="./client/favorite.html" v-if="clientCurrent != null">
+                          <img src="./img/icons/wishlist.png" alt="">
+                        </a>
+                        <a :href="clientPage" v-if="clientCurrent != null">
+                          <img  type="button" src="./img/icons/account.png" alt="">
+                        </a>
+                        <a href="./cart.html" v-if="clientCurrent != null">
+                          <img src="./img/icons/cart.png" alt="">
+                        </a>
                       
                       
                           <span class="burger-menu"><img src="./img/icons/burger.png" alt=""></span>
@@ -85,7 +85,7 @@
                   </div>  
                  
                   <div class="nav-icons open-menu">
-                      <a href="">
+                      <!-- <a href="">
                           <img src="./img/icons/wishlist.png" alt="">
                       </a> 
                       <a v-on:click="accounts">
@@ -93,7 +93,7 @@
                       </a>
                       <a href="">
                           <img src="./img/icons/cart.png" alt="">
-                      </a>
+                      </a> -->
                       
                       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                      
@@ -129,9 +129,8 @@
 
                       <ul class="nav-menu-ul-bottom">
                           <li>
-                              <a href="">Where to find us?</a>
-                              <a href="">Need help?</a>
-                              <a href="">Payment Methods</a>
+                              <a href="./contact.html">Where to find us?</a>
+                              <a href="./contact.html">Need help?</a>
                           </li>
                       </ul>
 
@@ -201,7 +200,7 @@
                 <div class="card-content">
 
                   <h3 class="h3">
-                    <a href="#" class="card-title">Since 2012</a>
+                    <a href="" class="card-title">Since 2012</a>
                   </h3>
 
                   <ul class="card-meta-list">
@@ -230,7 +229,7 @@
                 <div class="card-content">
 
                   <h3 class="h3">
-                    <a href="#" class="card-title">Easier life for you</a>
+                    <a href="" class="card-title">Easier life for you</a>
                   </h3>
 
                   <ul class="card-meta-list">
@@ -262,7 +261,7 @@
                 <div class="card-content">
 
                   <h3 class="h3">
-                    <a href="#" class="card-title">Nogal - Our way</a>
+                    <a href="" class="card-title">Nogal - Our way</a>
                   </h3>
 
                   <ul class="card-meta-list">

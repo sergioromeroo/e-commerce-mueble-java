@@ -69,12 +69,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./editprofile.html">
+                        <a href="" @click.prevent="logout()">
                             <span>
-                                <box-icon name='log-out' animation='burst' ></box-icon>
+                                <box-icon name='log-out' animation='burst'  ></box-icon>
                             </span>
                             <small>Logout</small>
-                        </a>
+                        </a> 
+
                     </li>
 
 
@@ -120,7 +121,7 @@
 
                     </template>
                     <div class="text-dark" v-show="favorites.length <= 0">
-                        <h2>EMPTY</h2>
+                        <h2>You haven't added products to favorites yet</h2>
                     </div>
                 </div>
 
@@ -163,7 +164,6 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-<script src="../js/client.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -174,5 +174,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/client.js"></script>
+
 
 </html>

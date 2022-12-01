@@ -177,7 +177,7 @@
 
 										</li>
 										<li>
-											<a href="./contact.html">contact us</a>
+											<a href="./contact.html">Contact</a>
 										</li>
 										<li>
 											<a href="./about-us.html">About us</a>
@@ -186,13 +186,16 @@
 								</div>
 								<div class="nav-icons-and-menu-burger">
 									<div class="nav-icons">
-										<a href="">
+										<a href="./client/favorite.html" v-if="clientCurrent != null">
 											<img src="./img/icons/wishlist.png" alt="">
 										</a>
-										<a v-on:click="accounts">
-											<img  type="button" src="./img/icons/account.png" alt="">
+										<a v-on:click="accounts" v-if="clientCurrent == null">
+											<img type="button" src="./img/icons/account.png" alt="">
 										</a>
-										<a href="">
+										<a v-if="clientCurrent != null" :href="clientPage">
+											<img type="button" src="./img/icons/account.png" alt="">
+										</a>
+										<a href="./cart.html" v-if="clientCurrent != null">
 											<img src="./img/icons/cart.png" alt="">
 										</a>
 										<!-- <a href="">
@@ -215,12 +218,12 @@
 
 									<div class="burger-menu-mob">
 										<a href="#" class="burger-menu-mob open-menu">
-											<img src="./img/logo/logo-black.png" alt="">
+											<img src="./img/logo/logoNegro.png" alt="">
 										</a>
 									</div>
 
 									<div class="nav-icons open-menu">
-										<a href="">
+										<!-- <a href="">
 											<img src="./img/icons/wishlist.png" alt="">
 										</a>
 										<a v-on:click="accounts">
@@ -231,7 +234,7 @@
 										</a>
 										<a href="">
 											<img src="./img/icons/search.png" alt="">
-										</a>
+										</a> -->
 										<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
 									</div>
@@ -253,7 +256,7 @@
 													<a href="./products.html" class="ancors-nav-burger" href="">Shop</a>
 												</li>
 												<li>
-													<a href="./contact.html" class="ancors-nav-burger" href="./contact.html">contact us</a>
+													<a href="./contact.html" class="ancors-nav-burger" href="./contact.html">Contact</a>
 												</li>
 												<li>
 													<a href="./about-us.html" class="ancors-nav-burger" href="./about-us.html">About us</a>
@@ -262,9 +265,8 @@
 
 											<ul class="nav-menu-ul-bottom">
 												<li>
-													<a href="">Where to find us?</a>
-													<a href="">need help?</a>
-													<a href="">Payment Methods</a>
+													<a href="./contact.html">Where to find us?</a>
+													<a href="./contact.html">need help?</a>
 												</li>
 											</ul>
 
@@ -626,4 +628,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 	<script src="./js/products.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </html>

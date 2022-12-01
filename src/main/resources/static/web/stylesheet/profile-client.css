@@ -88,6 +88,22 @@
     padding: 2rem 0rem;
       font-size: 24px;
 } */
+.profile .initial{
+    font-family: arial;
+    margin: 30px auto 30px;
+    height: 80px;
+    width: 80px;
+    /* Center vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 33000px;
+
+    color: white;
+    background: linear-gradient( #1e1e1e, #c7c7c7 );
+
+}
+
 .profile-img {
     font-family: arial;
     font-size: 24px;
@@ -98,7 +114,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 2px black;
     border-radius: 33000px;
 
     color: white;
@@ -130,9 +145,6 @@
     font-weight: 600;
 }
 
-.profile .sidebar {
-    /*overflow-y: auto;*/
-}
 
 .side-menu ul {
     text-align: center;
