@@ -26,8 +26,8 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
                 .antMatchers("/web/admin/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/rest/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/h2-console").hasAnyAuthority("ADMIN")
-                .antMatchers("/web/client/**").hasAnyAuthority("CLIENT")
-                .antMatchers("/web/cart.html").hasAnyAuthority("CLIENT")
+                .antMatchers("/web/client/**").hasAnyAuthority("CLIENT","ADMIN")
+                .antMatchers("/web/cart.html").hasAnyAuthority("CLIENT","ADMIN")
                 .antMatchers("/web/**").permitAll()
                 .antMatchers("/api/login").permitAll();
 
